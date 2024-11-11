@@ -8,6 +8,6 @@ class BlogController extends Controller
 {
     public function index(Request $request)
     {
-        return view("pages.main.blogs");
+        return view("pages.main.blog");
     }
 }

@@ -30,13 +30,13 @@
                         <li class="nav-item active"><a class="nav-link" href="{{route('home')}}">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{route('about')}}">About</a></li>
                         <li class="nav-item submenu dropdown">
-                            <a href="{{route('services')}}" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Services</a>
+                            <a href="{{route('services')}}" class="nav-link">Services</a>
                         </li>
                         <li class="nav-item submenu dropdown">
-                            <a href="{{route('training')}}" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Training</a>
+                            <a href="{{route('training')}}" class="nav-link">Training</a>
                         </li>
                         <li class="nav-item submenu dropdown">
-                            <a href="{{route('blog')}}" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Blog</a>
+                            <a href="{{route('blog')}}" class="nav-link">Blog</a>
                         </li>
                         <li class="nav-item"><a class="nav-link" href="{{route('contact')}}">Contact</a></li>
                     </ul>
