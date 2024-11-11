@@ -11,14 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('blogs', function (Blueprint $table) {
-            $table->uuid('id')->primary();
-            $table->string('title');
-            $table->longText('description');
-            $table->uuid('user_id');
+        Schema::create('blog_categories', function (Blueprint $table) {
+            $table->uuid('blog_id');
+            $table->uuid('categories_id');
             $table->timestamps();
 
-            $table->foreign('user_id')->references('id')->on('users')->restrictOnDelete();
+            $table->foreign('blog_id')->references('id')->on('blogs')->restrictOnDelete();
+            $table->foreign('categories_id')->references('id')->on('categories')->restrictOnDelete();
         });
     }
 
@@ -27,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('blogs');
+        Schema::dropIfExists('blog_categories');
     }
 };

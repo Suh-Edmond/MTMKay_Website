@@ -180,9 +180,9 @@
         </div>
         <div class="customer-logos slider">
             <div class="slide"><img src="img/company/cisco-logo.png"></div>
-            <div class="slide"><img src="img/company/comptia.png"></div>
+            <div class="slide"><img src="img/company/comptia.png" width="40%" height="100px"></div>
             <div class="slide"><img src="img/company/Microsoft-Logo.png"></div>
-            <div class="slide"><img src="img/company/Microsoft-Logo.png"></div>
+            <div class="slide"><img src="img/company/azure.jpg" width="40%" height="90px"></div>
             <div class="slide"><img src="img/company/Microsoft-Logo.png"></div>
         </div>
     </div>
@@ -197,7 +197,39 @@
             <p>MTMKay Technology Solutions has successfully supported clients across various industries. Through tailored IT solutions, our clients have achieved operational efficiency, CyberSecurity compliance, and digital transformation.</p>
         </div>
         <div class="row team_inner">
-
+            <div class="col-md-4">
+                <div class="packages_item">
+                    <div class="pack_head">
+                        <i class="lnr lnr-graduation-hat"></i>
+                        <h1 data-to="30" data-speed="2000" class="timer count-title count-number" style="font-size: 40px"></h1>
+                    </div>
+                    <div class="pack_body">
+                        <p>CyberSecurity Audits Completed</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="packages_item">
+                    <div class="pack_head">
+                        <i class="lnr lnr-graduation-hat"></i>
+                        <h1 data-to="20" data-speed="2000" class="timer count-title count-number" style="font-size: 40px"> </h1>
+                    </div>
+                    <div class="pack_body">
+                        <p>Clients Served</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="packages_item">
+                    <div class="pack_head">
+                        <i class="lnr lnr-graduation-hat"></i>
+                        <h1 data-to="200" data-speed="2000" class="timer count-title count-number" style="font-size: 40px"> </h1>
+                    </div>
+                    <div class="pack_body">
+                        <p>Students Certified</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </section>
