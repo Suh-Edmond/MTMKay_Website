@@ -9,8 +9,8 @@
         <div class="overlay bg-parallax" data-stellar-ratio="0.9" data-stellar-vertical-offset="0" data-background=""></div>
         <div class="container">
             <div class="blog_b_text text-center">
-                <h2>Dude You’re Getting <br /> a Telescope</h2>
-                <p>There is a moment in the life of any aspiring astronomer that it is time to buy that first</p>
+                <h2>Our Blogs</h2>
+                <p>Get to know MTMKay expertize, the events and new programs we launch. </p>
                 <a class="main_btn" href="#">View More</a>
             </div>
         </div>
@@ -27,9 +27,9 @@
                     <img src="img/blog/cat-post/cat-post-3.jpg" alt="post">
                     <div class="categories_details">
                         <div class="categories_text">
-                            <a href="blog-details.html"><h5>Social Life</h5></a>
+                            <a href="blog-details.html"><h5>CyberSecurity</h5></a>
                             <div class="border_line"></div>
-                            <p>Enjoy your social life together</p>
+                            <p>The Importance of CyberSecurity for Small Businesses</p>
                         </div>
                     </div>
                 </div>
@@ -39,9 +39,9 @@
                     <img src="img/blog/cat-post/cat-post-2.jpg" alt="post">
                     <div class="categories_details">
                         <div class="categories_text">
-                            <a href="blog-details.html"><h5>Politics</h5></a>
+                            <a href="blog-details.html"><h5>IT Certifications</h5></a>
                             <div class="border_line"></div>
-                            <p>Be a part of politics</p>
+                            <p>Top IT Certifications to Boost Your Career in 2024</p>
                         </div>
                     </div>
                 </div>
@@ -51,9 +51,9 @@
                     <img src="img/blog/cat-post/cat-post-1.jpg" alt="post">
                     <div class="categories_details">
                         <div class="categories_text">
-                            <a href="blog-details.html"><h5>Food</h5></a>
+                            <a href="blog-details.html"><h5>Cloud Computing</h5></a>
                             <div class="border_line"></div>
-                            <p>Let the food be finished</p>
+                            <p>How Cloud Computing is Revolutionizing Business Operations</p>
                         </div>
                     </div>
                 </div>
@@ -90,9 +90,9 @@
                             <div class="blog_post">
                                 <img src="img/blog/main-blog/m-blog-1.jpg" alt="">
                                 <div class="blog_details">
-                                    <a href="single-blog.html"><h2>Astronomy Binoculars A Great Alternative</h2></a>
+                                    <a href="{{route('show-blog', ['id'=>1])}}"><h2>Astronomy Binoculars A Great Alternative</h2></a>
                                     <p>MCSE boot camps have its supporters and its detractors. Some people do not understand why you should have to spend money on boot camp when you can get the MCSE study materials yourself at a fraction.</p>
-                                    <a href="single-blog.html" class="white_bg_btn">View More</a>
+                                    <a href="{{route('show-blog', ['id'=>1])}}" class="white_bg_btn">View More</a>
                                 </div>
                             </div>
                         </div>
@@ -118,9 +118,9 @@
                             <div class="blog_post">
                                 <img src="img/blog/main-blog/m-blog-2.jpg" alt="">
                                 <div class="blog_details">
-                                    <a href="single-blog.html"><h2>The Basics Of Buying A Telescope</h2></a>
+                                    <a href="{{route('show-blog', ['id'=>1])}}"><h2>The Basics Of Buying A Telescope</h2></a>
                                     <p>MCSE boot camps have its supporters and its detractors. Some people do not understand why you should have to spend money on boot camp when you can get the MCSE study materials yourself at a fraction.</p>
-                                    <a href="single-blog.html" class="white_bg_btn">View More</a>
+                                    <a href="{{route('show-blog', ['id'=>1])}}" class="white_bg_btn">View More</a>
                                 </div>
                             </div>
                         </div>
@@ -146,9 +146,9 @@
                             <div class="blog_post">
                                 <img src="img/blog/main-blog/m-blog-3.jpg" alt="">
                                 <div class="blog_details">
-                                    <a href="single-blog.html"><h2>The Glossary Of Telescopes</h2></a>
+                                    <a href="{{route('show-blog', ['id'=>1])}}"><h2>The Glossary Of Telescopes</h2></a>
                                     <p>MCSE boot camps have its supporters and its detractors. Some people do not understand why you should have to spend money on boot camp when you can get the MCSE study materials yourself at a fraction.</p>
-                                    <a href="single-blog.html" class="white_bg_btn">View More</a>
+                                    <a href="{{route('show-blog', ['id'=>1])}}" class="white_bg_btn">View More</a>
                                 </div>
                             </div>
                         </div>
@@ -174,9 +174,9 @@
                             <div class="blog_post">
                                 <img src="img/blog/main-blog/m-blog-4.jpg" alt="">
                                 <div class="blog_details">
-                                    <a href="single-blog.html"><h2>The Night Sky</h2></a>
+                                    <a href="{{route('show-blog', ['id'=>1])}}"><h2>The Night Sky</h2></a>
                                     <p>MCSE boot camps have its supporters and its detractors. Some people do not understand why you should have to spend money on boot camp when you can get the MCSE study materials yourself at a fraction.</p>
-                                    <a href="single-blog.html" class="white_bg_btn">View More</a>
+                                    <a href="{{route('show-blog', ['id'=>1])}}" class="white_bg_btn">View More</a>
                                 </div>
                             </div>
                         </div>
@@ -202,9 +202,9 @@
                             <div class="blog_post">
                                 <img src="img/blog/main-blog/m-blog-5.jpg" alt="">
                                 <div class="blog_details">
-                                    <a href="single-blog.html"><h2>Telescopes 101</h2></a>
+                                    <a href="{{route('show-blog', ['id'=>1])}}"><h2>Telescopes 101</h2></a>
                                     <p>MCSE boot camps have its supporters and its detractors. Some people do not understand why you should have to spend money on boot camp when you can get the MCSE study materials yourself at a fraction.</p>
-                                    <a href="single-blog.html" class="white_bg_btn">View More</a>
+                                    <a href="{{route('show-blog', ['id'=>1])}}" class="white_bg_btn">View More</a>
                                 </div>
                             </div>
                         </div>
@@ -295,7 +295,7 @@
                         <div class="br"></div>
                     </aside>
                     <aside class="single_sidebar_widget post_category_widget">
-                        <h4 class="widget_title">Post Catgories</h4>
+                        <h4 class="widget_title">Post Categories</h4>
                         <ul class="list cat-list">
                             <li>
                                 <a href="#" class="d-flex justify-content-between">
@@ -305,38 +305,32 @@
                             </li>
                             <li>
                                 <a href="#" class="d-flex justify-content-between">
-                                    <p>Lifestyle</p>
+                                    <p>Cloud Computing</p>
                                     <p>24</p>
                                 </a>
                             </li>
                             <li>
                                 <a href="#" class="d-flex justify-content-between">
-                                    <p>Fashion</p>
+                                    <p>Cisco Networking</p>
                                     <p>59</p>
                                 </a>
                             </li>
                             <li>
                                 <a href="#" class="d-flex justify-content-between">
-                                    <p>Art</p>
+                                    <p>CompTIA Security</p>
                                     <p>29</p>
                                 </a>
                             </li>
                             <li>
                                 <a href="#" class="d-flex justify-content-between">
-                                    <p>Food</p>
+                                    <p>Corporate Training and Certifications</p>
                                     <p>15</p>
                                 </a>
                             </li>
                             <li>
                                 <a href="#" class="d-flex justify-content-between">
-                                    <p>Architecture</p>
+                                    <p>Microsoft AZURE</p>
                                     <p>09</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="d-flex justify-content-between">
-                                    <p>Adventure</p>
-                                    <p>44</p>
                                 </a>
                             </li>
                         </ul>
@@ -345,8 +339,7 @@
                     <aside class="single-sidebar-widget newsletter_widget">
                         <h4 class="widget_title">Newsletter</h4>
                         <p>
-                            Here, I focus on a range of items and features that we use in life without
-                            giving them a second thought.
+                            Stay up-to-date with recent Technology Advancements and Certifications.
                         </p>
                         <div class="form-group d-flex flex-row">
                             <div class="input-group">
@@ -355,7 +348,7 @@
                                 </div>
                                 <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Enter email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email'">
                             </div>
-                            <a href="#" class="bbtns">Subcribe</a>
+                            <a href="#" class="bbtns">Subscribe</a>
                         </div>
                         <p class="text-bottom">You can unsubscribe at any time</p>
                         <div class="br"></div>
@@ -364,17 +357,11 @@
                         <h4 class="widget_title">Tag Clouds</h4>
                         <ul class="list">
                             <li><a href="#">Technology</a></li>
-                            <li><a href="#">Fashion</a></li>
-                            <li><a href="#">Architecture</a></li>
-                            <li><a href="#">Fashion</a></li>
-                            <li><a href="#">Food</a></li>
-                            <li><a href="#">Technology</a></li>
-                            <li><a href="#">Lifestyle</a></li>
-                            <li><a href="#">Art</a></li>
-                            <li><a href="#">Adventure</a></li>
-                            <li><a href="#">Food</a></li>
-                            <li><a href="#">Lifestyle</a></li>
-                            <li><a href="#">Adventure</a></li>
+                            <li><a href="#">Cloud Computing</a></li>
+                            <li><a href="#">Microsoft AZURE</a></li>
+                            <li><a href="#">CompTIA Security</a></li>
+                            <li><a href="#">Cisco Networking</a></li>
+                            <li><a href="#">Corporate Training and Certifications</a></li>
                         </ul>
                     </aside>
                 </div>

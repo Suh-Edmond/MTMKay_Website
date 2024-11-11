@@ -20,83 +20,93 @@
 <!--================End Home Banner Area =================-->
 
 <!--================Courses Area =================-->
-<section class="courses_area p_120">
+<section class="packages_area p_120">
     <div class="container">
         <div class="main_title">
-            <h2>Popular Free Courses</h2>
-            <p>There is a moment in the life of any aspiring astronomer that it is time to buy that first telescope. It’s exciting to think about setting up your own viewing station.</p>
+            <h2>Key Services</h2>
+            <p>We provide the strategic IT insights needed to scale your operations securely and efficiently.</p>
         </div>
-        <div class="row courses_inner">
-            <div class="col-lg-9">
-                <div class="grid_inner">
-                    <div class="grid_item wd55">
-                        <div class="courses_item">
-                            <img src="img/courses/course-1.jpg" alt="">
-                            <div class="hover_text">
-                                <a class="cat" href="#">Free</a>
-                                <a href="#"><h4>Japanease Language Class</h4></a>
-                                <ul class="list">
-                                    <li><a href="#"><i class="lnr lnr-users"></i> 355</a></li>
-                                    <li><a href="#"><i class="lnr lnr-bubble"></i> 35</a></li>
-                                    <li><a href="#"><i class="lnr lnr-user"></i> T. Robert</a></li>
-                                </ul>
-                            </div>
-                        </div>
+        <div class="row packages_inner">
+            <div class="col-md-6">
+                <div class="packages_item">
+                    <div class="pack_head">
+                        <i class="lnr lnr-graduation-hat"></i>
+                        <h3>IT Training & Certification</h3>
                     </div>
-                    <div class="grid_item wd44">
-                        <div class="courses_item">
-                            <img src="img/courses/course-2.jpg" alt="">
-                            <div class="hover_text">
-                                <a class="cat" href="#">Free</a>
-                                <a href="#"><h4>Japanease Language Class</h4></a>
-                                <ul class="list">
-                                    <li><a href="#"><i class="lnr lnr-users"></i> 355</a></li>
-                                    <li><a href="#"><i class="lnr lnr-bubble"></i> 35</a></li>
-                                    <li><a href="#"><i class="lnr lnr-user"></i> T. Robert</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="grid_item wd44">
-                        <div class="courses_item">
-                            <img src="img/courses/course-4.jpg" alt="">
-                            <div class="hover_text">
-                                <a class="cat" href="#">Free</a>
-                                <a href="#"><h4>Japanease Language Class</h4></a>
-                                <ul class="list">
-                                    <li><a href="#"><i class="lnr lnr-users"></i> 355</a></li>
-                                    <li><a href="#"><i class="lnr lnr-bubble"></i> 35</a></li>
-                                    <li><a href="#"><i class="lnr lnr-user"></i> T. Robert</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="grid_item wd55">
-                        <div class="courses_item">
-                            <img src="img/courses/course-5.jpg" alt="">
-                            <div class="hover_text">
-                                <a class="cat" href="#">Free</a>
-                                <a href="#"><h4>Japanease Language Class</h4></a>
-                                <ul class="list">
-                                    <li><a href="#"><i class="lnr lnr-users"></i> 355</a></li>
-                                    <li><a href="#"><i class="lnr lnr-bubble"></i> 35</a></li>
-                                    <li><a href="#"><i class="lnr lnr-user"></i> T. Robert</a></li>
-                                </ul>
-                            </div>
-                        </div>
+                    <div class="pack_body">
+                        <ul class="list">
+                            <li><a href="#">Industry-leading IT Certification and Corporate Training</a></li>
+                            <li><a href="#">Cisco Certified Network Associate (CCNA)</a></li>
+                            <li><a href="#">Microsoft Azure Fundamentals</a></li>
+                            <li><a href="#">CompTIA Security+</a></li>
+                        </ul>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3">
-                <div class="course_item">
-                    <img src="img/courses/course-3.jpg" alt="">
-                    <div class="hover_text">
-                        <a class="cat" href="#">Free</a>
-                        <a href="#"><h4>Japanease Language Class</h4></a>
+            <div class="col-md-6">
+                <div class="packages_item">
+                    <div class="pack_head">
+                        <i class="lnr lnr-graduation-hat"></i>
+                        <h3>Cloud & Infrastructure Services</h3>
+                    </div>
+                    <div class="pack_body">
                         <ul class="list">
-                            <li><a href="#"><i class="lnr lnr-users"></i> 355</a></li>
-                            <li><a href="#"><i class="lnr lnr-bubble"></i> 35</a></li>
-                            <li><a href="#"><i class="lnr lnr-user"></i> T. Robert</a></li>
+                            <li><a href="#">Cloud Hosting and Management of Services</a></li>
+                            <li><a href="#">Cloud Migration and Virtualization</a></li>
+                            <li><a href="#">Scalable, reliable IT environments</a></li>
+                            <li><a href="#">Infrastructure Design</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row packages_inner mt-4">
+            <div class="col-md-6">
+                <div class="packages_item">
+                    <div class="pack_head">
+                        <i class="lnr lnr-graduation-hat"></i>
+                        <h3>IT Consulting & Managed Services</h3>
+                    </div>
+                    <div class="pack_body">
+                        <ul class="list">
+                            <li><a href="#">Optimize Technology for efficiency and growth</a></li>
+                            <li><a href="#">IT Strategy and System Integration</a></li>
+                            <li><a href="#">Managed IT Services</a></li>
+                            <li><a href="#">Technical Support</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="packages_item">
+                    <div class="pack_head">
+                        <i class="lnr lnr-graduation-hat"></i>
+                        <h3>CyberSecurity Solutions</h3>
+                    </div>
+                    <div class="pack_body">
+                        <ul class="list">
+                            <li><a href="#">Protect digital assets with advanced security protocols</a></li>
+                            <li><a href="#">Vulnerability Assessments and Penetration Testing</a></li>
+                            <li><a href="#">Compliance Audits</a></li>
+                            <li><a href="#">Security Monitoring</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row packages_inner mt-4">
+            <div class="col-md-6">
+                <div class="packages_item">
+                    <div class="pack_head">
+                        <i class="lnr lnr-graduation-hat"></i>
+                        <h3>Web and Digital Solutions</h3>
+                    </div>
+                    <div class="pack_body">
+                        <ul class="list">
+                            <li><a href="#">Optimize Technology for efficiency and growth</a></li>
+                            <li><a href="#">Custom Website Development</a></li>
+                            <li><a href="#">E-Commerce Solutions</a></li>
+                            <li><a href="#">SEO and Digital Marketing</a></li>
                         </ul>
                     </div>
                 </div>

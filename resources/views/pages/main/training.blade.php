@@ -23,8 +23,8 @@
     <section class="courses_area p_120">
         <div class="container">
             <div class="main_title">
-                <h2>Popular Free Courses</h2>
-                <p>There is a moment in the life of any aspiring astronomer that it is time to buy that first telescope. It’s exciting to think about setting up your own viewing station.</p>
+                <h2>Popular Programs</h2>
+                <p>MTMKay Technology Solutions offers certifications to meet the growing demand for skilled IT professionals.</p>
             </div>
             <div class="row courses_inner">
                 <div class="col-lg-9">
@@ -33,8 +33,8 @@
                             <div class="courses_item">
                                 <img src="img/courses/course-1.jpg" alt="">
                                 <div class="hover_text">
-                                    <a class="cat" href="#">Free</a>
-                                    <a href="#"><h4>Japanease Language Class</h4></a>
+                                    <a class="cat" href="{{route('show-training', ['id' => 1])}}">View</a>
+                                    <a href="#"><h4>Microsoft Azure Fundamentals</h4></a>
                                     <ul class="list">
                                         <li><a href="#"><i class="lnr lnr-users"></i> 355</a></li>
                                         <li><a href="#"><i class="lnr lnr-bubble"></i> 35</a></li>
@@ -47,8 +47,8 @@
                             <div class="courses_item">
                                 <img src="img/courses/course-2.jpg" alt="">
                                 <div class="hover_text">
-                                    <a class="cat" href="#">Free</a>
-                                    <a href="#"><h4>Japanease Language Class</h4></a>
+                                    <a class="cat" href="{{route('show-training', ['id' => 1])}}">View</a>
+                                    <a href="#"><h4>Cisco Certified Network Associate (CCNA)</h4></a>
                                     <ul class="list">
                                         <li><a href="#"><i class="lnr lnr-users"></i> 355</a></li>
                                         <li><a href="#"><i class="lnr lnr-bubble"></i> 35</a></li>
@@ -61,8 +61,8 @@
                             <div class="courses_item">
                                 <img src="img/courses/course-4.jpg" alt="">
                                 <div class="hover_text">
-                                    <a class="cat" href="#">Free</a>
-                                    <a href="#"><h4>Japanease Language Class</h4></a>
+                                    <a class="cat" href="{{route('show-training', ['id' => 1])}}">View</a>
+                                    <a href="#"><h4>CompTIA Security+</h4></a>
                                     <ul class="list">
                                         <li><a href="#"><i class="lnr lnr-users"></i> 355</a></li>
                                         <li><a href="#"><i class="lnr lnr-bubble"></i> 35</a></li>
@@ -75,8 +75,8 @@
                             <div class="courses_item">
                                 <img src="img/courses/course-5.jpg" alt="">
                                 <div class="hover_text">
-                                    <a class="cat" href="#">Free</a>
-                                    <a href="#"><h4>Japanease Language Class</h4></a>
+                                    <a class="cat" href="{{route('show-training', ['id' => 1])}}">View</a>
+                                    <a href="#"><h4>Corporate Training</h4></a>
                                     <ul class="list">
                                         <li><a href="#"><i class="lnr lnr-users"></i> 355</a></li>
                                         <li><a href="#"><i class="lnr lnr-bubble"></i> 35</a></li>
@@ -91,8 +91,8 @@
                     <div class="course_item">
                         <img src="img/courses/course-3.jpg" alt="">
                         <div class="hover_text">
-                            <a class="cat" href="#">Free</a>
-                            <a href="#"><h4>Japanease Language Class</h4></a>
+                            <a class="cat" href="{{route('show-training', ['id' => 1])}}">View</a>
+                            <a href="#"><h4>Comptia a+</h4></a>
                             <ul class="list">
                                 <li><a href="#"><i class="lnr lnr-users"></i> 355</a></li>
                                 <li><a href="#"><i class="lnr lnr-bubble"></i> 35</a></li>
@@ -105,6 +105,72 @@
         </div>
     </section>
     <!--================End Courses Area =================-->
+
+
+    <!--================Testimonials Area =================-->
+    <section class="packages_area p_120">
+        <div class="container">
+            <div class="testi_slider owl-carousel">
+                <div class="item">
+                    <div class="testi_item">
+                        <img src="img/testimonials/testi-3.png" alt="">
+                        <h4>Fannie Rowe</h4>
+                        <ul class="list">
+                            <li><a href="#"><i class="fa fa-star"></i></a></li>
+                            <li><a href="#"><i class="fa fa-star"></i></a></li>
+                            <li><a href="#"><i class="fa fa-star"></i></a></li>
+                            <li><a href="#"><i class="fa fa-star"></i></a></li>
+                            <li><a href="#"><i class="fa fa-star"></i></a></li>
+                        </ul>
+                        <p>Thanks to MTMKay, I gained the skills needed to pass my certification exams and secure my first IT job</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="testi_item">
+                        <img src="img/testimonials/testi-3.png" alt="">
+                        <h4>Fannie Rowe</h4>
+                        <ul class="list">
+                            <li><a href="#"><i class="fa fa-star"></i></a></li>
+                            <li><a href="#"><i class="fa fa-star"></i></a></li>
+                            <li><a href="#"><i class="fa fa-star"></i></a></li>
+                            <li><a href="#"><i class="fa fa-star"></i></a></li>
+                            <li><a href="#"><i class="fa fa-star"></i></a></li>
+                        </ul>
+                        <p>Thanks to MTMKay, I gained the skills needed to pass my certification exams and secure my first IT job</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="testi_item">
+                        <img src="img/testimonials/testi-3.png" alt="">
+                        <h4>Fannie Rowe</h4>
+                        <ul class="list">
+                            <li><a href="#"><i class="fa fa-star"></i></a></li>
+                            <li><a href="#"><i class="fa fa-star"></i></a></li>
+                            <li><a href="#"><i class="fa fa-star"></i></a></li>
+                            <li><a href="#"><i class="fa fa-star"></i></a></li>
+                            <li><a href="#"><i class="fa fa-star"></i></a></li>
+                        </ul>
+                        <p>Thanks to MTMKay, I gained the skills needed to pass my certification exams and secure my first IT job</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="testi_item">
+                        <img src="img/testimonials/testi-3.png" alt="">
+                        <h4>Fannie Rowe</h4>
+                        <ul class="list">
+                            <li><a href="#"><i class="fa fa-star"></i></a></li>
+                            <li><a href="#"><i class="fa fa-star"></i></a></li>
+                            <li><a href="#"><i class="fa fa-star"></i></a></li>
+                            <li><a href="#"><i class="fa fa-star"></i></a></li>
+                            <li><a href="#"><i class="fa fa-star"></i></a></li>
+                        </ul>
+                        <p>Thanks to MTMKay, I gained the skills needed to pass my certification exams and secure my first IT job</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--================End Testimonials Area =================-->
 
     <!--================Pagkages Area =================-->
     <section class="packages_area p_120">

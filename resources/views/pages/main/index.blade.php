@@ -33,9 +33,9 @@
                         <div class="pack_body">
                             <ul class="list">
                                 <li><a href="#">Industry-leading IT Certification and Corporate Training</a></li>
-                                <li><a href="#">Reliable and Dedicated Training Staffs</a></li>
-                                <li><a href="#">Fast and Fee Internet during Training</a></li>
-                                <li><a href="#">Curriculum Development</a></li>
+                                <li><a href="#">Cisco Certified Network Associate (CCNA)</a></li>
+                                <li><a href="#">Microsoft Azure Fundamentals</a></li>
+                                <li><a href="#">CompTIA Security+</a></li>
                             </ul>
                         </div>
                     </div>
@@ -49,9 +49,9 @@
                         <div class="pack_body">
                             <ul class="list">
                                 <li><a href="#">Cloud Hosting and Management of Services</a></li>
+                                <li><a href="#">Cloud Migration and Virtualization</a></li>
                                 <li><a href="#">Scalable, reliable IT environments</a></li>
-                                <li><a href="#">Cloud Migration Services</a></li>
-                                <li><a href="#">DevOps and Automation</a></li>
+                                <li><a href="#">Infrastructure Design</a></li>
                             </ul>
                         </div>
                     </div>
@@ -67,9 +67,9 @@
                         <div class="pack_body">
                             <ul class="list">
                                 <li><a href="#">Optimize Technology for efficiency and growth</a></li>
-                                <li><a href="#">Dynamic and Well-Trained Experts</a></li>
-                                <li><a href="#">Dynamic and Well-Trained Experts</a></li>
-                                <li><a href="#">Reliable Service</a></li>
+                                <li><a href="#">IT Strategy and System Integration</a></li>
+                                <li><a href="#">Managed IT Services</a></li>
+                                <li><a href="#">Technical Support</a></li>
                             </ul>
                         </div>
                     </div>
@@ -83,9 +83,9 @@
                         <div class="pack_body">
                             <ul class="list">
                                 <li><a href="#">Protect digital assets with advanced security protocols</a></li>
-                                <li><a href="#">Compliance and Regulatory Services</a></li>
-                                <li><a href="#">Data Protection and Encryption</a></li>
-                                <li><a href="#">Network Security</a></li>
+                                <li><a href="#">Vulnerability Assessments and Penetration Testing</a></li>
+                                <li><a href="#">Compliance Audits</a></li>
+                                <li><a href="#">Security Monitoring</a></li>
                             </ul>
                         </div>
                     </div>

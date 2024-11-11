@@ -171,7 +171,7 @@
 </section>
 <!--================End Team Area =================-->
 
-<!--================Testimonials Area =================-->
+<!--================Partner Area =================-->
 <section class="testimonials_area p_120">
     <div class="container">
         <div class="main_title">
@@ -187,13 +187,27 @@
         </div>
     </div>
 </section>
-<!--================End Testimonials Area =================-->
+<!--================End Partner Area =================-->
+
+<!--================Team Area =================-->
+<section class="team_area p_120">
+    <div class="container">
+        <div class="main_title">
+            <h2>Award-Winning Agency</h2>
+            <p>MTMKay Technology Solutions has successfully supported clients across various industries. Through tailored IT solutions, our clients have achieved operational efficiency, CyberSecurity compliance, and digital transformation.</p>
+        </div>
+        <div class="row team_inner">
+
+        </div>
+    </div>
+</section>
+<!--================End Team Area =================-->
 
 <!--================Impress Area =================-->
 <section class="impress_area p_120">
     <div class="container">
         <div class="impress_inner text-center">
-            <h2>Become a Student</h2>
+            <h2>Improve Your Skills</h2>
             <p>It is not too late to grow your IT skills in CyberSecurity solutions or Cloud Infrastructure. Get the certifications and training required to become the next IT consultant</p>
             <a class="main_btn2" href="#">Apply here</a>
         </div>

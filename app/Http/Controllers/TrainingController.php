@@ -10,4 +10,9 @@ class TrainingController extends Controller
     {
         return view("pages.main.training");
     }
+
+    public function show(Request $request)
+    {
+        return view("pages.main.training-detail");
+    }
 }
