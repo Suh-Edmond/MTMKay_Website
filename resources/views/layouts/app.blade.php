@@ -18,6 +18,7 @@
     <!-- main css -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/slider.css">
 </head>
 <body>
 
@@ -38,6 +39,7 @@
 <script src="js/popper.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/stellar.js"></script>
+<script src="js/slider.js"></script>
 <script src="vendors/lightbox/simpleLightbox.min.js"></script>
 <script src="vendors/nice-select/js/jquery.nice-select.min.js"></script>
 <script src="vendors/isotope/imagesloaded.pkgd.min.js"></script>
@@ -49,5 +51,6 @@
 <script src="vendors/counter-up/jquery.counterup.js"></script>
 <script src="js/mail-script.js"></script>
 <script src="js/theme.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.js"></script>
 </body>
 </html>

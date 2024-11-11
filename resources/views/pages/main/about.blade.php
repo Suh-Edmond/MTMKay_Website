@@ -25,8 +25,8 @@
 <section class="about_area p_120">
     <div class="container">
         <div class="main_title">
-            <h2>Goals to Achieve for the leadership</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+            <h2>Our Mission</h2>
+            <p>With our strong background in IT and CyberSecurity, we have a vision to bridge the digital divide and create opportunities through Technology.</p>
         </div>
         <div class="row about_inner">
             <div class="col-lg-6">
@@ -34,7 +34,7 @@
                     <div class="card">
                         <div class="card-header" id="headingOne">
                             <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                Success
+                                Innovation
                                 <i class="lnr lnr-chevron-down"></i>
                                 <i class="lnr lnr-chevron-up"></i>
                             </button>
@@ -42,50 +42,36 @@
 
                         <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
                             <div class="card-body">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
-                            </div>
+                                Constantly advancing with the latest technology
+                             </div>
                         </div>
                     </div>
                     <div class="card">
                         <div class="card-header" id="headingTwo">
                             <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                Info
+                                Integrity
                                 <i class="lnr lnr-chevron-down"></i>
                                 <i class="lnr lnr-chevron-up"></i>
                             </button>
                         </div>
                         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
                             <div class="card-body">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
-                            </div>
+                                Upholding ethical practices and transparency
+                             </div>
                         </div>
                     </div>
                     <div class="card">
                         <div class="card-header" id="headingThree">
                             <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                Danger
+                                Excellence
                                 <i class="lnr lnr-chevron-down"></i>
                                 <i class="lnr lnr-chevron-up"></i>
                             </button>
                         </div>
                         <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
                             <div class="card-body">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-header" id="headingfour">
-                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapsefour" aria-expanded="false" aria-controls="collapsefour">
-                                Warning
-                                <i class="lnr lnr-chevron-down"></i>
-                                <i class="lnr lnr-chevron-up"></i>
-                            </button>
-                        </div>
-                        <div id="collapsefour" class="collapse" aria-labelledby="headingfour" data-parent="#accordionExample">
-                            <div class="card-body">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
-                            </div>
+                                Delivering high-quality solutions that meet global standards.
+                             </div>
                         </div>
                     </div>
                 </div>
@@ -100,8 +86,9 @@
             </div>
         </div>
         <div class="about_details">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>
+            <p>MTMKay Technology Solutions combines technical expertise, strategic partnerships with top technology providers, and a commitment to bridging the digital divide. Our team delivers tailored IT solutions that drive business success.
+                At MTMKay Technology Solutions, our mission is to empower businesses and individuals through innovative IT solutions, advanced CyberSecurity, and industry-leading training programs.
+                We are committed to driving digital transformation and fostering growth within our community and beyond.</p>
         </div>
     </div>
 </section>
@@ -111,8 +98,8 @@
 <section class="team_area p_120">
     <div class="container">
         <div class="main_title">
-            <h2>Meet Our Faculty</h2>
-            <p>There is a moment in the life of any aspiring astronomer that it is time to buy that first telescope. It’s exciting to think about setting up your own viewing station.</p>
+            <h2>Meet Our Team</h2>
+            <p>Our dynamic. certified and well-trained instructors available to provide the top-notch services and training to our clients and students.</p>
         </div>
         <div class="row team_inner">
             <div class="col-lg-3 col-sm-6">
@@ -126,8 +113,8 @@
                         </div>
                     </div>
                     <div class="team_name">
-                        <h4>Ethel Davis</h4>
-                        <p>Managing Director (Sales)</p>
+                        <h4>Micheal Mbu</h4>
+                        <p>CEO</p>
                     </div>
                 </div>
             </div>
@@ -143,7 +130,7 @@
                     </div>
                     <div class="team_name">
                         <h4>Ethel Davis</h4>
-                        <p>Managing Director (Sales)</p>
+                        <p>IT Consultant</p>
                     </div>
                 </div>
             </div>
@@ -158,8 +145,8 @@
                         </div>
                     </div>
                     <div class="team_name">
-                        <h4>Ethel Davis</h4>
-                        <p>Managing Director (Sales)</p>
+                        <h4>Ben Joseph</h4>
+                        <p>CyberSecurity Specialist</p>
                     </div>
                 </div>
             </div>
@@ -174,8 +161,8 @@
                         </div>
                     </div>
                     <div class="team_name">
-                        <h4>Ethel Davis</h4>
-                        <p>Managing Director (Sales)</p>
+                        <h4>Enow Takang</h4>
+                        <p>Cloud and Infrastructure Engineer</p>
                     </div>
                 </div>
             </div>
@@ -187,49 +174,16 @@
 <!--================Testimonials Area =================-->
 <section class="testimonials_area p_120">
     <div class="container">
-        <div class="testi_slider owl-carousel">
-            <div class="item">
-                <div class="testi_item">
-                    <img src="img/testimonials/testi-3.png" alt="">
-                    <h4>Fannie Rowe</h4>
-                    <ul class="list">
-                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                    </ul>
-                    <p>Accessories Here you can find the best computer accessory for your laptop, monitor, printer, scanner, speaker. Here you can find the best computer accessory for your laptop, monitor, printer, scanner, speaker.</p>
-                </div>
-            </div>
-            <div class="item">
-                <div class="testi_item">
-                    <img src="img/testimonials/testi-3.png" alt="">
-                    <h4>Fannie Rowe</h4>
-                    <ul class="list">
-                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                    </ul>
-                    <p>Accessories Here you can find the best computer accessory for your laptop, monitor, printer, scanner, speaker. Here you can find the best computer accessory for your laptop, monitor, printer, scanner, speaker.</p>
-                </div>
-            </div>
-            <div class="item">
-                <div class="testi_item">
-                    <img src="img/testimonials/testi-3.png" alt="">
-                    <h4>Fannie Rowe</h4>
-                    <ul class="list">
-                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                        <li><a href="#"><i class="fa fa-star"></i></a></li>
-                    </ul>
-                    <p>Accessories Here you can find the best computer accessory for your laptop, monitor, printer, scanner, speaker. Here you can find the best computer accessory for your laptop, monitor, printer, scanner, speaker.</p>
-                </div>
-            </div>
+        <div class="main_title">
+            <h2>Our Partners</h2>
+            <p>MTMKay partners with leading Tech Providers, to deliver certified training and solutions backed by global standards</p>
+        </div>
+        <div class="customer-logos slider">
+            <div class="slide"><img src="img/company/cisco-logo.png"></div>
+            <div class="slide"><img src="img/company/comptia.png"></div>
+            <div class="slide"><img src="img/company/Microsoft-Logo.png"></div>
+            <div class="slide"><img src="img/company/Microsoft-Logo.png"></div>
+            <div class="slide"><img src="img/company/Microsoft-Logo.png"></div>
         </div>
     </div>
 </section>
@@ -239,12 +193,13 @@
 <section class="impress_area p_120">
     <div class="container">
         <div class="impress_inner text-center">
-            <h2>Become an instructor</h2>
-            <p>There is a moment in the life of any aspiring astronomer that it is time to buy that first telescope. It’s exciting to think about setting up your own viewing station whether that is on the deck</p>
-            <a class="main_btn2" href="#">Apply for the post</a>
+            <h2>Become a Student</h2>
+            <p>It is not too late to grow your IT skills in CyberSecurity solutions or Cloud Infrastructure. Get the certifications and training required to become the next IT consultant</p>
+            <a class="main_btn2" href="#">Apply here</a>
         </div>
     </div>
 </section>
 <!--================End Impress Area =================-->
+
 
 @endsection

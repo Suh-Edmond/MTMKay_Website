@@ -7,8 +7,8 @@
             <div class="overlay bg-parallax" data-stellar-ratio="0.9" data-stellar-vertical-offset="0" data-background=""></div>
             <div class="container">
                 <div class="banner_content text-center">
-                    <h3>We Ensure better education <br />for a better world</h3>
-                    <p>In the history of modern astronomy, there is probably no one greater leap forward than the building and launch of the space telescope known as the Hubble.</p>
+                    <h3>Empowering Businesses with Innovative <br />IT Solutions and Training</h3>
+                    <p>MTMKay Technology Solutions offers comprehensive IT consulting, cybersecurity, and certification training to drive digital transformation.</p>
                     <a class="main_btn" href="#">Get Started</a>
                 </div>
             </div>
@@ -16,141 +16,76 @@
     </section>
     <!--================End Home Banner Area =================-->
 
-    <!--================Finance Area =================-->
-    <section class="finance_area">
-        <div class="container">
-            <div class="finance_inner row">
-                <div class="col-lg-3 col-sm-6">
-                    <div class="finance_item">
-                        <div class="media">
-                            <div class="d-flex">
-                                <i class="lnr lnr-rocket"></i>
-                            </div>
-                            <div class="media-body">
-                                <h5>Science & <br />Engineering</h5>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6">
-                    <div class="finance_item">
-                        <div class="media">
-                            <div class="d-flex">
-                                <i class="lnr lnr-earth"></i>
-                            </div>
-                            <div class="media-body">
-                                <h5>Science & <br />Engineering</h5>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6">
-                    <div class="finance_item">
-                        <div class="media">
-                            <div class="d-flex">
-                                <i class="lnr lnr-smile"></i>
-                            </div>
-                            <div class="media-body">
-                                <h5>Science & <br />Engineering</h5>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6">
-                    <div class="finance_item">
-                        <div class="media">
-                            <div class="d-flex">
-                                <i class="lnr lnr-tag"></i>
-                            </div>
-                            <div class="media-body">
-                                <h5>Science & <br />Engineering</h5>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!--================End Finance Area =================-->
-
     <!--================Courses Area =================-->
-    <section class="courses_area p_120">
+    <section class="packages_area p_120">
         <div class="container">
             <div class="main_title">
-                <h2>Popular Free Courses</h2>
-                <p>There is a moment in the life of any aspiring astronomer that it is time to buy that first telescope. It’s exciting to think about setting up your own viewing station.</p>
+                <h2>Key Services</h2>
+                <p>We provide the strategic IT insights needed to scale your operations securely and efficiently.</p>
             </div>
-            <div class="row courses_inner">
-                <div class="col-lg-9">
-                    <div class="grid_inner">
-                        <div class="grid_item wd55">
-                            <div class="courses_item">
-                                <img src="img/courses/course-1.jpg" alt="">
-                                <div class="hover_text">
-                                    <a class="cat" href="#">Free</a>
-                                    <a href="#"><h4>Japanease Language Class</h4></a>
-                                    <ul class="list">
-                                        <li><a href="#"><i class="lnr lnr-users"></i> 355</a></li>
-                                        <li><a href="#"><i class="lnr lnr-bubble"></i> 35</a></li>
-                                        <li><a href="#"><i class="lnr lnr-user"></i> T. Robert</a></li>
-                                    </ul>
-                                </div>
-                            </div>
+            <div class="row packages_inner">
+                <div class="col-md-6">
+                    <div class="packages_item">
+                        <div class="pack_head">
+                            <i class="lnr lnr-graduation-hat"></i>
+                            <h3>IT Training & Certification</h3>
                         </div>
-                        <div class="grid_item wd44">
-                            <div class="courses_item">
-                                <img src="img/courses/course-2.jpg" alt="">
-                                <div class="hover_text">
-                                    <a class="cat" href="#">Free</a>
-                                    <a href="#"><h4>Japanease Language Class</h4></a>
-                                    <ul class="list">
-                                        <li><a href="#"><i class="lnr lnr-users"></i> 355</a></li>
-                                        <li><a href="#"><i class="lnr lnr-bubble"></i> 35</a></li>
-                                        <li><a href="#"><i class="lnr lnr-user"></i> T. Robert</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="grid_item wd44">
-                            <div class="courses_item">
-                                <img src="img/courses/course-4.jpg" alt="">
-                                <div class="hover_text">
-                                    <a class="cat" href="#">Free</a>
-                                    <a href="#"><h4>Japanease Language Class</h4></a>
-                                    <ul class="list">
-                                        <li><a href="#"><i class="lnr lnr-users"></i> 355</a></li>
-                                        <li><a href="#"><i class="lnr lnr-bubble"></i> 35</a></li>
-                                        <li><a href="#"><i class="lnr lnr-user"></i> T. Robert</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="grid_item wd55">
-                            <div class="courses_item">
-                                <img src="img/courses/course-5.jpg" alt="">
-                                <div class="hover_text">
-                                    <a class="cat" href="#">Free</a>
-                                    <a href="#"><h4>Japanease Language Class</h4></a>
-                                    <ul class="list">
-                                        <li><a href="#"><i class="lnr lnr-users"></i> 355</a></li>
-                                        <li><a href="#"><i class="lnr lnr-bubble"></i> 35</a></li>
-                                        <li><a href="#"><i class="lnr lnr-user"></i> T. Robert</a></li>
-                                    </ul>
-                                </div>
-                            </div>
+                        <div class="pack_body">
+                            <ul class="list">
+                                <li><a href="#">Industry-leading IT Certification and Corporate Training</a></li>
+                                <li><a href="#">Reliable and Dedicated Training Staffs</a></li>
+                                <li><a href="#">Fast and Fee Internet during Training</a></li>
+                                <li><a href="#">Curriculum Development</a></li>
+                            </ul>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3">
-                    <div class="course_item">
-                        <img src="img/courses/course-3.jpg" alt="">
-                        <div class="hover_text">
-                            <a class="cat" href="#">Free</a>
-                            <a href="#"><h4>Japanease Language Class</h4></a>
+                <div class="col-md-6">
+                    <div class="packages_item">
+                        <div class="pack_head">
+                            <i class="lnr lnr-graduation-hat"></i>
+                            <h3>Cloud & Infrastructure Services</h3>
+                        </div>
+                        <div class="pack_body">
                             <ul class="list">
-                                <li><a href="#"><i class="lnr lnr-users"></i> 355</a></li>
-                                <li><a href="#"><i class="lnr lnr-bubble"></i> 35</a></li>
-                                <li><a href="#"><i class="lnr lnr-user"></i> T. Robert</a></li>
+                                <li><a href="#">Cloud Hosting and Management of Services</a></li>
+                                <li><a href="#">Scalable, reliable IT environments</a></li>
+                                <li><a href="#">Cloud Migration Services</a></li>
+                                <li><a href="#">DevOps and Automation</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row packages_inner mt-4">
+                <div class="col-md-6">
+                    <div class="packages_item">
+                        <div class="pack_head">
+                            <i class="lnr lnr-graduation-hat"></i>
+                            <h3>IT Consulting & Managed Services</h3>
+                        </div>
+                        <div class="pack_body">
+                            <ul class="list">
+                                <li><a href="#">Optimize Technology for efficiency and growth</a></li>
+                                <li><a href="#">Dynamic and Well-Trained Experts</a></li>
+                                <li><a href="#">Dynamic and Well-Trained Experts</a></li>
+                                <li><a href="#">Reliable Service</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="packages_item">
+                        <div class="pack_head">
+                            <i class="lnr lnr-graduation-hat"></i>
+                            <h3>CyberSecurity Solutions</h3>
+                        </div>
+                        <div class="pack_body">
+                            <ul class="list">
+                                <li><a href="#">Protect digital assets with advanced security protocols</a></li>
+                                <li><a href="#">Compliance and Regulatory Services</a></li>
+                                <li><a href="#">Data Protection and Encryption</a></li>
+                                <li><a href="#">Network Security</a></li>
                             </ul>
                         </div>
                     </div>
@@ -160,12 +95,36 @@
     </section>
     <!--================End Courses Area =================-->
 
+    <!--================ Why Choose Us ===================-->
+    <section class="testimonials_area p_120">
+        <div class="container">
+            <div class="main_title">
+                <h2>Why Choose Us</h2>
+                <p>We provide the strategic IT insights needed to scale your operations securely and efficiently.</p>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="img/company/company-image-2.jpg" alt="" class="img-fluid" height="100%" width="100%">
+                </div>
+                <div class="col-md-6 mt-sm-20 left-align-p">
+                    <h3 class="mb-30 title_color">Our Mission</h3>
+                    <p>
+                        MTMKay Technology Solutions combines technical expertise, strategic partnerships with top technology providers, and a commitment to bridging the digital divide. Our team delivers tailored IT solutions that drive business success.
+                        At MTMKay Technology Solutions, our mission is to empower businesses and individuals through innovative IT solutions, advanced CyberSecurity, and industry-leading training programs.
+                        We are committed to driving digital transformation and fostering growth within our community and beyond.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--================ End of why choose us ===========--->
+
     <!--================Team Area =================-->
     <section class="team_area p_120">
         <div class="container">
             <div class="main_title">
-                <h2>Meet Our Faculty</h2>
-                <p>There is a moment in the life of any aspiring astronomer that it is time to buy that first telescope. It’s exciting to think about setting up your own viewing station.</p>
+                <h2>Meet Our Team</h2>
+                <p>Our dynamic. certified and well-trained instructors available to provide the top-notch services and training to our clients and students.</p>
             </div>
             <div class="row team_inner">
                 <div class="col-lg-3 col-sm-6">
@@ -179,8 +138,8 @@
                             </div>
                         </div>
                         <div class="team_name">
-                            <h4>Ethel Davis</h4>
-                            <p>Managing Director (Sales)</p>
+                            <h4>Micheal Mbu</h4>
+                            <p>CEO</p>
                         </div>
                     </div>
                 </div>
@@ -196,7 +155,7 @@
                         </div>
                         <div class="team_name">
                             <h4>Ethel Davis</h4>
-                            <p>Managing Director (Sales)</p>
+                            <p>IT Consultant</p>
                         </div>
                     </div>
                 </div>
@@ -211,8 +170,8 @@
                             </div>
                         </div>
                         <div class="team_name">
-                            <h4>Ethel Davis</h4>
-                            <p>Managing Director (Sales)</p>
+                            <h4>Ben Joseph</h4>
+                            <p>CyberSecurity Specialist</p>
                         </div>
                     </div>
                 </div>
@@ -227,8 +186,8 @@
                             </div>
                         </div>
                         <div class="team_name">
-                            <h4>Ethel Davis</h4>
-                            <p>Managing Director (Sales)</p>
+                            <h4>Enow Takang</h4>
+                            <p>Cloud and Infrastructure Engineer</p>
                         </div>
                     </div>
                 </div>
@@ -252,7 +211,7 @@
                             <li><a href="#"><i class="fa fa-star"></i></a></li>
                             <li><a href="#"><i class="fa fa-star"></i></a></li>
                         </ul>
-                        <p>Accessories Here you can find the best computer accessory for your laptop, monitor, printer, scanner, speaker. Here you can find the best computer accessory for your laptop, monitor, printer, scanner, speaker.</p>
+                        <p>MTMKay provided us with the strategic IT insights we needed to scale our operations securely and efficiently</p>
                     </div>
                 </div>
                 <div class="item">
@@ -266,7 +225,7 @@
                             <li><a href="#"><i class="fa fa-star"></i></a></li>
                             <li><a href="#"><i class="fa fa-star"></i></a></li>
                         </ul>
-                        <p>Accessories Here you can find the best computer accessory for your laptop, monitor, printer, scanner, speaker. Here you can find the best computer accessory for your laptop, monitor, printer, scanner, speaker.</p>
+                        <p>MTMKay provided us with the strategic IT insights we needed to scale our operations securely and efficiently</p>
                     </div>
                 </div>
                 <div class="item">
@@ -280,7 +239,7 @@
                             <li><a href="#"><i class="fa fa-star"></i></a></li>
                             <li><a href="#"><i class="fa fa-star"></i></a></li>
                         </ul>
-                        <p>Accessories Here you can find the best computer accessory for your laptop, monitor, printer, scanner, speaker. Here you can find the best computer accessory for your laptop, monitor, printer, scanner, speaker.</p>
+                        <p>MTMKay provided us with the strategic IT insights we needed to scale our operations securely and efficiently</p>
                     </div>
                 </div>
             </div>
@@ -288,7 +247,7 @@
     </section>
     <!--================End Testimonials Area =================-->
 
-    <!--================Pagkages Area =================-->
+    <!--================Packages Area =================-->
     <section class="packages_area p_120">
         <div class="container">
             <div class="row packages_inner">
@@ -303,7 +262,6 @@
                         <div class="pack_head">
                             <i class="lnr lnr-graduation-hat"></i>
                             <h3>Premium</h3>
-                            <p>For the individuals</p>
                         </div>
                         <div class="pack_body">
                             <ul class="list">
@@ -323,7 +281,6 @@
                         <div class="pack_head">
                             <i class="lnr lnr-diamond"></i>
                             <h3>Exclusive</h3>
-                            <p>For the individuals</p>
                         </div>
                         <div class="pack_body">
                             <ul class="list">
@@ -341,60 +298,15 @@
             </div>
         </div>
     </section>
-    <!--================End Pagkages Area =================-->
-
-    <!--================Latest Blog Area =================-->
-    <section class="latest_blog_area p_120">
-        <div class="container">
-            <div class="main_title">
-                <h2>Latest Posts From Blog</h2>
-                <p>There is a moment in the life of any aspiring astronomer that it is time to buy that first telescope. It’s exciting to think about setting up your own viewing station.</p>
-            </div>
-            <div class="row latest_blog_inner">
-                <div class="col-lg-3 col-md-6">
-                    <div class="l_blog_item">
-                        <img class="img-fluid" src="img/latest-blog/l-blog-1.jpg" alt="">
-                        <a class="date" href="#">25 October, 2018  |  By Mark Wiens</a>
-                        <a href="single-blog.html"><h4>Addiction When Gambling Becomes A Problem</h4></a>
-                        <p>Computers have become ubiquitous in almost every facet of our lives. At work, desk jockeys spend hours in front of their desktops, while delivery</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="l_blog_item">
-                        <img class="img-fluid" src="img/latest-blog/l-blog-2.jpg" alt="">
-                        <a class="date" href="#">25 October, 2018  |  By Mark Wiens</a>
-                        <a href="single-blog.html"><h4>Addiction When Gambling Becomes A Problem</h4></a>
-                        <p>Computers have become ubiquitous in almost every facet of our lives. At work, desk jockeys spend hours in front of their desktops, while delivery</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="l_blog_item">
-                        <img class="img-fluid" src="img/latest-blog/l-blog-3.jpg" alt="">
-                        <a class="date" href="#">25 October, 2018  |  By Mark Wiens</a>
-                        <a href="single-blog.html"><h4>Addiction When Gambling Becomes A Problem</h4></a>
-                        <p>Computers have become ubiquitous in almost every facet of our lives. At work, desk jockeys spend hours in front of their desktops, while delivery</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="l_blog_item">
-                        <img class="img-fluid" src="img/latest-blog/l-blog-4.jpg" alt="">
-                        <a class="date" href="#">25 October, 2018  |  By Mark Wiens</a>
-                        <a href="single-blog.html"><h4>Addiction When Gambling Becomes A Problem</h4></a>
-                        <p>Computers have become ubiquitous in almost every facet of our lives. At work, desk jockeys spend hours in front of their desktops, while delivery</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!--================End Latest Blog Area =================-->
+    <!--================End Packages Area =================-->
 
     <!--================Impress Area =================-->
     <section class="impress_area p_120">
         <div class="container">
             <div class="impress_inner text-center">
-                <h2>Become an instructor</h2>
-                <p>There is a moment in the life of any aspiring astronomer that it is time to buy that first telescope. It’s exciting to think about setting up your own viewing station whether that is on the deck</p>
-                <a class="main_btn2" href="#">Apply for the post</a>
+                <h2>Become a Student</h2>
+                <p>It is not too late to grow your IT skills in CyberSecurity solutions or Cloud Infrastructure. Get the certifications and training required to become the next IT consultant</p>
+                <a class="main_btn2" href="#">Apply here</a>
             </div>
         </div>
     </section>
