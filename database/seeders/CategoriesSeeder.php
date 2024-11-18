@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\Categories;
+use App\Models\Category;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -13,16 +13,22 @@ class CategoriesSeeder extends Seeder
      */
     public function run(): void
     {
-        Categories::create([
-            'name' => "CyberSecurity"
+        Category::create([
+            'name' => "CyberSecurity",
+            'image_path' => 'img/blog/cat-post/cat-post-3.jpg',
+            'caption_text' => 'The Importance of CyberSecurity for Small Businesses'
         ]);
 
-        Categories::create([
-            'name' => "Cloud Computing"
+        Category::create([
+            'name' => "Cloud Computing",
+            'image_path' => 'img/blog/cat-post/cat-post-2.jpg',
+            'caption_text' => 'Top IT Certifications to Boost Your Career'
         ]);
 
-        Categories::create([
-            'name' => "IT Certificatio"
+        Category::create([
+            'name' => "IT Certification",
+            'image_path' => 'img/blog/cat-post/cat-post-1.jpg',
+            'caption_text' => 'How Cloud Computing is Revolutionizing Business Operations'
         ]);
     }
 }

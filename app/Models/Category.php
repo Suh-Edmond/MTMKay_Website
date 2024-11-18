@@ -6,7 +6,7 @@ use App\Traits\GenerateUUIDTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Categories extends Model
+class Category extends Model
 {
     use HasFactory;
 
@@ -17,11 +17,13 @@ class Categories extends Model
     protected $keyType    = 'string';
 
     protected $fillable = [
-        'name'
+        'name',
+        'image_path',
+        'caption_text'
     ];
 
     public function blogs()
     {
-        return $this->belongsToMany(Blog::class);
+        return $this->hasMany(Blog::class);
     }
 }

@@ -11,14 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('blog_tags', function (Blueprint $table){
+        Schema::create('blog_tag', function (Blueprint $table){
             $table->uuid('blog_id');
-            $table->uuid('tags_id');
+            $table->uuid('tag_id');
             $table->timestamps();
             $table->softDeletes();
 
             $table->foreign('blog_id')->references('id')->on('blogs');
-            $table->foreign('tags_id')->references('id')->on('tags');
+            $table->foreign('tag_id')->references('id')->on('tags');
         });
     }
 

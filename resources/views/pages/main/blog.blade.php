@@ -8,11 +8,24 @@
     <div class="banner_inner d-flex align-items-center">
         <div class="overlay bg-parallax" data-stellar-ratio="0.9" data-stellar-vertical-offset="0" data-background=""></div>
         <div class="container">
+            @if(isset($filteredCategory))
+                <div class="blog_b_text text-center">
+                    <h2>Our Blogs on {{$filteredCategory->name}}</h2>
+                    <p>{{$filteredCategory->caption_text}}. </p>
+                    <a class="main_btn" href="{{route('blog')}}">All Blogs</a>
+                </div>
+            @elseif(isset($tag)){
             <div class="blog_b_text text-center">
-                <h2>Our Blogs</h2>
-                <p>Get to know MTMKay expertize, the events and new programs we launch. </p>
-                <a class="main_btn" href="#">View More</a>
+                <h2>Our Blogs on {{$tag}}</h2>
+                <a class="main_btn" href="{{route('blog')}}">View More</a>
             </div>
+            @else
+                <div class="blog_b_text text-center">
+                    <h2>Our Blogs</h2>
+                    <p>Get to know MTMKay expertize, the events and new programs we launch. </p>
+                    <a class="main_btn" href="{{route('blog')}}">View More</a>
+                </div>
+            @endif
         </div>
     </div>
 </section>
@@ -22,42 +35,20 @@
 <section class="blog_categorie_area">
     <div class="container">
         <div class="row">
-            <div class="col-lg-4">
-                <div class="categories_post">
-                    <img src="img/blog/cat-post/cat-post-3.jpg" alt="post">
-                    <div class="categories_details">
-                        <div class="categories_text">
-                            <a href="#"><h5>CyberSecurity</h5></a>
-                            <div class="border_line"></div>
-                            <p>The Importance of CyberSecurity for Small Businesses</p>
+            @foreach($categories as $category)
+                <div class="col-lg-4">
+                    <div class="categories_post">
+                        <img src="{{$category->image_path}}" alt="post">
+                        <div class="categories_details">
+                            <div class="categories_text">
+                                <a href="{{route('blog', ['title' => $category->name, 'id' => $category->id])}}"><h5>{{$category->name}}</h5></a>
+                                <div class="border_line"></div>
+                                <p>{{$category->caption_text}}</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="categories_post">
-                    <img src="img/blog/cat-post/cat-post-2.jpg" alt="post">
-                    <div class="categories_details">
-                        <div class="categories_text">
-                            <a href="#"><h5>IT Certifications</h5></a>
-                            <div class="border_line"></div>
-                            <p>Top IT Certifications to Boost Your Career in 2024</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="categories_post">
-                    <img src="img/blog/cat-post/cat-post-1.jpg" alt="post">
-                    <div class="categories_details">
-                        <div class="categories_text">
-                            <a href="#"><h5>Cloud Computing</h5></a>
-                            <div class="border_line"></div>
-                            <p>How Cloud Computing is Revolutionizing Business Operations</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </section>
@@ -74,10 +65,7 @@
                             <div class="col-md-3">
                                 <div class="blog_info text-right">
                                     <div class="post_tag">
-                                        <a href="#" class="active">{{$blog->categories[0]->name}}</a><br>
-                                        @for($i = 1; $i < $blog->categories->count(); $i++)
-                                            <a href="#">{{$blog->categories[$i]->name}}</a><br>
-                                        @endfor
+                                        <a href="#" class="active">{{$blog->category->name}}</a>
                                     </div>
                                     <ul class="blog_meta list">
                                         <li><a href="#">{{$blog->created_at->format('D, d M Y')}}<i class="lnr lnr-calendar-full"></i></a></li>
@@ -156,17 +144,21 @@
                             <a href="#"><i class="fa fa-github"></i></a>
                             <a href="#"><i class="fa fa-behance"></i></a>
                         </div>
-                        <p>Boot camps have its supporters andit sdetractors. Some people do not understand why you should have to spend money on boot camp when you can get. Boot camps have itssuppor ters andits detractors.</p>
+                        <p>Why spend so much money on Boot Camps, when you can be trained and certified from our rich catalog of programs. Fully design with resources to meet your career goals.</p>
                         <div class="br"></div>
                     </aside>
                     <aside class="single_sidebar_widget popular_post_widget">
                         <h3 class="widget_title">Popular Posts</h3>
                         @foreach($popularBlogs as $popularBlog)
                             <div class="media post_item">
-                                <img src="{{$popularBlog->getSingleBlogImage($popularBlog->id)->file_path}}" alt="post" height="25%" width="25%">
+                                <img src="{{$popularBlog->getSingleBlogImage($popularBlog->id)->file_path ?? ''}}" alt="post" height="25%" width="25%">
                                 <div class="media-body">
                                     <a href="{{route('show-blog', ['id'=> $popularBlog->id])}}"><h3>{{$popularBlog->title}}</h3></a>
-                                    <p>{{$popularBlog->getBlogCreatedHours($popularBlog->id) }} Hours ago</p>
+                                    @if($popularBlog->getBlogCreatedHours($popularBlog->id) < 1)
+                                        <p>Few Minutes Ago</p>
+                                    @else
+                                        <p>{{$popularBlog->getBlogCreatedHours($popularBlog->id) }} Hours ago</p>
+                                    @endif
                                 </div>
                             </div>
                         @endforeach
@@ -183,7 +175,7 @@
                         <ul class="list cat-list">
                             @foreach($categories as $category)
                                 <li>
-                                    <a href="#" class="d-flex justify-content-between">
+                                    <a href="{{route('blog', ['title' => $category->name, 'id'=>$category->id])}}" class="d-flex justify-content-between">
                                         <p>{{$category->name}}</p>
                                         <p>{{$category->blogs()->count()}}</p>
                                     </a>
@@ -212,8 +204,8 @@
                     <aside class="single-sidebar-widget tag_cloud_widget">
                         <h4 class="widget_title">Tag Clouds</h4>
                         <ul class="list">
-                            @foreach($categories as $category)
-                                <li><a href="#">{{$category->name}}</a></li>
+                            @foreach($tags as $tag)
+                                <li><a href="{{route('blog', ['tag' => $tag->name])}}">{{$tag->name}}</a></li>
                             @endforeach
                         </ul>
                     </aside>

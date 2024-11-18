@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\Categories;
+use App\Models\Tag;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -13,27 +13,27 @@ class TagSeeder extends Seeder
      */
     public function run(): void
     {
-        Categories::create([
+        Tag::create([
             'name' => "Technology"
         ]);
 
-        Categories::create([
+        Tag::create([
             'name' => "Cloud Computing"
         ]);
 
-        Categories::create([
+        Tag::create([
             'name' => "Cisco Networking"
         ]);
 
-        Categories::create([
+        Tag::create([
             'name' => "CompTIA Security"
         ]);
 
-        Categories::create([
+        Tag::create([
             'name' => "Corporate Training and Certifications"
         ]);
 
-        Categories::create([
+        Tag::create([
             'name' => "Microsoft AZURE"
         ]);
     }

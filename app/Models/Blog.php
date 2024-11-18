@@ -22,6 +22,7 @@ class Blog extends Model
         'title',
         'description',
         'user_id',
+        'categories_id'
     ];
 
 
@@ -36,14 +37,15 @@ class Blog extends Model
         return $this->hasMany(BlogComments::class);
     }
 
-    public function categories()
+    public function category()
     {
-        return $this->belongsToMany(Categories::class);
+        return $this->belongsTo(Category::class);
     }
 
     public function getSingleBlogImage($id)
     {
         $blog = Blog::find($id);
+
         return $blog->blogImages()->where('is_main', true)->first();
     }
 
