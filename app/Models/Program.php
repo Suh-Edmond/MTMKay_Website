@@ -23,7 +23,10 @@ class Program extends Model
         'eligibility',
         'cost',
         'training_resources',
-        'duration'
+        'duration',
+        'trainer_name',
+        'image_path',
+        'available_seats'
     ];
 
     public function enrollments()

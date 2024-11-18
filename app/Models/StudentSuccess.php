@@ -19,14 +19,18 @@ class StudentSuccess extends Model
 
     protected $fillable = [
         'program_id',
-        'email',
-        'full_name',
         'message',
+        'user_id'
     ];
 
 
     public function program()
     {
         return $this->belongsTo(Program::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 }

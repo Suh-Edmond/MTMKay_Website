@@ -17,6 +17,9 @@ return new class extends Migration
             $table->mediumText('objective');
             $table->mediumText('eligibility');
             $table->integer('duration')->default(1);
+            $table->string('trainer_name');
+            $table->integer('available_seats')->default(1);
+            $table->string('image_path');
             $table->double('cost')->default(0);
             $table->mediumText('training_resources');
             $table->softDeletes();

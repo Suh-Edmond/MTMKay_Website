@@ -15,13 +15,16 @@ return new class extends Migration
         Schema::create('student_successes', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->uuid('program_id');
-            $table->string('email');
-            $table->string('full_name');
+            $table->uuid('user_id');
             $table->mediumText('message');
             $table->enum('status', [BlogState::PENDING, BlogState::APPROVED, BlogState::REJECTED])->default(BlogState::PENDING);
             $table->boolean('is_visible')->default(false);
             $table->softDeletes();
             $table->timestamps();
+
+            $table->foreign('program_id')->references('id')->on('programs');
+            $table->foreign('user_id')->references('id')->on('users');
+
         });
     }
 

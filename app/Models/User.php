@@ -31,7 +31,8 @@ class User extends Authenticatable
         'email',
         'password',
         'dob',
-        'address'
+        'address',
+        'profile_pic'
     ];
 
     /**
@@ -55,5 +56,15 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    public function studentSuccess()
+    {
+        return $this->hasMany(StudentSuccess::class);
+    }
+
+    public function enrollments()
+    {
+        return $this->hasMany(Enrollment::class);
     }
 }
