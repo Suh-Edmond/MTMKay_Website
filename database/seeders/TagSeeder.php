@@ -6,7 +6,7 @@ use App\Models\Categories;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class CategoriesSeeder extends Seeder
+class TagSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,7 +14,7 @@ class CategoriesSeeder extends Seeder
     public function run(): void
     {
         Categories::create([
-            'name' => "CyberSecurity"
+            'name' => "Technology"
         ]);
 
         Categories::create([
@@ -22,7 +22,19 @@ class CategoriesSeeder extends Seeder
         ]);
 
         Categories::create([
-            'name' => "IT Certificatio"
+            'name' => "Cisco Networking"
+        ]);
+
+        Categories::create([
+            'name' => "CompTIA Security"
+        ]);
+
+        Categories::create([
+            'name' => "Corporate Training and Certifications"
+        ]);
+
+        Categories::create([
+            'name' => "Microsoft AZURE"
         ]);
     }
 }

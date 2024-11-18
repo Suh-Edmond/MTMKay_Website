@@ -6,10 +6,11 @@ use App\Traits\GenerateUUIDTrait;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Blog extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
 
     use GenerateUUIDTrait;
 
@@ -53,5 +54,10 @@ class Blog extends Model
         $blogCreatedTime = new Carbon($blog->created_at);
 
         return (int) $blogCreatedTime->diffInHours($currentTime);
+    }
+
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class);
     }
 }

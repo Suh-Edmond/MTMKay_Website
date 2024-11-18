@@ -12,16 +12,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('blogs', function (Blueprint $table) {
+        Schema::create('student_successes', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->string('title');
-            $table->longText('description');
-            $table->uuid('user_id');
-            $table->enum('blog_state', [BlogState::PENDING, BlogState::APPROVED, BlogState::REJECTED])->default(BlogState::PENDING);
+            $table->uuid('program_id');
+            $table->string('email');
+            $table->string('full_name');
+            $table->mediumText('message');
+            $table->enum('status', [BlogState::PENDING, BlogState::APPROVED, BlogState::REJECTED])->default(BlogState::PENDING);
+            $table->boolean('is_visible')->default(false);
             $table->softDeletes();
             $table->timestamps();
-
-            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('blogs');
+        Schema::dropIfExists('student_successes');
     }
 };
