@@ -20,7 +20,7 @@ class UserSeeder extends Seeder
                 'name' => $generator->name,
                 'email' => $generator->email,
                 'password' => Hash::make('password'),
-                'dob'  => $generator->date(),
+                'telephone'  => $generator->phoneNumber(),
                 'address' => $generator->address,
                 'profile_pic' => $generator->randomElement(['img/testimonials/testi-1.png', 'img/testimonials/testi-2.png', 'img/testimonials/testi-3.png',])
             ]);

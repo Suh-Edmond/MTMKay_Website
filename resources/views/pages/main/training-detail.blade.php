@@ -73,11 +73,110 @@
                         <li><a href="#">Schedule <span>Monday - Friday</span></a></li>
                         <li><a href="#">Time <span>8.00 am to 4.00 pm</span></a></li>
                     </ul>
-                    <a class="main_btn" href="#">Enroll the Program</a>
-                </div>
+                    <a class="main_btn" href="#" id="enrollmentBtn">Enroll the Program</a>
+                 </div>
             </div>
         </div>
     </div>
 </section>
 <!--================End Course Details Area =================-->
+
+<!--=================Enrollment Form ========================-->
+<div id="success" class="modal modal-message fade" role="dialog">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <i class="fa fa-close"></i>
+                </button>
+                <h2 class="mb-30 title_color">Enrollment Form</h2>
+                <div>
+                    <form action="{{route('enroll-student', ['id' => $program->id])}}"  id="enrollmentForm" method="POST" >
+                        @csrf
+                        <div class="my-md-4">
+                            <input type="text" name="name" placeholder="Full Name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Full Name'" required class="single-input py-lg-2">
+                        </div>
+                        <div class="my-md-4">
+                            <input type="email" name="email" placeholder="Email address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email address'" required class="single-input py-lg-2">
+                        </div>
+                        <div class="my-md-4">
+                            <input type="tel" name="telephone" placeholder="Telephone" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Telephone'" required class="single-input py-lg-2">
+                        </div>
+                        <div class="my-md-4">
+                            <input type="text" name="address" placeholder="Address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Address'" required class="single-input py-lg-2">
+                        </div>
+                        <div class="mt-lg-5 mb-lg-4">
+                            <button type="submit" value="submit"  class="btn submit_btn" id="submitEnrollment">
+                                <span class="btn-text">Enroll Now</span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--================End of Enrollment Form====================-->
+
+<!--================Contact Success and Error message Area =================-->
+<div id="success_new_account" class="modal modal-message fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <i class="fa fa-close"></i>
+                </button>
+                <h2>Thank you</h2>
+                <p>Please verify your student account to complete your enrollment...</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="success_exist_acc" class="modal modal-message fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <i class="fa fa-close"></i>
+                </button>
+                <h2>Thank you</h2>
+                <p>Your enrollment completed successfully...</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="success_enrolled" class="modal modal-message fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <i class="fa fa-close"></i>
+                </button>
+                <h2>Thank you</h2>
+                <p>You have already Enrolled for this program...</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modals error -->
+
+<div id="error" class="modal modal-message fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <i class="fa fa-close"></i>
+                </button>
+                <h2>Sorry !</h2>
+                <p> Something went wrong </p>
+            </div>
+        </div>
+    </div>
+</div>
+<!--================End Contact Success and Error message Area =================-->
+
 @endsection

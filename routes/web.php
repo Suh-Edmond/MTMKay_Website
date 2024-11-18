@@ -9,6 +9,8 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\TrainingController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\VerifyEmailController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -22,4 +24,6 @@ Route::get('/contact-us', [ContactController::class, 'index'])->name('contact');
 Route::post('/submit-contact', [ContactController::class, 'submitRequest'])->name('on-submit-contact');
 Route::get('/blog-detail', [BlogController::class, 'show'])->name('show-blog');
 Route::post('/blog/create', [BlogCommentsController::class, 'createComment'])->name('create-comment');
+Route::post('/programs/{id}/enroll', [UserController::class, 'enrollStudent'])->name('enroll-student');
+Route::get('/email/verify/{id}/{hash}', [VerifyEmailController::class, '__invoke'])->middleware(['signed', 'throttle:6,1'])->name('verification.verify');
 
