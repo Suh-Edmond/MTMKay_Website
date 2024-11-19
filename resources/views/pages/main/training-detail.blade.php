@@ -73,7 +73,7 @@
                         <li><a href="#">Schedule <span>Monday - Friday</span></a></li>
                         <li><a href="#">Time <span>8.00 am to 4.00 pm</span></a></li>
                     </ul>
-                    <a class="main_btn" href="#" id="enrollmentBtn">Enroll the Program</a>
+                    <a class="main_btn" href="#" id="enrollmentBtn">Enroll for Program</a>
                  </div>
             </div>
         </div>
@@ -106,7 +106,7 @@
                             <input type="text" name="address" placeholder="Address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Address'" required class="single-input py-lg-2">
                         </div>
                         <div class="mt-lg-5 mb-lg-4">
-                            <button type="submit" value="submit"  class="btn submit_btn" id="submitEnrollment">
+                            <button type="submit" value="submit"  class="btn main_btn" id="submitEnrollment">
                                 <span class="btn-text">Enroll Now</span>
                             </button>
                         </div>

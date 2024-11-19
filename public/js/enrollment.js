@@ -1,5 +1,6 @@
 $(document).ready(function() {
 
+
     $("#enrollmentBtn").on("click", function() {
         $('#success').fadeIn()
         $('.modal').modal('hide');
