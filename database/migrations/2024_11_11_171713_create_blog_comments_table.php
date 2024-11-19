@@ -19,8 +19,9 @@ return new class extends Migration
             $table->string('subject');
             $table->mediumText('message');
             $table->timestamps();
+            $table->softDeletes();
 
-            $table->foreign('blog_id')->references('id')->on('blogs')->restrictOnDelete();
+            $table->foreign('blog_id')->references('id')->on('blogs');
         });
     }
 

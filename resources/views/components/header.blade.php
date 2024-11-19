@@ -10,15 +10,15 @@
             </div>
             <div class="float-right">
                 <a class="dn_btn" href="tel:+4400123654896">+1 612 224 1176</a>
-                <a class="dn_btn" href="mailto:support@colorlib.com">support@mtmkay.com</a>
+                <a class="dn_btn" href="mailto:mtmkay17@gmail.com">mtmkay17@gmail.com</a>
             </div>
         </div>
     </div>
-    <div class="main_menu">
+    <div class="main_menu" id="navigation">
         <nav class="navbar navbar-expand-lg navbar-light">
             <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
-                <a class="navbar-brand logo_h" href="{{route('home')}}"><img src="img/logo.png" alt=""></a>
+                <a class="navbar-brand logo_h" href="{{route('home')}}"><img src="img/company/mtmkay_logo.png" alt="" width="15%" height="15%"></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>

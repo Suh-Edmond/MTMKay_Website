@@ -1,5 +1,6 @@
 <?php
 
+use App\Constant\BlogState;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -16,9 +17,11 @@ return new class extends Migration
             $table->string('title');
             $table->longText('description');
             $table->uuid('user_id');
+            $table->enum('blog_state', [BlogState::PENDING, BlogState::APPROVED, BlogState::REJECTED])->default(BlogState::PENDING);
+            $table->softDeletes();
             $table->timestamps();
 
-            $table->foreign('user_id')->references('id')->on('users')->restrictOnDelete();
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

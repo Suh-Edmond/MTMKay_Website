@@ -53,5 +53,10 @@
 <script src="js/theme.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.js"></script>
 <script src="js/counter.js"></script>
+<script src="js/custom-navbar.js"></script>
+<script src="js/enrollment.js"></script>
+
+
+
 </body>
 </html>

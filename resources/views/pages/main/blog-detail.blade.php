@@ -34,10 +34,7 @@
                     <div class="col-lg-3  col-md-3">
                         <div class="blog_info text-right">
                             <div class="post_tag">
-                                <a href="#" class="active">{{$blog->categories[0]->name}}</a><br>
-                                @for($i = 1; $i < $blog->categories->count(); $i++)
-                                    <a href="#">{{$blog->categories[$i]->name}}</a><br>
-                                @endfor
+                                <a href="#" class="active">{{$blog->category->name}}</a>
                             </div>
                             <ul class="blog_meta list">
                                 <li><a href="#">{{$blog->created_at->format('D, d M Y')}}<i class="lnr lnr-calendar-full"></i></a></li>
@@ -61,42 +58,15 @@
 
                         <div class="row">
                             @foreach($blog->blogImages as $image)
-                                <div class="col-6">
-                                    <img class="img-fluid" src="{{$image->file_path}}" alt="">
+                                <div class="col-6 col-md-6 mt-4">
+                                    <img class="img-fluid" src="{{$image->file_path}}" alt="" height="60%" width="100%">
                                 </div>
                             @endforeach
 
                         </div>
                     </div>
                 </div>
-                <div class="navigation-area">
-                    <div class="row">
-                        <div class="col-lg-6 col-md-6 col-12 nav-left flex-row d-flex justify-content-start align-items-center">
-                            <div class="thumb">
-                                <a href="#"><img class="img-fluid" src="img/blog/prev.jpg" alt=""></a>
-                            </div>
-                            <div class="arrow">
-                                <a href="#"><span class="lnr text-white lnr-arrow-left"></span></a>
-                            </div>
-                            <div class="detials">
-                                <p>Prev Post</p>
-                                <a href="#"><h4>Space The Final Frontier</h4></a>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-md-6 col-12 nav-right flex-row d-flex justify-content-end align-items-center">
-                            <div class="detials">
-                                <p>Next Post</p>
-                                <a href="#"><h4>Telescopes 101</h4></a>
-                            </div>
-                            <div class="arrow">
-                                <a href="#"><span class="lnr text-white lnr-arrow-right"></span></a>
-                            </div>
-                            <div class="thumb">
-                                <a href="#"><img class="img-fluid" src="img/blog/next.jpg" alt=""></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
                 <div class="comments-area">
                     <h4>{{$blog->blogComments->count()}} Comments</h4>
                     @foreach($blog->blogComments as $comment)
@@ -155,14 +125,14 @@
                             <a href="#"><i class="fa fa-github"></i></a>
                             <a href="#"><i class="fa fa-behance"></i></a>
                         </div>
-                        <p>Boot camps have its supporters andit sdetractors. Some people do not understand why you should have to spend money on boot camp when you can get. Boot camps have itssuppor ters andits detractors.</p>
+                        <p>Why spend so much money on Boot Camps, when you can be trained and certified from our rich catalog of programs. Fully design with resources to meet your career goals.</p>
                         <div class="br"></div>
                     </aside>
                     <aside class="single_sidebar_widget popular_post_widget">
                         <h3 class="widget_title">Popular Posts</h3>
                         @foreach($popularBlogs as $popularBlog)
                             <div class="media post_item">
-                                <img src="{{$popularBlog->getSingleBlogImage($popularBlog->id)->file_path}}" alt="post" height="25%" width="25%">
+                                <img src="{{$popularBlog->getSingleBlogImage($popularBlog->id)->file_path ?? ''}}" alt="post" height="25%" width="25%">
                                 <div class="media-body">
                                     <a href="{{route('show-blog', ['id'=> $popularBlog->id])}}"><h3>{{$popularBlog->title}}</h3></a>
                                     <p>02 Hours ago</p>
@@ -180,7 +150,7 @@
                         <ul class="list cat-list">
                             @foreach($categories as $category)
                                 <li>
-                                    <a href="#" class="d-flex justify-content-between">
+                                    <a href="{{route('blog', ['title' => $category->name, 'id'=>$category->id])}}"" class="d-flex justify-content-between">
                                         <p>{{$category->name}}</p>
                                         <p>{{$category->blogs()->count()}}</p>
                                     </a>
@@ -210,8 +180,8 @@
                     <aside class="single-sidebar-widget tag_cloud_widget">
                         <h4 class="widget_title">Tag Clouds</h4>
                         <ul class="list">
-                            @foreach($categories as $category)
-                                <li><a href="#">{{$category->name}}</a></li>
+                            @foreach($tags as $tag)
+                                <li><a href="{{route('blog', ['tag' => $tag->name])}}">{{$tag->name}}</a></li>
                             @endforeach
                         </ul>
                     </aside>

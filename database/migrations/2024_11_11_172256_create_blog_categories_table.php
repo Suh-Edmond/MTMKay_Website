@@ -15,9 +15,10 @@ return new class extends Migration
             $table->uuid('blog_id');
             $table->uuid('categories_id');
             $table->timestamps();
+            $table->softDeletes();
 
-            $table->foreign('blog_id')->references('id')->on('blogs')->restrictOnDelete();
-            $table->foreign('categories_id')->references('id')->on('categories')->restrictOnDelete();
+            $table->foreign('blog_id')->references('id')->on('blogs');
+            $table->foreign('categories_id')->references('id')->on('categories');
         });
     }
 

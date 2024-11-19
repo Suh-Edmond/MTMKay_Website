@@ -6,10 +6,11 @@ use App\Traits\GenerateUUIDTrait;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Blog extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
 
     use GenerateUUIDTrait;
 
@@ -21,6 +22,7 @@ class Blog extends Model
         'title',
         'description',
         'user_id',
+        'categories_id'
     ];
 
 
@@ -35,14 +37,15 @@ class Blog extends Model
         return $this->hasMany(BlogComments::class);
     }
 
-    public function categories()
+    public function category()
     {
-        return $this->belongsToMany(Categories::class);
+        return $this->belongsTo(Category::class);
     }
 
     public function getSingleBlogImage($id)
     {
         $blog = Blog::find($id);
+
         return $blog->blogImages()->where('is_main', true)->first();
     }
 
@@ -53,5 +56,10 @@ class Blog extends Model
         $blogCreatedTime = new Carbon($blog->created_at);
 
         return (int) $blogCreatedTime->diffInHours($currentTime);
+    }
+
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class);
     }
 }

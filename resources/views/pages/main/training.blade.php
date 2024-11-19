@@ -8,7 +8,7 @@
             <div class="overlay bg-parallax" data-stellar-ratio="0.9" data-stellar-vertical-offset="0" data-background=""></div>
             <div class="container">
                 <div class="banner_content text-center">
-                    <h2>Traning</h2>
+                    <h2>Training</h2>
                     <div class="page_link">
                         <a href="{{route('home')}}">Home</a>
                         <a href="{{route('services')}}">Training</a>
@@ -23,84 +23,28 @@
     <section class="courses_area p_120">
         <div class="container">
             <div class="main_title">
-                <h2>Popular Programs</h2>
-                <p>MTMKay Technology Solutions offers certifications to meet the growing demand for skilled IT professionals.</p>
+                <h2>Our Programs</h2>
+                <p>
+                    One of MTMKay's core pillars is training and certification. We offer globally recognized IT certification courses to equip our students with valuable, in-demand skills.
+                    Our programs are designed to prepare participants for competitive careers in technology, with flexible options for individuals and customized training for businesses.
+                </p>
             </div>
             <div class="row courses_inner">
-                <div class="col-lg-9">
-                    <div class="grid_inner">
-                        <div class="grid_item wd55">
-                            <div class="courses_item">
-                                <img src="img/courses/course-1.jpg" alt="">
-                                <div class="hover_text">
-                                    <a class="cat" href="{{route('show-training', ['id' => 1])}}">View</a>
-                                    <a href="#"><h4>Microsoft Azure Fundamentals</h4></a>
-                                    <ul class="list">
-                                        <li><a href="#"><i class="lnr lnr-users"></i> 355</a></li>
-                                        <li><a href="#"><i class="lnr lnr-bubble"></i> 35</a></li>
-                                        <li><a href="#"><i class="lnr lnr-user"></i> T. Robert</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="grid_item wd44">
-                            <div class="courses_item">
-                                <img src="img/courses/course-2.jpg" alt="">
-                                <div class="hover_text">
-                                    <a class="cat" href="{{route('show-training', ['id' => 1])}}">View</a>
-                                    <a href="#"><h4>Cisco Certified Network Associate (CCNA)</h4></a>
-                                    <ul class="list">
-                                        <li><a href="#"><i class="lnr lnr-users"></i> 355</a></li>
-                                        <li><a href="#"><i class="lnr lnr-bubble"></i> 35</a></li>
-                                        <li><a href="#"><i class="lnr lnr-user"></i> T. Robert</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="grid_item wd44">
-                            <div class="courses_item">
-                                <img src="img/courses/course-4.jpg" alt="">
-                                <div class="hover_text">
-                                    <a class="cat" href="{{route('show-training', ['id' => 1])}}">View</a>
-                                    <a href="#"><h4>CompTIA Security+</h4></a>
-                                    <ul class="list">
-                                        <li><a href="#"><i class="lnr lnr-users"></i> 355</a></li>
-                                        <li><a href="#"><i class="lnr lnr-bubble"></i> 35</a></li>
-                                        <li><a href="#"><i class="lnr lnr-user"></i> T. Robert</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="grid_item wd55">
-                            <div class="courses_item">
-                                <img src="img/courses/course-5.jpg" alt="">
-                                <div class="hover_text">
-                                    <a class="cat" href="{{route('show-training', ['id' => 1])}}">View</a>
-                                    <a href="#"><h4>Corporate Training</h4></a>
-                                    <ul class="list">
-                                        <li><a href="#"><i class="lnr lnr-users"></i> 355</a></li>
-                                        <li><a href="#"><i class="lnr lnr-bubble"></i> 35</a></li>
-                                        <li><a href="#"><i class="lnr lnr-user"></i> T. Robert</a></li>
-                                    </ul>
-                                </div>
+                @foreach($programs as $key => $program)
+                    <div class="col-6 col-md-6 col-sm-12 col-lg-6 mt-4">
+                        <div class="course_item">
+                            <img src="{{$program->image_path}}" alt="" width="100%" height="100%">
+                            <div class="hover_text">
+                                <a class="cat" href="{{route('show-training', ['id' => $program->id])}}">View</a>
+                                <a href="{{route('show-training', ['id' => $program->id])}}"><h4>{{$program->title}}</h4></a>
+                                <ul class="list">
+                                    <li><a href="#"><i class="lnr lnr-users"></i> {{count($program->enrollments)}}</a></li>
+                                    <li><a href="#"><i class="lnr lnr-user"></i> {{$program->trainer_name}}</a></li>
+                                </ul>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-3">
-                    <div class="course_item">
-                        <img src="img/courses/course-3.jpg" alt="">
-                        <div class="hover_text">
-                            <a class="cat" href="{{route('show-training', ['id' => 1])}}">View</a>
-                            <a href="#"><h4>Comptia a+</h4></a>
-                            <ul class="list">
-                                <li><a href="#"><i class="lnr lnr-users"></i> 355</a></li>
-                                <li><a href="#"><i class="lnr lnr-bubble"></i> 35</a></li>
-                                <li><a href="#"><i class="lnr lnr-user"></i> T. Robert</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>
@@ -111,62 +55,23 @@
     <section class="packages_area p_120">
         <div class="container">
             <div class="testi_slider owl-carousel">
-                <div class="item">
-                    <div class="testi_item">
-                        <img src="img/testimonials/testi-3.png" alt="">
-                        <h4>Fannie Rowe</h4>
-                        <ul class="list">
-                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                        </ul>
-                        <p>Thanks to MTMKay, I gained the skills needed to pass my certification exams and secure my first IT job</p>
+               @foreach($successes as $success)
+                    <div class="item">
+                        <div class="testi_item">
+                            <img src="{{$success->user->profile_pic}}" alt="">
+                            <h4>{{$success->user->name}}</h4>
+                            <h4>{{$success->user->enrollments[0]->program->title ?? ''}}</h4>
+                            <ul class="list">
+                                <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                <li><a href="#"><i class="fa fa-star"></i></a></li>
+                                <li><a href="#"><i class="fa fa-star"></i></a></li>
+                            </ul>
+                            <p>{{$success->message}}</p>
+                        </div>
                     </div>
-                </div>
-                <div class="item">
-                    <div class="testi_item">
-                        <img src="img/testimonials/testi-3.png" alt="">
-                        <h4>Fannie Rowe</h4>
-                        <ul class="list">
-                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                        </ul>
-                        <p>Thanks to MTMKay, I gained the skills needed to pass my certification exams and secure my first IT job</p>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="testi_item">
-                        <img src="img/testimonials/testi-3.png" alt="">
-                        <h4>Fannie Rowe</h4>
-                        <ul class="list">
-                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                        </ul>
-                        <p>Thanks to MTMKay, I gained the skills needed to pass my certification exams and secure my first IT job</p>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="testi_item">
-                        <img src="img/testimonials/testi-3.png" alt="">
-                        <h4>Fannie Rowe</h4>
-                        <ul class="list">
-                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                        </ul>
-                        <p>Thanks to MTMKay, I gained the skills needed to pass my certification exams and secure my first IT job</p>
-                    </div>
-                </div>
+               @endforeach
             </div>
         </div>
     </section>

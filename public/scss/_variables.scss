@@ -4,9 +4,10 @@ $play: 'Playfair Display', serif;
 
 
 /*Color Variables*/
-$baseColor: #4dbf1c;
+//$baseColor: #4dbf1c;
+$baseColor: #385abe;
 $dip: #222222;
-$pfont: #777777; 
+$pfont: #777777;
 
 
 /*=================== fonts ====================*/
@@ -14,7 +15,7 @@ $pfont: #777777;
 
 // Mixins
 @mixin transition($property: all, $duration: 300ms, $animate: linear, $delay:0s){
-    transition: $property $duration $animate $delay; 
+    transition: $property $duration $animate $delay;
 }
 
 // Placeholder Mixins

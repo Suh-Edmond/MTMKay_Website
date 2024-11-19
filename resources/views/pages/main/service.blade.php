@@ -24,7 +24,10 @@
     <div class="container">
         <div class="main_title">
             <h2>Key Services</h2>
-            <p>We provide the strategic IT insights needed to scale your operations securely and efficiently.</p>
+            <h4>
+                MTMKay offers a unique blend of services tailored to the needs of our community.
+                We provide IT consulting and managed services to help local businesses improve their technology infrastructure.
+            </p>
         </div>
         <div class="row packages_inner">
             <div class="col-md-6">
@@ -35,10 +38,10 @@
                     </div>
                     <div class="pack_body">
                         <ul class="list">
-                            <li><a href="#">Industry-leading IT Certification and Corporate Training</a></li>
-                            <li><a href="#">Cisco Certified Network Associate (CCNA)</a></li>
-                            <li><a href="#">Microsoft Azure Fundamentals</a></li>
-                            <li><a href="#">CompTIA Security+</a></li>
+                            <li><a href="#" style="font-size: medium">Industry-leading IT Certification and Corporate Training</a></li>
+                            <li><a href="#" style="font-size: medium">Cisco Certified Network Associate (CCNA)</a></li>
+                            <li><a href="#" style="font-size: medium">Microsoft Azure Fundamentals</a></li>
+                            <li><a href="#" style="font-size: medium">CompTIA Security+</a></li>
                         </ul>
                     </div>
                 </div>
@@ -51,10 +54,10 @@
                     </div>
                     <div class="pack_body">
                         <ul class="list">
-                            <li><a href="#">Cloud Hosting and Management of Services</a></li>
-                            <li><a href="#">Cloud Migration and Virtualization</a></li>
-                            <li><a href="#">Scalable, reliable IT environments</a></li>
-                            <li><a href="#">Infrastructure Design</a></li>
+                            <li><a href="#" style="font-size: medium">Cloud Hosting and Management of Services</a></li>
+                            <li><a href="#" style="font-size: medium">Cloud Migration and Virtualization</a></li>
+                            <li><a href="#" style="font-size: medium">Scalable, reliable IT environments</a></li>
+                            <li><a href="#" style="font-size: medium">Infrastructure Design</a></li>
                         </ul>
                     </div>
                 </div>
@@ -69,10 +72,10 @@
                     </div>
                     <div class="pack_body">
                         <ul class="list">
-                            <li><a href="#">Optimize Technology for efficiency and growth</a></li>
-                            <li><a href="#">IT Strategy and System Integration</a></li>
-                            <li><a href="#">Managed IT Services</a></li>
-                            <li><a href="#">Technical Support</a></li>
+                            <li><a href="#" style="font-size: medium">Optimize Technology for efficiency and growth</a></li>
+                            <li><a href="#" style="font-size: medium">IT Strategy and System Integration</a></li>
+                            <li><a href="#" style="font-size: medium">Managed IT Services</a></li>
+                            <li><a href="#" style="font-size: medium">Technical Support</a></li>
                         </ul>
                     </div>
                 </div>
@@ -85,10 +88,10 @@
                     </div>
                     <div class="pack_body">
                         <ul class="list">
-                            <li><a href="#">Protect digital assets with advanced security protocols</a></li>
-                            <li><a href="#">Vulnerability Assessments and Penetration Testing</a></li>
-                            <li><a href="#">Compliance Audits</a></li>
-                            <li><a href="#">Security Monitoring</a></li>
+                            <li><a href="#" style="font-size: medium">Protect digital assets with advanced security protocols</a></li>
+                            <li><a href="#" style="font-size: medium">Vulnerability Assessments and Penetration Testing</a></li>
+                            <li><a href="#" style="font-size: medium">Compliance Audits</a></li>
+                            <li><a href="#" style="font-size: medium">Security Monitoring</a></li>
                         </ul>
                     </div>
                 </div>
@@ -103,10 +106,10 @@
                     </div>
                     <div class="pack_body">
                         <ul class="list">
-                            <li><a href="#">Optimize Technology for efficiency and growth</a></li>
-                            <li><a href="#">Custom Website Development</a></li>
-                            <li><a href="#">E-Commerce Solutions</a></li>
-                            <li><a href="#">SEO and Digital Marketing</a></li>
+                            <li><a href="#" style="font-size: medium">Optimize Technology for efficiency and growth</a></li>
+                            <li><a href="#" style="font-size: medium">Custom Website Development</a></li>
+                            <li><a href="#" style="font-size: medium">E-Commerce Solutions</a></li>
+                            <li><a href="#" style="font-size: medium">SEO and Digital Marketing</a></li>
                         </ul>
                     </div>
                 </div>

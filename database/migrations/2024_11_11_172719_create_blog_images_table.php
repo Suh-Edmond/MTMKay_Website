@@ -16,9 +16,10 @@ return new class extends Migration
             $table->uuid('blog_id');
             $table->string('file_path');
             $table->boolean('is_main');
+            $table->softDeletes();
             $table->timestamps();
 
-            $table->foreign('blog_id')->references('id')->on('blogs')->restrictOnDelete();
+            $table->foreign('blog_id')->references('id')->on('blogs');
         });
     }
 
