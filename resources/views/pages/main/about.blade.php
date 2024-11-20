@@ -1,9 +1,4 @@
-@extends('layouts.app')
-
-@section('content')
-
-
-
+<x-guest-layout>
 <!--================Home Banner Area =================-->
 <section class="banner_area">
     <div class="banner_inner d-flex align-items-center">
@@ -261,4 +256,4 @@
 <!--================End Impress Area =================-->
 
 
-@endsection
+</x-guest-layout>
