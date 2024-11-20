@@ -57,7 +57,7 @@
                                     <li><h5>{{substr($outline->period, 0, strlen($outline->period) - 1 )}} {{$key+1}}</h5> <a href="#">{{$outline->topic}}</a></li>
                                 @endforeach
                             </ul>
-                            <p>Each 12-month program includes an internship during the final quarter, where students gain real-world experience and apply their skills in industry settings. This hands-on exposure ensures students are job-ready upon completion.</p>
+                            <p>The program includes an internship during the final quarter, where students gain real-world experience and apply their skills in industry settings. This hands-on exposure ensures students are job-ready upon completion.</p>
 
                         </div>
 
@@ -70,6 +70,7 @@
                         <li><a href="#">Trainer’s Name <span>{{$program->trainer_name}}</span></a></li>
                         <li><a href="#">Program Fee <span>{{number_format($program->cost)}} XAF</span></a></li>
                         <li><a href="#">Available Seats <span>{{$program->available_seats}}</span></a></li>
+                        <li><a href="#">Duration <span>{{$program->duration}} months</span></a></li>
                         <li><a href="#">Schedule <span>Monday - Friday</span></a></li>
                         <li><a href="#">Time <span>8.00 am to 4.00 pm</span></a></li>
                     </ul>

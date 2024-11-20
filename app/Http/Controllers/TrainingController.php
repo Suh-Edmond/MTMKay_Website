@@ -11,7 +11,7 @@ class TrainingController extends Controller
     public function index(Request $request)
     {
         $trainings = Program::all();
-        $successes = StudentSuccess::orderby('created_at', 'desc')->take(10)->get();
+        $successes = StudentSuccess::orderby('created_at', 'desc')->take(5)->get();
         $data = [
             'programs' => $trainings,
             'successes' => $successes
