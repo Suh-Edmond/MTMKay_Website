@@ -24,7 +24,6 @@ $(document).ready(function() {
             data: $form.serialize(),
             headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
             success:function (response){
-                console.log(response.code === "NEW_ACCOUNT_CREATION")
                 if(response.code === "NEW_ACCOUNT_CREATION"){
                     $('#success_new_account').fadeIn()
                     $('.modal').modal('hide');

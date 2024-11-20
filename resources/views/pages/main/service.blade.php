@@ -24,7 +24,7 @@
     <div class="container">
         <div class="main_title">
             <h2>Key Services</h2>
-            <h4>
+            <p>
                 MTMKay offers a unique blend of services tailored to the needs of our community.
                 We provide IT consulting and managed services to help local businesses improve their technology infrastructure.
             </p>
@@ -38,10 +38,10 @@
                     </div>
                     <div class="pack_body">
                         <ul class="list">
-                            <li><a href="#" style="font-size: medium">Industry-leading IT Certification and Corporate Training</a></li>
-                            <li><a href="#" style="font-size: medium">Cisco Certified Network Associate (CCNA)</a></li>
-                            <li><a href="#" style="font-size: medium">Microsoft Azure Fundamentals</a></li>
                             <li><a href="#" style="font-size: medium">CompTIA Security+</a></li>
+                            <li><a href="#" style="font-size: medium">Microsoft Azure Fundamentals</a></li>
+                            <li><a href="#" style="font-size: medium">Cisco Certified Network Associate (CCNA)</a></li>
+                            <li><a href="#" style="font-size: medium">Industry-leading IT Certification and Corporate Training</a></li>
                         </ul>
                     </div>
                 </div>
@@ -54,10 +54,10 @@
                     </div>
                     <div class="pack_body">
                         <ul class="list">
-                            <li><a href="#" style="font-size: medium">Cloud Hosting and Management of Services</a></li>
+                            <li><a href="#" style="font-size: medium">Infrastructure Design</a></li>
                             <li><a href="#" style="font-size: medium">Cloud Migration and Virtualization</a></li>
                             <li><a href="#" style="font-size: medium">Scalable, reliable IT environments</a></li>
-                            <li><a href="#" style="font-size: medium">Infrastructure Design</a></li>
+                            <li><a href="#" style="font-size: medium">Cloud Hosting and Management of Services</a></li>
                         </ul>
                     </div>
                 </div>
@@ -72,10 +72,10 @@
                     </div>
                     <div class="pack_body">
                         <ul class="list">
-                            <li><a href="#" style="font-size: medium">Optimize Technology for efficiency and growth</a></li>
-                            <li><a href="#" style="font-size: medium">IT Strategy and System Integration</a></li>
-                            <li><a href="#" style="font-size: medium">Managed IT Services</a></li>
                             <li><a href="#" style="font-size: medium">Technical Support</a></li>
+                            <li><a href="#" style="font-size: medium">Managed IT Services</a></li>
+                            <li><a href="#" style="font-size: medium">IT Strategy and System Integration</a></li>
+                            <li><a href="#" style="font-size: medium">Optimize Technology for efficiency and growth</a></li>
                         </ul>
                     </div>
                 </div>
@@ -88,10 +88,10 @@
                     </div>
                     <div class="pack_body">
                         <ul class="list">
-                            <li><a href="#" style="font-size: medium">Protect digital assets with advanced security protocols</a></li>
-                            <li><a href="#" style="font-size: medium">Vulnerability Assessments and Penetration Testing</a></li>
                             <li><a href="#" style="font-size: medium">Compliance Audits</a></li>
                             <li><a href="#" style="font-size: medium">Security Monitoring</a></li>
+                            <li><a href="#" style="font-size: medium">Vulnerability Assessments and Penetration Testing</a></li>
+                            <li><a href="#" style="font-size: medium">Protect digital assets with advanced security protocols</a></li>
                         </ul>
                     </div>
                 </div>
@@ -106,10 +106,10 @@
                     </div>
                     <div class="pack_body">
                         <ul class="list">
-                            <li><a href="#" style="font-size: medium">Optimize Technology for efficiency and growth</a></li>
-                            <li><a href="#" style="font-size: medium">Custom Website Development</a></li>
                             <li><a href="#" style="font-size: medium">E-Commerce Solutions</a></li>
                             <li><a href="#" style="font-size: medium">SEO and Digital Marketing</a></li>
+                            <li><a href="#" style="font-size: medium">Custom Website Development</a></li>
+                            <li><a href="#" style="font-size: medium">Optimize Technology for efficiency and growth</a></li>
                         </ul>
                     </div>
                 </div>
@@ -119,17 +119,29 @@
 </section>
 <!--================End Courses Area =================-->
 
+<!--================Impress Area =================-->
+<section class="impress_area p_120">
+    <div class="container">
+        <div class="impress_inner text-center">
+            <h2>Let's Do Something together</h2>
+            <h4>We provide IT consulting and managed services to help local businesses improve their technology infrastructure.</h4>
+            <a class="main_btn2" href="{{route('contact')}}">Contact Us</a>
+        </div>
+    </div>
+</section>
+<!--================End Impress Area =================-->
+
 <!--================Pagkages Area =================-->
 <section class="packages_area p_120">
     <div class="container">
+        <div class="main_title">
+            <h2>Choose Packages</h2>
+            <p>
+                Thank you for considering MTMKay, where we believe that technology should be accessible to all, empowering our community one step at a time.
+            </p>
+        </div>
         <div class="row packages_inner">
-            <div class="col-lg-4">
-                <div class="packages_text">
-                    <h3>Choose <br />Course Packages</h3>
-                    <p>There is a moment in the life of any aspiring astronomer that it is time to buy that first telescope. It’s exciting to think about setting up your own viewing station.</p>
-                </div>
-            </div>
-            <div class="col-lg-4">
+            <div class="col-lg-6">
                 <div class="packages_item">
                     <div class="pack_head">
                         <i class="lnr lnr-graduation-hat"></i>
@@ -138,9 +150,11 @@
                     </div>
                     <div class="pack_body">
                         <ul class="list">
-                            <li><a href="#">Secure Online Transfer</a></li>
-                            <li><a href="#">Unlimited Styles for interface</a></li>
-                            <li><a href="#">Reliable Customer Service</a></li>
+                            <li><a href="#" style="font-size: medium"> <i class="lnr lnr-checkmark-circle mr-lg-3" style="color: #385abe"></i>Managed IT Services</a></li>
+                            <li><a href="#" style="font-size: medium"><i class="lnr lnr-checkmark-circle mr-lg-3" style="color: #385abe"></i>Technical Support</a></li>
+                            <li><a href="#"><i class="lnr lnr-checkmark-circle mr-lg-3" style="color: #385abe"></i>Custom Website Development</a></li>
+                            <li><a href="#" style="font-size: medium"><i class="lnr lnr-checkmark-circle mr-lg-3" style="color: #385abe"></i>IT Strategy and System Integration</a></li>
+                            <li><a href="#" style="font-size: medium"><i class="lnr lnr-cross mr-lg-3" style="color: #eb6b55"></i>Cloud Hosting and Management of Services</a></li>
                         </ul>
                     </div>
                     <div class="pack_footer">
@@ -149,7 +163,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4">
+            <div class="col-lg-6">
                 <div class="packages_item">
                     <div class="pack_head">
                         <i class="lnr lnr-diamond"></i>
@@ -158,9 +172,11 @@
                     </div>
                     <div class="pack_body">
                         <ul class="list">
-                            <li><a href="#">Secure Online Transfer</a></li>
-                            <li><a href="#">Unlimited Styles for interface</a></li>
-                            <li><a href="#">Reliable Customer Service</a></li>
+                            <li><a href="#" style="font-size: medium"><i class="lnr lnr-checkmark-circle mr-lg-3" style="color: #385abe"></i>Managed IT Services</a></li>
+                            <li><a href="#" style="font-size: medium"><i class="lnr lnr-checkmark-circle mr-lg-3" style="color: #385abe"></i>Technical Support</a></li>
+                            <li><a href="#"><i class="lnr lnr-checkmark-circle mr-lg-3" style="color: #385abe"></i>Custom Website Development</a></li>
+                            <li><a href="#" style="font-size: medium"><i class="lnr lnr-checkmark-circle mr-lg-3" style="color: #385abe"></i>IT Strategy and System Integration</a></li>
+                            <li><a href="#" style="font-size: medium"><i class="lnr lnr-checkmark-circle mr-lg-3" style="color: #385abe"></i>Cloud Hosting and Management of Services</a></li>
                         </ul>
                     </div>
                     <div class="pack_footer">

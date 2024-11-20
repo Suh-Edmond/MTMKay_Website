@@ -71,7 +71,22 @@
                         <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
                             <div class="card-body">
                                 Delivering high-quality solutions that meet global standards.
+                                Through tailored IT solutions, our clients have achieved operational efficiency, CyberSecurity compliance, and digital transformation.
                              </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header" id="headingFour">
+                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                Impact
+                                <i class="lnr lnr-chevron-down"></i>
+                                <i class="lnr lnr-chevron-up"></i>
+                            </button>
+                        </div>
+                        <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+                            <div class="card-body">
+                                We believe that by providing access to IT education and affordable tech solutions, we can empower our community, create job opportunities, and foster innovation. Through partnerships with leading tech companies and dedicated training, MTMKay aims to uplift our local workforce and position our clients for success in a digital economy
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -79,14 +94,12 @@
             <div class="col-lg-6">
                 <div class="video_area" id="video">
                     <img class="img-fluid" src="img/video-1.jpg" alt="">
-                    <a class="popup-youtube" href="https://www.youtube.com/watch?v=VufDd-QL1c0">
-                        <img src="img/icon/video-icon-1.png" alt="">
-                    </a>
+                    <img src="img/icon/video-icon-1.png" alt="">
                 </div>
             </div>
         </div>
         <div class="about_details">
-            <p>MTMKay Technology Solutions combines technical expertise, strategic partnerships with top technology providers, and a commitment to bridging the digital divide. Our team delivers tailored IT solutions that drive business success.
+            <p style="font-size: medium">MTMKay Technology Solutions combines technical expertise, strategic partnerships with top technology providers, and a commitment to bridging the digital divide. Our team delivers tailored IT solutions that drive business success.
                 At MTMKay Technology Solutions, our mission is to empower businesses and individuals through innovative IT solutions, advanced CyberSecurity, and industry-leading training programs.
                 We are committed to driving digital transformation and fostering growth within our community and beyond.</p>
         </div>
@@ -99,7 +112,7 @@
     <div class="container">
         <div class="main_title">
             <h2>Meet Our Team</h2>
-            <p>Our dynamic. certified and well-trained instructors available to provide the top-notch services and training to our clients and students.</p>
+            <p>Our dynamic, certified and well-trained instructors available to provide the top-notch services and training to our clients and students.</p>
         </div>
         <div class="row team_inner">
             <div class="col-lg-3 col-sm-6">
@@ -194,7 +207,7 @@
     <div class="container">
         <div class="main_title">
             <h2>Award-Winning Agency</h2>
-            <p>MTMKay Technology Solutions has successfully supported clients across various industries. Through tailored IT solutions, our clients have achieved operational efficiency, CyberSecurity compliance, and digital transformation.</p>
+            <p>MTMKay Technology Solutions has successfully supported clients across various industries.</p>
         </div>
         <div class="row team_inner">
             <div class="col-md-4">

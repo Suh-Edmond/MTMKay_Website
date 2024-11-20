@@ -21,7 +21,7 @@ Route::get('/training', [TrainingController::class, 'index'])->name('training');
 Route::get('/training-detail', [TrainingController::class, 'show'])->name('show-training');
 Route::get('/blog', [BlogController::class, 'index'])->name('blog');
 Route::get('/contact-us', [ContactController::class, 'index'])->name('contact');
-Route::post('/submit-contact', [ContactController::class, 'submitRequest'])->name('on-submit-contact');
+Route::post('/submit-inquiry', [ContactController::class, 'submitRequest'])->name('on-inquire');
 Route::get('/blog-detail', [BlogController::class, 'show'])->name('show-blog');
 Route::post('/blog/create', [BlogCommentsController::class, 'createComment'])->name('create-comment');
 Route::post('/programs/{id}/enroll', [UserController::class, 'enrollStudent'])->name('enroll-student');
