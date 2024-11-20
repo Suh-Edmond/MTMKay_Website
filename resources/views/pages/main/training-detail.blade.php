@@ -1,6 +1,4 @@
-@extends('layouts.app')
-
-@section('content')
+<x-guest-layout>
 
 <!--================Home Banner Area =================-->
 <section class="banner_area">
@@ -180,4 +178,4 @@
 </div>
 <!--================End Contact Success and Error message Area =================-->
 
-@endsection
+</x-guest-layout>
