@@ -12,14 +12,15 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('blog_images', function (Blueprint $table) {
-            $table->uuid('id')->primary();
-            $table->uuid('blog_id');
+//            $table->uuid('id')->primary();
+            $table->id();
+            $table->foreignId('blog_id')->constrained();
             $table->string('file_path');
             $table->boolean('is_main');
             $table->softDeletes();
             $table->timestamps();
 
-            $table->foreign('blog_id')->references('id')->on('blogs');
+//            $table->foreign('blog_id')->references('id')->on('blogs');
         });
     }
 

@@ -15,7 +15,7 @@ class ProgramSeeder extends Seeder
     public function run(Generator $faker): void
     {
         Program::create([
-            'id'  => '4c4c83b2-3b5b-455d-ba43-6ad1642db104',
+            'id'  => '1',
             'title' => 'Microsoft Azure Fundamentals',
             'objective' => 'This program provides comprehensive training in Microsoft Azure, equipping students with foundational and advanced cloud skills. By the end of the course, students will be prepared for entry-level cloud roles and have practical experience with Azure infrastructure.',
             'eligibility' => 'Ideal for beginners interested in cloud computing who want a solid foundation to enter the IT field. No prior experience is required.',
@@ -28,7 +28,7 @@ class ProgramSeeder extends Seeder
         ]);
 
         Program::create([
-            'id'  => '08454387-d6b5-4a53-b9cd-e5d6f8146407',
+            'id'  => '2',
             'title' => 'Cisco Certified Network Associate (CCNA)',
             'objective' => 'This program builds a solid foundation in networking, covering everything from routing and switching to network security. Students will be prepared for network support and administration roles and gain hands-on experience with real-world networking environments',
             'eligibility' => 'Recommended for individuals with a basic understanding of IT who are interested in pursuing careers in networking.',
@@ -41,7 +41,7 @@ class ProgramSeeder extends Seeder
         ]);
 
         Program::create([
-            'id'   => '3941f528-6b7b-450e-ba5a-4f52acad6e2e',
+            'id'   => '3',
             'title' => 'CompTIA Security+',
             'objective' => 'This course offers an in-depth understanding of cybersecurity fundamentals, preparing students for entry-level roles in cybersecurity. It covers threat management, risk assessment, and essential security practices, ensuring job readiness for the cybersecurity field.',
             'eligibility' => 'Suitable for students with basic IT knowledge who want to enter cybersecurity roles.',

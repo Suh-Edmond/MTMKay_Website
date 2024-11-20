@@ -11,15 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('blog_categories', function (Blueprint $table) {
-            $table->uuid('blog_id');
-            $table->uuid('categories_id');
-            $table->timestamps();
-            $table->softDeletes();
-
-            $table->foreign('blog_id')->references('id')->on('blogs');
-            $table->foreign('categories_id')->references('id')->on('categories');
-        });
+//        Schema::create('blog_categories', function (Blueprint $table) {
+////            $table->integer('blog_id');
+////            $table->integer('categories_id');
+////            $table->timestamps();
+////            $table->softDeletes();
+////
+////            $table->foreign('blog_id')->references('id')->on('blogs');
+////            $table->foreign('categories_id')->references('id')->on('categories');
+//        });
     }
 
     /**
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('blog_categories');
+//        Schema::dropIfExists('blog_categories');
     }
 };

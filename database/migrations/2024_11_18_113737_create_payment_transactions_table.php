@@ -12,14 +12,15 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('payment_transactions', function (Blueprint $table) {
-            $table->uuid('id')->primary();
-            $table->uuid('enrollment_id');
+//            $table->uuid('id')->primary();
+            $table->id();
+            $table->foreignId('enrollment_id')->constrained();
             $table->double('amount_deposited');
             $table->dateTime('payment_date');
             $table->softDeletes();
             $table->timestamps();
 
-            $table->foreign('enrollment_id')->references('id')->on('enrollments');
+//            $table->foreign('enrollment_id')->references('id')->on('enrollments');
 
         });
     }
