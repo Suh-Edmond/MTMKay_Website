@@ -12,14 +12,15 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('program_outlines', function (Blueprint $table) {
-            $table->uuid('id')->primary();
+//            $table->uuid('id')->primary();
+            $table->id();
             $table->string('period');
             $table->text('topic');
-            $table->uuid('program_id');
+            $table->foreignId('program_id')->constrained();
             $table->softDeletes();
             $table->timestamps();
 
-            $table->foreign('program_id')->references('id')->on('programs');
+//            $table->foreign('program_id')->references('id')->on('programs');
         });
     }
 

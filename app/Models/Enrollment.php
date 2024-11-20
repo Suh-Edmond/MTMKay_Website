@@ -11,11 +11,11 @@ class Enrollment extends Model
 {
     use HasFactory, SoftDeletes;
 
-    use GenerateUUIDTrait;
-
-    protected $primaryKey = 'id';
-    public $incrementing  = false;
-    protected $keyType    = 'string';
+//    use GenerateUUIDTrait;
+//
+//    protected $primaryKey = 'id';
+//    public $incrementing  = false;
+//    protected $keyType    = 'string';
 
     protected $fillable = [
         'program_id',

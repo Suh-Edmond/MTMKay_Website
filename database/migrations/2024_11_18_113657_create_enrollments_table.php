@@ -12,16 +12,17 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('enrollments', function (Blueprint $table) {
-            $table->uuid('id')->primary();
-            $table->uuid('program_id');
-            $table->uuid('user_id');
+//            $table->uuid('id')->primary();
+            $table->id();
+            $table->foreignId('program_id')->constrained();
+            $table->foreignId('user_id')->constrained();
             $table->boolean('has_completed_payment')->default(false);
             $table->dateTime('enrollment_date');
             $table->softDeletes();
             $table->timestamps();
 
-            $table->foreign('program_id')->references('id')->on('programs');
-            $table->foreign('user_id')->references('id')->on('users');
+//            $table->foreign('program_id')->references('id')->on('programs');
+//            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

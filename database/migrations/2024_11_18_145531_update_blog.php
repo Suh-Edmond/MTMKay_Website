@@ -12,11 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('blogs', function (Blueprint $table){
-            $table->uuid('category_id');
+            $table->foreignId('category_id')->constrained();
 
-            $table->foreign('category_id')->references('id')->on('categories');
+//            $table->foreign('category_id')->references('id')->on('categories');
 
-            Schema::dropIfExists('blog_categories');
+//            Schema::dropIfExists('blog_categories');
         });
     }
 

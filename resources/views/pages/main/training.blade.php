@@ -30,9 +30,9 @@
             </div>
             <div class="row courses_inner">
                 @foreach($programs as $key => $program)
-                    <div class="col-6 col-md-6 col-sm-12 col-lg-6 mt-4">
-                        <div class="course_item">
-                            <img src="{{$program->image_path}}" alt="" width="100%" height="100%">
+                    <div class="col-6 col-md-6 col-sm-12 col-lg-6 col-xs-12 mt-4" >
+                        <div class="course_item"  >
+                            <img src="{{$program->image_path}}" alt="" width="100%">
                             <div class="hover_text">
                                 <a class="cat" href="{{route('show-training', ['id' => $program->id])}}">View</a>
                                 <a href="{{route('show-training', ['id' => $program->id])}}"><h4>{{$program->title}}</h4></a>

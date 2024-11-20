@@ -12,8 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('blog_comments', function (Blueprint $table) {
-            $table->uuid('id')->primary();
-            $table->uuid('blog_id');
+//            $table->uuid('id')->primary();
+            $table->id();
+            $table->foreignId('blog_id')->constrained();
             $table->string('name');
             $table->string('email');
             $table->string('subject');
@@ -21,7 +22,7 @@ return new class extends Migration
             $table->timestamps();
             $table->softDeletes();
 
-            $table->foreign('blog_id')->references('id')->on('blogs');
+//            $table->foreign('blog_id')->references('id')->on('blogs');
         });
     }
 

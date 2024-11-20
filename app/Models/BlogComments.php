@@ -10,11 +10,11 @@ class BlogComments extends Model
 {
     use HasFactory;
 
-    use GenerateUUIDTrait;
-
-    protected $primaryKey = 'id';
-    public $incrementing  = false;
-    protected $keyType    = 'string';
+//    use GenerateUUIDTrait;
+//
+//    protected $primaryKey = 'id';
+//    public $incrementing  = false;
+//    protected $keyType    = 'string';
 
     protected $fillable = [
         'blog_id',
