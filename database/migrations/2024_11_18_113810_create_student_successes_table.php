@@ -13,18 +13,16 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('student_successes', function (Blueprint $table) {
-//            $table->uuid('id')->primary();
-            $table->id();
+             $table->id();
             $table->foreignId('program_id')->constrained();
             $table->foreignId('user_id')->constrained();
             $table->mediumText('message');
             $table->enum('status', [BlogState::PENDING, BlogState::APPROVED, BlogState::REJECTED])->default(BlogState::PENDING);
             $table->boolean('is_visible')->default(false);
             $table->softDeletes();
+            $table->string('slug')->unique();
             $table->timestamps();
 
-//            $table->foreign('program_id')->references('id')->on('programs');
-//            $table->foreign('user_id')->references('id')->on('users');
 
         });
     }

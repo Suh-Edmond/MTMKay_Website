@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('profile_pic')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('slug')->unique();
             $table->rememberToken();
             $table->softDeletes();
             $table->timestamps();

@@ -24,7 +24,7 @@
         <div class="row course_details_inner">
             <div class="col-lg-8">
                 <div class="c_details_img">
-                    <img class="img-fluid" src="{{$program->image_path}}" alt="" width="100%">
+                    <img class="img-fluid" src="{{$program->image_path ?? ''}}" alt="" width="100%">
                 </div>
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                     <li class="nav-item">
@@ -90,7 +90,7 @@
                 </button>
                 <h2 class="mb-30 title_color">Enrollment Form</h2>
                 <div>
-                    <form action="{{route('enroll-student', ['id' => $program->id])}}"  id="enrollmentForm" method="POST" >
+                    <form action="{{route('enroll-student', ['slug' => $program->slug])}}"  id="enrollmentForm" method="POST" >
                         @csrf
                         <div class="my-md-4">
                             <input type="text" name="name" placeholder="Full Name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Full Name'" required class="single-input py-lg-2">

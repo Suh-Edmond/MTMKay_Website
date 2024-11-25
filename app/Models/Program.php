@@ -11,11 +11,8 @@ class Program extends Model
 {
     use HasFactory, SoftDeletes;
 
-//    use GenerateUUIDTrait;
-//
-//    protected $primaryKey = 'id';
-//    public $incrementing  = false;
-//    protected $keyType    = 'string';
+    use GenerateUUIDTrait;
+
 
     protected $fillable = [
         'title',

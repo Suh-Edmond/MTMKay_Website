@@ -15,11 +15,9 @@ class User extends Authenticatable implements MustVerifyEmail
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable, SoftDeletes;
 
-//    use GenerateUUIDTrait;
-//
-//    protected $primaryKey = 'id';
-//    public $incrementing  = false;
-//    protected $keyType    = 'string';
+    use GenerateUUIDTrait;
+
+
 
 
     /**
@@ -33,7 +31,8 @@ class User extends Authenticatable implements MustVerifyEmail
         'password',
         'telephone',
         'address',
-        'profile_pic'
+        'profile_pic',
+        'role_id'
     ];
 
     /**
@@ -67,5 +66,10 @@ class User extends Authenticatable implements MustVerifyEmail
     public function enrollments()
     {
         return $this->hasMany(Enrollment::class);
+    }
+
+    public function userRole()
+    {
+        return $this->belongsTo(UserRole::class);
     }
 }

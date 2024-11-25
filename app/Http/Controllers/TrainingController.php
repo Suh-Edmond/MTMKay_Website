@@ -21,9 +21,9 @@ class TrainingController extends Controller
 
     public function show(Request $request)
     {
-        $id = $request['id'];
-        $program = Program::findOrFail($id);
-        $data = [
+        $slug = $request['slug'];
+        $program = Program::where('slug', $slug)->first();
+         $data = [
             'program' => $program
         ];
         return view("pages.main.training-detail")->with($data);
