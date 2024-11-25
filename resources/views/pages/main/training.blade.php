@@ -31,8 +31,8 @@
                         <div class="course_item"  >
                             <img src="{{$program->image_path}}" alt="" width="100%">
                             <div class="hover_text">
-                                <a class="cat" href="{{route('show-training', ['id' => $program->id])}}">View</a>
-                                <a href="{{route('show-training', ['id' => $program->id])}}"><h4>{{$program->title}}</h4></a>
+                                <a class="cat" href="{{route('show-training', ['slug' => $program->slug])}}">View</a>
+                                <a href="{{route('show-training', ['slug' => $program->slug])}}"><h4>{{$program->title}}</h4></a>
                                 <ul class="list">
                                     <li><a href="#"><i class="lnr lnr-users"></i> {{count($program->enrollments)}}</a></li>
                                     <li><a href="#"><i class="lnr lnr-user"></i> {{$program->trainer_name}}</a></li>

@@ -37,7 +37,7 @@
                         <img src="{{$category->image_path}}" alt="post">
                         <div class="categories_details">
                             <div class="categories_text">
-                                <a href="{{route('blog', ['title' => $category->name, 'id' => $category->id])}}"><h5>{{$category->name}}</h5></a>
+                                <a href="{{route('blog', ['title' => $category->name, 'slug' => $category->slug])}}"><h5>{{$category->name}}</h5></a>
                                 <div class="border_line"></div>
                                 <p>{{$category->caption_text}}</p>
                             </div>
@@ -73,9 +73,9 @@
                                 <div class="blog_post">
                                     <img src="{{$blog->getSingleBlogImage($blog->id)->file_path ?? ''}}" alt="" width="100%">
                                     <div class="blog_details">
-                                        <a href="{{route('show-blog', ['id'=>$blog->id])}}"><h2>{{$blog->title}}</h2></a>
+                                        <a href="{{route('show-blog', ['slug'=>$blog->slug])}}"><h2>{{$blog->title}}</h2></a>
                                         <p>{{$blog->description}}.</p>
-                                        <a href="{{route('show-blog', ['id'=>$blog->id])}}" class="white_bg_btn">View More</a>
+                                        <a href="{{route('show-blog', ['slug'=>$blog->slug])}}" class="white_bg_btn">View More</a>
                                     </div>
                                 </div>
                             </div>
@@ -85,7 +85,7 @@
                     <nav class="blog-pagination justify-content-center d-flex">
                         <ul class="pagination">
                             <li   class="{{$blogs->currentPage() == 1 ? 'page-item disabled':'page-item'}}">
-                                <a href="{{route('blog', ['page' =>$blogs->currentPage() - 1])}}" class="page-link" aria-label="Previous">
+                                <a href="{{route('blog', ['page' =>$blogs->currentPage() - 1, 'tag' => $tag, 'slug' => $slug, 'search'=> $search, 'title' => $title])}}" class="page-link" aria-label="Previous">
 		                                    <span aria-hidden="true">
 		                                        <span class="lnr lnr-chevron-left"></span>
 		                                    </span>
@@ -93,12 +93,12 @@
                             </li>
                             @for($i = 1; $i <= $blogs->lastPage(); $i++)
                                 <li class="{{$blogs->currentPage() == $i ? 'page-item active':'page-item'}}">
-                                    <a class="page-link" href="{{route('blog', ['page' => $i])}}">{{$i}}</a>
+                                    <a class="page-link" href="{{route('blog', ['page' => $i, 'tag' => $tag, 'slug' => $slug, 'search'=> $search, 'title' => $title])}}">{{$i}}</a>
                                 </li>
                             @endfor
 
                             <li   class="{{$blogs->currentPage() == $blogs->lastPage() ? 'page-item disabled': 'page-item'}}">
-                                <a href="{{route('blog', ['page' =>$blogs->currentPage() + 1])}}" class="page-link" aria-label="Next">
+                                <a href="{{route('blog', ['page' =>$blogs->currentPage() + 1, 'tag' => $tag, 'slug' => $slug, 'search'=> $search, 'title' => $title])}}" class="page-link" aria-label="Next">
 		                                    <span aria-hidden="true">
 		                                        <span class="lnr lnr-chevron-right"></span>
 		                                    </span>
@@ -149,7 +149,7 @@
                             <div class="media post_item">
                                 <img src="{{$popularBlog->getSingleBlogImage($popularBlog->id)->file_path ?? ''}}" alt="post" height="25%" width="25%">
                                 <div class="media-body">
-                                    <a href="{{route('show-blog', ['id'=> $popularBlog->id])}}"><h3>{{$popularBlog->title}}</h3></a>
+                                    <a href="{{route('show-blog', ['slug'=> $popularBlog->slug])}}"><h3>{{$popularBlog->title}}</h3></a>
                                     @if($popularBlog->getBlogCreatedHours($popularBlog->id) < 1)
                                         <p>Few Minutes Ago</p>
                                     @else
@@ -171,7 +171,7 @@
                         <ul class="list cat-list">
                             @foreach($categories as $category)
                                 <li>
-                                    <a href="{{route('blog', ['title' => $category->name, 'id'=>$category->id])}}" class="d-flex justify-content-between">
+                                    <a href="{{route('blog', ['title' => $category->name, 'slug'=>$category->slug])}}" class="d-flex justify-content-between">
                                         <p>{{$category->name}}</p>
                                         <p>{{$category->blogs()->count()}}</p>
                                     </a>

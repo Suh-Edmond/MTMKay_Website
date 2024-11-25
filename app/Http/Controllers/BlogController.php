@@ -14,15 +14,15 @@ class BlogController extends Controller
     {
         $searchParam = $request['search'];
         $filterParam = $request['title'];
-        $id          = $request['id'];
+        $slug          = $request['slug'];
         $tag         = $request['tag'];
         $categories = Category::all();
         $tags       = Tag::orderBy('name', 'asc')->get();
         $popularBlogs = $this->getPopularBlogs();
-        $category     = Category::find($id);
+        $category     = Category::where('slug',$slug)->first();
 
-        if(isset($filterParam) && isset($id)){
-            $blogs = Blog::where('category_id',  $id);
+        if(isset($filterParam) && isset($slug)){
+            $blogs = Blog::where('category_id',  $category->id);
         }else {
             $blogs = Blog::orderBy('created_at', 'DESC');
         }
@@ -47,7 +47,10 @@ class BlogController extends Controller
             'popularBlogs'  => $popularBlogs,
             'tags'             => $tags,
             'filteredCategory' => $category,
-            'tag'              => $tag
+            'tag'              => $tag,
+            'slug'             => $slug,
+            'search'           => $searchParam,
+            'title'            => $filterParam
         ];
 
         return view("pages.main.blog")->with($data);
@@ -55,17 +58,17 @@ class BlogController extends Controller
 
     public function show(Request $request)
     {
-        $id = $request['id'];
-        $categories = Category::all();
+        $slug         = $request['slug'];
+        $categories   = Category::all();
         $popularBlogs = $this->getPopularBlogs();
-        $blog = Blog::findOrFail($id);
-        $tags       = Tag::orderBy('name', 'asc')->get();
+        $blog         = Blog::where('slug',$slug)->first();
+        $tags         = Tag::orderBy('name', 'asc')->get();
 
         $data = [
-            'blog' => $blog,
-            'categories' => $categories,
-            'popularBlogs' => $popularBlogs,
-            'tags'             => $tags,
+            'blog'          => $blog,
+            'categories'    => $categories,
+            'popularBlogs'  => $popularBlogs,
+            'tags'          => $tags,
         ];
         return view("pages.main.blog-detail")->with($data);
     }

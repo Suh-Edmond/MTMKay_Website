@@ -25,7 +25,7 @@
                 <div class="single-post row">
                     <div class="col-lg-12">
                         <div class="feature-img">
-                            <img class="img-fluid" src="{{$blog->getSingleBlogImage($blog->id)->file_path}}" alt="" width="100%" height="100%">
+                            <img class="img-fluid" src="{{$blog->getSingleBlogImage($blog->id)->file_path ?? ''}}" alt="" width="100%" height="100%">
                         </div>
                     </div>
                     <div class="col-lg-3  col-md-3">
@@ -81,9 +81,9 @@
                                         </p>
                                     </div>
                                 </div>
-                                <div class="reply-btn">
-                                    <a href="" class="btn-reply text-uppercase">reply</a>
-                                </div>
+{{--                                <div class="reply-btn">--}}
+{{--                                    <a href="" class="btn-reply text-uppercase">reply</a>--}}
+{{--                                </div>--}}
                             </div>
                         </div>
                     @endforeach
