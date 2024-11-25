@@ -3,12 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\EnrollmentRequest;
+use App\Mail\StudentEnrollmentMail;
 use App\Models\Enrollment;
 use App\Models\Program;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Auth\Events\Registered;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 
 class UserController extends Controller
 {
@@ -19,7 +22,7 @@ class UserController extends Controller
         $exist   = $this->fetchStudent($request);
 
         if (!isset($exist)){
-            $student = $this->createStudentAccount($request);
+            $student = $this->createStudentAccount($request, $program->id);
             if($this->checkIfStudentAlreadyEnrollProgram($id, $student->id) !== null){
                 return response()->json(['message' => 'User Already enrolled', 'status' => 200, 'code' => 'ENROLLED']);
             }else{
@@ -42,12 +45,12 @@ class UserController extends Controller
                 ]);
             }
         }
-        $hasVerifyEmail = $this->checkIfEmailVerify($request['email']);
-        return response()->json(['message' => 'User account created successfully', 'status' => 200, 'code' => isset($hasVerifyEmail)? 'NEW_ACCOUNT_CREATION' : 'EXISTING_ACCOUNT']);
+//        $hasVerifyEmail = $this->checkIfEmailVerify($request['email']);
+        return response()->json(['message' => 'Successfully enrolled new student', 'status' => 200, 'code' => !isset($exist) ? 'NEW_ACCOUNT_CREATION' : 'EXISTING_ACCOUNT']);
     }
 
 
-    public function createStudentAccount(EnrollmentRequest $request)
+    public function createStudentAccount(EnrollmentRequest $request, $programId)
     {
         $student = $this->fetchStudent($request);
         if(!isset($student)){
@@ -62,7 +65,14 @@ class UserController extends Controller
                 'password' => Hash::make('password')
             ]);
 
-            event(new Registered($student));
+
+            $data = [
+                'name' => $request['name'],
+                'email' => $request['email'],
+                'verificationUrl' => env('ENROLLMENT_VERIFICATION_URL')."?prog=".$programId."&stud=".$student->id."&expires=".strtotime(Carbon::now()->addHours(24))
+            ];
+
+            Mail::to($request['email'])->send(new StudentEnrollmentMail($data));
         }
         return $student;
     }
@@ -80,6 +90,31 @@ class UserController extends Controller
     private function checkIfStudentAlreadyEnrollProgram($programId, $userId)
     {
         return Enrollment::where('program_id', $programId)->where('user_id', $userId)->whereNotNull('enrollment_date')->first();
+    }
+
+
+    public function completeEnrollment(Request $request)
+    {
+       $expires = Carbon::create($request['expires']);
+       $user   = User::findOrFail($request['stud']);
+       $program = Program::findOrFail($request['prog']);
+       $has_expire = Carbon::now()->greaterThan($expires);
+
+       $enrollment = Enrollment::where('program_id', $program->id)->where('user_id', $user->id)->first();
+       if(isset($enrollment) && !isset($enrollment->enrollment_date)){
+           $enrollment->update([
+               'enrollment_date' => Carbon::now()
+           ]);
+       }
+
+       $data = [
+           'student' => $user,
+           'program' => $program,
+           'has_expire' => $has_expire,
+           'message' => $has_expire ? 'Program Enrollment Link has Expired': 'Program Enrollment Completed Successfully',
+       ];
+
+       return view('pages.verification.enrollment')->with($data);
     }
 
 }

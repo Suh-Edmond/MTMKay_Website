@@ -35,5 +35,6 @@ Route::post('/submit-inquiry', [ContactController::class, 'submitRequest'])->nam
 Route::get('/blog-detail', [BlogController::class, 'show'])->name('show-blog');
 Route::post('/blog/create', [BlogCommentsController::class, 'createComment'])->name('create-comment');
 Route::post('/programs/{id}/enroll', [UserController::class, 'enrollStudent'])->name('enroll-student');
-Route::get('/email/verify/{id}/{hash}', [VerifyEmailController::class, '__invoke'])->middleware(['signed', 'throttle:6,1'])->name('verification.verify');
+Route::get('/program-enrollment/verify-email', [UserController::class, 'completeEnrollment'])->name('complete-enrollment');
+
 require __DIR__.'/auth.php';
