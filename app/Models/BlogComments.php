@@ -5,16 +5,16 @@ namespace App\Models;
 use App\Traits\GenerateUUIDTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class BlogComments extends Model
 {
     use HasFactory;
 
-//    use GenerateUUIDTrait;
-//
-//    protected $primaryKey = 'id';
-//    public $incrementing  = false;
-//    protected $keyType    = 'string';
+    use SoftDeletes;
+
+    use GenerateUUIDTrait;
+
 
     protected $fillable = [
         'blog_id',

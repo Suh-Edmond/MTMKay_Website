@@ -12,8 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('programs', function (Blueprint $table) {
-//            $table->uuid('id')->primary();
-            $table->id();
+             $table->id();
             $table->string('title');
             $table->mediumText('objective');
             $table->mediumText('eligibility');
@@ -23,6 +22,7 @@ return new class extends Migration
             $table->string('image_path');
             $table->double('cost')->default(0);
             $table->mediumText('training_resources');
+            $table->string('slug')->unique();
             $table->softDeletes();
             $table->timestamps();
         });

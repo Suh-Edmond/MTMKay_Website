@@ -16,9 +16,6 @@ return new class extends Migration
             $table->foreignId('tag_id');
             $table->timestamps();
             $table->softDeletes();
-
-//            $table->foreign('blog_id')->references('id')->on('blogs');
-//            $table->foreign('tag_id')->references('id')->on('tags');
         });
     }
 

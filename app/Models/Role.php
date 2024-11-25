@@ -7,21 +7,17 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class BlogImages extends Model
+class Role extends Model
 {
     use HasFactory, SoftDeletes;
 
     use GenerateUUIDTrait;
+   protected $fillable = [
+       'name'
+   ];
 
-
-    protected $fillable = [
-        'blog_id',
-        'file_path',
-        'is_main'
-    ];
-
-    public function blog()
-    {
-        return $this->belongsTo(Blog::class);
-    }
+   public function users()
+   {
+       return $this->hasMany(User::class);
+   }
 }
