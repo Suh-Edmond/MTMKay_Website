@@ -5,17 +5,27 @@ use App\Http\Controllers\Auth\VerifyEmailController;
 use App\Http\Controllers\BlogCommentsController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\EnrollmentController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\TrainingController;
 use App\Http\Controllers\UserController;
+use App\Models\Enrollment;
 use Illuminate\Support\Facades\Route;
 
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware(['auth', 'verified'])->prefix('dashboard')->group(function (){
+    Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('manage-programs', [ProgramController::class, 'index'])->name('manage-programs');
+    Route::get('manage-trainees', [EnrollmentController::class, 'index'])->name('manage-students');
+    Route::get('manage-blogs', [BlogController::class, 'manageBlogs'])->name('manage-blogs');
+    Route::delete('manage-trainees/delete', [EnrollmentController::class, 'deleteTrainee'])->name('trainee.destroy');
+    Route::post('manage-trainees/payment-fees', [EnrollmentController::class, 'makePayment'])->name('trainee.make_payment');
+});
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -36,5 +46,6 @@ Route::get('/blog-detail', [BlogController::class, 'show'])->name('show-blog');
 Route::post('/blog/create', [BlogCommentsController::class, 'createComment'])->name('create-comment');
 Route::post('/programs/{slug}/enroll', [UserController::class, 'enrollStudent'])->name('enroll-student');
 Route::get('/program-enrollment/verify-email', [UserController::class, 'completeEnrollment'])->name('complete-enrollment');
+
 
 require __DIR__.'/auth.php';
