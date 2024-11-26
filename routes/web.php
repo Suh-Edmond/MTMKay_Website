@@ -25,6 +25,10 @@ Route::middleware(['auth', 'verified'])->prefix('dashboard')->group(function (){
     Route::get('manage-blogs', [BlogController::class, 'manageBlogs'])->name('manage-blogs');
     Route::delete('manage-trainees/delete', [EnrollmentController::class, 'deleteTrainee'])->name('trainee.destroy');
     Route::post('manage-trainees/payment-fees', [EnrollmentController::class, 'makePayment'])->name('trainee.make_payment');
+    Route::get('manage-programs/details', [ProgramController::class, 'show'])->name('show.program');
+    Route::put('manage-programs/details/update-image', [ProgramController::class, 'updateImage'])->name('program.update.image');
+    Route::put('manage-programs/details/update-information', [ProgramController::class, 'updateProgramInformation'])->name('program.update.information');
+    Route::put('manage-programs/details/update-outline', [ProgramController::class, 'updateOutline'])->name('program.update.outline');
 });
 
 Route::middleware('auth')->group(function () {
