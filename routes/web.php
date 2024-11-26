@@ -29,6 +29,7 @@ Route::middleware(['auth', 'verified'])->prefix('dashboard')->group(function (){
     Route::put('manage-programs/details/update-image', [ProgramController::class, 'updateImage'])->name('program.update.image');
     Route::put('manage-programs/details/update-information', [ProgramController::class, 'updateProgramInformation'])->name('program.update.information');
     Route::put('manage-programs/details/update-outline', [ProgramController::class, 'updateOutline'])->name('program.update.outline');
+    Route::get('manage-blogs/details', [BlogController::class, 'showBlog'])->name('show.blog');
 });
 
 Route::middleware('auth')->group(function () {

@@ -81,4 +81,13 @@ class BlogController extends Controller
     }
 
 
+    public function manageBlogs(Request $request)
+    {
+        $blogs = Blog::orderBy('created_at', 'desc')->paginate(12);
+        $data = [
+            'blogs' => $blogs
+        ];
+
+        return view('pages.management.blog.index')->with($data);
+    }
 }
