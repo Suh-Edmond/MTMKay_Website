@@ -6,8 +6,7 @@
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
-{{--                        <x-application-logo   />--}}
-                        <img src="img/company/mtmkay_logo.png" alt=""    class="block h-9 w-auto fill-current text-gray-800"></a>
+                        <img src="/img/company/mtmkay_logo.png" alt=""    class="block h-9 w-auto fill-current text-gray-800"></a>
                     </a>
                 </div>
 
@@ -18,22 +17,17 @@
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                    <x-nav-link :href="route('manage-programs')" :active="request()->routeIs('manage-programs')">
                         {{ __('Programs') }}
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Students') }}
+                    <x-nav-link :href="route('manage-students')" :active="request()->routeIs('manage-students')">
+                        {{ __('Enrollment') }}
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Blogs') }}
-                    </x-nav-link>
-                </div>
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                    <x-nav-link :href="route('manage-blogs')" :active="request()->routeIs('manage-blogs')">
                         {{ __('Blogs') }}
                     </x-nav-link>
                 </div>
