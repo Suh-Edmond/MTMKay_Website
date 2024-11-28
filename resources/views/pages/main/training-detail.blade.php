@@ -24,7 +24,7 @@
         <div class="row course_details_inner">
             <div class="col-lg-8">
                 <div class="c_details_img">
-                    <img class="img-fluid" src="{{$program->image_path ?? ''}}" alt="" width="100%">
+                    <img class="img-fluid" src="{{$program->getImagePath($program, $program->image_path) ?? ''}}" alt="" width="100%">
                 </div>
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                     <li class="nav-item">

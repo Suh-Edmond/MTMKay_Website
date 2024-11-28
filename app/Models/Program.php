@@ -13,6 +13,8 @@ class Program extends Model
 
     use GenerateUUIDTrait;
 
+    const IMAGE_DIR ='/storage/uploads/images';
+
 
     protected $fillable = [
         'title',
@@ -44,5 +46,12 @@ class Program extends Model
     public function payments()
     {
         return $this->hasManyThrough(PaymentTransaction::class, Enrollment::class);
+    }
+
+    public function getImagePath($program, $image_path)
+    {
+        $programTitle = str_replace(' ', '', $program->title);
+        $programTitle = str_replace('+', '', $programTitle);
+        return self::IMAGE_DIR."/".$programTitle."/".$image_path;
     }
 }

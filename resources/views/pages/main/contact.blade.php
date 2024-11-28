@@ -42,13 +42,13 @@
                     </div>
                     <div class="info_item">
                         <i class="lnr lnr-envelope"></i>
-                        <h6><a href="#">support@mtmkay.com</a></h6>
+                        <h6><a href="mailto:mtmkay17@gmail.com">mtmkay17@gmail.com</a></h6>
                         <p>Send us your query anytime!</p>
                     </div>
                 </div>
             </div>
             <div class="col-lg-9">
-                <form class="row contact_form" action="{{route('on-inquire')}}"  method="post" id="contactForm" novalidate="novalidate">
+                <form class="row contact_form" action="{{route('on-inquire')}}"  method="post" id="contactForm" >
                     @csrf
                     <div class="col-md-6">
                         <div class="form-group">

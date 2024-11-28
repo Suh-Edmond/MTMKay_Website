@@ -17,7 +17,7 @@
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('manage-programs')" :active="request()->routeIs('manage-programs')">
+                    <x-nav-link :href="route('manage-programs')" :active="request()->is('*/manage-programs/*') || request()->routeIs('manage-programs')">
                         {{ __('Programs') }}
                     </x-nav-link>
                 </div>
@@ -27,7 +27,7 @@
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('manage-blogs')" :active="request()->routeIs('manage-blogs')">
+                    <x-nav-link :href="route('manage-blogs')" :active="request()->is('*/manage-blogs/*') || request()->routeIs('manage-blogs')">
                         {{ __('Blogs') }}
                     </x-nav-link>
                 </div>

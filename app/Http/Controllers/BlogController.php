@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Constant\BlogState;
 use App\Models\Blog;
 use App\Models\Category;
 use App\Models\Tag;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class BlogController extends Controller
 {
@@ -81,4 +83,63 @@ class BlogController extends Controller
     }
 
 
+    public function manageBlogs(Request $request)
+    {
+        $blogs = Blog::orderBy('created_at', 'desc')->paginate(12);
+        $tags = Tag::orderBy('name')->get();
+        $categories = Category::orderBy('created_at', 'desc')->get();
+        $data = [
+            'blogs' => $blogs,
+            'tags' => $tags,
+            'categories' => $categories
+        ];
+
+        return view('pages.management.blog.index')->with($data);
+    }
+
+    public function showBlog(Request $request)
+    {
+        $slug = $request['slug'];
+        $blog = Blog::where('slug', $slug)->firstOrFail();
+        $categories = Category::orderBy('created_at', 'desc')->get();
+        $data = [
+            'blog' => $blog,
+            'categories' => $categories
+        ];
+
+        return view('pages.management.blog.show')->with($data);
+    }
+
+    public function updateInformation(Request $request)
+    {
+        $request->validate([
+            'title' => 'required|string|max:255|min:20',
+            'blog_state' => ['required', Rule::in([BlogState::PENDING, BlogState::REJECTED, BlogState::APPROVED])],
+            'description' => 'required|string|max:1000',
+            'category_id'   => ['required']
+        ]);
+        $slug = $request['slug'];
+        $blog = Blog::where('slug', $slug)->firstOrFail();
+
+        $blog->update([
+            'title' => $request['title'],
+            'description' => $request['description'],
+            'blog_state' => $request['blog_state'],
+            'category_id' => $request['blog_state']
+        ]);
+
+        return redirect()->route('show.blog', ['slug' => $request['slug']])->with('status', 'Information updated successfully');
+    }
+
+
+    public function deleteTag(Request $request)
+    {
+        $slug = $request['slug'];
+        $tagSlug = $request['tagSlug'];
+        $tag = Tag::where('slug', $tagSlug)->first();
+        $blog = Blog::where('slug', $slug)->first();
+        $blog->tags()->detach($tag->id);
+
+        return response()->json(['message' => "Account completed successfully", 'code' => 'TAG_DELETED']);
+    }
 }

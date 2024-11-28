@@ -19,7 +19,8 @@ class Blog extends Model
         'title',
         'description',
         'user_id',
-        'categories_id'
+        'categories_id',
+        'blog_state'
     ];
 
 
