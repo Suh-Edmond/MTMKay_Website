@@ -17,9 +17,9 @@ class ContactController extends Controller
     {
         $data = $request->validate([
             'name' => 'required',
-            'email' => 'required|email',
-            'subject' => 'required|string',
-            'message' => 'required|max:500|string'
+            'email' =>  ['required', 'string', 'lowercase', 'email', 'max:255'],
+            'subject' => 'required|string|max:100',
+            'message' => 'required|max:1000|string'
         ]);
 
         Mail::to(env('MAIL_FROM_ADDRESS'))->send(new ContactMail($data));

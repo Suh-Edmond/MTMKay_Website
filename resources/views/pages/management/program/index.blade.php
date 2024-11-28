@@ -6,7 +6,7 @@
     </x-slot>
 
     <div class="py-12">
-        <div  class="max-w-7xl mx-auto  flex flex-row gap-4  ">
+        <div  class="max-w-7xl mx-auto  flex flex-row gap-4 mx-auto sm:px-6 lg:px-8 ">
             @foreach($programs as $key => $program)
                 <div class="basis-1/4  bg-white shadow-sm sm:rounded-lg flex-grow ">
                     <img src="{{asset($program->getImagePath($program, $program->image_path))}}"  width="100%" height="100%">

@@ -30,6 +30,8 @@ Route::middleware(['auth', 'verified'])->prefix('dashboard')->group(function (){
     Route::put('manage-programs/details/update-information', [ProgramController::class, 'updateProgramInformation'])->name('program.update.information');
     Route::put('manage-programs/details/update-outline', [ProgramController::class, 'updateOutline'])->name('program.update.outline');
     Route::get('manage-blogs/details', [BlogController::class, 'showBlog'])->name('show.blog');
+    Route::put('manage-blogs/details/update-information',[BlogController::class, 'updateInformation'])->name('blog.update.information');
+    Route::delete('manage-blogs/details/tags/delete', [BlogController::class, 'deleteTag'])->name('blog.tag.delete');
 });
 
 Route::middleware('auth')->group(function () {

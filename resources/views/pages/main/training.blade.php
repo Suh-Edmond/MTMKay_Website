@@ -29,7 +29,7 @@
                 @foreach($programs as $key => $program)
                     <div class="col-6 col-md-6 col-sm-12 col-lg-6 col-xs-12 mt-4" >
                         <div class="course_item"  >
-                            <img src="{{$program->image_path}}" alt="" width="100%">
+                            <img src="{{$program->getImagePath($program, $program->image_path)}}" alt="" width="100%">
                             <div class="hover_text">
                                 <a class="cat" href="{{route('show-training', ['slug' => $program->slug])}}">View</a>
                                 <a href="{{route('show-training', ['slug' => $program->slug])}}"><h4>{{$program->title}}</h4></a>
