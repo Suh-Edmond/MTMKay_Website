@@ -6,16 +6,20 @@ use App\Constant\BlogState;
 use App\Http\Requests\CreateBlogRequest;
 use App\Models\Blog;
 use App\Models\BlogComments;
+use App\Models\BlogImages;
 use App\Models\Category;
 use App\Models\Tag;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Validation\Rule;
 use function Symfony\Component\String\s;
 
 class BlogController extends Controller
 {
+    const IMAGE_DIR ='/uploads/images/blogs/';
     public function index(Request $request)
     {
         $searchParam = $request['search'];
@@ -244,7 +248,8 @@ class BlogController extends Controller
         $tags       = Tag::all();
         $data = [
             'categories' => $categories,
-            'tags'       => $tags
+            'tags'       => $tags,
+            'step'       => 1
         ];
 
         return view('pages.management.blog.create')->with($data);
@@ -261,7 +266,7 @@ class BlogController extends Controller
             'blog_state'   => ['required', Rule::in([BlogState::APPROVED, BlogState::REJECTED, BlogState::PENDING]) ]
         ]);
 
-        $blob = Blog::create([
+        $blog = Blog::create([
             'category_id' => $request['category_id'],
             'title'       => $request['title'],
             'description'    => $request['description'],
@@ -269,14 +274,53 @@ class BlogController extends Controller
             'user_id'       => auth()->user()->id
         ]);
 
-        $this->saveBlogTags($request, $blob);
+        $this->saveBlogTags($request, $blog);
 
-        return redirect()->back()->with(['status', 'blog information created successfully']);
+        $data = [
+            'blog' =>$blog,
+            'status' => 'blog information created successfully',
+            'step'   => 2
+        ];
+        return redirect()->route('manage-blogs.create')->with($data);
+    }
+
+    public function uploadImages(Request $request)
+    {
+        $request->validate([
+            'files' => 'required|array',
+            'files.*' => 'required|mimes:jpg,jpeg,png|max:2048',
+        ]);
+
+        $slug = $request['slug'];
+        $blog = Blog::where('slug', $slug)->first();
+
+        foreach ($request->file('files') as $file){
+            try {
+                $fileName = $file->getClientOriginalName();
+                $fileName = str_replace(' ', '', $fileName);
+                $file->storeAs(self::IMAGE_DIR.$blog->slug, $fileName, 'public');
+
+                $this->saveBlogImages($fileName, $blog);
+            }catch (\Exception $exception){
+
+            }
+        }
+        Session::remove('blog');
+        return redirect()->route('manage-blogs')->with(['status' => 'Blog images saved successfully']);
     }
 
     private function saveBlogTags($request, $blog)
     {
         $tags = $request['tag_id'];
         $blog->tags()->syncWithoutDetaching($tags);
+    }
+
+    private function saveBlogImages($fileName, $blog)
+    {
+        BlogImages::create([
+            'blog_id' => $blog->id,
+            'file_path' => $fileName,
+            'is_main' => false
+        ]);
     }
 }

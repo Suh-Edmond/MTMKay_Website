@@ -15,7 +15,7 @@
 
             <div class="grow">
                 <x-input-label for="title" :value="__('Title')" />
-                <x-text-input id="title" name="title" type="text" class="mt-1 block w-full" :value="old('title')" required   autocomplete="title" />
+                <x-text-input id="title" name="title" type="text" class="mt-1 block w-full" :value="old('title',session('blog')->title ?? '')" required   autocomplete="title" />
                 <x-input-error class="mt-2" :messages="$errors->get('title')" />
             </div>
 
@@ -23,7 +23,7 @@
                 <x-input-label for="category" :value="__('Category')" />
                 <select id="category_id" name="category_id"  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                     @foreach($categories as $category)
-                        <option value="{{$category->id}}" >{{$category->name}}</option>
+                        <option value="{{$category->id}}" {{session('blog')->category_id ?? '' === $category->id ? 'selected': ''}} >{{$category->name}}</option>
                     @endforeach
                 </select>
                 <x-input-error class="mt-2" :messages="$errors->get('category_id')" />
@@ -41,9 +41,9 @@
             <div class="grow">
                 <x-input-label for="blog_state" :value="__('Status')" />
                 <select id="blog_state" name="blog_state"  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                    <option value="PENDING" >PENDING</option>
-                    <option value="APPROVED" >APPROVED</option>
-                    <option value="REJECTED" >REJECTED</option>
+                    <option value="PENDING" {{session('blog')->blog_state ?? '' === 'PENDING' ? 'selected':''}}>PENDING</option>
+                    <option value="APPROVED" {{session('blog')->blog_state ?? '' === 'APPROVED' ? 'selected':''}}>APPROVED</option>
+                    <option value="REJECTED" {{session('blog')->blog_state ?? '' === 'REJECTED' ? 'selected':''}}>REJECTED</option>
                 </select>
                 <x-input-error class="mt-2" :messages="$errors->get('blog_state')" />
             </div>
@@ -51,7 +51,7 @@
 
             <div>
                 <x-input-label for="description" :value="__('Description')" />
-                <textarea id="description" name="description" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" > </textarea>
+                <textarea id="description" name="description" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" >{{session('blog')->description ?? ''}} </textarea>
                 <x-input-error class="mt-2" :messages="$errors->get('description')" />
             </div>
 
