@@ -10,6 +10,7 @@ use App\Models\Tag;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use function Symfony\Component\String\s;
 
 class BlogController extends Controller
 {
@@ -86,9 +87,40 @@ class BlogController extends Controller
 
     public function manageBlogs(Request $request)
     {
-        $blogs = Blog::orderBy('created_at', 'desc')->paginate(12);
+        $filter = $request['filter'];
+        $sort = $request['sort'];
+        $tag = $request['tag'];
+        $categorySlug = $request['category_slug'];
+        $category = Category::where('slug', $categorySlug)->first();
         $tags = Tag::orderBy('name')->get();
         $categories = Category::orderBy('created_at', 'desc')->get();
+        $blogs = Blog::select('*');
+        if(isset($filter) && $filter !== "ALL"){
+            $blogs = $blogs->where('blog_state', $filter);
+
+        }
+        else if (isset($tag)){
+            $blogs = $blogs->with('tags', function ($query) use ($tag){
+                    $query->where('name', 'LIKE', "%".$tag."%");
+            });
+        }
+        if (isset($sort)){
+            switch ($sort) {
+                case 'DATE_ASC':
+                    $blogs->orderBy('created_at');
+                    break;
+                case 'NAME':
+                    $blogs->orderBy('name');
+                    break;
+                default:
+                    $blogs->orderByDesc('created_at');
+                    break;
+            }
+        }
+        if(isset($category) && $category !== "ALL"){
+            $blogs = $blogs->where('category_id', $category);
+        }
+        $blogs = $blogs->paginate(10);
         $data = [
             'blogs' => $blogs,
             'tags' => $tags,
