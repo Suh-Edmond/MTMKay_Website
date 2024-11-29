@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Constant\BlogState;
+use App\Http\Requests\CreateBlogRequest;
 use App\Models\Blog;
 use App\Models\BlogComments;
 use App\Models\Category;
@@ -239,6 +240,43 @@ class BlogController extends Controller
 
     public function createBlog(Request $request)
     {
+        $categories = Category::orderBy('created_at', 'desc')->get();
+        $tags       = Tag::all();
+        $data = [
+            'categories' => $categories,
+            'tags'       => $tags
+        ];
 
+        return view('pages.management.blog.create')->with($data);
+    }
+
+
+    public function storeBlog(Request $request)
+    {
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'description' => 'required|string|max:1000',
+            'category_id' => 'required|string',
+            'tag_id'      => 'required|array',
+            'blog_state'   => ['required', Rule::in([BlogState::APPROVED, BlogState::REJECTED, BlogState::PENDING]) ]
+        ]);
+
+        $blob = Blog::create([
+            'category_id' => $request['category_id'],
+            'title'       => $request['title'],
+            'description'    => $request['description'],
+            'blog_state'    => $request['blog_state'],
+            'user_id'       => auth()->user()->id
+        ]);
+
+        $this->saveBlogTags($request, $blob);
+
+        return redirect()->back()->with(['status', 'blog information created successfully']);
+    }
+
+    private function saveBlogTags($request, $blog)
+    {
+        $tags = $request['tag_id'];
+        $blog->tags()->syncWithoutDetaching($tags);
     }
 }

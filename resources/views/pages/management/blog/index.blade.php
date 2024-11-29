@@ -6,8 +6,10 @@
                 {{ __('Blog Management') }}
             </h2>
 
-            <x-primary-button href="{{route('manage.blog.create')}}"
-            >{{ __('Create Blog') }}</x-primary-button>
+            <a href="{{route('manage-blogs.create')}}">
+                <x-primary-button
+                >{{ __('Create Blog') }}</x-primary-button>
+            </a>
         </div>
     </x-slot>
 
