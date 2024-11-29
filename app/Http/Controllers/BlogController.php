@@ -8,6 +8,7 @@ use App\Models\BlogComments;
 use App\Models\Category;
 use App\Models\Tag;
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use function Symfony\Component\String\s;
@@ -67,7 +68,6 @@ class BlogController extends Controller
         $popularBlogs = $this->getPopularBlogs();
         $blog         = Blog::where('slug',$slug)->first();
         $tags         = Tag::orderBy('name', 'asc')->get();
-
         $data = [
             'blog'          => $blog,
             'categories'    => $categories,
@@ -77,11 +77,21 @@ class BlogController extends Controller
         return view("pages.main.blog-detail")->with($data);
     }
 
-    //TODO: FETCH BLOGS WITH AT LEAST 4 COMMENTS
+
     private function getPopularBlogs()
     {
-        return Blog::orderBy('created_at')
-                            ->take(4)->get();
+        $blogs =  Blog::withCount([
+            'blogComments as approved_blog_post' => function (Builder $query) {
+                $query->where('blog_state', BlogState::APPROVED);
+             },
+        ])->get();
+
+        collect($blogs)->filter(function ($blog){
+            return $blog->approved_blog_post >= 5;
+        });
+
+        return $blogs->take(5);
+
     }
 
 
