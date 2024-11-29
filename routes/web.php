@@ -32,6 +32,8 @@ Route::middleware(['auth', 'verified'])->prefix('dashboard')->group(function (){
     Route::get('manage-blogs/details', [BlogController::class, 'showBlog'])->name('show.blog');
     Route::put('manage-blogs/details/update-information',[BlogController::class, 'updateInformation'])->name('blog.update.information');
     Route::delete('manage-blogs/details/tags/delete', [BlogController::class, 'deleteTag'])->name('blog.tag.delete');
+    Route::get('manage-blogs/details/comments', [BlogController::class, 'showBlogComments'])->name('show.blog.comments');
+    Route::get('manage-trainees/payments/view', [EnrollmentController::class, 'fetchPaymentTransactions'])->name('manage-students.view.payments');
 });
 
 Route::middleware('auth')->group(function () {

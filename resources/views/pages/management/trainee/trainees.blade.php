@@ -5,6 +5,39 @@
         </h2>
     </x-slot>
 
+    <div class="pt-4 max-w-7xl mx-auto sm:px-6 lg:px-8">
+        <div class="flex flex-row gap-3">
+            <div class="basis-1/4 flex-auto">
+                <x-input-label for="category" :value="__('Filter by Program')" />
+                <select id="program_id" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                    <option selected>Choose a program</option>
+
+                    @foreach($programs as $program)
+                        <option value="{{$program->id}}">{{$program->title}}</option>
+                    @endforeach
+                    <option value="ALL">All</option>
+                </select>
+            </div>
+
+            <div class="basis-1/4 flex-auto">
+                <x-input-label for="category" :value="__('Filter Status')" />
+                <select id="status" name="status" onchange="filterByStatus()" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                    <option selected>Choose a status</option>
+                     <option value="COMPLETED">Completed</option>
+                    <option value="IN_COMPLETE">In Completed</option>
+                </select>
+            </div>
+            <div class="basis-1/4 flex-auto">
+                <x-input-label for="sort" :value="__('Sort')" />
+                <select id="sort" name="sort" onchange="sortBlogBy()" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                    <option selected>Choose sort</option>
+                    <option value="DATE_DESC">Newest First</option>
+                    <option value="DATE_ASC">Oldest First</option>
+                    <option value="NAME">Name</option>
+                </select>
+            </div>
+        </div>
+    </div>
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
@@ -34,16 +67,22 @@
                                             <span><i class="fa fa-bars"></i></span>
                                         </x-slot>
                                         <x-slot name="content">
-                                            <x-dropdown-link x-on:click.prevent="$dispatch('open-modal', 'fee-payment{{$value->slug}}', {{$value}})">
+                                            <x-dropdown-link href="{{route('manage-students.view.payments', ['slug' => $value->slug])}}">
+                                                {{ __('View Payments') }}
+                                            </x-dropdown-link>
+                                            <x-dropdown-link x-on:click.prevent="$dispatch('open-modal', 'fee-payment{{$value->id}}')">
                                                 {{ __('Make Payment') }}
                                             </x-dropdown-link>
-                                            <x-dropdown-link  class="text-red-600" x-on:click.prevent="$dispatch('open-modal', 'confirm-trainee-deletion{{$value->slug}}', {{$value}})">
+                                            <x-dropdown-link   class="text-red-600" x-on:click.prevent="$dispatch('open-modal', 'confirm-trainee-deletion{{$value->id}}')">
                                                 {{ __('Remove') }}
                                             </x-dropdown-link>
                                         </x-slot>
                                     </x-dropdown>
                                 </td>
                             </tr>
+                            @include('pages.management.trainee.delete-trainee')
+                            @include('pages.management.trainee.payment')
+
                         @endforeach
                         </tbody>
                     </table>
@@ -87,10 +126,54 @@
         </div>
     </div>
 
-    @include('pages.management.trainee.delete-trainee')
-    @include('pages.management.trainee.payment')
+
+
 </x-app-layout>
 
+<script>
+    $(document).ready(function() {
+
+        $('#status').on('change', function (e){
+            let url = new URL(location.href);
+            let searchParams = new URLSearchParams(url.search);
+
+
+            searchParams.set('filter', e.target.value)
+
+            url.search = searchParams.toString();
+
+            location.href = url
+
+        })
+
+        $('#program_id').on('change', function (e){
+            let url = new URL(location.href);
+            let searchParams = new URLSearchParams(url.search);
+
+
+            searchParams.set('program_id', e.target.value)
+
+            url.search = searchParams.toString();
+
+            location.href = url
+
+        })
+
+        $('#sort').on('change', function (e){
+            let url = new URL(location.href);
+            let searchParams = new URLSearchParams(url.search);
+
+
+            searchParams.set('sort', e.target.value)
+
+            url.search = searchParams.toString();
+
+            location.href = url
+
+        })
+
+    })
+</script>
 
 
 

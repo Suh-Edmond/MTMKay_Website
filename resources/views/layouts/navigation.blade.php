@@ -22,7 +22,7 @@
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('manage-students')" :active="request()->routeIs('manage-students')">
+                    <x-nav-link :href="route('manage-students')" :active="request()->is('*/manage-students/*') || request()->routeIs('manage-students')">
                         {{ __('Enrollment') }}
                     </x-nav-link>
                 </div>
