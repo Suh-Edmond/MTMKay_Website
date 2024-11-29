@@ -16,14 +16,36 @@
                 <div class="flex justify-between">
                     <x-input-label for="name" :value="__('Comment detail')" />
 
-                    <div class="flex gap-4">
-                        <div class="mb-4 rounded-full bg-green-700 py-0.5 px-2.5 border border-transparent text-xs text-white transition-all shadow-sm w-full text-center cursor-pointer">
-                            APPROVED
+                    @if($comment->status == \App\Constant\BlogState::PENDING)
+                        <div class="flex gap-4">
+
+                            <x-primary-button
+                                class="mb-4 rounded-full bg-primary-700 py-0.5 px-2.5 border border-transparent text-xs text-white transition-all shadow-sm w-full text-center cursor-pointer
+                                    hover:bg-primary-700 focus:bg-primary-700 active:bg-primary-900"
+                                x-data="APPROVE"
+                                x-on:click.prevent="$dispatch('open-modal', 'approve-blog-state{{$comment->id}}', {name:'APPROVE'})"
+                            >{{ __('APPROVE') }}</x-primary-button>
+
+                            <x-danger-button
+                                class="mb-4 rounded-full bg-green-700 py-0.5 px-2.5 border border-transparent text-xs text-white transition-all shadow-sm w-full text-center cursor-pointer"
+                                x-data=""
+                                x-on:click.prevent="$dispatch('open-modal', 'reject-blog-state-change{{$comment->id}}', {name:'REJECT'})"
+                            >{{ __('REJECT') }}</x-danger-button>
+
+
+                            @include('pages.management.blog.blog-status-confirmation-modal')
+
+
                         </div>
-                        <div class="mb-4 rounded-full bg-red-700 py-0.5 px-2.5 border border-transparent text-xs text-white transition-all shadow-sm w-full text-center cursor-pointer">
-                            REJECT
+                    @elseif($comment->status == \App\Constant\BlogState::APPROVED)
+                        <div class="mb-4 rounded-full bg-green-700 py-0.5 px-2.5 border border-transparent text-xs text-white transition-all shadow-sm  text-center cursor-pointer">
+                            {{$comment->status}}
                         </div>
-                    </div>
+                    @elseif($comment->status == \App\Constant\BlogState::REJECTED)
+                        <div class="mb-4 rounded-full bg-red-700 py-0.5 px-2.5 border border-transparent text-xs text-white transition-all shadow-sm text-center cursor-pointer">
+                            {{$comment->status}}
+                        </div>
+                    @endif
                 </div>
                 <div class="grow my-4">
                     <x-input-label for="name" :value="__('Name')" />
