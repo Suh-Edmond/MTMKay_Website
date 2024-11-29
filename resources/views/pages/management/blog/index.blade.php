@@ -1,13 +1,17 @@
 <x-app-layout>
 
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Blog Management') }}
-        </h2>
+        <div class="flex justify-between">
+            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+                {{ __('Blog Management') }}
+            </h2>
+
+            <x-primary-button href="{{route('manage.blog.create')}}"
+            >{{ __('Create Blog') }}</x-primary-button>
+        </div>
     </x-slot>
 
     <div class="pt-4 max-w-7xl mx-auto sm:px-6 lg:px-8">
-
         <div class="flex flex-row gap-3">
             <div class="basis-1/4 flex-auto">
                 <x-input-label for="category" :value="__('Filter by Category')" />

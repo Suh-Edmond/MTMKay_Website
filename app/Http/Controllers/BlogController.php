@@ -226,4 +226,9 @@ class BlogController extends Controller
 
         return redirect()->back()->with(['status' => 'Blog Status updated successfully']);
     }
+
+    public function createBlog(Request $request)
+    {
+
+    }
 }
