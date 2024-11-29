@@ -21,7 +21,8 @@ class BlogComments extends Model
         'name',
         'email',
         'subject',
-        'message'
+        'message',
+        'status'
     ];
 
     public function blog()

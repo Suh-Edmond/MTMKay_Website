@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Constant\BlogState;
 use App\Traits\GenerateUUIDTrait;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -33,6 +34,12 @@ class Blog extends Model
     public function blogComments()
     {
         return $this->hasMany(BlogComments::class);
+    }
+
+    public function getApprovedBlogComments($id)
+    {
+        $blog = Blog::find($id);
+         return $blog->blogComments()->where('status', BlogState::APPROVED)->orderBy('created_at', 'DESC')->get();
     }
 
     public function category()

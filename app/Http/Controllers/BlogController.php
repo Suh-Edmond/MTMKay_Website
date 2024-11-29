@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Constant\BlogState;
 use App\Models\Blog;
+use App\Models\BlogComments;
 use App\Models\Category;
 use App\Models\Tag;
 use Carbon\Carbon;
@@ -22,11 +23,11 @@ class BlogController extends Controller
         $tags       = Tag::orderBy('name', 'asc')->get();
         $popularBlogs = $this->getPopularBlogs();
         $category     = Category::where('slug',$slug)->first();
-
+        $blogs        = Blog::where('blog_state', BlogState::APPROVED);
         if(isset($filterParam) && isset($slug)){
-            $blogs = Blog::where('category_id',  $category->id);
+            $blogs = $blogs->where('category_id',  $category->id);
         }else {
-            $blogs = Blog::orderBy('created_at', 'DESC');
+            $blogs = $blogs->orderBy('created_at', 'DESC');
         }
         if (isset($searchParam)){
             $blogs  = $blogs->whereHas('category', function ($query) use ($searchParam){
@@ -178,5 +179,19 @@ class BlogController extends Controller
         ];
 
         return view ('pages.management.blog.comments')->with($data);
+    }
+
+
+    public function updateCommentStatus(Request $request)
+    {
+        $status = $request['status'];
+        $slug = $request['slug'];
+        $comment = BlogComments::where('slug', $slug)->first();
+
+        $comment->update([
+            'status' => $status
+        ]);
+
+        return redirect()->back()->with(['status' => 'Blog Status updated successfully']);
     }
 }

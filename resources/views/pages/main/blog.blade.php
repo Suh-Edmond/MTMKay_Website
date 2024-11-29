@@ -110,7 +110,7 @@
                     @endif
                     @if(($blogs->count() == 0))
                             <div class="single-input p-5 text-center">
-                                <h6 class="typo-list">Ooops! The is no blog post that matches your search</h6>
+                                <h6 class="typo-list">Oops! The is no blog post that matches your search</h6>
 
                                 <a href="{{route('blog')}}" class="primary-btn btn-sm mt-4 submit_btn"><span class="lnr lnr-arrow-left"></span> Back to Blogs</a>
                             </div>

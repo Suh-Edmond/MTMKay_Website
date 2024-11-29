@@ -37,28 +37,31 @@
 
                         @if($comment->status == \App\Constant\BlogState::PENDING)
                             <div class="flex gap-4">
-                                <div class="mb-4 rounded-full bg-green-700 py-0.5 px-2.5 border border-transparent text-xs text-white transition-all shadow-sm w-full text-center cursor-pointer" data-modal-target="default-modal" data-modal-toggle="default-modal">
-                                    APPROVE
-                                </div>
+
                                 <x-primary-button
+                                    class="mb-4 rounded-full bg-primary-700 py-0.5 px-2.5 border border-transparent text-xs text-white transition-all shadow-sm w-full text-center cursor-pointer
+                                    hover:bg-primary-700 focus:bg-primary-700 active:bg-primary-900"
+                                    x-data="APPROVE"
+                                    x-on:click.prevent="$dispatch('open-modal', 'approve-blog-state{{$comment->id}}', {name:'APPROVE'})"
+                                >{{ __('APPROVE') }}</x-primary-button>
+
+                                <x-danger-button
                                     class="mb-4 rounded-full bg-green-700 py-0.5 px-2.5 border border-transparent text-xs text-white transition-all shadow-sm w-full text-center cursor-pointer"
                                     x-data=""
-                                    x-on:click.prevent="$dispatch('open-modal', 'confirm-blog-state-change{{$comment->id}}', {name:'APPROVE'})"
-                                >{{ __('APPROVE') }}</x-primary-button>
+                                    x-on:click.prevent="$dispatch('open-modal', 'reject-blog-state-change{{$comment->id}}', {name:'REJECT'})"
+                                >{{ __('REJECT') }}</x-danger-button>
 
 
                                 @include('pages.management.blog.blog-status-confirmation-modal')
 
-                                <div class="mb-4 rounded-full bg-red-700 py-0.5 px-2.5 border border-transparent text-xs text-white transition-all shadow-sm w-full text-center cursor-pointer" data-modal-target="default-modal" data-modal-toggle="default-modal">
-                                    REJECT
-                                </div>
+
                             </div>
                         @elseif($comment->status == \App\Constant\BlogState::APPROVED)
-                            <div class="mb-4 rounded-full bg-green-700 py-0.5 px-2.5 border border-transparent text-xs text-white transition-all shadow-sm w-full text-center cursor-pointer">
+                            <div class="mb-4 rounded-full bg-green-700 py-0.5 px-2.5 border border-transparent text-xs text-white transition-all shadow-sm  text-center cursor-pointer">
                                 {{$comment->status}}
                             </div>
                         @elseif($comment->status == \App\Constant\BlogState::REJECTED)
-                            <div class="mb-4 rounded-full bg-red-700 py-0.5 px-2.5 border border-transparent text-xs text-white transition-all shadow-sm w-full text-center cursor-pointer">
+                            <div class="mb-4 rounded-full bg-red-700 py-0.5 px-2.5 border border-transparent text-xs text-white transition-all shadow-sm text-center cursor-pointer">
                                 {{$comment->status}}
                             </div>
                         @endif
@@ -91,6 +94,11 @@
                     </div>
                 </div>
             @endforeach
+            @if(count($comments) == 0)
+                <h3 class="text-lg font-medium text-gray-900 p-5 text-center my-5">
+                    Oops! No Comments recorded for this blog post
+                </h3>
+            @endif
         </div>
     </div>
 
