@@ -34,16 +34,22 @@
                                             <span><i class="fa fa-bars"></i></span>
                                         </x-slot>
                                         <x-slot name="content">
-                                            <x-dropdown-link x-on:click.prevent="$dispatch('open-modal', 'fee-payment')">
+                                            <x-dropdown-link href="{{route('manage-students.view.payments', ['slug' => $value->slug])}}">
+                                                {{ __('View Payments') }}
+                                            </x-dropdown-link>
+                                            <x-dropdown-link x-on:click.prevent="$dispatch('open-modal', 'fee-payment{{$value->id}}')">
                                                 {{ __('Make Payment') }}
                                             </x-dropdown-link>
-                                            <x-dropdown-link   class="text-red-600" x-on:click.prevent="$dispatch('open-modal', 'confirm-trainee-deletion')">
+                                            <x-dropdown-link   class="text-red-600" x-on:click.prevent="$dispatch('open-modal', 'confirm-trainee-deletion{{$value->id}}')">
                                                 {{ __('Remove') }}
                                             </x-dropdown-link>
                                         </x-slot>
                                     </x-dropdown>
                                 </td>
                             </tr>
+                            @include('pages.management.trainee.delete-trainee')
+                            @include('pages.management.trainee.payment')
+
                         @endforeach
                         </tbody>
                     </table>
@@ -87,8 +93,7 @@
         </div>
     </div>
 
-    @include('pages.management.trainee.delete-trainee')
-    @include('pages.management.trainee.payment')
+
 
 </x-app-layout>
 

@@ -35,4 +35,9 @@ class Enrollment extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function getTotalEnrollmentPayment($enrollment, $program)
+    {
+        return $program->cost - $enrollment->paymentTransactions()->sum('amount_deposited');
+    }
 }

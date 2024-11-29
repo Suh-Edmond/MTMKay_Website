@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Enrollment;
 use App\Models\PaymentTransaction;
+use App\Models\Program;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -25,6 +26,7 @@ class EnrollmentController extends Controller
     {
         $slug = $request['slug'];
         $enrollment = Enrollment::where('slug', $slug)->firstOrFail();
+        dd($enrollment);
         $enrollment->delete();
 
         return redirect()->back()->with('status', 'Enrollment deleted successfully');
@@ -33,7 +35,10 @@ class EnrollmentController extends Controller
 
     public function makePayment(Request $request)
     {
+
         $slug = $request['slug'];
+        $programSlug = $request['programSlug'];
+        $program = Program::where('slug', $programSlug)->first();
         $enrollment = Enrollment::where('slug', $slug)->firstOrFail();
         PaymentTransaction::create([
             'enrollment_id' => $enrollment->id,
@@ -41,6 +46,38 @@ class EnrollmentController extends Controller
             'payment_date'     => $request['payment_date']
         ]);
 
-        return redirect()->with('status', 'Payment Completed Successfully');
+
+        if($this->checkCompletedPayment($enrollment, $program)){
+            $enrollment->update([
+                'has_completed_payment' => true
+            ]);
+        }
+
+        return redirect()->back()->with('status', 'Payment Completed Successfully');
     }
+
+
+    public function fetchPaymentTransactions(Request $request)
+    {
+        $slug = $request['slug'];
+
+        $enrollment = Enrollment::where('slug', $slug)->first();
+
+        $data = [
+            'payments' => $enrollment->paymentTransactions()->orderBy('created_at', 'DESC')->get(),
+            'user' => $enrollment->user
+        ];
+
+        return view('pages.management.program.payment')->with($data);
+    }
+
+
+    private function checkCompletedPayment($enrollment, $program)
+    {
+        $totalAmountPaid = PaymentTransaction::where('enrollment_id', $enrollment->id)->sum('amount_deposited');
+
+        return ($totalAmountPaid >= $program->cost);
+    }
+
+
 }
