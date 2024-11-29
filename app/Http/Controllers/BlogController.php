@@ -171,7 +171,7 @@ class BlogController extends Controller
                 }
         }
         $comments = $comments->paginate(10);
-//        dd($comments);
+
         $data = [
             'comments' => $comments,
             'blog' => $blog

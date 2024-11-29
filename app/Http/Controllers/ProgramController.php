@@ -84,7 +84,6 @@ class ProgramController extends Controller
     public function updateOutline(Request $request)
     {
 
-        dd($request->all());
         $slug = $request['slug'];
         $outlineSlug = $request['outlineSlug'];
         $program = Program::where('slug', $slug)->first();
