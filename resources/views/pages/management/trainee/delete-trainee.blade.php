@@ -1,5 +1,5 @@
 
-<x-modal name="confirm-trainee-deletion{{$value->slug}}" :show="$errors->userDeletion->isNotEmpty()" focusable>
+<x-modal name="confirm-trainee-deletion" :show="$errors->userDeletion->isNotEmpty()" focusable :data="$value">
     <form method="post" action="{{ route('trainee.destroy', ['slug'=> $value->slug]) }} " class="p-6">
         @csrf
         @method('delete')
@@ -9,7 +9,7 @@
         </h2>
 
         <h3 class="text-lg font-medium text-gray-900">
-            Name: {{ $value->user }}
+            Name: {{ $value->user->name }}
         </h3>
 
         <p class="mt-1 text-sm text-gray-600">

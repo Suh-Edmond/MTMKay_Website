@@ -56,8 +56,23 @@
                                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1471&amp;q=80" alt="card-image" />
                                </div>
                                <div class="p-4">
-                                   <div class="mb-4 rounded-full bg-blue-800 py-0.5 px-2.5 border border-transparent text-xs text-white transition-all shadow-sm w-1/2 text-center">
-                                       {{$blog->category->name}}
+                                   <div class="flex flex-row gap-4 justify-between">
+                                       <div class="mb-4 rounded-full bg-blue-800 py-0.5 px-2.5 border border-transparent text-xs text-white transition-all shadow-sm w-1/2 text-center">
+                                           {{$blog->category->name}}
+                                       </div>
+                                       @if($blog->blog_state == \App\Constant\BlogState::PENDING)
+                                           <div class="mb-4 rounded-full bg-sky-400 py-0.5 px-2.5 border border-transparent text-xs text-white transition-all shadow-sm w-1/4 text-center">
+                                               {{$blog->blog_state}}
+                                           </div>
+                                       @elseif($blog->blog_state = \App\Constant\BlogState::APPROVED)
+                                           <div class="mb-4 rounded-full bg-green-700 py-0.5 px-2.5 border border-transparent text-xs text-white transition-all shadow-sm w-1/4 text-center">
+                                               {{$blog->blog_state}}
+                                           </div>
+                                       @elseif($blog->blog_state = \App\Constant\BlogState::REJECTED)
+                                           <div class="mb-4 rounded-full bg-red-700 py-0.5 px-2.5 border border-transparent text-xs text-white transition-all shadow-sm w-1/4 text-center">
+                                               {{$blog->blog_state}}
+                                           </div>
+                                       @endif
                                    </div>
                                    <h6 class="mb-2 text-slate-800 text-xl font-semibold">
                                        {{$blog->title}}

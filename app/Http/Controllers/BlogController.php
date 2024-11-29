@@ -104,8 +104,10 @@ class BlogController extends Controller
         $categories = Category::orderBy('created_at', 'desc')->get();
         $data = [
             'blog' => $blog,
-            'categories' => $categories
+            'categories' => $categories,
+            'comments' => $blog->blogComments()->orderBy('created_at', 'desc')->take(5)->get()
         ];
+
 
         return view('pages.management.blog.show')->with($data);
     }
@@ -141,5 +143,40 @@ class BlogController extends Controller
         $blog->tags()->detach($tag->id);
 
         return response()->json(['message' => "Account completed successfully", 'code' => 'TAG_DELETED']);
+    }
+
+    public function showBlogComments(Request $request)
+    {
+        $slug = $request['slug'];
+        $blog = Blog::where('slug', $slug)->first();
+        $filter = $request['filter'];
+        $sort = $request['sort'];
+        $comments = $blog->blogComments();
+
+        if(isset($filter)){
+            $comments = $comments->where('status', $filter);
+        }
+        if(isset($sort)){
+            $comments = $blog->blogComments();
+                switch ($sort) {
+                    case 'DATE_ASC':
+                        $comments->orderBy('created_at');
+                        break;
+                    case 'NAME':
+                        $comments->orderBy('name');
+                        break;
+                    default:
+                        $comments->orderByDesc('created_at');
+                        break;
+                }
+        }
+        $comments = $comments->paginate(10);
+//        dd($comments);
+        $data = [
+            'comments' => $comments,
+            'blog' => $blog
+        ];
+
+        return view ('pages.management.blog.comments')->with($data);
     }
 }
