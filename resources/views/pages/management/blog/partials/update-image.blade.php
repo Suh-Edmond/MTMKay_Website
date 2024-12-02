@@ -5,15 +5,18 @@
                 {{ __('Blog Images') }}
             </h2>
 
-            <p class="mt-1 text-sm text-gray-600">
+            <p class="mt-1 text-sm text-gray-600 mb-5">
                 {{ __("Provide blog images. Maximum of four (04)") }}
             </p>
         </header>
         @if(isset($blog))
             <div class="flex gap-4">
                 @foreach($blog->blogImages   as $image)
-                    <div class="bg-white shadow-sm sm:rounded-lg">
-                        <img src="{{ asset($blog->getImagePath($blog, $image->file_path)) }}"  >
+                    <div class="bg-white shadow-sm sm:rounded-lg text-end">
+                        <img src="{{ asset($blog->getImagePath($blog, $image->file_path)) }}">
+{{--                        <span class="fa fa-trash text-center text-red-600 m-4 cursor-pointer"--}}
+{{--                              x-data=""--}}
+{{--                              x-on:click.prevent="$dispatch('open-modal', 'delete-blog-image{{$image->id}}', {name:'APPROVE'})"></span>--}}
                     </div>
                 @endforeach
             </div>
@@ -26,6 +29,10 @@
                     <x-input-label for="files" :value="__('Blog Images')" />
                     <x-text-input id="files" multiple name="files[]" type="file" class="mt-1 block w-full border" :value="old('files')" required    />
                     <x-input-error class="mt-2" :messages="$errors->get('files')" />
+                    @if(session('error'))
+                        <x-input-error class="mt-2" :messages="session('msg')">
+                        </x-input-error>
+                    @endif
                 </div>
 
 

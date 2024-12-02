@@ -327,7 +327,17 @@ class BlogController extends Controller
 
     public function updateBlogImages(Request $request)
     {
-        $this->uploadImages($request);
+        $slug = $request['slug'];
+        $blog = Blog::where('slug', $slug)->first();
+        $files = $request['files'];
+        $totalBlogImages = $blog->blogImages()->count();
+
+
+        if($totalBlogImages + count($files) > 4){
+            return  redirect()->back()->with(['error' => "400", 'msg' => 'Number of blog images must be less than or equal to four (04)']);
+        }
+
+//        $this->uploadImages($request);
         Session::remove('blog');
         return redirect()->route('show.blog', ['slug' => $request['slug']])->with(['status' => 'Blog images saved successfully']);
     }

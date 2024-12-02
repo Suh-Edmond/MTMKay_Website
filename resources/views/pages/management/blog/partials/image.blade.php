@@ -5,7 +5,7 @@
                 {{ __('Blog Images') }}
             </h2>
 
-            <p class="mt-1 text-sm text-gray-600">
+            <p class="mt-1 text-sm text-gray-600 mb-5">
                 {{ __("Provide blog images. Maximum of four (04)") }}
             </p>
         </header>
