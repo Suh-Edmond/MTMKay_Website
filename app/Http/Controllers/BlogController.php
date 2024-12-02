@@ -318,29 +318,18 @@ class BlogController extends Controller
         return view('pages.management.blog.add-image')->with($data);
     }
 
-    public function uploadImages(Request $request)
+    public function storeBlogImages(Request $request)
     {
-        $request->validate([
-            'files' => 'required|array',
-            'files.*' => 'required|mimes:jpg,jpeg,png|max:2048',
-        ]);
-
-        $slug = $request['slug'];
-        $blog = Blog::where('slug', $slug)->first();
-
-        foreach ($request->file('files') as $file){
-            try {
-                $fileName = $file->getClientOriginalName();
-                $fileName = str_replace(' ', '', $fileName);
-                $file->storeAs(self::IMAGE_DIR.$blog->slug, $fileName, 'public');
-
-                $this->saveBlogImages($fileName, $blog);
-            }catch (\Exception $exception){
-
-            }
-        }
+        $this->uploadImages($request);
         Session::remove('blog');
         return redirect()->route('manage-blogs')->with(['status' => 'Blog images saved successfully']);
+    }
+
+    public function updateBlogImages(Request $request)
+    {
+        $this->uploadImages($request);
+        Session::remove('blog');
+        return redirect()->route('show.blog', ['slug' => $request['slug']])->with(['status' => 'Blog images saved successfully']);
     }
 
     public function deleteBlog(Request $request)
@@ -370,5 +359,27 @@ class BlogController extends Controller
         ]);
     }
 
+    private function uploadImages(Request $request)
+    {
+        $request->validate([
+            'files' => 'required|array|between:1,4',
+            'files.*' => 'required|mimes:jpg,jpeg,png|max:2048',
+        ]);
+
+        $slug = $request['slug'];
+        $blog = Blog::where('slug', $slug)->first();
+
+        foreach ($request->file('files') as $file){
+            try {
+                $fileName = $file->getClientOriginalName();
+                $fileName = str_replace(' ', '', $fileName);
+                $file->storeAs(self::IMAGE_DIR.$blog->slug, $fileName, 'public');
+
+                $this->saveBlogImages($fileName, $blog);
+            }catch (\Exception $exception){
+
+            }
+        }
+    }
 
 }

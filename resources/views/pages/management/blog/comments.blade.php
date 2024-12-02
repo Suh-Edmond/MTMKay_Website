@@ -189,5 +189,10 @@
 
         })
 
+
+
+        $('#goBack').on('click', function (e){
+            history.back();
+        })
     })
 </script>

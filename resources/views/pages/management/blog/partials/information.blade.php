@@ -64,11 +64,13 @@
             <div class="flex items-center gap-4">
                 <x-primary-button>{{ __('Save') }}</x-primary-button>
 
-               <x-auth-session-status :status="session('status')"  x-data="{ show: true }"
-                                      x-show="show"
-                                      x-transition
-                                      x-init="setTimeout(() => show = false, 2000)">
-               </x-auth-session-status>
+                @if(session('status') === 'Information updated successfully')
+                    <x-auth-session-status :status="session('status')"  x-data="{ show: true }"
+                                           x-show="show"
+                                           x-transition
+                                           x-init="setTimeout(() => show = false, 2000)">
+                    </x-auth-session-status>
+                @endif
             </div>
         </form>
     </section>
