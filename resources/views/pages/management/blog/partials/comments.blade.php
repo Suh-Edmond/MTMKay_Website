@@ -3,9 +3,16 @@
     <section>
         <div class="flex justify-between">
             <header>
-                <h2 class="text-lg font-medium text-gray-900">
-                    {{ __('Blog Comments') }}
-                </h2>
+                <div class="flex   justify-between">
+                    <h2 class="text-lg font-medium text-gray-900">
+                        {{ __('Blog Comments') }}
+                    </h2>
+                    @if(session('status') == 'Comment remove successfully')
+                        <x-auth-session-status :status="session('status')" class="pt-1 pl-5">
+
+                        </x-auth-session-status>
+                    @endif
+                </div>
             </header>
 
             @if(count($comments) > 0)
@@ -33,11 +40,18 @@
                                 x-on:click.prevent="$dispatch('open-modal', 'approve-blog-state{{$comment->id}}', {name:'APPROVE'})"
                             >{{ __('APPROVE') }}</x-primary-button>
 
+                            <x-warning-button
+                                class="mb-4 rounded-full bg-yellow-500 py-0.5 px-2.5 border border-transparent text-xs text-white transition-all shadow-sm w-full text-center cursor-pointer"
+
+                                x-data=""
+                                x-on:click.prevent="$dispatch('open-modal', 'reject-blog-state-change{{$comment->id}}', {name:'REJECT'})"
+                            >{{ __('REJECT') }}</x-warning-button>
+
                             <x-danger-button
                                 class="mb-4 rounded-full bg-green-700 py-0.5 px-2.5 border border-transparent text-xs text-white transition-all shadow-sm w-full text-center cursor-pointer"
                                 x-data=""
-                                x-on:click.prevent="$dispatch('open-modal', 'reject-blog-state-change{{$comment->id}}', {name:'REJECT'})"
-                            >{{ __('REJECT') }}</x-danger-button>
+                                x-on:click.prevent="$dispatch('open-modal', 'delete-blog-comment{{$comment->id}}', {name:'DELETE'})"
+                            >{{ __('DELETE') }}</x-danger-button>
 
 
                             @include('pages.management.blog.blog-status-confirmation-modal')

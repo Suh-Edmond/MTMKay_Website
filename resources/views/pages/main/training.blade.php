@@ -1,3 +1,5 @@
+@section('title', 'Trainings-Programs')
+
 <x-guest-layout>
     <!--================Home Banner Area =================-->
     <section class="banner_area">

@@ -26,6 +26,17 @@ class BlogCommentsController extends Controller
        ]);
 
        return redirect()->back();
+   }
 
+
+   public function destroyComment(Request $request)
+   {
+       $slug = $request['slug'];
+
+       $comment = BlogComments::where('slug', $slug)->firstOrFail();
+
+       $comment->delete();
+
+       return redirect()->back()->with(['status' => 'Comment remove successfully']);
    }
 }

@@ -1,3 +1,4 @@
+@section('title', 'Contact us')
 <x-guest-layout>
 <!--================Home Banner Area =================-->
 <section class="banner_area">

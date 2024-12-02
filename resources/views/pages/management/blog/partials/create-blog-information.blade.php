@@ -72,6 +72,10 @@
                 <x-input-error class="mt-2" :messages="$errors->get('description')"/>
             </div>
 
+{{--            <div>--}}
+{{--                @include('pages.management.blog.partials.text-editor')--}}
+{{--            </div>--}}
+
 
             <div class="flex flex-row justify-between">
                 <div class="flex items-center gap-4">

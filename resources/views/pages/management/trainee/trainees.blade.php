@@ -1,16 +1,9 @@
 @section('title', "MTMKay-Enrollment Management")
 <x-app-layout >
     <x-slot name="header">
-        <div class="flex flex-row">
-            <a href="#">
-                <button id="goBack" class="text-blue-800 text-xl">
-                    <span><i class="fa fa-arrow-left px-5"></i></span>
-                </button>
-            </a>
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                {{__('Enrollment Management')}}
-            </h2>
-        </div>
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            {{__('Enrollment Management')}}
+        </h2>
 {{--        @if(\Illuminate\Support\Facades\Session::has('tabs'))--}}
 {{--            <div class="flex flex-row">--}}
 {{--                <a href="#">--}}
