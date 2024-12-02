@@ -24,4 +24,11 @@ class PaymentTransaction extends Model
     {
         return $this->belongsTo(Enrollment::class);
     }
+
+    public function setTransactionId($trans)
+    {
+        $transSlug = str_replace('-', '', $trans->slug);
+
+        return substr($transSlug, 0, 10);
+    }
 }

@@ -1,8 +1,16 @@
+@section('title', "MTMKay-Payment Transaction")
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{$user->name}}    {{ __('Payment Transactions') }}
-        </h2>
+        <div class="flex flex-row">
+            <a href="#" >
+                <button id="goBack" class="text-blue-800 text-xl">
+                    <span><i class="fa fa-arrow-left px-5"></i></span>
+                </button>
+            </a>
+            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+                {{$user->name}}    {{ __('Payment Transactions') }}
+            </h2>
+        </div>
     </x-slot>
 
     <div class="py-12">
@@ -15,6 +23,7 @@
                             <th class="bg-blue-800 text-white border text-center px-4 py-4">S/N</th>
                             <th class="bg-blue-800 text-white border text-center px-4 py-4">Amount Deposited</th>
                             <th class="bg-blue-800 text-white border text-center px-4 py-4">Payment Date</th>
+                            <th class="bg-blue-800 text-white border text-center px-4 py-4">Transaction Id</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -23,6 +32,7 @@
                                 <td class="border px-8 py-4">{{$key+1}}</td>
                                 <td class="border px-8 py-4 text-center">{{number_format($value->amount_deposited)}} XAF</td>
                                 <td class="border px-8 py-4 text-center">{{$value->payment_date}}</td>
+                                <td class="border px-8 py-4 text-center">{{$value->setTransactionId($value)}}</td>
                             </tr>
                         @endforeach
                         </tbody>
@@ -38,9 +48,13 @@
         </div>
     </div>
 
-
-
 </x-app-layout>
+
+<script>
+     $('#goBack').on('click', function (e){
+        history.back();
+    })
+</script>
 
 
 

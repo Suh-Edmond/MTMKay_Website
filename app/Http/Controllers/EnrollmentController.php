@@ -8,9 +8,20 @@ use App\Models\Program;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class EnrollmentController extends Controller
 {
+
+    public function __construct()
+    {
+
+        $tabs = Session::get("tabs");
+        if(!isset($tabs)){
+            Session::put("tabs", []);
+        }
+    }
+
     public function index(Request $request)
     {
         $trainees = Enrollment::whereNotNull('enrollment_date');
@@ -40,6 +51,9 @@ class EnrollmentController extends Controller
         if(isset($programId) && $programId !== "ALL"){
             $trainees = $trainees->where('program_id', $programId);
         }
+
+        $this->setNavigationTitle( "Enrollment Management");
+
         $trainees = $trainees->paginate(10);
         $programs = Program::all();
         $date = Carbon::now();
@@ -92,6 +106,9 @@ class EnrollmentController extends Controller
 
         $enrollment = Enrollment::where('slug', $slug)->first();
 
+        $this->setNavigationTitle("Payment Transactions");
+
+
         $data = [
             'payments' => $enrollment->paymentTransactions()->orderBy('created_at', 'DESC')->get(),
             'user' => $enrollment->user
@@ -108,5 +125,14 @@ class EnrollmentController extends Controller
         return ($totalAmountPaid >= $program->cost);
     }
 
+    private function setNavigationTitle($navTab)
+    {
+        $existTabs = Session::get('tabs');
 
+        if (!in_array($navTab, $existTabs)){
+           $existTabs[] = $navTab;
+        }
+
+        Session::put("tabs", $existTabs);
+    }
 }

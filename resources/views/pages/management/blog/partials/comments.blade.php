@@ -1,3 +1,4 @@
+@section('title', "MTMKay-Blog Comments")
 <div class="max-w-full">
     <section>
         <div class="flex justify-between">

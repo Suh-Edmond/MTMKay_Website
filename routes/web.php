@@ -36,6 +36,7 @@ Route::middleware(['auth', 'verified'])->prefix('dashboard')->group(function (){
     Route::get('manage-blogs/create-blog/view', [BlogController::class, 'createBlog'])->name('manage-blogs.create');
     Route::post('manage-blogs/create-blog', [BlogController::class, 'storeBlog'])->name('manage-blogs.store');
     Route::post('manage-blogs/create-blog/upload-images', [BlogController::class, 'uploadImages'])->name('manage-blogs.upload-images');
+    Route::post('tabs/remove_tab', [DashboardController::class, 'removeTab'])->name('remove.tab');
 });
 
 Route::middleware('auth')->group(function () {

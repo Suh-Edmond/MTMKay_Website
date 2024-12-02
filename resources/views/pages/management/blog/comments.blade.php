@@ -1,9 +1,17 @@
+@section('title', "MTMKay-Blog Comments")
 <x-app-layout>
 
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            Comments for {{ $blog->title }}
-        </h2>
+        <div class="flex flex-row">
+            <a href="#" >
+                <button id="goBack" class="text-blue-800 text-xl">
+                    <span><i class="fa fa-arrow-left px-5"></i></span>
+                </button>
+            </a>
+            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+                Comments for {{ $blog->title }}
+            </h2>
+        </div>
     </x-slot>
 
     <div class="pt-4 max-w-7xl mx-auto sm:px-6 lg:px-8">

@@ -1,8 +1,16 @@
+@section('title', "MTMKay-Blogs Details")
+
 <x-app-layout>
     <x-slot name="header">
+        <a href="#">
+            <button id="goBack" class="text-blue-800 text-xl">
+                <span><i class="fa fa-arrow-left px-5"></i></span>
+            </button>
+        </a>
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Blog Detail') }}
         </h2>
+        </div>
     </x-slot>
 
     <div class="py-12">
