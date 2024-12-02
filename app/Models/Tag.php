@@ -22,4 +22,11 @@ class Tag extends Model
     {
         return $this->belongsToMany(Blog::class);
     }
+
+    public function checkIfBlogHasTag($tag, $blog)
+    {
+        $exist = $tag->blogs()->where('blog_id', $blog->id ?? '')->first();
+
+        return isset($exist);
+    }
 }

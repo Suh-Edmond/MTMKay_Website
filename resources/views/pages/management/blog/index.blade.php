@@ -65,7 +65,7 @@
                        <a href="{{route('show.blog', ['slug'=> $blog->slug])}}">
                            <div class="relative flex flex-col my-6 bg-white shadow-sm   border-slate-200 rounded-lg w-96">
                                <div class="relative h-56 m-2.5 overflow-hidden text-white rounded-md">
-                                   <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1471&amp;q=80" alt="card-image" />
+                                   <img src="{{asset($blog->getSingleBlogImage($blog->id))}}" alt="card-image" />
                                </div>
                                <div class="p-4">
                                    <div class="flex flex-row gap-4 justify-between">

@@ -9,15 +9,9 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
 
-            @if(\Illuminate\Support\Facades\Session::has('blog'))
-                <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-                    @include('pages.management.blog.partials.create-blog-information')
-                </div>
-            @else
-                <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-                    @include('pages.management.blog.partials.image')
-                </div>
-            @endif
+            <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
+                @include('pages.management.blog.partials.create-blog-information')
+            </div>
         </div>
     </div>
 </x-app-layout>

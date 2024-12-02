@@ -1,4 +1,4 @@
-<div class="max-w-xl">
+<div class="max-w-7xl">
     <section>
         <header>
             <h2 class="text-lg font-medium text-gray-900">
@@ -11,37 +11,46 @@
         </header>
         @if(isset($blog))
             <div class="flex gap-4">
-                @foreach(session('blog')->blogImages as $image)
+                @foreach($blog->blogImages   as $image)
                     <div class="bg-white shadow-sm sm:rounded-lg">
-                        <img src="{{ asset($image->file_path) }}"  >
+                        <img src="{{ asset($blog->getImagePath($blog, $image->file_path)) }}"  >
                     </div>
                 @endforeach
             </div>
         @endif
         <div class="w-full">
-            <form method="post" action="{{ route('manage-blogs.upload-images', ['slug' => session('blog')->slug ?? '']) }}" class="mt-6 space-y-6"  enctype="multipart/form-data">
+            <form method="post" action="{{ route('manage-blogs.upload-images', ['slug' => $blog->slug ?? '']) }}" class="mt-6 space-y-6"  enctype="multipart/form-data">
                 @csrf
 
-                <div>
+                <div class="w-full">
                     <x-input-label for="files" :value="__('Blog Images')" />
-                    <x-text-input id="files" multiple name="files[]" type="file" class="mt-1 block w-full" :value="old('files')" required    />
+                    <x-text-input id="files" multiple name="files[]" type="file" class="mt-1 block w-full border" :value="old('files')" required    />
                     <x-input-error class="mt-2" :messages="$errors->get('files')" />
                 </div>
 
-                <div class="flex items-center gap-4">
-                    <x-primary-button>{{ __('Save') }}</x-primary-button>
 
-                    @if (session('status') === 'blog images updated successfully')
-                        <p
-                            x-data="{ show: true }"
-                            x-show="show"
-                            x-transition
-                            x-init="setTimeout(() => show = false, 3000)"
-                            class="text-sm text-gray-600"
-                        >{{ __('Saved.') }}</p>
-                    @endif
+
+                <div class="flex flex-row justify-between">
+                    <div class="flex items-center gap-4">
+                        <x-primary-button>{{ __('Save') }}</x-primary-button>
+
+                        @if (session('status') === 'blog images updated successfully')
+                            <p
+                                x-data="{ show: true }"
+                                x-show="show"
+                                x-transition
+                                x-init="setTimeout(() => show = false, 3000)"
+                                class="text-sm text-gray-600"
+                            >{{ __('Saved.') }}</p>
+                        @endif
+                    </div>
                 </div>
             </form>
+            @if(isset($blog) && !route('show.blog'))
+                <a href="{{route('manage-blogs.create', ['slug' => $blog->slug])}}" class="flex flex-row justify-end">
+                    <button class='inline-flex items-center px-4 py-2 bg-blue-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-blue-700 focus:bg-blue-700 active:bg-blue-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150'>{{ __('Back') }}</button>
+                </a>
+            @endif
         </div>
     </section>
 </div>

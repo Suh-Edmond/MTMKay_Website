@@ -150,10 +150,12 @@ class BlogController extends Controller
         $slug = $request['slug'];
         $blog = Blog::where('slug', $slug)->firstOrFail();
         $categories = Category::orderBy('created_at', 'desc')->get();
+        $tags       = Tag::all();
         $data = [
             'blog' => $blog,
             'categories' => $categories,
-            'comments' => $blog->blogComments()->orderBy('created_at', 'desc')->take(5)->get()
+            'tags'      => $tags,
+            'comments' => $blog->blogComments()->orderBy('created_at', 'desc')->take(3)->get()
         ];
 
 
@@ -163,20 +165,23 @@ class BlogController extends Controller
     public function updateInformation(Request $request)
     {
         $request->validate([
-            'title' => 'required|string|max:255|min:20',
+            'title' => 'required|string|max:255|min:10',
             'blog_state' => ['required', Rule::in([BlogState::PENDING, BlogState::REJECTED, BlogState::APPROVED])],
             'description' => 'required|string|max:1000',
-            'category_id'   => ['required']
+            'category_id'   => ['required'],
+            'tag_id'      => 'required|array'
         ]);
         $slug = $request['slug'];
         $blog = Blog::where('slug', $slug)->firstOrFail();
 
         $blog->update([
-            'title' => $request['title'],
+            'title'       => $request['title'],
             'description' => $request['description'],
-            'blog_state' => $request['blog_state'],
-            'category_id' => $request['blog_state']
+            'blog_state'  => $request['blog_state'],
+            'category_id' => $request['category_id']
         ]);
+
+        $this->saveBlogTags($request, $blog);
 
         return redirect()->route('show.blog', ['slug' => $request['slug']])->with('status', 'Information updated successfully');
     }
@@ -246,10 +251,16 @@ class BlogController extends Controller
     {
         $categories = Category::orderBy('created_at', 'desc')->get();
         $tags       = Tag::all();
+        $slug       = $request['slug'];
+
+        $blog = Blog::where('slug', $slug)->first();
+        Session::put('blog', $blog);
+
+
         $data = [
             'categories' => $categories,
             'tags'       => $tags,
-            'step'       => 1
+            'blog'       => $blog
         ];
 
         return view('pages.management.blog.create')->with($data);
@@ -266,22 +277,45 @@ class BlogController extends Controller
             'blog_state'   => ['required', Rule::in([BlogState::APPROVED, BlogState::REJECTED, BlogState::PENDING]) ]
         ]);
 
-        $blog = Blog::create([
-            'category_id' => $request['category_id'],
-            'title'       => $request['title'],
-            'description'    => $request['description'],
-            'blog_state'    => $request['blog_state'],
-            'user_id'       => auth()->user()->id
-        ]);
+        $slug       = $request['slug'];
 
-        $this->saveBlogTags($request, $blog);
+        $existBlog = Blog::where('slug', $slug)->first();
+
+        if(!isset($existBlog)){
+            $existBlog = Blog::create([
+                'category_id' => $request['category_id'],
+                'title'       => $request['title'],
+                'description'    => $request['description'],
+                'blog_state'    => $request['blog_state'],
+                'user_id'       => auth()->user()->id
+            ]);
+        }else {
+
+            $existBlog->update([
+                'category_id' => $request['category_id'],
+                'title'       => $request['title'],
+                'description'    => $request['description'],
+                'blog_state'    => $request['blog_state'],
+            ]);
+        }
+        $this->saveBlogTags($request, $existBlog);
 
         $data = [
-            'blog' =>$blog,
+            'blog' =>$existBlog,
             'status' => 'blog information created successfully',
-            'step'   => 2
         ];
-        return redirect()->route('manage-blogs.create')->with($data);
+        return redirect()->route('manage-blogs.create', ['slug' => $existBlog->slug])->with($data);
+    }
+
+    public function addBlogImage(Request $request)
+    {
+        $slug = $request['slug'];
+        $blog = Blog::where('slug', $slug)->first();
+        $data = [
+            'blog' => $blog
+        ];
+
+        return view('pages.management.blog.add-image')->with($data);
     }
 
     public function uploadImages(Request $request)
@@ -309,10 +343,22 @@ class BlogController extends Controller
         return redirect()->route('manage-blogs')->with(['status' => 'Blog images saved successfully']);
     }
 
+    public function deleteBlog(Request $request)
+    {
+        $slug = $request['slug'];
+        $blog = Blog::where('slug', $slug)->first();
+        $blog->tags()->detach();
+        $blog->blogImages()->delete();
+        $blog->blogComments()->delete();
+        $blog->delete();
+
+        return redirect()->route('manage-blogs')->with(['status' => 'Blog delete successfully']);
+    }
+
     private function saveBlogTags($request, $blog)
     {
         $tags = $request['tag_id'];
-        $blog->tags()->syncWithoutDetaching($tags);
+        $blog->tags()->sync($tags);
     }
 
     private function saveBlogImages($fileName, $blog)
@@ -320,7 +366,9 @@ class BlogController extends Controller
         BlogImages::create([
             'blog_id' => $blog->id,
             'file_path' => $fileName,
-            'is_main' => false
+            'is_main' => true
         ]);
     }
+
+
 }

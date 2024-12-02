@@ -203,7 +203,6 @@
             location.href = url
 
         })
-        const CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
 
         $('#goBack').on('click', function (e){
             history.back();

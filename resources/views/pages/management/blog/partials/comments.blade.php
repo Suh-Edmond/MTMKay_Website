@@ -8,9 +8,15 @@
                 </h2>
             </header>
 
-            <a href="{{route('show.blog.comments', ['slug' =>$blog->slug])}}" class="'flex items-center px-4 h-10  text-blue-800 '}}">
-                <span class="text-blue-800">View more</span>
-            </a>
+            @if(count($comments) > 0)
+                <a href="{{route('show.blog.comments', ['slug' =>$blog->slug])}}" class="'flex items-center px-4 h-10  text-blue-800 '}}">
+                    <span class="text-blue-800">View more</span>
+                </a>
+            @else
+                <x-auth-session-status :status="'No comments available for this blog'">
+
+                </x-auth-session-status>
+            @endif
         </div>
         @foreach($comments as $comment)
             <div class="mb-lg-5 mt-4 border rounded-md p-5">

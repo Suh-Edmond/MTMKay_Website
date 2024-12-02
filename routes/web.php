@@ -35,8 +35,9 @@ Route::middleware(['auth', 'verified'])->prefix('dashboard')->group(function (){
     Route::get('manage-students/payments/view', [EnrollmentController::class, 'fetchPaymentTransactions'])->name('manage-students.view.payments');
     Route::get('manage-blogs/create-blog/view', [BlogController::class, 'createBlog'])->name('manage-blogs.create');
     Route::post('manage-blogs/create-blog', [BlogController::class, 'storeBlog'])->name('manage-blogs.store');
+    Route::get('manage-blogs/create/upload-images', [BlogController::class, 'addBlogImage'])->name('manage-blogs.create.image');
     Route::post('manage-blogs/create-blog/upload-images', [BlogController::class, 'uploadImages'])->name('manage-blogs.upload-images');
-    Route::post('tabs/remove_tab', [DashboardController::class, 'removeTab'])->name('remove.tab');
+    Route::delete('manage-blogs/delete', [BlogController::class, 'deleteBlog'])->name('manage-blogs.delete');
 });
 
 Route::middleware('auth')->group(function () {

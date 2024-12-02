@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Blog extends Model
 {
+    const IMAGE_DIR ='/storage/uploads/images/blogs/';
     use HasFactory, SoftDeletes;
 
     use GenerateUUIDTrait;
@@ -51,7 +52,9 @@ class Blog extends Model
     {
         $blog = Blog::find($id);
 
-        return $blog->blogImages()->where('is_main', true)->first();
+        $image = $blog->blogImages()->first();
+
+        return isset($image) ? self::IMAGE_DIR.$blog->slug."/".$image->file_path: "";
     }
 
     public function getBlogCreatedHours($id)
@@ -66,5 +69,10 @@ class Blog extends Model
     public function tags()
     {
         return $this->belongsToMany(Tag::class);
+    }
+
+    public function getImagePath($blog, $image_path)
+    {
+        return self::IMAGE_DIR.$blog->slug."/".$image_path;
     }
 }
