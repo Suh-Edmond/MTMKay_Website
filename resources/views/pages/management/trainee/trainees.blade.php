@@ -1,8 +1,34 @@
-<x-app-layout>
+@section('title', "MTMKay-Enrollment Management")
+<x-app-layout >
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Enrollment Management') }}
-        </h2>
+        <div class="flex flex-row">
+            <a href="#">
+                <button id="goBack" class="text-blue-800 text-xl">
+                    <span><i class="fa fa-arrow-left px-5"></i></span>
+                </button>
+            </a>
+            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+                {{__('Enrollment Management')}}
+            </h2>
+        </div>
+{{--        @if(\Illuminate\Support\Facades\Session::has('tabs'))--}}
+{{--            <div class="flex flex-row">--}}
+{{--                <a href="#">--}}
+{{--                    <button id="goBack" class="text-blue-800 text-xl">--}}
+{{--                        <span><i class="fa fa-arrow-left px-5"></i></span>--}}
+{{--                    </button>--}}
+{{--                </a>--}}
+{{--                @foreach(\Illuminate\Support\Facades\Session::get('tabs') as $key => $value)--}}
+{{--                    <a href="#" id="back">--}}
+{{--                        <h2 class="font-semibold text-xl text-gray-800 leading-tight">--}}
+{{--                            {{ $value }} @if($key != count(\Illuminate\Support\Facades\Session::get('tabs')) - 1)--}}
+{{--                                <span><i class="fa fa-arrow-right sm px-3"></i></span>--}}
+{{--                            @endif--}}
+{{--                        </h2>--}}
+{{--                    </a>--}}
+{{--                @endforeach--}}
+{{--            </div>--}}
+{{--        @endif--}}
     </x-slot>
 
     <div class="pt-4 max-w-7xl mx-auto sm:px-6 lg:px-8">
@@ -45,23 +71,29 @@
                     <table class="shadow-xs bg-white border-collapse">
                         <thead>
                         <tr>
-                            <th class="bg-blue-800 text-white border text-center px-4 py-4">S/N</th>
-                            <th class="bg-blue-800 text-white border text-center px-4 py-4">Name</th>
-                            <th class="bg-blue-800 text-white border text-center px-4 py-4">Email</th>
-                            <th class="bg-blue-800 text-white border text-center px-4 py-4">Program</th>
-                            <th class="bg-blue-800 text-white border text-center px-4 py-4">Enrollment Date</th>
-                            <th class="bg-blue-800 text-white border text-center px-4 py-4">Action</th>
+                            <th class="bg-blue-800 text-white border text-center px-3 py-2">S/N</th>
+                            <th class="bg-blue-800 text-white border text-center px-4 py-2">Name</th>
+                            <th class="bg-blue-800 text-white border text-center px-4 py-2">Email</th>
+                            <th class="bg-blue-800 text-white border text-center px-4 py-2">Program</th>
+                            <th class="bg-blue-800 text-white border text-center px-2 py-2">Enrollment Date</th>
+                            <th class="bg-blue-800 text-white border text-center px-4 py-2">Completed Payment</th>
+                            <th class="bg-blue-800 text-white border text-center px-4 py-2">Action</th>
                         </tr>
                         </thead>
                         <tbody>
                         @foreach($trainees as $key => $value)
                             <tr class="hover:bg-gray-100 focus:bg-gray-300 active:bg-gray-400"  tabindex="0">
-                                <td class="border px-8 py-4">{{$key+1}}</td>
-                                <td class="border px-8 py-4">{{$value->user->name}}</td>
-                                <td class="border px-8 py-4">{{$value->user->email}}</td>
-                                <td class="border px-8 py-4">{{$value->program->title}}</td>
-                                <td class="border px-8 py-4">{{$value->enrollment_date ?? $value->user->enrollment_date->format('D, d M Y') }}</td>
-                                <td class="border px-8 py-4 text-center cursor-pointer">
+                                <td class="border px-3 py-4">{{$key+1}}</td>
+                                <td class="border px-4 py-4">{{$value->user->name}}</td>
+                                <td class="border px-4 py-4">{{$value->user->email}}</td>
+                                <td class="border px-4 py-4 w-3/12">{{$value->program->title}}</td>
+                                <td class="border px-4 py-4 ">{{$value->enrollment_date ?? $value->user->enrollment_date->format('D, d M Y') }}</td>
+                                @if($value->has_completed_payment)
+                                    <td class="border px-4 py-4 text-green-700 text-center w-20">YES</td>
+                                @else
+                                    <td class="border px-4 py-4 text-yellow-600 text-center w-20">NO</td>
+                                @endif
+                                <td class="border px-4 py-4 text-center cursor-pointer">
                                     <x-dropdown align="right" width="48">
                                         <x-slot name="trigger">
                                             <span><i class="fa fa-bars"></i></span>
@@ -171,6 +203,11 @@
             location.href = url
 
         })
+
+        $('#goBack').on('click', function (e){
+            history.back();
+        })
+
 
     })
 </script>

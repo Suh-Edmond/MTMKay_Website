@@ -20,6 +20,7 @@
         "@tiptap/core": "^2.10.3",
         "@tiptap/pm": "^2.10.3",
         "@tiptap/starter-kit": "^2.10.3",
+        "flowbite": "^2.5.2",
         "flowbite-typography": "^1.0.5"
     }
 }

@@ -19,7 +19,7 @@
             </div>
         @endif
         <div class="w-full">
-            <form method="post" action="{{ route('manage-blogs.upload-images', ['slug' => $blog->slug ?? '']) }}" class="mt-6 space-y-6"  enctype="multipart/form-data">
+            <form method="post" action="{{ route('manage-blogs.upload-images.update', ['slug' => $blog->slug ?? '']) }}" class="mt-6 space-y-6"  enctype="multipart/form-data">
                 @csrf
 
                 <div class="w-full">
@@ -34,11 +34,13 @@
                     <div class="flex items-center gap-4">
                         <x-primary-button>{{ __('Save') }}</x-primary-button>
 
-                        <x-auth-session-status :status="session('status')"  x-data="{ show: true }"
-                                               x-show="show"
-                                               x-transition
-                                               x-init="setTimeout(() => show = false, 2000)">
-                        </x-auth-session-status>
+                        @if(session('status') === 'Blog images saved successfully')
+                            <x-auth-session-status :status="session('status')"  x-data="{ show: true }"
+                                                   x-show="show"
+                                                   x-transition
+                                                   x-init="setTimeout(() => show = false, 2000)">
+                            </x-auth-session-status>
+                        @endif
                     </div>
                 </div>
             </form>

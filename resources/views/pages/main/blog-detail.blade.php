@@ -65,8 +65,8 @@
                 </div>
 
                 <div class="comments-area">
-                    <h4>{{$blog->blogComments->count()}} Comments</h4>
-                    @foreach($blog->blogComments as $comment)
+                    <h4>{{$blog->getApprovedBlogComments($blog->id)->count()}} Comments</h4>
+                    @foreach($blog->getApprovedBlogComments($blog->id) as $comment)
                         <div class="comment-list">
                             <div class="single-comment justify-content-between d-flex">
                                 <div class="user justify-content-between d-flex">
