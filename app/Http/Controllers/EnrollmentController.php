@@ -96,7 +96,7 @@ class EnrollmentController extends Controller
             ]);
         }
 
-        return redirect()->back()->with('status', 'Payment Completed Successfully');
+        return redirect()->route('manage-students.view.payments', ['slug' => $enrollment->slug])->with('status', 'Payment Completed Successfully');
     }
 
 
@@ -108,10 +108,18 @@ class EnrollmentController extends Controller
 
         $this->setNavigationTitle("Payment Transactions");
 
+        $payments = $enrollment->paymentTransactions();
+
+        $programCost = $enrollment->program->cost;
+
+        $total = $payments->sum('amount_deposited');
 
         $data = [
-            'payments' => $enrollment->paymentTransactions()->orderBy('created_at', 'DESC')->get(),
-            'user' => $enrollment->user
+            'payments' => $payments->orderBy('created_at', 'DESC')->get(),
+            'user' => $enrollment->user,
+            'total' => $total,
+            'balance' => ($programCost - $total),
+            'enrollment' => $enrollment
         ];
 
         return view('pages.management.program.payment')->with($data);
