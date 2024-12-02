@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\AboutUsController;
-use App\Http\Controllers\Auth\VerifyEmailController;
 use App\Http\Controllers\BlogCommentsController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ContactController;
@@ -13,7 +12,6 @@ use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\TrainingController;
 use App\Http\Controllers\UserController;
-use App\Models\Enrollment;
 use Illuminate\Support\Facades\Route;
 
 
@@ -21,10 +19,10 @@ use Illuminate\Support\Facades\Route;
 Route::middleware(['auth', 'verified'])->prefix('dashboard')->group(function (){
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('manage-programs', [ProgramController::class, 'index'])->name('manage-programs');
-    Route::get('manage-trainees', [EnrollmentController::class, 'index'])->name('manage-students');
+    Route::get('manage-students', [EnrollmentController::class, 'index'])->name('manage-students');
     Route::get('manage-blogs', [BlogController::class, 'manageBlogs'])->name('manage-blogs');
-    Route::delete('manage-trainees/delete', [EnrollmentController::class, 'deleteTrainee'])->name('trainee.destroy');
-    Route::post('manage-trainees/payment-fees', [EnrollmentController::class, 'makePayment'])->name('trainee.make_payment');
+    Route::delete('manage-students/delete', [EnrollmentController::class, 'deleteTrainee'])->name('trainee.destroy');
+    Route::post('manage-students/payment-fees', [EnrollmentController::class, 'makePayment'])->name('trainee.make_payment');
     Route::get('manage-programs/details', [ProgramController::class, 'show'])->name('show.program');
     Route::put('manage-programs/details/update-image', [ProgramController::class, 'updateImage'])->name('program.update.image');
     Route::put('manage-programs/details/update-information', [ProgramController::class, 'updateProgramInformation'])->name('program.update.information');
@@ -34,7 +32,7 @@ Route::middleware(['auth', 'verified'])->prefix('dashboard')->group(function (){
     Route::delete('manage-blogs/details/tags/delete', [BlogController::class, 'deleteTag'])->name('blog.tag.delete');
     Route::get('manage-blogs/details/comments', [BlogController::class, 'showBlogComments'])->name('show.blog.comments');
     Route::put('manage-blogs/details/comments/update-status', [BlogController::class, 'updateCommentStatus'])->name('show.blog.comments.update.status');
-    Route::get('manage-trainees/payments/view', [EnrollmentController::class, 'fetchPaymentTransactions'])->name('manage-students.view.payments');
+    Route::get('manage-students/payments/view', [EnrollmentController::class, 'fetchPaymentTransactions'])->name('manage-students.view.payments');
     Route::get('manage-blogs/create-blog/view', [BlogController::class, 'createBlog'])->name('manage-blogs.create');
     Route::post('manage-blogs/create-blog', [BlogController::class, 'storeBlog'])->name('manage-blogs.store');
     Route::post('manage-blogs/create-blog/upload-images', [BlogController::class, 'uploadImages'])->name('manage-blogs.upload-images');
