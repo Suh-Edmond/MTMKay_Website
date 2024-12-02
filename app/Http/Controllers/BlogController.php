@@ -332,12 +332,10 @@ class BlogController extends Controller
         $files = $request['files'];
         $totalBlogImages = $blog->blogImages()->count();
 
-
         if($totalBlogImages + count($files) > 4){
             return  redirect()->back()->with(['error' => "400", 'msg' => 'Number of blog images must be less than or equal to four (04)']);
         }
-
-//        $this->uploadImages($request);
+        $this->uploadImages($request);
         Session::remove('blog');
         return redirect()->route('show.blog', ['slug' => $request['slug']])->with(['status' => 'Blog images saved successfully']);
     }
@@ -379,10 +377,12 @@ class BlogController extends Controller
         $slug = $request['slug'];
         $blog = Blog::where('slug', $slug)->first();
 
+
         foreach ($request->file('files') as $file){
             try {
                 $fileName = $file->getClientOriginalName();
                 $fileName = str_replace(' ', '', $fileName);
+
                 $file->storeAs(self::IMAGE_DIR.$blog->slug, $fileName, 'public');
 
                 $this->saveBlogImages($fileName, $blog);

@@ -11,7 +11,7 @@
         </header>
         @if(isset($blog))
             <div class="flex gap-4">
-                @foreach($blog->blogImages   as $image)
+                @foreach($blog->blogImages as $image)
                     <div class="bg-white shadow-sm sm:rounded-lg">
                         <img src="{{ asset($blog->getImagePath($blog, $image->file_path)) }}"  >
                     </div>
