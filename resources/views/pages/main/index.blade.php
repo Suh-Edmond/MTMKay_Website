@@ -1,3 +1,4 @@
+@section('title', 'MTMKay Technologies')
 <x-guest-layout>
     <!--================Home Banner Area =================-->
     <section class="home_banner_area">

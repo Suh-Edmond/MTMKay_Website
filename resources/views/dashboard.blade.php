@@ -17,7 +17,7 @@
             </div>
             <div class="basis-1/4 grow sm:px-6 lg:px-8 bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 text-center font-bold text-xl">
-                    Students
+                    Enrollments
                 </div>
                 <div class="p-6 text-gray-900 text-center font-bold text-xl">
                     {{$studentsCount}}

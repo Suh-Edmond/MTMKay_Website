@@ -1,3 +1,5 @@
+@section('title', 'Program details')
+
 <x-guest-layout>
 
 <!--================Home Banner Area =================-->
