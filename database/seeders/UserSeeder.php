@@ -24,7 +24,7 @@ class UserSeeder extends Seeder
      */
     public function run(Generator $generator): void
     {
-        for ($i = 0; $i < 20; $i++) {
+        for ($i = 0; $i < 5; $i++) {
             User::create([
                 'name' => $generator->name,
                 'email' => $generator->email,

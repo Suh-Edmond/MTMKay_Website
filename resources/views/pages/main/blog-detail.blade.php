@@ -27,7 +27,7 @@
                 <div class="single-post row">
                     <div class="col-lg-12">
                         <div class="feature-img">
-                            <img class="img-fluid" src="{{$blog->getSingleBlogImage($blog->id)->file_path ?? ''}}" alt="" width="100%" height="100%">
+                            <img class="img-fluid" src="{{asset($blog->getSingleBlogImage($blog->id))}}" alt="" width="100%" height="100%">
                         </div>
                     </div>
                     <div class="col-lg-3  col-md-3">
@@ -58,7 +58,7 @@
                         <div class="row">
                             @foreach($blog->blogImages as $image)
                                 <div class="col-6 col-md-6 mt-4">
-                                    <img class="img-fluid" src="{{$image->file_path}}" alt="" height="60%" width="100%">
+                                    <img class="img-fluid" src="{{ asset($blog->getImagePath($blog, $image->file_path))}}" alt="" height="60%" width="100%">
                                 </div>
                             @endforeach
 
@@ -131,7 +131,7 @@
                         <h3 class="widget_title">Popular Posts</h3>
                         @foreach($popularBlogs as $popularBlog)
                             <div class="media post_item">
-                                <img src="{{$popularBlog->getSingleBlogImage($popularBlog->id)->file_path ?? ''}}" alt="post" height="25%" width="25%">
+                                <img src="{{asset($popularBlog->getSingleBlogImage($popularBlog->id))}}" alt="post" height="25%" width="25%">
                                 <div class="media-body">
                                     <a href="{{route('show-blog', ['id'=> $popularBlog->id])}}"><h3>{{$popularBlog->title}}</h3></a>
                                     <p>02 Hours ago</p>

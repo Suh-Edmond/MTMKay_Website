@@ -37,10 +37,11 @@ Route::middleware(['auth', 'verified'])->prefix('dashboard')->group(function (){
     Route::post('manage-blogs/create-blog', [BlogController::class, 'storeBlog'])->name('manage-blogs.store');
     Route::get('manage-blogs/create/upload-images', [BlogController::class, 'addBlogImage'])->name('manage-blogs.create.image');
     Route::post('manage-blogs/create-blog/upload-images', [BlogController::class, 'storeBlogImages'])->name('manage-blogs.upload-images');
-    Route::post('manage-blogs/create-blog/upload-images', [BlogController::class, 'updateBlogImages'])->name('manage-blogs.upload-images.update');
+    Route::post('manage-blogs/create-blog/upload-images/update', [BlogController::class, 'updateBlogImages'])->name('manage-blogs.upload-images.update');
     Route::delete('manage-blogs/delete', [BlogController::class, 'deleteBlog'])->name('manage-blogs.delete');
     Route::delete('manage-blog/details/comments/delete', [BlogCommentsController::class, 'destroyComment'])->name('show.blog.comments.delete');
     Route::delete('manage-blog/details/images/delete', [BlogController::class, 'destroyImage'])->name('show.blog.images.delete');
+    Route::post('manage-blogs/comments/add', [BlogCommentsController::class, 'addComment'])->name('show.blog.comments.add');
 });
 
 Route::middleware('auth')->group(function () {
