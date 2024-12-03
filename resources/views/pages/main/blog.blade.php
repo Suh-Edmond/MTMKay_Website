@@ -72,7 +72,7 @@
                             </div>
                             <div class="col-md-9">
                                 <div class="blog_post">
-                                    <img src="{{$blog->getSingleBlogImage($blog->id)->file_path ?? ''}}" alt="" width="100%">
+                                    <img src="{{asset($blog->getSingleBlogImage($blog->id))}}" alt="" width="100%">
                                     <div class="blog_details">
                                         <a href="{{route('show-blog', ['slug'=>$blog->slug])}}"><h2>{{$blog->title}}</h2></a>
                                         <p>{{$blog->description}}.</p>
