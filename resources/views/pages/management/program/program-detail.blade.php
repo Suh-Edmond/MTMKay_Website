@@ -24,9 +24,15 @@
                 @include('pages.management.program.partials.information')
             </div>
 
-            <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-               @include('pages.management.program.partials.outline')
-            </div>
+            @if(isset($program))
+                <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
+                    @include('pages.management.program.partials.outline')
+                </div>
+
+                <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
+                    @include('pages.management.program.partials.delete-program')
+                </div>
+            @endif
         </div>
     </div>
 </x-app-layout>

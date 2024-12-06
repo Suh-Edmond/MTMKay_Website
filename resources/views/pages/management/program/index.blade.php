@@ -1,9 +1,14 @@
 @section('title', "MTMKay-Programs")
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Program Management') }}
-        </h2>
+        <div class="flex justify-between">
+            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+                {{ __('Program Management') }}
+            </h2>
+            <a href="{{route('manage-programs.create')}}">
+                <x-primary-button id="addOutline">{{ __('Add Program') }}</x-primary-button>
+            </a>
+        </div>
     </x-slot>
 
     <div class="py-12">

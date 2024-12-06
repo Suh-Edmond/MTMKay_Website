@@ -9,17 +9,19 @@
                 {{ __("Update the program image.") }}
             </p>
         </header>
-        <div class="grow w-3/4">
-            <img src="{{ asset($program->getImagePath($program, $program->image_path)) }}" width="100%" height="100px">
-        </div>
+        @if(isset($program))
+            <div class="grow w-3/4">
+                <img src="{{ asset($program->getImagePath($program, $program->image_path)) }}" width="100%" height="100px">
+            </div>
+        @endif
         <div>
-            <form method="post" action="{{ route('program.update.image', ['slug' => $program->slug]) }}" class="mt-6 space-y-6"  enctype="multipart/form-data">
+            <form method="post" action="{{ route('program.update.image', ['slug' => $program->slug ?? ""]) }}" class="mt-6 space-y-6"  enctype="multipart/form-data">
                 @csrf
                 @method('put')
 
                 <div>
                     <x-input-label for="image_path" :value="__('Program Image')" />
-                    <x-text-input id="image_path" name="image_path" type="file" class="mt-1 block w-full" :value="old('image_path', $program->image_path)" required    />
+                    <x-text-input id="image_path" name="image_path" type="file" class="mt-1 block w-full" :value="old('image_path', $program->image_path ?? '')" required    />
                     <x-input-error class="mt-2" :messages="$errors->get('image_path')" />
                 </div>
 
