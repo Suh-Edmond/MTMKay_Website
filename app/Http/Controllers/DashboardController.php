@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Constant\Roles;
 use App\Models\Blog;
+use App\Models\Enrollment;
 use App\Models\Program;
 use App\Models\Role;
 use App\Models\User;
@@ -14,8 +15,7 @@ class DashboardController extends Controller
 {
    public function index(Request $request)
    {
-       $role = Role::where('name', Roles::TRAINEE)->first();
-       $students = User::where('role_id', $role->id)->count();
+       $students = Enrollment::whereNotNull('enrollment_date')->count();
        $programs = Program::all()->count();
        $blogs = Blog::all()->count();
 

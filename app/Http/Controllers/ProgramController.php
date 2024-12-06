@@ -8,10 +8,12 @@ use App\Models\Program;
 use App\Models\ProgramOutline;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Validation\Rule;
 
 class ProgramController extends Controller
 {
     const IMAGE_DIR ='/uploads/images/';
+    const PERIODS = array('Quarter1', 'Quarter2', 'Quarter3', 'Quarter4', 'Quarter5', 'Quarter5', 'Quarter6', 'Quarter7', 'Quarter8', 'Quarter9', 'Quarter10', 'Quarter11', 'Quarter12');
     public function index(Request $request)
     {
         $programs = Program::all();
@@ -26,8 +28,12 @@ class ProgramController extends Controller
     {
         $slug = $request['slug'];
         $program = Program::where('slug', $slug)->firstOrFail();
+        $outlines = $this->getProgramOutlines($program);
+        $quarters = $this->getQuarters($outlines);
+
         $data = [
-            'program' => $program
+            'program' => $program,
+            'quarters' => $quarters
         ];
 
         return view('pages.management.program.program-detail')->with($data);
@@ -84,17 +90,30 @@ class ProgramController extends Controller
     public function updateOutline(Request $request)
     {
 
+        $request->validate([
+            'period' => ['required', 'string', Rule::in(self::PERIODS)],
+            'topic' => ['required', 'string', 'max:255', 'unique:program_outlines,topic']
+        ]);
+
         $slug = $request['slug'];
         $outlineSlug = $request['outlineSlug'];
         $program = Program::where('slug', $slug)->first();
         $outline = ProgramOutline::where('slug',$outlineSlug)->where('program_id', $program->id)->first();
 
-        $outline->update([
-            'period' => $request['period'],
-            'topic' => $request['topic']
-        ]);
+        if (!isset($outline)){
+            ProgramOutline::create([
+                'period' => $request['period'],
+                'topic' => $request['topic'],
+                'program_id' => $program->id
+            ]);
+        }else {
+            $outline->update([
+                'period' => $request['period'],
+                'topic' => $request['topic']
+            ]);
+        }
 
-        return Redirect::route('show.program', ['slug' => $slug])->with('status', 'program outline updated successfully');
+        return Redirect::route('show.program', ['slug' => $slug])->with('status', 'Program outline updated successfully');
     }
 
     public function deleteOutline(Request $request)
@@ -104,5 +123,19 @@ class ProgramController extends Controller
          ProgramOutline::where('slug', $outlineSlug)->first()->delete();
 
         return Redirect::route('show.program', ['slug' => $slug])->with('status', 'program outline deleted successfully');
+    }
+
+    private function getQuarters($outlines)
+    {
+        return collect(self::PERIODS)->filter(function ($quarter) use ($outlines){
+            return !in_array($quarter, $outlines->toArray());
+        })->toArray();
+    }
+
+    private function getProgramOutlines($program)
+    {
+        return $program->programOutlines->map(function ($outline){
+            return $outline->period;
+        });
     }
 }

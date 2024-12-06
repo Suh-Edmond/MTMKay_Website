@@ -34,6 +34,10 @@
     $('#goBack').on('click', function (e){
         history.back();
     })
+
+    $('#addOutline').on('click', function (e){
+        $('#add-outline-form').show();
+    })
 </script>
 
 
