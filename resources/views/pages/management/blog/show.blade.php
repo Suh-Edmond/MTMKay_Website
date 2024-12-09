@@ -3,7 +3,7 @@
 <x-app-layout>
     <x-slot name="header">
         <div class="flex flex-row">
-            <a href="#">
+            <a href="{{route('manage-blogs')}}">
                 <button id="goBack" class="text-blue-800 text-xl">
                     <span><i class="fa fa-arrow-left px-5"></i></span>
                 </button>

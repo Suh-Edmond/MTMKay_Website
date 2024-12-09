@@ -67,4 +67,55 @@ class BlogCommentsController extends Controller
            'message' => $validData['message']
        ]);
    }
+
+    public function showBlogComments(Request $request)
+    {
+        $slug = $request['slug'];
+        $blog = Blog::where('slug', $slug)->first();
+        $filter = $request['filter'];
+        $sort = $request['sort'];
+        $comments = $blog->blogComments();
+
+        if(isset($filter) && $filter !== "ALL"){
+            $comments = $comments->where('status', $filter);
+        }
+        if(isset($sort) && $sort !== "ALL"){
+            $comments = $blog->blogComments();
+            switch ($sort) {
+                case 'DATE_ASC':
+                    $comments->orderBy('created_at');
+                    break;
+                case 'NAME':
+                    $comments->orderBy('name');
+                    break;
+                default:
+                    $comments->orderByDesc('created_at');
+                    break;
+            }
+        }
+
+        $comments = $comments->paginate(10);
+
+        $data = [
+            'comments' => $comments,
+            'blog'     => $blog
+        ];
+
+        return view ('pages.management.blog.comments')->with($data);
+    }
+
+
+    public function updateCommentStatus(Request $request)
+    {
+        $status = $request['status'];
+        $slug = $request['slug'];
+        $comment = BlogComments::where('slug', $slug)->first();
+
+        $comment->update([
+            'status' => $status
+        ]);
+
+        return redirect()->back()->with(['status' => 'Blog Status updated successfully']);
+    }
+
 }

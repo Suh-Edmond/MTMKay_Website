@@ -2,7 +2,7 @@
 <x-app-layout>
     <x-slot name="header">
         <div class="flex flex-row">
-            <a href="#" >
+            <a href="{{route('manage-students')}}" >
                 <button id="goBack" class="text-blue-800 text-xl">
                     <span><i class="fa fa-arrow-left px-5"></i></span>
                 </button>
@@ -58,7 +58,7 @@
 
                     @if(count($payments) == 0)
                         <h3 class="text-lg font-medium text-gray-900 p-5 text-center my-5">
-                            Oooops! No payments have been recorded for this student
+                            Oops! No payments have been recorded for this student
                         </h3>
                     @endif
                 </div>

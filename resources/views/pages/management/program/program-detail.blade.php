@@ -3,7 +3,7 @@
     <x-slot name="header">
 
         <div class="flex flex-row">
-            <a href="#" >
+            <a href="{{route('manage-programs')}}" >
                 <button id="goBack" class="text-blue-800 text-xl">
                     <span><i class="fa fa-arrow-left px-5"></i></span>
                 </button>
@@ -24,15 +24,25 @@
                 @include('pages.management.program.partials.information')
             </div>
 
-            <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-               @include('pages.management.program.partials.outline')
-            </div>
+            @if(isset($program))
+                <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
+                    @include('pages.management.program.partials.outline')
+                </div>
+
+                <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
+                    @include('pages.management.program.partials.delete-program')
+                </div>
+            @endif
         </div>
     </div>
 </x-app-layout>
 <script>
     $('#goBack').on('click', function (e){
         history.back();
+    })
+
+    $('#addOutline').on('click', function (e){
+        $('#add-outline-form').show();
     })
 </script>
 

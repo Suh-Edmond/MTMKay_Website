@@ -9,6 +9,7 @@ use App\Http\Controllers\EnrollmentController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProgramController;
+use App\Http\Controllers\ProgramOutlineController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\TrainingController;
 use App\Http\Controllers\UserController;
@@ -19,19 +20,25 @@ use Illuminate\Support\Facades\Route;
 Route::middleware(['auth', 'verified'])->prefix('dashboard')->group(function (){
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('manage-programs', [ProgramController::class, 'index'])->name('manage-programs');
+    Route::get('manage-programs/create', [ProgramController::class, 'createProgram'])->name('manage-programs.create');
+    Route::put('manage-programs/create/store', [ProgramController::class, 'storeProgramInformation'])->name('manage-programs.store');
+    Route::get('manage-programs/create/add-image', [ProgramController::class, 'addProgramImage'])->name('manage-programs.create.add-image');
     Route::get('manage-students', [EnrollmentController::class, 'index'])->name('manage-students');
     Route::get('manage-blogs', [BlogController::class, 'manageBlogs'])->name('manage-blogs');
     Route::delete('manage-students/delete', [EnrollmentController::class, 'deleteTrainee'])->name('trainee.destroy');
     Route::post('manage-students/payment-fees', [EnrollmentController::class, 'makePayment'])->name('trainee.make_payment');
     Route::get('manage-programs/details', [ProgramController::class, 'show'])->name('show.program');
-    Route::put('manage-programs/details/update-image', [ProgramController::class, 'updateImage'])->name('program.update.image');
+    Route::post('manage-programs/details/update-image', [ProgramController::class, 'updateProgramImage'])->name('program.update.image');
+    Route::post('manage-programs/details/add-image', [ProgramController::class, 'storeProgramImage'])->name('program.store.image');
     Route::put('manage-programs/details/update-information', [ProgramController::class, 'updateProgramInformation'])->name('program.update.information');
-    Route::put('manage-programs/details/update-outline', [ProgramController::class, 'updateOutline'])->name('program.update.outline');
+    Route::put('manage-programs/details/update-outline', [ProgramOutlineController::class, 'updateOutline'])->name('program.update.outline');
+    Route::post('manage-programs/details/create-outline', [ProgramOutlineController::class, 'storeOutline'])->name('program.create.outline');
+    Route::get('manage-programs/details/add-outline', [ProgramOutlineController::class, 'createOutline'])->name('program.create.outline.view');
     Route::get('manage-blogs/details', [BlogController::class, 'showBlog'])->name('show.blog');
     Route::put('manage-blogs/details/update-information',[BlogController::class, 'updateInformation'])->name('blog.update.information');
     Route::delete('manage-blogs/details/tags/delete', [BlogController::class, 'deleteTag'])->name('blog.tag.delete');
-    Route::get('manage-blogs/details/comments', [BlogController::class, 'showBlogComments'])->name('show.blog.comments');
-    Route::put('manage-blogs/details/comments/update-status', [BlogController::class, 'updateCommentStatus'])->name('show.blog.comments.update.status');
+    Route::get('manage-blogs/details/comments', [BlogCommentsController::class, 'showBlogComments'])->name('show.blog.comments');
+    Route::put('manage-blogs/details/comments/update-status', [BlogCommentsController::class, 'updateCommentStatus'])->name('show.blog.comments.update.status');
     Route::get('manage-students/payments/view', [EnrollmentController::class, 'fetchPaymentTransactions'])->name('manage-students.view.payments');
     Route::get('manage-blogs/create-blog/view', [BlogController::class, 'createBlog'])->name('manage-blogs.create');
     Route::post('manage-blogs/create-blog', [BlogController::class, 'storeBlog'])->name('manage-blogs.store');
@@ -42,6 +49,9 @@ Route::middleware(['auth', 'verified'])->prefix('dashboard')->group(function (){
     Route::delete('manage-blog/details/comments/delete', [BlogCommentsController::class, 'destroyComment'])->name('show.blog.comments.delete');
     Route::delete('manage-blog/details/images/delete', [BlogController::class, 'destroyImage'])->name('show.blog.images.delete');
     Route::post('manage-blogs/comments/add', [BlogCommentsController::class, 'addComment'])->name('show.blog.comments.add');
+    Route::delete('manage-programs/details/delete-outline', [ProgramOutlineController::class, 'deleteOutline'])->name('program.delete.outline');
+    Route::delete('manage-programs/delete', [ProgramController::class, 'deleteProgram'])->name('manage-programs.delete');
+    Route::delete('manage-blogs/images/delete', [BlogController::class, 'deleteImage'])->name('confirm-blog-image-deletion');
 });
 
 Route::middleware('auth')->group(function () {
