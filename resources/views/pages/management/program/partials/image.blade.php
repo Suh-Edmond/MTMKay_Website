@@ -11,7 +11,7 @@
         </header>
         @if(isset($program) && ! $is_first_time)
             <div class="grow w-3/4">
-                <img src="{{ asset($program->getImagePath($program, $program->image_path)) }}" width="100%" height="100px">
+                <img src="{{ asset($program->getImagePath($program, $program->image_path)) }}" >
             </div>
         @endif
         <div class="w-full">

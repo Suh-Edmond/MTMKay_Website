@@ -7,10 +7,14 @@ use App\Models\Program;
 use App\Traits\ProgramOutlineTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Drivers\Gd\Driver;
+use Intervention\Image\ImageManager;
+use Intervention\Image\Laravel\Facades\Image;
 
 class ProgramController extends Controller
 {
-    const IMAGE_DIR ='/uploads/images/programs/';
+    const IMAGE_DIR ='uploads/images/programs/';
     const PERIODS = array('Quarter1', 'Quarter2', 'Quarter3', 'Quarter4', 'Quarter5', 'Quarter6', 'Quarter7', 'Quarter8', 'Quarter9', 'Quarter10', 'Quarter11', 'Quarter12');
 
     use ProgramOutlineTrait;
@@ -126,8 +130,6 @@ class ProgramController extends Controller
 
     }
 
-
-
     public function deleteProgram(Request $request)
     {
         $slug = $request['slug'];
@@ -146,12 +148,17 @@ class ProgramController extends Controller
             $request->validate([
                 'image_path' => 'required|image|mimes:jpg,jpeg,png'
             ]);
+            $file     = $request->file('image_path');
+            $fileName = $file->getClientOriginalName();
+            $manager  = new ImageManager(new Driver());
+            $image    = $manager->read($file);
+            $image    = $image->resize(200, 200);
 
-            $fileName = $request->file('image_path')->getClientOriginalName();
-            $fileName = str_replace(' ', '', $fileName);
+            $fileName     = str_replace(' ', '', $fileName);
             $programTitle = str_replace(' ', '', $program->title);
             $programTitle = str_replace('+', '', $programTitle);
-            $request->file('image_path')->storeAs(self::IMAGE_DIR.$programTitle, $fileName, 'public');
+
+            Storage::disk('public')->put(self::IMAGE_DIR.$programTitle."/".$fileName, (string) $image->encode());
 
             $program->update([
                 'image_path' => $fileName
