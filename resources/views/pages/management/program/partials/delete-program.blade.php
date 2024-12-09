@@ -5,7 +5,7 @@
         </h2>
 
         <p class="mt-1 text-sm text-gray-600">
-            {{ __('Once a is deleted, all of its resources and data will be deleted.') }}
+            {{ __('Once a program is deleted, all of its resources and data will be deleted.') }}
         </p>
     </header>
 

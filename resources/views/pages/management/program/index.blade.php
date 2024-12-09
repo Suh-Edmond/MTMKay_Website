@@ -12,9 +12,9 @@
     </x-slot>
 
     <div class="py-12">
-        <div  class="max-w-7xl mx-auto  flex flex-row gap-4 mx-auto sm:px-6 lg:px-8 ">
+        <div  class="max-w-7xl flex flex-row gap-4 mx-auto sm:px-6 lg:px-8 ">
             @foreach($programs as $key => $program)
-                <div class="basis-1/4  bg-white shadow-sm sm:rounded-lg flex-grow ">
+                <div class="bg-white shadow-sm sm:rounded-lg ">
                     <img src="{{asset($program->getImagePath($program, $program->image_path))}}"  width="100%" height="100%">
                     <div class="flex justify-start text-blue-800">
                         <div class="p-6 text-blue-800 text-start font-bold text-xl cursor-pointer ">

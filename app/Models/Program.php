@@ -13,7 +13,7 @@ class Program extends Model
 
     use GenerateUUIDTrait;
 
-    const IMAGE_DIR ='/storage/uploads/images';
+    const IMAGE_DIR ='/storage/uploads/images/programs';
 
 
     protected $fillable = [
@@ -25,7 +25,8 @@ class Program extends Model
         'duration',
         'trainer_name',
         'image_path',
-        'available_seats'
+        'available_seats',
+        'job_opportunities'
     ];
 
     public function enrollments()

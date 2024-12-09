@@ -2,18 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\CreateUpdateProgramOutline;
 use App\Http\Requests\UpdateProgramInformationRequest;
 use App\Models\Program;
-use App\Models\ProgramOutline;
+use App\Traits\ProgramOutlineTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
-use Illuminate\Validation\Rule;
 
 class ProgramController extends Controller
 {
-    const IMAGE_DIR ='/uploads/images/';
+    const IMAGE_DIR ='/uploads/images/programs/';
     const PERIODS = array('Quarter1', 'Quarter2', 'Quarter3', 'Quarter4', 'Quarter5', 'Quarter6', 'Quarter7', 'Quarter8', 'Quarter9', 'Quarter10', 'Quarter11', 'Quarter12');
+
+    use ProgramOutlineTrait;
+
     public function index(Request $request)
     {
         $programs = Program::all();
@@ -28,15 +29,20 @@ class ProgramController extends Controller
     {
         $slug = $request['slug'];
         $program = Program::where('slug', $slug)->firstOrFail();
-        $outlines = $this->getProgramOutlines($program);
-        $quarters = $this->getQuarters($outlines);
+        $topics = $this->getProgramOutlinesTopics($program);
+        $quarters = $this->getQuarters($topics);
         $allQuarters = self::PERIODS;
+        $firstThreeOutlines = $program->programOutlines()->take(3)->orderBy('created_at', 'DESC')->get();
 
         $data = [
             'program' => $program,
             'quarters' => $quarters,
-            'allQuarter' => $allQuarters
+            'allQuarters' => $allQuarters,
+            'is_first_time' => false,
+            'programOutlines' => $program->programOutlines,
+            'firstThreeOutlines' => $firstThreeOutlines
         ];
+
 
         return view('pages.management.program.program-detail')->with($data);
     }
@@ -49,11 +55,89 @@ class ProgramController extends Controller
             'allQuarter' => $allQuarters
         ];
 
-        return view('pages.management.program.program-detail')->with($data);
+        return view('pages.management.program.create-program')->with($data);
 
     }
 
-    public function updateImage(Request $request)
+    public function addProgramImage(Request $request)
+    {
+        $slug = $request['slug'];
+        $program = Program::where('slug', $slug)->first();
+        $data = [
+            'program' => $program,
+            'is_first_time' => true
+        ];
+        return view('pages.management.program.create-program-add-image')->with($data);
+    }
+
+    public function updateProgramImage(Request $request)
+    {
+        $slug = $request['slug'];
+        $this->saveProgramImage($request);
+        return Redirect::route('show.program', ['slug' => $slug])->with('status', 'program image updated successfully');
+    }
+
+    public function storeProgramImage(Request $request)
+    {
+
+        $slug = $request['slug'];
+        $this->saveProgramImage($request);
+
+        return Redirect::route('program.create.outline.view', ['slug' => $slug])->with('status', 'program image updated successfully');
+    }
+
+    public function storeProgramInformation(UpdateProgramInformationRequest $request)
+    {
+        $program = Program::create([
+            'title' => $request['title'],
+            'cost'   => $request['cost'],
+            'duration' => $request['duration'],
+            'eligibility' => $request['eligibility'],
+            'objective' => $request['objective'],
+            'training_resources' => $request['training_resources'],
+            'available_seats' => $request['available_seats'],
+            'trainer_name' => $request['trainer_name'],
+            'job_opportunities' => $request['job_opportunities'],
+            'image_path' => ''
+        ]);
+
+        return Redirect::route('manage-programs.create.add-image', ['slug' => $program->slug])->with('status', 'program information updated successfully');
+
+    }
+    public function updateProgramInformation(UpdateProgramInformationRequest $request)
+    {
+
+        $slug = $request['slug'];
+
+        $program = Program::where('slug', $slug)->first();
+        $program->update([
+            'title' => $request['title'],
+            'cost'   => $request['cost'],
+            'duration' => $request['duration'],
+            'eligibility' => $request['eligibility'],
+            'objective' => $request['objective'],
+            'training_resources' => $request['training_resources'],
+            'available_seats' => $request['available_seats'],
+            'job_opportunities' => $request['job_opportunities'],
+            'trainer_name' => $request['trainer_name']
+        ]);
+
+        return Redirect::route('show.program', ['slug' => $slug])->with('status', 'program information updated successfully');
+
+    }
+
+
+
+    public function deleteProgram(Request $request)
+    {
+        $slug = $request['slug'];
+        $program = Program::where('slug', $slug)->first();
+        $program->delete();
+
+        return Redirect::back()->with('status', 'Program deleted successfully');
+    }
+
+    private function saveProgramImage(Request $request)
     {
         $slug = $request['slug'];
         $program = Program::where('slug', $slug)->first();
@@ -76,117 +160,5 @@ class ProgramController extends Controller
         }catch (\Exception $exception){
 
         }
-
-        return Redirect::route('show.program', ['slug' => $slug])->with('status', 'program image updated successfully');
-    }
-
-    public function updateProgramInformation(UpdateProgramInformationRequest $request)
-    {
-
-        $slug = $request['slug'];
-
-        $program = Program::where('slug', $slug)->first();
-        if(isset($program)){
-            $program->update([
-                'title' => $request['title'],
-                'cost'   => $request['cost'],
-                'duration' => $request['duration'],
-                'eligibility' => $request['eligibility'],
-                'objective' => $request['objective'],
-                'training_resources' => $request['training_resources'],
-                'available_seats' => $request['available_seats'],
-                'trainer_name' => $request['trainer_name']
-            ]);
-        }else{
-            Program::create([
-                'title' => $request['title'],
-                'cost'   => $request['cost'],
-                'duration' => $request['duration'],
-                'eligibility' => $request['eligibility'],
-                'objective' => $request['objective'],
-                'training_resources' => $request['training_resources'],
-                'available_seats' => $request['available_seats'],
-                'trainer_name' => $request['trainer_name']
-            ]);
-        }
-
-        return Redirect::route('show.program', ['slug' => $slug])->with('status', 'program information updated successfully');
-
-    }
-
-
-    public function updateOutline(Request $request)
-    {
-
-        $request->validate([
-            'period' => ['required', 'string', Rule::in(self::PERIODS)],
-            'topic' => ['required', 'string', 'max:255']
-        ]);
-
-        $slug = $request['slug'];
-        $outlineSlug = $request['outlineSlug'];
-        $program = Program::where('slug', $slug)->first();
-        $outline = ProgramOutline::where('slug',$outlineSlug)->where('program_id', $program->id)->first();
-
-        $outline->update([
-            'period' => $request['period'],
-            'topic' => $request['topic']
-        ]);
-
-        return Redirect::route('show.program', ['slug' => $slug])->with('status', 'Program outline save successfully');
-    }
-
-    public function createOutline(Request $request)
-    {
-
-        $request->validate([
-            'period' => ['required', 'string', Rule::in(self::PERIODS)],
-            'topic' => ['required', 'string', 'max:255']
-        ]);
-        $slug = $request['slug'];
-        $program = Program::where('slug', $slug)->first();
-
-        ProgramOutline::create([
-            'period' => $request['period'],
-            'topic' => $request['topic'],
-            'program_id' => $program->id
-        ]);
-
-        return Redirect::route('show.program', ['slug' => $slug])->with('status', 'Program outline save successfully');
-    }
-
-
-
-    public function deleteOutline(Request $request)
-    {
-        $slug = $request['slug'];
-        $outlineSlug = $request['outlineSlug'];
-        $outline = ProgramOutline::where('slug', $outlineSlug)->first();
-
-        $outline->delete();
-        return Redirect::back()->with('status', 'Program outline deleted successfully');
-    }
-
-    public function deleteProgram(Request $request)
-    {
-        $slug = $request['slug'];
-        $program = Program::where('slug', $slug)->first();
-        $program->delete();
-
-        return Redirect::back()->with('status', 'Program deleted successfully');
-    }
-
-    private function getQuarters($outlines)
-    {
-        return collect(self::PERIODS)->filter(function ($quarter) use ($outlines){
-            return !in_array($quarter, $outlines->toArray());
-        })->toArray();
-    }
-
-    private function getProgramOutlines($program)
-    {
-        return $program->programOutlines->map(function ($outline){
-            return $outline->period;
-        });
     }
 }

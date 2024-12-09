@@ -1,4 +1,4 @@
-<x-modal name="edit-outline{{$outline->id}}" :show="$errors->userDeletion->isNotEmpty()" focusable x-data="name">
+<x-modal name="edit_outline{{$outline->id}}" :show="$errors->userDeletion->isNotEmpty()" focusable x-data="edit-outline">
     <form method="post" action="{{ route('program.update.outline', ['slug' => $program->slug, 'outlineSlug' => $outline->slug]) }}" class="p-6" >
         @csrf
         @method('put')
@@ -15,7 +15,7 @@
             <x-input-label for="period" :value="__('Period')" />
             <select id="period" name="period"  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                 <option selected>Choose period</option>
-                @foreach($allQuarter as $key => $quarter)
+                @foreach($allQuarters as $key => $quarter)
                     <option value="{{$quarter}}" {{$outline->period === $quarter ? 'selected': ''}}>{{$quarter}}</option>
                 @endforeach
             </select>

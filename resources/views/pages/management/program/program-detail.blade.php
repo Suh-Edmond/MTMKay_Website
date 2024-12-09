@@ -3,7 +3,7 @@
     <x-slot name="header">
 
         <div class="flex flex-row">
-            <a href="#" >
+            <a href="{{route('manage-programs')}}" >
                 <button id="goBack" class="text-blue-800 text-xl">
                     <span><i class="fa fa-arrow-left px-5"></i></span>
                 </button>
