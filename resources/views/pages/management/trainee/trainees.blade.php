@@ -4,24 +4,6 @@
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{__('Enrollment Management')}}
         </h2>
-{{--        @if(\Illuminate\Support\Facades\Session::has('tabs'))--}}
-{{--            <div class="flex flex-row">--}}
-{{--                <a href="#">--}}
-{{--                    <button id="goBack" class="text-blue-800 text-xl">--}}
-{{--                        <span><i class="fa fa-arrow-left px-5"></i></span>--}}
-{{--                    </button>--}}
-{{--                </a>--}}
-{{--                @foreach(\Illuminate\Support\Facades\Session::get('tabs') as $key => $value)--}}
-{{--                    <a href="#" id="back">--}}
-{{--                        <h2 class="font-semibold text-xl text-gray-800 leading-tight">--}}
-{{--                            {{ $value }} @if($key != count(\Illuminate\Support\Facades\Session::get('tabs')) - 1)--}}
-{{--                                <span><i class="fa fa-arrow-right sm px-3"></i></span>--}}
-{{--                            @endif--}}
-{{--                        </h2>--}}
-{{--                    </a>--}}
-{{--                @endforeach--}}
-{{--            </div>--}}
-{{--        @endif--}}
     </x-slot>
 
     <div class="pt-4 max-w-7xl mx-auto sm:px-6 lg:px-8">
@@ -59,9 +41,9 @@
     </div>
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+            <div class="bg-white overflow-hidden sm:rounded-lg">
                 <div>
-                    <table class="shadow-xs bg-white border-collapse">
+                    <table class=" bg-white border-collapse w-full">
                         <thead>
                         <tr>
                             <th class="bg-blue-800 text-white border text-center px-3 py-2">S/N</th>
@@ -93,13 +75,13 @@
                                         </x-slot>
                                         <x-slot name="content">
                                             <x-dropdown-link href="{{route('manage-students.view.payments', ['slug' => $value->slug])}}">
-                                                {{ __('View Payments') }}
+                                                <span><i class="fa fa-money   cursor-pointer mr-5 "></i>{{ __('View Payments') }}</span>
                                             </x-dropdown-link>
                                             <x-dropdown-link x-on:click.prevent="$dispatch('open-modal', 'fee-payment{{$value->id}}')">
-                                                {{ __('Make Payment') }}
+                                                <span><i class="fa fa-money   cursor-pointer mr-5 "></i>{{ __('Make Payment') }}</span>
                                             </x-dropdown-link>
                                             <x-dropdown-link   class="text-red-600" x-on:click.prevent="$dispatch('open-modal', 'confirm-trainee-deletion{{$value->id}}')">
-                                                {{ __('Remove') }}
+                                                <span><i class="fa fa-trash text-red-600 cursor-pointer mr-6 "></i>{{ __('Remove') }}</span>
                                             </x-dropdown-link>
                                         </x-slot>
                                     </x-dropdown>
@@ -111,6 +93,11 @@
                         @endforeach
                         </tbody>
                     </table>
+                    @if(count($trainees) == 0)
+                        <h3 class="text-lg font-medium text-gray-900 p-5 text-center my-5">
+                            Oops! No enrollments found
+                        </h3>
+                    @endif
                 </div>
 
                 @if(($trainees->count() > 0))

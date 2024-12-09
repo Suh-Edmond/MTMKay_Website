@@ -73,7 +73,7 @@
 
                                         <x-dropdown-link x-data="approve-blog-state{{$comment->id}}"
                                                          x-on:click.prevent="$dispatch('open-modal', 'approve-blog-state{{$comment->id}}', {name:'APPROVE'})" class="cursor-pointer">
-                                            <span><i class="fa fa-angle-right text-green-700 cursor-pointer mr-5 "></i>{{ __('Approve comment') }}</span>
+                                            <span><i class="fa fa-check text-green-700 cursor-pointer mr-5 "></i>{{ __('Approve comment') }}</span>
                                         </x-dropdown-link>
 
                                         <x-dropdown-link x-data="reject-blog-state-change{{$comment->id}}"
