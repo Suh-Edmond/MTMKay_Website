@@ -152,7 +152,7 @@ class ProgramController extends Controller
             $fileName = $file->getClientOriginalName();
             $manager  = new ImageManager(new Driver());
             $image    = $manager->read($file);
-            $image    = $image->resize(200, 200);
+            $image    = $image->resize(250, 250);
 
             $fileName     = str_replace(' ', '', $fileName);
             $programTitle = str_replace(' ', '', $program->title);
