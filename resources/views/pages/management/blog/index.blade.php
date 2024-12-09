@@ -22,6 +22,7 @@
                     @foreach($categories as $category)
                         <option value="{{$category->slug}}">{{$category->name}}</option>
                     @endforeach
+                    <option value="ALL">ALL</option>
                 </select>
             </div>
             <div class="basis-1/4 flex-auto">
@@ -29,7 +30,7 @@
                 <select id="tag" name="tag"  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                     <option selected>Choose a tag</option>
                     @foreach($tags as $tag)
-                        <option value="{{$tag->name}}">{{$tag->name}}</option>
+                        <option value="{{$tag}}">{{$tag->name}}</option>
                     @endforeach
                     <option value="ALL">ALL</option>
                 </select>
@@ -57,7 +58,7 @@
     </div>
     <div class="py-12">
         <h6 class="font-semibold text-xl text-gray-800 leading-tight text-center mb-4">
-            {{ __('Showing') }} {{$blogs->perPage()}} / {{ $blogs->total() }} {{__('Blog Posts')}}
+            {{ __('Showing') }} {{count($blogs->items())}} / {{ $blogs->total() }} {{__('Blog Posts')}}
         </h6>
         <div  class="max-w-7xl mx-auto sm:px-6 lg:px-8 flex flex-row flex-wrap h-full gap-3">
                 @foreach($blogs as $key => $blog)
@@ -65,7 +66,7 @@
                        <a href="{{route('show.blog', ['slug'=> $blog->slug])}}">
                            <div class="relative flex flex-col my-6 bg-white shadow-sm   border-slate-200 rounded-lg w-96">
                                <div class="relative h-56 m-2.5 overflow-hidden text-white rounded-md">
-                                   <img src="{{asset($blog->getSingleBlogImage($blog->id))}}" alt="card-image" />
+                                   <img src="{{asset($blog->getSingleBlogImage($blog->id))}}" alt="card-image"  width="100%" height="100%"/>
                                </div>
                                <div class="p-4">
                                    <div class="flex flex-row gap-4 justify-between">
@@ -168,8 +169,10 @@
         $('#tag').on('change', function (e){
             let url = new URL(location.href);
             let searchParams = new URLSearchParams(url.search);
+            let parsedTag = JSON.parse(e.target.value);
 
-            searchParams.set('tag', e.target.value)
+            searchParams.set('tag', parsedTag.name)
+            searchParams.set('tag_id', parsedTag.id)
 
             url.search = searchParams.toString();
 

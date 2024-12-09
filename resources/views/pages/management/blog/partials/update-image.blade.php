@@ -13,10 +13,9 @@
             <div class="flex gap-4">
                 @foreach($blog->blogImages   as $image)
                     <div class="bg-white shadow-sm sm:rounded-lg text-end">
-                        <img src="{{ asset($blog->getImagePath($blog, $image->file_path)) }}">
-{{--                        <span class="fa fa-trash text-center text-red-600 m-4 cursor-pointer"--}}
-{{--                              x-data=""--}}
-{{--                              x-on:click.prevent="$dispatch('open-modal', 'delete-blog-image{{$image->id}}', {name:'APPROVE'})"></span>--}}
+                        <img src="{{ asset($blog->getImagePath($blog, $image->file_path)) }}" alt="Blog Image" x-data="confirm-blog-image-deletion{{$image->id}}"
+                             x-on:click.prevent="$dispatch('open-modal', 'confirm-blog-image-deletion{{$image->id}}')" class="cursor-pointer">
+                        @include('pages.management.blog.partials.delete-image')
                     </div>
                 @endforeach
             </div>
@@ -41,7 +40,7 @@
                     <div class="flex items-center gap-4">
                         <x-primary-button>{{ __('Save') }}</x-primary-button>
 
-                        @if(session('status') === 'Blog images saved successfully')
+                        @if(session('status') == 'Blog images saved successfully' || session('status') == 'Blog image remove successfully')
                             <x-auth-session-status :status="session('status')"  x-data="{ show: true }"
                                                    x-show="show"
                                                    x-transition
@@ -51,11 +50,6 @@
                     </div>
                 </div>
             </form>
-            @if(isset($blog) && !route('show.blog'))
-                <a href="{{route('manage-blogs.create', ['slug' => $blog->slug])}}" class="flex flex-row justify-end">
-                    <button class='inline-flex items-center px-4 py-2 bg-blue-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-blue-700 focus:bg-blue-700 active:bg-blue-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150'>{{ __('Back') }}</button>
-                </a>
-            @endif
         </div>
     </section>
 </div>

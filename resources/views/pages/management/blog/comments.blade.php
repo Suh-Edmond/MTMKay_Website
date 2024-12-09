@@ -1,16 +1,23 @@
 @section('title', "MTMKay-Blog Comments")
 <x-app-layout>
 
-    <x-slot name="header">
-        <div class="flex flex-row">
-            <a href="#" >
-                <button id="goBack" class="text-blue-800 text-xl">
-                    <span><i class="fa fa-arrow-left px-5"></i></span>
-                </button>
-            </a>
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                Comments for {{ $blog->title }}
-            </h2>
+    <x-slot name="header" >
+        <div class="flex flex-row justify-between">
+            <div class="flex flex-row">
+                <a href="{{route('show.blog', ['slug' => $blog->slug])}}" >
+                    <button id="goBack" class="text-blue-800 text-xl">
+                        <span><i class="fa fa-arrow-left px-5"></i></span>
+                    </button>
+                </a>
+                <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+                    Comments for {{ $blog->title }}
+                </h2>
+            </div>
+            <x-primary-button
+                x-data="add-comment-modal"
+                x-on:click.prevent="$dispatch('open-modal', 'add-comment-modal')"
+            >{{ __('Add Comment') }}</x-primary-button>
+            @include('pages.management.blog.partials.create-comment-form')
         </div>
     </x-slot>
 
@@ -23,6 +30,7 @@
                     <option value="PENDING">PENDING</option>
                     <option value="APPROVED">APPROVED</option>
                     <option value="REJECTED">REJECTED</option>
+                    <option value="ALL">ALL</option>
                 </select>
             </div>
             <div class="basis-1/4 flex-auto">
@@ -31,7 +39,7 @@
                     <option selected>Choose sort</option>
                     <option value="DATE_DESC">Newest First</option>
                     <option value="DATE_ASC">Oldest First</option>
-                    <option value="NAME">Name</option>
+                    <option value="ALL">ALL</option>
                 </select>
             </div>
         </div>
@@ -42,27 +50,45 @@
                 <div class="mb-lg-5 mt-4 border rounded-md p-5  flex-auto">
                     <div class="flex justify-between">
                         <x-input-label for="name" :value="__('Comment detail')" />
+                        @if(session('status'))
+                            <x-auth-session-status :status="session('status')" x-data="{ show: true }"
+                                                   x-show="show"
+                                                   x-init="setTimeout(() => show = false, 2000)" class="pt-1 pl-5">
+                            </x-auth-session-status>
+                        @endif
 
                         @if($comment->status == \App\Constant\BlogState::PENDING)
                             <div class="flex gap-4">
 
-                                <x-primary-button
-                                    class="mb-4 rounded-full bg-primary-700 py-0.5 px-2.5 border border-transparent text-xs text-white transition-all shadow-sm w-full text-center cursor-pointer
-                                    hover:bg-primary-700 focus:bg-primary-700 active:bg-primary-900"
-                                    x-data="APPROVE"
-                                    x-on:click.prevent="$dispatch('open-modal', 'approve-blog-state{{$comment->id}}', {name:'APPROVE'})"
-                                >{{ __('APPROVE') }}</x-primary-button>
+                                <x-dropdown align="right" width="48">
+                                    <x-slot name="trigger">
+                                        <span><i class="fa fa-info-circle text-blue-800 cursor-pointer  "></i></span>
+                                    </x-slot>
 
-                                <x-danger-button
-                                    class="mb-4 rounded-full bg-green-700 py-0.5 px-2.5 border border-transparent text-xs text-white transition-all shadow-sm w-full text-center cursor-pointer"
-                                    x-data=""
-                                    x-on:click.prevent="$dispatch('open-modal', 'reject-blog-state-change{{$comment->id}}', {name:'REJECT'})"
-                                >{{ __('REJECT') }}</x-danger-button>
+                                    <x-slot name="content">
+                                        <x-dropdown-link x-data="edit_comment{{$comment->id ?? ''}}"
+                                                         x-on:click.prevent="$dispatch('open-modal', 'add-update-comment-modal{{$comment->id}}')" class="cursor-pointer">
+                                            <span><i class="fa fa-pencil text-blue-800 cursor-pointer  mr-5"></i>{{ __('Edit Comment') }}</span>
+                                        </x-dropdown-link>
 
+                                        <x-dropdown-link x-data="approve-blog-state{{$comment->id}}"
+                                                         x-on:click.prevent="$dispatch('open-modal', 'approve-blog-state{{$comment->id}}', {name:'APPROVE'})" class="cursor-pointer">
+                                            <span><i class="fa fa-angle-right text-green-700 cursor-pointer mr-5 "></i>{{ __('Approve comment') }}</span>
+                                        </x-dropdown-link>
+
+                                        <x-dropdown-link x-data="reject-blog-state-change{{$comment->id}}"
+                                                         x-on:click.prevent="$dispatch('open-modal', 'reject-blog-state-change{{$comment->id}}', {name:'REJECT'})" class="cursor-pointer">
+                                            <span><i class="fa fa-close text-yellow-500 cursor-pointer mr-5 "></i>{{ __('Reject comment') }}</span>
+                                        </x-dropdown-link>
+
+                                        <x-dropdown-link x-data="delete-blog-comment{{$comment->id}}"
+                                                         x-on:click.prevent="$dispatch('open-modal', 'delete-blog-comment{{$comment->id}}', {name:'DELETE'})" class="cursor-pointer text-red-600">
+                                            <span><i class="fa fa-trash text-red-600 cursor-pointer mr-5 "></i>{{ __('Delete comment') }}</span>
+                                        </x-dropdown-link>
+                                    </x-slot>
+                                </x-dropdown>
 
                                 @include('pages.management.blog.blog-status-confirmation-modal')
-
-
                             </div>
                         @elseif($comment->status == \App\Constant\BlogState::APPROVED)
                             <div class="mb-4 rounded-full bg-green-700 py-0.5 px-2.5 border border-transparent text-xs text-white transition-all shadow-sm  text-center cursor-pointer">
@@ -144,6 +170,9 @@
 
         </div>
     @endif
+
+
+
 </x-app-layout>
 
 

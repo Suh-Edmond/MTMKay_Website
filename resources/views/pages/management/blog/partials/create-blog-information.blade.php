@@ -11,14 +11,14 @@
         </header>
 
         <form method="post"
-              action="{{ route('manage-blogs.store', ['slug' => session('blog')->slug ?? $blog->slug ?? '']) }}"
+              action="{{ route('manage-blogs.store', ['slug' => $blog->slug ?? $blog->slug ?? '']) }}"
               class="mt-6 space-y-6">
             @csrf
 
             <div class="grow">
                 <x-input-label for="title" :value="__('Title')"/>
                 <x-text-input id="title" name="title" type="text" class="mt-1 block w-full"
-                              :value="old('title',session('blog')->title ?? '')" required autocomplete="title"/>
+                              :value="old('title',$blog->title ?? '')" required autocomplete="title"/>
                 <x-input-error class="mt-2" :messages="$errors->get('title')"/>
             </div>
 
@@ -28,7 +28,7 @@
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                     @foreach($categories as $category)
                         <option
-                            value="{{$category->id}}" {{session('blog')->category_id ?? '' === $category->id ? 'selected': ''}} >{{$category->name}}</option>
+                            value="{{$category->id}}" {{$blog->category_id ?? '' === $category->id ? 'selected': ''}} >{{$category->name}}</option>
                     @endforeach
                 </select>
                 <x-input-error class="mt-2" :messages="$errors->get('category_id')"/>
@@ -40,7 +40,7 @@
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                     @foreach($tags as $tag)
                         <option
-                            value="{{$tag->id}}" {{$tag->checkIfBlogHasTag($tag, session('blog')) ? 'selected': ''}}>{{$tag->name}}</option>
+                            value="{{$tag->id}}" {{$tag->checkIfBlogHasTag($tag, $blog) ? 'selected': ''}}>{{$tag->name}}</option>
                     @endforeach
                 </select>
             </div>
@@ -51,13 +51,13 @@
                 <select id="blog_state" name="blog_state"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                     <option
-                        value="PENDING" {{session('blog') !== null && session('blog')->blog_state == 'PENDING' ? 'selected':''}}>
+                        value="PENDING" {{$blog !== null && $blog->blog_state == 'PENDING' ? 'selected':''}}>
                         PENDING
                     </option>
-                    <option value="APPROVED" {{session('blog') !== null && session('blog')->blog_state   == 'APPROVED' ? 'selected':''}}>
+                    <option value="APPROVED" {{$blog !== null && $blog->blog_state   == 'APPROVED' ? 'selected':''}}>
                         APPROVED
                     </option>
-                    <option value="REJECTED" {{session('blog') !== null && session('blog')->blog_state  == 'REJECTED' ? 'selected':''}}>
+                    <option value="REJECTED" {{$blog !== null && $blog->blog_state  == 'REJECTED' ? 'selected':''}}>
                         REJECTED
                     </option>
                 </select>
@@ -68,7 +68,7 @@
             <div>
                 <x-input-label for="description" :value="__('Description')"/>
                 <textarea id="description" name="description" rows="4"
-                          class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">{{session('blog')->description ?? ''}} </textarea>
+                          class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">{{$blog->description ?? ''}} </textarea>
                 <x-input-error class="mt-2" :messages="$errors->get('description')"/>
             </div>
 
@@ -89,13 +89,6 @@
                 </div>
             </div>
         </form>
-        @if(session('blog') !== null)
-            <a href="{{route('manage-blogs.create.image', ['slug' => session('blog')->slug ?? ''])}}"
-               class="flex flex-row justify-end">
-                <button
-                    class='inline-flex items-center px-4 py-2 bg-blue-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-blue-700 focus:bg-blue-700 active:bg-blue-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150'>{{ __('Next') }}</button>
-            </a>
-        @endif
     </section>
 </div>
 

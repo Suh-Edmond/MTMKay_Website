@@ -135,8 +135,9 @@ class ProgramController extends Controller
         $slug = $request['slug'];
         $program = Program::where('slug', $slug)->first();
         $program->delete();
+        $this->deleteProgramFile($program);
 
-        return Redirect::back()->with('status', 'Program deleted successfully');
+        return Redirect::route('manage-programs')->with('status', 'Program deleted successfully');
     }
 
     private function saveProgramImage(Request $request)
@@ -155,10 +156,9 @@ class ProgramController extends Controller
             $image    = $image->resize(250, 250);
 
             $fileName     = str_replace(' ', '', $fileName);
-            $programTitle = str_replace(' ', '', $program->title);
-            $programTitle = str_replace('+', '', $programTitle);
 
-            Storage::disk('public')->put(self::IMAGE_DIR.$programTitle."/".$fileName, (string) $image->encode());
+
+            Storage::disk('public')->put(self::IMAGE_DIR.$program->slug."/".$fileName, (string) $image->encode());
 
             $program->update([
                 'image_path' => $fileName
@@ -167,5 +167,13 @@ class ProgramController extends Controller
         }catch (\Exception $exception){
 
         }
+    }
+
+    private function deleteProgramFile($program)
+    {
+        $programTitle = str_replace(' ', '', $program->title);
+        $programTitle = str_replace('+', '', $programTitle);
+        $path = public_path(self::IMAGE_DIR.$programTitle."/".$program->image_path);
+        Storage::delete($path);
     }
 }

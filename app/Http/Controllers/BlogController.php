@@ -14,7 +14,10 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\Rule;
+use Intervention\Image\Drivers\Gd\Driver;
+use Intervention\Image\ImageManager;
 use function Symfony\Component\String\s;
 
 class BlogController extends Controller
@@ -63,6 +66,8 @@ class BlogController extends Controller
             'title'            => $filterParam
         ];
 
+
+
         return view("pages.main.blog")->with($data);
     }
 
@@ -104,20 +109,22 @@ class BlogController extends Controller
     {
         $filter = $request['filter'];
         $sort = $request['sort'];
-        $tag = $request['tag'];
+        $tag_id = $request['tag_id'];
         $categorySlug = $request['category_slug'];
         $category = Category::where('slug', $categorySlug)->first();
         $tags = Tag::orderBy('name')->get();
         $categories = Category::orderBy('created_at', 'desc')->get();
         $blogs = Blog::select('*');
+
+
         if(isset($filter) && $filter !== "ALL"){
             $blogs = $blogs->where('blog_state', $filter);
-
         }
-        else if (isset($tag)){
-            $blogs = $blogs->with('tags', function ($query) use ($tag){
-                    $query->where('name', 'LIKE', "%".$tag."%");
+        else if (isset($tag_id)){
+            $blogs = $blogs->with('tags', function ($query) use ($tag_id){
+                    $query->where('tag_id', $tag_id);
             });
+
         }
         if (isset($sort)){
             switch ($sort) {
@@ -133,14 +140,16 @@ class BlogController extends Controller
             }
         }
         if(isset($category) && $category !== "ALL"){
-            $blogs = $blogs->where('category_id', $category);
+            $blogs = $blogs->where('category_id', $category->id);
         }
         $blogs = $blogs->paginate(10);
+
         $data = [
             'blogs' => $blogs,
             'tags' => $tags,
             'categories' => $categories
         ];
+
 
         return view('pages.management.blog.index')->with($data);
     }
@@ -155,7 +164,7 @@ class BlogController extends Controller
             'blog' => $blog,
             'categories' => $categories,
             'tags'      => $tags,
-            'comments' => $blog->blogComments()->orderBy('created_at', 'desc')->take(3)->get()
+            'comments' => $blog->blogComments()->orderBy('created_at', 'desc')->take(1)->get()
         ];
 
 
@@ -198,55 +207,6 @@ class BlogController extends Controller
         return response()->json(['message' => "Account completed successfully", 'code' => 'TAG_DELETED']);
     }
 
-    public function showBlogComments(Request $request)
-    {
-        $slug = $request['slug'];
-        $blog = Blog::where('slug', $slug)->first();
-        $filter = $request['filter'];
-        $sort = $request['sort'];
-        $comments = $blog->blogComments();
-
-        if(isset($filter)){
-            $comments = $comments->where('status', $filter);
-        }
-        if(isset($sort)){
-            $comments = $blog->blogComments();
-                switch ($sort) {
-                    case 'DATE_ASC':
-                        $comments->orderBy('created_at');
-                        break;
-                    case 'NAME':
-                        $comments->orderBy('name');
-                        break;
-                    default:
-                        $comments->orderByDesc('created_at');
-                        break;
-                }
-        }
-        $comments = $comments->paginate(10);
-
-        $data = [
-            'comments' => $comments,
-            'blog' => $blog
-        ];
-
-        return view ('pages.management.blog.comments')->with($data);
-    }
-
-
-    public function updateCommentStatus(Request $request)
-    {
-        $status = $request['status'];
-        $slug = $request['slug'];
-        $comment = BlogComments::where('slug', $slug)->first();
-
-        $comment->update([
-            'status' => $status
-        ]);
-
-        return redirect()->back()->with(['status' => 'Blog Status updated successfully']);
-    }
-
     public function createBlog(Request $request)
     {
         $categories = Category::orderBy('created_at', 'desc')->get();
@@ -283,28 +243,24 @@ class BlogController extends Controller
 
         if(!isset($existBlog)){
             $existBlog = Blog::create([
-                'category_id' => $request['category_id'],
-                'title'       => $request['title'],
-                'description'    => $request['description'],
+                'category_id'   => $request['category_id'],
+                'title'         => $request['title'],
+                'description'   => $request['description'],
                 'blog_state'    => $request['blog_state'],
                 'user_id'       => auth()->user()->id
             ]);
         }else {
 
             $existBlog->update([
-                'category_id' => $request['category_id'],
-                'title'       => $request['title'],
-                'description'    => $request['description'],
+                'category_id'   => $request['category_id'],
+                'title'         => $request['title'],
+                'description'   => $request['description'],
                 'blog_state'    => $request['blog_state'],
             ]);
         }
         $this->saveBlogTags($request, $existBlog);
 
-        $data = [
-            'blog' =>$existBlog,
-            'status' => 'blog information created successfully',
-        ];
-        return redirect()->route('manage-blogs.create', ['slug' => $existBlog->slug])->with($data);
+        return Redirect::route('manage-blogs.create.image', ['slug' => $existBlog->slug])->with(['status' => 'blog information created successfully']);
     }
 
     public function addBlogImage(Request $request)
@@ -352,6 +308,20 @@ class BlogController extends Controller
         return redirect()->route('manage-blogs')->with(['status' => 'Blog delete successfully']);
     }
 
+    public function deleteImage(Request $request)
+    {
+        $slug = $request['slug'];
+        $imageSlug = $request['imageSlug'];
+        $blog = Blog::where('slug', $slug)->first();
+        $image = BlogImages::where('slug', $imageSlug)->where('blog_id', $blog->id)->first();
+        $path = self::IMAGE_DIR.$blog->slug."/".$image->file_path;
+
+        Storage::delete($path);
+        $image->delete();
+
+        return Redirect::back()->with(['status' => 'Blog image remove successfully']);
+    }
+
     private function saveBlogTags($request, $blog)
     {
         $tags = $request['tag_id'];
@@ -384,6 +354,17 @@ class BlogController extends Controller
                 $fileName = str_replace(' ', '', $fileName);
 
                 $file->storeAs(self::IMAGE_DIR.$blog->slug, $fileName, 'public');
+
+                $manager  = new ImageManager(new Driver());
+
+                $image    = $manager->read($file);
+                $image    = $image->resize(200, 200);
+
+                $fileName     = str_replace(' ', '', $fileName);
+
+
+                Storage::disk('public')->put(self::IMAGE_DIR.$blog->slug."/".$fileName, (string) $image->encode());
+
 
                 $this->saveBlogImages($fileName, $blog);
             }catch (\Exception $exception){

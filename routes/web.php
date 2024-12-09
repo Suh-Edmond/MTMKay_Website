@@ -37,8 +37,8 @@ Route::middleware(['auth', 'verified'])->prefix('dashboard')->group(function (){
     Route::get('manage-blogs/details', [BlogController::class, 'showBlog'])->name('show.blog');
     Route::put('manage-blogs/details/update-information',[BlogController::class, 'updateInformation'])->name('blog.update.information');
     Route::delete('manage-blogs/details/tags/delete', [BlogController::class, 'deleteTag'])->name('blog.tag.delete');
-    Route::get('manage-blogs/details/comments', [BlogController::class, 'showBlogComments'])->name('show.blog.comments');
-    Route::put('manage-blogs/details/comments/update-status', [BlogController::class, 'updateCommentStatus'])->name('show.blog.comments.update.status');
+    Route::get('manage-blogs/details/comments', [BlogCommentsController::class, 'showBlogComments'])->name('show.blog.comments');
+    Route::put('manage-blogs/details/comments/update-status', [BlogCommentsController::class, 'updateCommentStatus'])->name('show.blog.comments.update.status');
     Route::get('manage-students/payments/view', [EnrollmentController::class, 'fetchPaymentTransactions'])->name('manage-students.view.payments');
     Route::get('manage-blogs/create-blog/view', [BlogController::class, 'createBlog'])->name('manage-blogs.create');
     Route::post('manage-blogs/create-blog', [BlogController::class, 'storeBlog'])->name('manage-blogs.store');
@@ -50,7 +50,8 @@ Route::middleware(['auth', 'verified'])->prefix('dashboard')->group(function (){
     Route::delete('manage-blog/details/images/delete', [BlogController::class, 'destroyImage'])->name('show.blog.images.delete');
     Route::post('manage-blogs/comments/add', [BlogCommentsController::class, 'addComment'])->name('show.blog.comments.add');
     Route::delete('manage-programs/details/delete-outline', [ProgramOutlineController::class, 'deleteOutline'])->name('program.delete.outline');
-    Route::get('manage-programs/delete', [ProgramController::class, 'deleteProgram'])->name('manage-programs.delete');
+    Route::delete('manage-programs/delete', [ProgramController::class, 'deleteProgram'])->name('manage-programs.delete');
+    Route::delete('manage-blogs/images/delete', [BlogController::class, 'deleteImage'])->name('confirm-blog-image-deletion');
 });
 
 Route::middleware('auth')->group(function () {
