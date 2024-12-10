@@ -24,8 +24,9 @@
                 <x-input-label for="category" :value="__('Filter Status')" />
                 <select id="status" name="status" onchange="filterByStatus()" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                     <option selected>Choose a status</option>
-                     <option value="COMPLETED">Completed</option>
-                    <option value="IN_COMPLETE">In Completed</option>
+                     <option value="COMPLETED">Completed Payment</option>
+                    <option value="IN_COMPLETE">In Completed Payment</option>
+                    <option value="ALL">ALL</option>
                 </select>
             </div>
             <div class="basis-1/4 flex-auto">
@@ -46,29 +47,29 @@
                     <table class=" bg-white border-collapse w-full">
                         <thead>
                         <tr>
-                            <th class="bg-blue-800 text-white border text-center px-3 py-2">S/N</th>
+                            <th class="bg-blue-800 text-white border text-center px-1 py-2">S/N</th>
                             <th class="bg-blue-800 text-white border text-center px-4 py-2">Name</th>
                             <th class="bg-blue-800 text-white border text-center px-4 py-2">Email</th>
                             <th class="bg-blue-800 text-white border text-center px-4 py-2">Program</th>
                             <th class="bg-blue-800 text-white border text-center px-2 py-2">Enrollment Date</th>
-                            <th class="bg-blue-800 text-white border text-center px-4 py-2">Completed Payment</th>
-                            <th class="bg-blue-800 text-white border text-center px-4 py-2">Action</th>
+{{--                            <th class="bg-blue-800 text-white border text-center px-4 py-2">Completed Fees</th>--}}
+                            <th class="bg-blue-800 text-white border text-center  py-2">Action</th>
                         </tr>
                         </thead>
                         <tbody>
                         @foreach($trainees as $key => $value)
                             <tr class="hover:bg-gray-100 focus:bg-gray-300 active:bg-gray-400"  tabindex="0">
-                                <td class="border px-3 py-4">{{$key+1}}</td>
+                                <td class="border text-center py-4">{{$key+1}}</td>
                                 <td class="border px-4 py-4">{{$value->user->name}}</td>
                                 <td class="border px-4 py-4">{{$value->user->email}}</td>
-                                <td class="border px-4 py-4 w-3/12">{{$value->program->title}}</td>
+                                <td class="border px-4 py-4  ">{{$value->program->title}}</td>
                                 <td class="border px-4 py-4 ">{{$value->enrollment_date ?? $value->user->enrollment_date->format('D, d M Y') }}</td>
-                                @if($value->has_completed_payment)
-                                    <td class="border px-4 py-4 text-green-700 text-center w-20">YES</td>
-                                @else
-                                    <td class="border px-4 py-4 text-yellow-600 text-center w-20">NO</td>
-                                @endif
-                                <td class="border px-4 py-4 text-center cursor-pointer">
+{{--                                @if($value->has_completed_payment)--}}
+{{--                                    <td class="border px-4 py-4 text-green-700 text-center w-20">YES</td>--}}
+{{--                                @else--}}
+{{--                                    <td class="border px-4 py-4 text-yellow-600 text-center w-20">NO</td>--}}
+{{--                                @endif--}}
+                                <td class="border  py-4 text-center cursor-pointer">
                                     <x-dropdown align="right" width="48">
                                         <x-slot name="trigger">
                                             <span><i class="fa fa-bars"></i></span>
