@@ -30,27 +30,30 @@
                 </div>
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                     <li class="nav-item">
-                        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Objectives</a>
+                        <a class="nav-link active" id="objectives-tab" data-toggle="tab" href="#objectives" role="tab" aria-controls="objectives" aria-selected="true">Objectives</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Eligibility</a>
+                        <a class="nav-link" id="eligibility-tab" data-toggle="tab" href="#eligibility" role="tab" aria-controls="eligibility" aria-selected="false">Eligibility</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Course Outline</a>
+                        <a class="nav-link" id="outline-tab" data-toggle="tab" href="#outline" role="tab" aria-controls="outline" aria-selected="false">Course Outline</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="job_opportunities-tab" data-toggle="tab" href="#job_opportunities" role="tab" aria-controls="job_opportunities" aria-selected="false">Job Opportunities</a>
                     </li>
                 </ul>
                 <div class="tab-content" id="myTabContent">
-                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                    <div class="tab-pane fade show active" id="objectives" role="tabpanel" aria-labelledby="objectives-tab">
                         <div class="objctive_text">
                             <p>{{$program->objective}}</p>
                          </div>
                     </div>
-                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                    <div class="tab-pane fade" id="eligibility" role="tabpanel" aria-labelledby="eligibility-tab">
                         <div class="objctive_text">
                             <p>{{$program->eligibility}}</p>
                          </div>
                     </div>
-                    <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+                    <div class="tab-pane fade" id="outline" role="tabpanel" aria-labelledby="outline-tab">
                         <div class="objctive_text">
                             <ul class="list">
                                 @foreach($program->programOutlines as $key => $outline)
@@ -60,7 +63,11 @@
                             <p>The program includes an internship during the final quarter, where students gain real-world experience and apply their skills in industry settings. This hands-on exposure ensures students are job-ready upon completion.</p>
 
                         </div>
-
+                    </div>
+                    <div class="tab-pane fade" id="job_opportunities" role="tabpanel" aria-labelledby="job_opportunities-tab">
+                        <div class="objctive_text">
+                            <p>{{$program->job_opportunities}}</p>
+                        </div>
                     </div>
                 </div>
             </div>

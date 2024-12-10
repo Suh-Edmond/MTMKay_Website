@@ -12,7 +12,6 @@ use Illuminate\Queue\SerializesModels;
 class SubscriptionMail extends Mailable
 {
     use Queueable, SerializesModels;
-
     public $data;
 
     /**
@@ -29,7 +28,7 @@ class SubscriptionMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'New Subscription Mail',
+            subject: 'New Subscription',
         );
     }
 
@@ -39,7 +38,7 @@ class SubscriptionMail extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'pages.email.subscription',
+            markdown: 'emails.subscription-mail',
         );
     }
 

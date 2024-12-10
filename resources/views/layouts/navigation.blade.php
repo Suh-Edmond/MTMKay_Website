@@ -95,6 +95,26 @@
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
         </div>
+        <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+            <x-nav-link :href="route('manage-programs')" :active="request()->is('*/manage-programs/*') || request()->routeIs('manage-programs')">
+                {{ __('Programs') }}
+            </x-nav-link>
+        </div>
+        <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+            <x-nav-link :href="route('manage-students')" :active="request()->is('*/manage-students/*') || request()->routeIs('manage-students')">
+                {{ __('Enrollment') }}
+            </x-nav-link>
+        </div>
+        <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+            <x-nav-link :href="route('manage-blogs')" :active="request()->is('*/manage-blogs/*') || request()->routeIs('manage-blogs')">
+                {{ __('Blogs') }}
+            </x-nav-link>
+        </div>
+        <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+            <x-nav-link :href="route('manage.subscribers')" :active="request()->is('*/manage.subscribers/*') || request()->routeIs('manage.subscribers')">
+                {{ __('Subscribers') }}
+            </x-nav-link>
+        </div>
 
         <!-- Responsive Settings Options -->
         <div class="pt-4 pb-1 border-t border-gray-200">

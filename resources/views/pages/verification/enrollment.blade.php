@@ -1,5 +1,5 @@
 <x-guest-nav-layout>
-     <h3 class="flex justify-center my-3 font-weight-bold">{{$message}}</h3>
+     <h3 class="flex justify-center my-3 font-bold">{{$message}}</h3>
 
     @if(!$has_expire)
         <div class="flex justify-start my-3">
@@ -20,5 +20,14 @@
             <label><span class="fw-bold">Program Duration:</span> <span class="mx-2 my-2">{{$program->duration}}</span></label>
         </div>
     @endif
+
+
+   <div class="my-5">
+       <a href="{{$program_link}}">
+           <x-primary-button>
+               Check out your training program
+           </x-primary-button>
+       </a>
+   </div>
 </x-guest-nav-layout>
 

@@ -23,7 +23,7 @@ class EnrollmentRequest extends FormRequest
     {
         return [
             'name'  => 'required|min:5',
-            'email' => 'required|email',
+            'email' => 'required|email|string|lowercase',
             'telephone' => 'required|string|min:9',
             'address'   => 'required|string|max:50'
         ];

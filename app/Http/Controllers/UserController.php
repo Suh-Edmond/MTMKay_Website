@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Constant\Roles;
 use App\Http\Requests\EnrollmentRequest;
+use App\Mail\EnrollmentMail;
+use App\Mail\NewStudentMail;
 use App\Mail\StudentEnrollmentMail;
 use App\Models\Enrollment;
 use App\Models\Program;
@@ -22,8 +24,8 @@ class UserController extends Controller
         $program = Program::where('slug', $slug)->firstOrFail();
         $exist   = $this->fetchStudent($request);
 
-        if (!isset($exist)){
-            $student = $this->createStudentAccount($request, $program->slug);
+         if (!isset($exist)){
+            $student = $this->createStudentAccount($request, $program);
             if($this->checkIfStudentAlreadyEnrollProgram($program->id, $student->id) !== null){
                 return response()->json(['message' => 'User Already enrolled', 'status' => 200, 'code' => 'ENROLLED']);
             }else{
@@ -32,6 +34,7 @@ class UserController extends Controller
                     'user_id' => $student->id,
                     'has_completed_payment' => false,
                 ]);
+
             }
 
         }else {
@@ -44,16 +47,20 @@ class UserController extends Controller
                     'has_completed_payment' => false,
                     'enrollment_date' => Carbon::now()
                 ]);
+
+                $emailData = $this->setEmailData($request, $program, $exist);
+                Mail::to($request['email'])->send(new NewStudentMail($emailData));
             }
         }
          return response()->json(['message' => 'Successfully enrolled new student', 'status' => 200, 'code' => !isset($exist) ? 'NEW_ACCOUNT_CREATION' : 'EXISTING_ACCOUNT']);
     }
 
 
-    public function createStudentAccount(EnrollmentRequest $request, $programSlug)
+    public function createStudentAccount(EnrollmentRequest $request, $program)
     {
         $role = Role::where('name', Roles::TRAINEE)->firstOrFail();
         $student = $this->fetchStudent($request);
+
         if(!isset($student)){
             $request->validate([
                 'email' => 'unique:users,email'
@@ -67,16 +74,16 @@ class UserController extends Controller
                 'role_id'   => $role->id
             ]);
 
+            $data = $this->setEmailData($request, $program, $student);
 
-            $data = [
-                'name' => $request['name'],
-                'email' => $request['email'],
-                'verificationUrl' => env('ENROLLMENT_VERIFICATION_URL')."?prog=".$programSlug."&stud=".$student->slug."&expires=".strtotime(Carbon::now()->addHours(24))
-            ];
-
-            Mail::to($request['email'])->send(new StudentEnrollmentMail($data));
+            Mail::to($request['email'])->send(new EnrollmentMail($data));
         }
         return $student;
+    }
+
+    private function generationEnrollmentVerificationLink($program, $student)
+    {
+        return urldecode(url()->query(env('ENROLLMENT_VERIFICATION_URL'), ['prog' => $program->slug, 'stud' => $student->slug,'expires' => strtotime(Carbon::now()->addHours(24))]));
     }
 
     private function fetchStudent($request)
@@ -97,6 +104,7 @@ class UserController extends Controller
 
     public function completeEnrollment(Request $request)
     {
+
        $expires = Carbon::create($request['expires']);
        $user   = User::where('slug', $request['stud'])->firstOrFail();
        $program = Program::where('slug', $request['prog'])->firstOrFail();
@@ -114,9 +122,26 @@ class UserController extends Controller
            'program' => $program,
            'has_expire' => $has_expire,
            'message' => $has_expire ? 'Program Enrollment Link has Expired': 'Program Enrollment Completed Successfully',
+           'program_link' => url()->query('training-detail', ['slug' => $program->slug])
        ];
 
+
        return view('pages.verification.enrollment')->with($data);
+    }
+
+
+    private function setEmailData($request, $program, $student)
+    {
+        $program_link = url()->query('training-detail', ['slug' => $program->slug]);
+        return  [
+            'name' => $request['name'],
+            'email' => $request['email'],
+            'program' => $program,
+            'is_first_time' => true,
+            'program_image' => $program->getImagePath($program, $program->image_path),
+            'program_link' => $program_link,
+            'verificationUrl' => str_replace('amp;', '', $this->generationEnrollmentVerificationLink($program,$student))
+        ];
     }
 
 }
