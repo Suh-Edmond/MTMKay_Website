@@ -60,9 +60,9 @@
                         @foreach($trainees as $key => $value)
                             <tr class="hover:bg-gray-100 focus:bg-gray-300 active:bg-gray-400"  tabindex="0">
                                 <td class="border text-center py-4">{{$key+1}}</td>
-                                <td class="border px-4 py-4">{{$value->user->name}}</td>
-                                <td class="border px-4 py-4">{{$value->user->email}}</td>
-                                <td class="border px-4 py-4  ">{{$value->program->title}}</td>
+                                <td class="border px-4 py-4">{{$value->user->name ?? ''}}</td>
+                                <td class="border px-4 py-4">{{$value->user->email ?? ''}}</td>
+                                <td class="border px-4 py-4  ">{{$value->program->title ?? ''}}</td>
                                 <td class="border px-4 py-4 ">{{$value->enrollment_date ?? $value->user->enrollment_date->format('D, d M Y') }}</td>
 {{--                                @if($value->has_completed_payment)--}}
 {{--                                    <td class="border px-4 py-4 text-green-700 text-center w-20">YES</td>--}}

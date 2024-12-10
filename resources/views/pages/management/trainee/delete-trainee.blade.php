@@ -9,7 +9,7 @@
         </h2>
 
         <h3 class="text-lg font-medium text-gray-900 p-2">
-            Name: {{ $value->user->name }}
+            Name: {{ $value->user->name ?? '' }}
         </h3>
 
         <p class="mt-1 text-sm text-gray-600 p-2">

@@ -94,7 +94,7 @@
     <div class="modal-dialog modal-xl modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <button type="button" id="closeModal" class="close" data-dismiss="modal" aria-label="Close">
                     <i class="fa fa-close"></i>
                 </button>
                 <h2 class="mb-30 title_color">Enrollment Form</h2>
@@ -102,16 +102,20 @@
                     <form action="{{route('enroll-student', ['slug' => $program->slug])}}"  id="enrollmentForm" method="POST" >
                         @csrf
                         <div class="my-md-4">
-                            <input type="text" name="name" placeholder="Full Name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Full Name'" required class="single-input py-lg-2">
+                            <input type="text" id="name" name="name" placeholder="Full Name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Full Name'" required class="single-input py-lg-2">
+                            <span class="error text-danger d-none"></span>
                         </div>
                         <div class="my-md-4">
-                            <input type="email" name="email" placeholder="Email address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email address'" required class="single-input py-lg-2">
+                            <input type="email" id="email" name="email" placeholder="Email address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email address'" required class="single-input py-lg-2">
+                            <span class="error text-danger d-none"></span>
                         </div>
                         <div class="my-md-4">
-                            <input type="tel" name="telephone" placeholder="Telephone" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Telephone'" required class="single-input py-lg-2">
+                            <input type="tel" id="telephone" name="telephone" placeholder="Telephone" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Telephone'" required class="single-input py-lg-2">
+                            <span class="error text-danger d-none"></span>
                         </div>
                         <div class="my-md-4">
-                            <input type="text" name="address" placeholder="Address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Address'" required class="single-input py-lg-2">
+                            <input type="text" id="address" name="address" placeholder="Address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Address'" required class="single-input py-lg-2">
+                            <span class="error text-danger d-none"></span>
                         </div>
                         <div class="mt-lg-5 mb-lg-4">
                             <button type="submit" value="submit"  class="btn main_btn" id="submitEnrollment">

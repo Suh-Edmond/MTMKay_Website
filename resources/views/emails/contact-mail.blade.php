@@ -1,17 +1,21 @@
 <x-mail::message>
-Hi!
-Name: {{$data['name']}}
+Hi there!<br><br>
+I am {{$data['name']}}, I do find interest in your training programs and services and want to know more <br>
 
-Email: {{$data['name']}}
+Find below my request<br>
 
-Message:<br>
+<b>My Request <b><br>
+
+
 {{$data['message']}}
 
-<x-mail::button :url="mailto:{{$data['email']}}">
+<br><br>
+<x-mail::button :url="$data['response_url']">
 Click to here to response
 </x-mail::button>
 
 <br><br>
 Best,<br>
-MTMKay.<br>
+MTMKay IT Technologies,<br>
+Kumba, Cameroon.
 </x-mail::message>

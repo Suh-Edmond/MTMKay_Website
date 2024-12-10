@@ -7,6 +7,11 @@ $(document).ready(function() {
         $('#success').modal('show');
     });
 
+    $('#closeModal').on('click', function (e){
+        $('#enrollmentForm').get(0).reset()
+
+    })
+
     $("#enrollmentForm").submit(function (e){
         e.preventDefault();
         var $form = $(this);
@@ -15,7 +20,7 @@ $(document).ready(function() {
 
 
         $(".btn-text").text("Enrolling new student...");
-        $('#submitEnrollment').attr('disabled', true)
+        $('#submitEnrollment').prop('disabled', true)
 
 
         $.ajax({
@@ -38,14 +43,23 @@ $(document).ready(function() {
                     $('#success_exist_acc').modal('show');
                 }
 
-                $form.resetForm();
-                $(".btn-text").text("Enroll Now");
+                $('#enrollmentForm').get(0).reset()
 
+                $(".btn-text").text("Enroll Now");
+                $('#submitEnrollment').prop('disabled', false)
             },
             error:function (error){
-                $('#error').fadeIn()
-                $('.modal').modal('hide');
-                $('#error').modal('show');
+                $(".btn-text").text("Enroll Now");
+                $('#submitEnrollment').prop('disabled', false)
+                // $('#error').fadeIn()
+                // $('.modal').modal('hide');
+                // $('#error').modal('show');
+                console.log(error)
+                var response = $.parseJSON(error.responseText);
+                $.each(response.errors, function(key, val) {
+                    $("#" + key).next().html(val[0]).next().html(val[1]);
+                    $("#" + key).next().removeClass('d-none');
+                })
             }
         })
     })

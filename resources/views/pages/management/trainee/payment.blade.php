@@ -10,7 +10,7 @@
                 </h2>
 
                 <h3 class="my-3 text-lg font-medium text-gray-900 flex justify-center">
-                    Trainee: {{ $value->user->name }}
+                    Trainee: {{ $value->user->name ?? '' }}
                 </h3>
 
                 <p class="my-3 text-sm text-gray-600 flex justify-center">
@@ -35,7 +35,7 @@
                 @csrf
                 <div class="my-5 mx-5">
                     <x-input-label for="program" :value="__('Trainee')" />
-                    <x-text-input id="trainee" name="trainee" type="text" class="mt-1 block w-full" :value="$value->user->name" disabled />
+                    <x-text-input id="trainee" name="trainee" type="text" class="mt-1 block w-full" :value="$value->user->name ?? ''" disabled />
                 </div>
 
                 <div class="my-5 mx-5">
