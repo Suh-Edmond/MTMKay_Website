@@ -33,15 +33,16 @@
                     <div class="f_title">
                         <h3 class="footer_title">Newsletter</h3>
                     </div>
-                    <p>Stay updated with our latest trends</p>
+                    <p>Stay updated with our latest trainings and blogs</p>
                     <div id="mc_embed_signup">
-                        <form target="_blank" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01" method="get" class="subscribe_form relative">
+                        <form id="myForm">
+                            @csrf
                             <div class="input-group d-flex flex-row">
-                                <input name="EMAIL" placeholder="Enter email address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email Address '" required="" type="email">
-                                <button class="btn sub-btn"><span class="lnr lnr-arrow-right"></span></button>
+                                <input name="email" placeholder="Enter email address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email Address '" required type="email"/>
+                                <button class="btn  sub-btn" type="submit"  ><span class="lnr lnr-arrow-right"></span></button>
                             </div>
-                            <div class="mt-10 info"></div>
                         </form>
+                        <div class="mt-10 info" id="show_subscription_process" style="display: none">Submitting...</div>
                     </div>
                 </aside>
             </div>
@@ -54,6 +55,20 @@
                 <a href="#"><i class="fa fa-facebook"></i></a>
                 <a href="#"><i class="fa fa-instagram"></i></a>
                 <a href="#"><i class="fa fa-linkedin"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <div id="success_subscribe" class="modal modal-message fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <i class="fa fa-close"></i>
+                    </button>
+                    <h4>Thank you for subscribing to our newsletter</h4>
+                    <p>You will receive notification emails for new blog posts and commencements of our training programs</p>
+                </div>
             </div>
         </div>
     </div>

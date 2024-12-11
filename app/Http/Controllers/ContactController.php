@@ -19,10 +19,18 @@ class ContactController extends Controller
             'name' => 'required',
             'email' =>  ['required', 'string', 'lowercase', 'email', 'max:255'],
             'subject' => 'required|string|max:100',
-            'message' => 'required|max:1000|string'
+            'message' => 'required|max:1000|string',
+            'response_url' => 'mailto:'.$request['email']
         ]);
+        $emailData = [
+            'response_url' => 'mailto:'.$request['email'],
+            'name' => $data['name'],
+            'email' =>  $data['email'],
+            'subject' => $data['subject'],
+            'message' => $data['message'],
+        ];
 
-        Mail::to(env('MAIL_FROM_ADDRESS'))->send(new ContactMail($data));
+        Mail::to(env('MAIL_FROM_ADDRESS'))->send(new ContactMail($emailData));
 
         return redirect()->back();
     }

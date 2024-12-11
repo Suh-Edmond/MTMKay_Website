@@ -11,6 +11,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\ProgramOutlineController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\SubscribersController;
 use App\Http\Controllers\TrainingController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -52,6 +53,8 @@ Route::middleware(['auth', 'verified'])->prefix('dashboard')->group(function (){
     Route::delete('manage-programs/details/delete-outline', [ProgramOutlineController::class, 'deleteOutline'])->name('program.delete.outline');
     Route::delete('manage-programs/delete', [ProgramController::class, 'deleteProgram'])->name('manage-programs.delete');
     Route::delete('manage-blogs/images/delete', [BlogController::class, 'deleteImage'])->name('confirm-blog-image-deletion');
+    Route::get('manage-subscribers', [SubscribersController::class, 'index'])->name('manage.subscribers');
+    Route::post('manage-subscribers/add-subscriber', [SubscribersController::class, 'addMemberSubscription'])->name('manage.subscription.add');
 });
 
 Route::middleware('auth')->group(function () {
