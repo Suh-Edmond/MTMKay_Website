@@ -1,6 +1,6 @@
 <x-mail::message>
 <img src="{{asset($data['program_image'])}}" alt="Program Image" width="100%" height="130px"/><br><br>
-Hi <b>{{ $data['name'] }}<b>!,<br>
+Hi <b>{{ $data['name'] }}<b>!<br>
 
 Congratulations!<br>
 

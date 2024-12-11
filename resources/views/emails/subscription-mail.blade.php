@@ -1,5 +1,5 @@
 <x-mail::message>
-Hi <b>{{ $data['email'] }}<b>!,<br>
+Hi <b>{{ $data['email'] }}<b>!<br>
 
 Congratulations!
 
