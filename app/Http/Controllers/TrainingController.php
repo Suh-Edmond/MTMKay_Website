@@ -16,6 +16,7 @@ class TrainingController extends Controller
             'programs' => $trainings,
             'successes' => $successes
         ];
+
         return view("pages.main.training")->with($data);
     }
 

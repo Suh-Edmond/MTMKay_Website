@@ -8,19 +8,76 @@
                 <div class="banner_content text-center">
                     <h3>Empowering Businesses with Innovative <br />IT Solutions and Training</h3>
                     <p>MTMKay Technology Solutions offers comprehensive IT consulting, cybersecurity, and certification training to drive digital transformation.</p>
-                    <a class="main_btn" href="#">Get Started</a>
+                    <a class="main_btn" href="{{route('training')}}">Get Started</a>
                 </div>
             </div>
         </div>
     </section>
     <!--================End Home Banner Area =================-->
 
+    <!--================Finance Area =================-->
+    <section class="finance_area">
+        <div class="container">
+            <div class="finance_inner row">
+                <div class="col-lg-3 col-sm-6">
+                    <div class="finance_item">
+                        <div class="media">
+                            <div class="d-flex">
+                                <i class="lnr lnr-rocket"></i>
+                            </div>
+                            <div class="media-body">
+                                <h5>Cisco Certified  <br />Network Associate (CCNA)</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="finance_item">
+                        <div class="media">
+                            <div class="d-flex">
+                                <i class="lnr lnr-earth"></i>
+                            </div>
+                            <div class="media-body">
+                                <h5>CompTIA <br /> Security+</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="finance_item">
+                        <div class="media">
+                            <div class="d-flex">
+                                <i class="lnr lnr-smile"></i>
+                            </div>
+                            <div class="media-body">
+                                <h5>Microsoft Azure <br /> Fundamentals </h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="finance_item">
+                        <div class="media">
+                            <div class="d-flex">
+                                <i class="lnr lnr-tag"></i>
+                            </div>
+                            <div class="media-body">
+                                <h5>IT Consulting & <br />Services</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--================End Finance Area =================-->
+
     <!--================Courses Area =================-->
     <section class="packages_area p_120">
         <div class="container">
             <div class="main_title">
                 <h2>Key Services</h2>
-                <p>We provide the strategic IT insights needed to scale your operations securely and efficiently.
+                <p style="font-size: 15px">We provide the strategic IT insights needed to scale your operations securely and efficiently.<br>
                     Our CyberSecurity Experts, offer essential protections to keep companies secure and compliant in an increasingly digital world.</p>
             </div>
             <div class="row packages_inner">
@@ -43,7 +100,7 @@
                 <div class="col-md-6">
                     <div class="packages_item">
                         <div class="pack_head">
-                            <i class="lnr lnr-graduation-hat"></i>
+                            <i class="lnr lnr-cloud-upload"></i>
                             <h3>Cloud & Infrastructure Services</h3>
                         </div>
                         <div class="pack_body">
@@ -61,7 +118,7 @@
                 <div class="col-md-6">
                     <div class="packages_item">
                         <div class="pack_head">
-                            <i class="lnr lnr-graduation-hat"></i>
+                            <i class="lnr lnr-cog"></i>
                             <h3>IT Consulting & Managed Services</h3>
                         </div>
                         <div class="pack_body">
@@ -77,7 +134,7 @@
                 <div class="col-lg-6">
                     <div class="packages_item">
                         <div class="pack_head">
-                            <i class="lnr lnr-graduation-hat"></i>
+                            <i class="lnr lnr-lock"></i>
                             <h3>CyberSecurity Solutions</h3>
                         </div>
                         <div class="pack_body">
@@ -100,15 +157,15 @@
         <div class="container">
             <div class="main_title">
                 <h2>Why Choose Us</h2>
-                <p>We bring together Expertise, Commitment, and Strong Industry Partnerships to deliver reliable, tailored solutions that meet the unique needs of businesses and individuals in our region.</p>
+                <p style="font-size: 15px">We bring together Expertise, Commitment, and Strong Industry Partnerships to deliver reliable, tailored solutions that meet the unique needs of businesses and individuals in our region.</p>
             </div>
             <div class="row mb-lg-4">
                 <div class="col-md-6">
-                    <img src="img/company/company-image-2.jpg" alt="" class="img-fluid" height="100%" width="100%">
+                    <img src="img/company/mission_1.jpg" alt="" class="img-fluid" height="100%" width="100%">
                 </div>
                 <div class="col-md-6 mt-sm-20 left-align-p">
                     <h3 class="mb-30 title_color">Our Mission</h3>
-                    <p style="font-size: medium">
+                    <p  style="font-size: 15px">
                         MTMKay Technology Solutions combines technical expertise, strategic partnerships with top technology providers, and a commitment to bridging the digital divide. Our team delivers tailored IT solutions that drive business success.
                         At MTMKay Technology Solutions, our mission is to empower businesses and individuals through innovative IT solutions, advanced CyberSecurity, and industry-leading training programs.
                         We are committed to driving digital transformation and fostering growth within our community and beyond.
@@ -119,7 +176,7 @@
             <div class="row mt-lg-5">
                 <div class="col-md-6 mt-sm-20 left-align-p">
                     <h3 class="mb-30 title_color">Our Impact</h3>
-                    <p style="font-size: medium">
+                    <p style="font-size: 15px">
                         We believe that by providing access to IT education and affordable tech solutions, we can empower our community, create job opportunities, and foster innovation. Through partnerships with leading tech companies and dedicated training, MTMKay aims to uplift our local workforce and position our clients for success in a digital economy.
                     </p>
 
@@ -216,8 +273,8 @@
                 @foreach($successes as $success)
                     <div class="item">
                         <div class="testi_item">
-                            <img src="{{$success->user->profile_pic}}" alt="">
-                            <h4>{{$success->user->name}}</h4>
+                            <img src="{{asset($success->user->profile_pic ?? 'img/testimonials/testi-1.png')}}" alt="">
+                            <h4>{{$success->user->name ?? 'Enow James'}}</h4>
                             <h4>{{$success->user->enrollments[0]->program->title ?? ''}}</h4>
                             <ul class="list">
                                 <li><a href="#"><i class="fa fa-star"></i></a></li>
@@ -254,16 +311,16 @@
                         </div>
                         <div class="pack_body">
                             <ul class="list">
-                                <li><a href="#" style="font-size: medium"> <i class="lnr lnr-checkmark-circle mr-lg-3" style="color: #385abe"></i>Managed IT Services</a></li>
-                                <li><a href="#" style="font-size: medium"><i class="lnr lnr-checkmark-circle mr-lg-3" style="color: #385abe"></i>Technical Support</a></li>
-                                <li><a href="#"><i class="lnr lnr-checkmark-circle mr-lg-3" style="color: #385abe"></i>Custom Website Development</a></li>
-                                <li><a href="#" style="font-size: medium"><i class="lnr lnr-checkmark-circle mr-lg-3" style="color: #385abe"></i>IT Strategy and System Integration</a></li>
-                                <li><a href="#" style="font-size: medium"><i class="lnr lnr-cross mr-lg-3" style="color: #eb6b55"></i>Cloud Hosting and Management of Services</a></li>
+                                <li><a href="#" style="font-size: medium"> <i class="lnr lnr-checkmark-circle mr-lg-3" style="color: #385abe; font-size: large;font-weight: bolder"></i>Managed IT Services</a></li>
+                                <li><a href="#" style="font-size: medium"><i class="lnr lnr-checkmark-circle mr-lg-3" style="color: #385abe; font-size: large;font-weight: bolder"></i>Technical Support</a></li>
+                                <li><a href="#"><i class="lnr lnr-checkmark-circle mr-lg-3" style="color: #385abe; font-size: large;font-weight: bolder"></i>Custom Website Development</a></li>
+                                <li><a href="#" style="font-size: medium"><i class="lnr lnr-checkmark-circle mr-lg-3" style="color: #385abe; font-size: large;font-weight: bolder"></i>IT Strategy and System Integration</a></li>
+                                <li><a href="#" style="font-size: medium"><i class="lnr lnr-cross mr-lg-3" style="color: red; font-size: large;font-weight: bolder"></i>Cloud Hosting and Management of Services</a></li>
                             </ul>
                         </div>
                         <div class="pack_footer">
-                            <h4>£399.00</h4>
-                            <a class="main_btn" href="#">Join Now</a>
+                            <h4>$200.00</h4>
+                            <a class="main_btn" href="{{route('contact')}}">Apply Now</a>
                         </div>
                     </div>
                 </div>
@@ -276,16 +333,16 @@
                         </div>
                         <div class="pack_body">
                             <ul class="list">
-                                <li><a href="#" style="font-size: medium"><i class="lnr lnr-checkmark-circle mr-lg-3" style="color: #385abe"></i>Managed IT Services</a></li>
-                                <li><a href="#" style="font-size: medium"><i class="lnr lnr-checkmark-circle mr-lg-3" style="color: #385abe"></i>Technical Support</a></li>
-                                <li><a href="#"><i class="lnr lnr-checkmark-circle mr-lg-3" style="color: #385abe"></i>Custom Website Development</a></li>
-                                <li><a href="#" style="font-size: medium"><i class="lnr lnr-checkmark-circle mr-lg-3" style="color: #385abe"></i>IT Strategy and System Integration</a></li>
-                                <li><a href="#" style="font-size: medium"><i class="lnr lnr-checkmark-circle mr-lg-3" style="color: #385abe"></i>Cloud Hosting and Management of Services</a></li>
+                                <li><a href="#" style="font-size: medium"><i class="lnr lnr-checkmark-circle mr-lg-3" style="color: #385abe; font-size: large;font-weight: bolder"></i>Managed IT Services</a></li>
+                                <li><a href="#" style="font-size: medium"><i class="lnr lnr-checkmark-circle mr-lg-3" style="color: #385abe; font-size: large;font-weight: bolder"></i>Technical Support</a></li>
+                                <li><a href="#"><i class="lnr lnr-checkmark-circle mr-lg-3" style="color: #385abe; font-size: large;font-weight: bolder"></i>Custom Website Development</a></li>
+                                <li><a href="#" style="font-size: medium"><i class="lnr lnr-checkmark-circle mr-lg-3" style="color: #385abe; font-size: large;font-weight: bolder"></i>IT Strategy and System Integration</a></li>
+                                <li><a href="#" style="font-size: medium"><i class="lnr lnr-checkmark-circle mr-lg-3" style="color: #385abe; font-size: large;font-weight: bolder"></i>Cloud Hosting and Management of Services</a></li>
                             </ul>
                         </div>
                         <div class="pack_footer">
-                            <h4>£399.00</h4>
-                            <a class="main_btn" href="#">Join Now</a>
+                            <h4>$300.00</h4>
+                            <a class="main_btn" href="{{route('contact')}}">Apply Now</a>
                         </div>
                     </div>
                 </div>
