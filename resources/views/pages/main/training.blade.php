@@ -60,44 +60,39 @@
                     <div class="grid_inner">
                         <div class="grid_item wd55">
                             <div class="courses_item">
-                                <img src="img/company/office.jpg" alt="" height="220px" width="500px">
-                                <div class="hover_text">
-                                    <a href="#"><h4>Classic Learning rooms</h4></a>
-                                </div>
+                                <a href="#">
+                                    <img src="img/company/office.jpg" alt="" height="220px" width="500px">
+                                </a>
                             </div>
                         </div>
                         <div class="grid_item wd44">
                             <div class="courses_item">
-                                <img src="img/courses/course-2.jpg" alt="">
-                                <div class="hover_text">
-                                    <a href="#"><h4>Japanease Language Class</h4></a>
-                                </div>
+                                <a href="#">
+                                    <img src="img/company/office.jpg" alt="" height="220px" width="500px">
+                                </a>
                             </div>
                         </div>
                         <div class="grid_item wd44">
                             <div class="courses_item">
-                                <img src="img/courses/course-4.jpg" alt="">
-                                <div class="hover_text">
-                                    <a href="#"><h4>Japanease Language Class</h4></a>
-                                </div>
+                                <a href="#">
+                                    <img src="img/company/ccna_lab.jpg" alt="" width="500px">
+                                </a>
                             </div>
                         </div>
                         <div class="grid_item wd55">
                             <div class="courses_item">
-                                <img src="img/courses/course-5.jpg" alt="">
-                                <div class="hover_text">
-                                    <a href="#"><h4>Japanease Language Class</h4></a>
-                                </div>
+                                <a href="#">
+                                    <img src="img/company/ccna_2_lab.jpg" alt="" height="283px" width="500px">
+                                </a>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-3">
                     <div class="course_item">
-                        <img src="img/courses/course-3.jpg" alt="">
-                        <div class="hover_text">
-                            <a href="#"><h4>Japanease Language Class</h4></a>
-                        </div>
+                        <a href="#">
+                            <img src="img/courses/course-3.jpg" alt="">
+                        </a>
                     </div>
                 </div>
             </div>

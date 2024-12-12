@@ -190,9 +190,7 @@
         </div>
         <div class="customer-logos slider">
             <div class="slide"><img src="img/company/cisco-logo.png"></div>
-            <div class="slide"><img src="img/company/comptia.png" width="40%" height="100px"></div>
-            <div class="slide"><img src="img/company/Microsoft-Logo.png"></div>
-            <div class="slide"><img src="img/company/azure.jpg" width="40%" height="90px"></div>
+            <div class="slide"><img src="img/company/comptia.png" width="10px" height="50px"></div>
             <div class="slide"><img src="img/company/Microsoft-Logo.png"></div>
         </div>
     </div>
