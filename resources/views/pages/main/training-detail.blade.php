@@ -26,7 +26,7 @@
         <div class="row course_details_inner">
             <div class="col-lg-8">
                 <div class="c_details_img">
-                    <img class="img-fluid" src="{{$program->getImagePath($program, $program->image_path) ?? ''}}" alt="" width="100%">
+                    <img class="img-fluid" src="{{$program->getImagePath($program, $program->image_path) ?? ''}}" alt="" width="100%" height="20px">
                 </div>
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                     <li class="nav-item">
@@ -45,12 +45,12 @@
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade show active" id="objectives" role="tabpanel" aria-labelledby="objectives-tab">
                         <div class="objctive_text">
-                            <p>{{$program->objective}}</p>
+                            <p>{!!($program->objective) !!}</p>
                          </div>
                     </div>
                     <div class="tab-pane fade" id="eligibility" role="tabpanel" aria-labelledby="eligibility-tab">
                         <div class="objctive_text">
-                            <p>{{$program->eligibility}}</p>
+                            <p>{!! $program->eligibility !!}</p>
                          </div>
                     </div>
                     <div class="tab-pane fade" id="outline" role="tabpanel" aria-labelledby="outline-tab">
@@ -66,7 +66,7 @@
                     </div>
                     <div class="tab-pane fade" id="job_opportunities" role="tabpanel" aria-labelledby="job_opportunities-tab">
                         <div class="objctive_text">
-                            <p>{{$program->job_opportunities}}</p>
+                            <p>{!! $program->job_opportunities !!}</p>
                         </div>
                     </div>
                 </div>

@@ -53,8 +53,8 @@
 <script src="vendors/counter-up/jquery.counterup.js"></script>
 <script src="js/mail-script.js"></script>
 <script src="js/theme.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.js"></script>
-<script src="js/counter.js"></script>
-<script src="js/enrollment.js"></script>
+{{--<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.js"></script>--}}
+{{--<script src="js/counter.js"></script>--}}
+{{--<script src="js/enrollment.j/s"></script>--}}
 </body>
 </html>

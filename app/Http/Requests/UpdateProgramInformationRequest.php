@@ -24,10 +24,10 @@ class UpdateProgramInformationRequest extends FormRequest
         return [
             'title' => 'required|max:255',
             'duration' => 'required|min:1|max:15|numeric',
-            'eligibility' => 'required|string|max:1000|min:50',
-            'objective' => 'required|string|max:1000|min:50',
-            'training_resources' => 'required|string|max:1000|min:50',
-            'job_opportunities' => 'required|string|max:1000|min:50',
+            'eligibility' => 'required|string|max:5000|min:50',
+            'objective' => 'required|string|max:5000|min:50',
+            'training_resources' => 'required|string|max:5000|min:50',
+            'job_opportunities' => 'required|string|max:5000|min:50',
             'cost' => 'required|numeric|min:1000',
             'available_seats' => 'required|numeric|min:1|max:60',
             'trainer_name'  => 'required|string|max:50|min:5'
