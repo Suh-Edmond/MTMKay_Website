@@ -14,14 +14,14 @@ return new class extends Migration
         Schema::create('programs', function (Blueprint $table) {
              $table->id();
             $table->string('title');
-            $table->mediumText('objective');
-            $table->mediumText('eligibility');
+            $table->longText('objective');
+            $table->longText('eligibility');
             $table->integer('duration')->default(1);
             $table->string('trainer_name');
             $table->integer('available_seats')->default(1);
             $table->string('image_path');
             $table->double('cost')->default(0);
-            $table->mediumText('training_resources');
+            $table->longText('training_resources');
             $table->string('slug')->unique();
             $table->softDeletes();
             $table->timestamps();

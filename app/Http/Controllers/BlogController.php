@@ -358,7 +358,7 @@ class BlogController extends Controller
                 $manager  = new ImageManager(new Driver());
 
                 $image    = $manager->read($file);
-                $image    = $image->resize(200, 200);
+                $image    = $image->resize(250, 250);
 
                 $fileName     = str_replace(' ', '', $fileName);
 

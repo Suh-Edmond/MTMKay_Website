@@ -51,8 +51,6 @@ class Program extends Model
 
     public function getImagePath($program, $image_path)
     {
-        $programTitle = str_replace(' ', '', $program->title);
-        $programTitle = str_replace('+', '', $programTitle);
-        return self::IMAGE_DIR."/".$programTitle."/".$image_path;
+        return self::IMAGE_DIR."/".$program->slug."/".$image_path;
     }
 }

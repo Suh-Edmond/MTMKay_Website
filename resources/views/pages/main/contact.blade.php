@@ -21,12 +21,12 @@
 <section class="contact_area p_120">
     <div class="container">
         <div id="mapBox" class="mapBox"
-             data-lat="40.701083"
-             data-lon="-74.1522848"
+             data-lat="4.633327"
+             data-lon="9.445044"
              data-zoom="13"
              data-info="PO Box CT16122 Collins Street West, Victoria 8007, Australia."
-             data-mlat="40.701083"
-             data-mlon="-74.1522848">
+             data-mlat="4.633327"
+             data-mlon="9.445044">
         </div>
         <div class="row">
             <div class="col-lg-3">

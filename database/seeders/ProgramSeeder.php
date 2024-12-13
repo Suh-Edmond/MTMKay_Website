@@ -24,7 +24,8 @@ class ProgramSeeder extends Seeder
             'duration' => 12,
             'trainer_name' => 'George Mathews',
             'image_path' => 'img/courses/course-1.jpg',
-            'available_seats' => 15
+            'available_seats' => 15,
+            'job_opportunities' =>  $faker->sentence(20)
         ]);
 
         Program::create([
@@ -37,7 +38,8 @@ class ProgramSeeder extends Seeder
             'duration' => 12,
             'trainer_name' => 'George Mathews',
             'image_path' => 'img/courses/course-2.jpg',
-            'available_seats' => 25
+            'available_seats' => 25,
+            'job_opportunities' =>  $faker->sentence(20)
         ]);
 
         Program::create([
@@ -49,7 +51,8 @@ class ProgramSeeder extends Seeder
             'training_resources' => 'Official CompTIA study materials and labs, aligned with the CompTIA Security+ certification',
             'duration'=> 12,'trainer_name' => 'George Mathews',
             'image_path' => 'img/courses/course-3.jpg',
-            'available_seats' => 30
+            'available_seats' => 30,
+            'job_opportunities' => $faker->sentence(20)
         ]);
     }
 }

@@ -36,7 +36,13 @@
 </div>
 
 @include('components.footer')
-{{--<script src="js/custom-navbar.js"></script>--}}
+<script src="https://maps.googleapis.com/maps/api/js?key={{ env('GOOGLE_MAP_KEY') }}&libraries=places&callback=initMap" async></script>
+
+<script type="text/javascript">
+
+
+</script>
+<script src="js/maps.js" type="text/javascript"></script>
 <script src="js/jquery-3.3.1.min.js"></script>
 <script src="js/popper.js"></script>
 <script src="js/bootstrap.min.js"></script>
@@ -56,5 +62,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.js"></script>
 <script src="js/counter.js"></script>
 <script src="js/enrollment.js"></script>
+
 </body>
 </html>

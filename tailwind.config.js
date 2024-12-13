@@ -8,7 +8,8 @@ export default {
         './storage/framework/views/*.php',
         './resources/views/**/*.blade.php',
         './src/**/*.{js,jsx,ts,tsx}',
-        "src/**/*.ts*"
+        "src/**/*.ts*",
+
     ],
 
     theme: {
@@ -21,9 +22,8 @@ export default {
 
     plugins: [
         forms,
-        require('flowbite-typography'),
-        // require('flowbite/plugin')({
-        //     wysiwyg: true,
-        // }),
+
     ],
+
+
 };

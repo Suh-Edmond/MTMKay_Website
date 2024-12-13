@@ -3,7 +3,7 @@
 <x-guest-layout>
 <!--================Home Banner Area =================-->
 <section class="banner_area">
-    <div class="banner_inner d-flex align-items-center">
+    <div class="banner_about d-flex align-items-center">
         <div class="overlay bg-parallax" data-stellar-ratio="0.9" data-stellar-vertical-offset="0" data-background=""></div>
         <div class="container">
             <div class="banner_content text-center">
@@ -23,7 +23,7 @@
     <div class="container">
         <div class="main_title">
             <h2>Our Mission</h2>
-            <p>With our strong background in IT and CyberSecurity, we have a vision to bridge the digital divide and create opportunities through Technology.</p>
+            <p style="font-size: 15px">With our strong background in IT and CyberSecurity, we have a vision to bridge the digital divide and create opportunities through Technology.</p>
         </div>
         <div class="row about_inner">
             <div class="col-lg-6">
@@ -96,7 +96,7 @@
             </div>
         </div>
         <div class="about_details">
-            <p style="font-size: medium">MTMKay Technology Solutions combines technical expertise, strategic partnerships with top technology providers, and a commitment to bridging the digital divide. Our team delivers tailored IT solutions that drive business success.
+            <p style="font-size: 15px">MTMKay Technology Solutions combines technical expertise, strategic partnerships with top technology providers, and a commitment to bridging the digital divide. Our team delivers tailored IT solutions that drive business success.
                 At MTMKay Technology Solutions, our mission is to empower businesses and individuals through innovative IT solutions, advanced CyberSecurity, and industry-leading training programs.
                 We are committed to driving digital transformation and fostering growth within our community and beyond.</p>
         </div>
@@ -109,7 +109,7 @@
     <div class="container">
         <div class="main_title">
             <h2>Meet Our Team</h2>
-            <p>Our dynamic, certified and well-trained instructors available to provide the top-notch services and training to our clients and students.</p>
+            <p style="font-size: 15px">Our dynamic, certified and well-trained instructors available to provide the top-notch services and training to our clients and students.</p>
         </div>
         <div class="row team_inner">
             <div class="col-lg-3 col-sm-6">
@@ -186,13 +186,11 @@
     <div class="container">
         <div class="main_title">
             <h2>Our Partners</h2>
-            <p>MTMKay partners with leading Tech Providers, to deliver certified training and solutions backed by global standards</p>
+            <p style="font-size: 15px">MTMKay partners with leading Tech Providers, to deliver certified training and solutions backed by global standards</p>
         </div>
         <div class="customer-logos slider">
             <div class="slide"><img src="img/company/cisco-logo.png"></div>
-            <div class="slide"><img src="img/company/comptia.png" width="40%" height="100px"></div>
-            <div class="slide"><img src="img/company/Microsoft-Logo.png"></div>
-            <div class="slide"><img src="img/company/azure.jpg" width="40%" height="90px"></div>
+            <div class="slide"><img src="img/company/comptia.png" width="10px" height="50px"></div>
             <div class="slide"><img src="img/company/Microsoft-Logo.png"></div>
         </div>
     </div>
@@ -204,7 +202,7 @@
     <div class="container">
         <div class="main_title">
             <h2>Award-Winning Agency</h2>
-            <p>MTMKay Technology Solutions has successfully supported clients across various industries.</p>
+            <p style="font-size: 15px">MTMKay Technology Solutions has successfully supported clients across various industries.</p>
         </div>
         <div class="row team_inner">
             <div class="col-md-4">

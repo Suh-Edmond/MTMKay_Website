@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Constant\Roles;
 use App\Models\Role;
 use App\Models\User;
 use Faker\Generator;
@@ -24,16 +25,15 @@ class UserSeeder extends Seeder
      */
     public function run(Generator $generator): void
     {
-        for ($i = 0; $i < 5; $i++) {
-            User::create([
-                'name' => $generator->name,
-                'email' => $generator->email,
-                'password' => Hash::make('password'),
-                'telephone'  => $generator->phoneNumber(),
-                'address' => $generator->address,
-                'role_id' => $generator->randomElement($this->roles),
-                'profile_pic' => $generator->randomElement(['img/testimonials/testi-1.png', 'img/testimonials/testi-2.png', 'img/testimonials/testi-3.png',])
-            ]);
-        }
+        $role = Role::where('name', Roles::ADMIN)->firstOrFail();
+        User::create([
+            'name' => "Suh Edmond",
+            'email' => "suhedmond11@gmail.com",
+            'password' => Hash::make('password'),
+            'telephone'  => "+237673660071",
+            'address' => "Upper Bonduma, Buea",
+            'role_id' => $role->id,
+            'profile_pic' => $generator->randomElement(['img/testimonials/testi-1.png', 'img/testimonials/testi-2.png', 'img/testimonials/testi-3.png',])
+        ]);
     }
 }

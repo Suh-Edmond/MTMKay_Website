@@ -28,13 +28,12 @@
                     <x-primary-button>{{ __('Save') }}</x-primary-button>
 
                     @if (session('status') === 'program image updated successfully')
-                        <p
-                            x-data="{ show: true }"
-                            x-show="show"
-                            x-transition
-                            x-init="setTimeout(() => show = false, 3000)"
-                            class="text-sm text-gray-600"
-                        >{{ __('Saved.') }}</p>
+                         <x-auth-session-status :status="session('status')"  x-data="{ show: true }"
+                                                x-show="show"
+                                                x-transition
+                                                x-init="setTimeout(() => show = false, 3000)">
+
+                         </x-auth-session-status>
                     @endif
                 </div>
             </form>

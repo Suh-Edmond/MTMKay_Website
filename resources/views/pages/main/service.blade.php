@@ -3,7 +3,7 @@
 <x-guest-layout>
 <!--================Home Banner Area =================-->
 <section class="banner_area">
-    <div class="banner_inner d-flex align-items-center">
+    <div class="banner_services d-flex align-items-center">
         <div class="overlay bg-parallax" data-stellar-ratio="0.9" data-stellar-vertical-offset="0" data-background=""></div>
         <div class="container">
             <div class="banner_content text-center">
@@ -23,8 +23,8 @@
     <div class="container">
         <div class="main_title">
             <h2>Key Services</h2>
-            <p>
-                MTMKay offers a unique blend of services tailored to the needs of our community.
+            <p style="font-size: 16px">
+                MTMKay offers a unique blend of services tailored to the needs of our community.<br>
                 We provide IT consulting and managed services to help local businesses improve their technology infrastructure.
             </p>
         </div>
@@ -48,7 +48,7 @@
             <div class="col-md-6">
                 <div class="packages_item">
                     <div class="pack_head">
-                        <i class="lnr lnr-graduation-hat"></i>
+                        <i class="lnr lnr-cloud-upload"></i>
                         <h3>Cloud & Infrastructure Services</h3>
                     </div>
                     <div class="pack_body">
@@ -66,7 +66,7 @@
             <div class="col-md-6">
                 <div class="packages_item">
                     <div class="pack_head">
-                        <i class="lnr lnr-graduation-hat"></i>
+                        <i class="lnr lnr-cog"></i>
                         <h3>IT Consulting & Managed Services</h3>
                     </div>
                     <div class="pack_body">
@@ -82,7 +82,7 @@
             <div class="col-lg-6">
                 <div class="packages_item">
                     <div class="pack_head">
-                        <i class="lnr lnr-graduation-hat"></i>
+                        <i class="lnr lnr-lock"></i>
                         <h3>CyberSecurity Solutions</h3>
                     </div>
                     <div class="pack_body">
@@ -100,7 +100,7 @@
             <div class="col-md-6">
                 <div class="packages_item">
                     <div class="pack_head">
-                        <i class="lnr lnr-graduation-hat"></i>
+                        <i class="lnr lnr-laptop-phone"></i>
                         <h3>Web and Digital Solutions</h3>
                     </div>
                     <div class="pack_body">
@@ -130,6 +130,55 @@
 </section>
 <!--================End Impress Area =================-->
 
+<section class="testimonials_area p_120">
+        <div class="container">
+            <div class="testi_slider owl-carousel">
+                <div class="item">
+                    <div class="testi_item">
+                        <img src="img/testimonials/testi-3.png" alt="">
+                        <h4>Fannie Rowe</h4>
+                        <ul class="list">
+                            <li><a href="#"><i class="fa fa-star"></i></a></li>
+                            <li><a href="#"><i class="fa fa-star"></i></a></li>
+                            <li><a href="#"><i class="fa fa-star"></i></a></li>
+                            <li><a href="#"><i class="fa fa-star"></i></a></li>
+                            <li><a href="#"><i class="fa fa-star"></i></a></li>
+                        </ul>
+                        <p>Accessories Here you can find the best computer accessory for your laptop, monitor, printer, scanner, speaker. Here you can find the best computer accessory for your laptop, monitor, printer, scanner, speaker.</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="testi_item">
+                        <img src="img/testimonials/testi-3.png" alt="">
+                        <h4>Fannie Rowe</h4>
+                        <ul class="list">
+                            <li><a href="#"><i class="fa fa-star"></i></a></li>
+                            <li><a href="#"><i class="fa fa-star"></i></a></li>
+                            <li><a href="#"><i class="fa fa-star"></i></a></li>
+                            <li><a href="#"><i class="fa fa-star"></i></a></li>
+                            <li><a href="#"><i class="fa fa-star"></i></a></li>
+                        </ul>
+                        <p>Accessories Here you can find the best computer accessory for your laptop, monitor, printer, scanner, speaker. Here you can find the best computer accessory for your laptop, monitor, printer, scanner, speaker.</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="testi_item">
+                        <img src="img/testimonials/testi-3.png" alt="">
+                        <h4>Fannie Rowe</h4>
+                        <ul class="list">
+                            <li><a href="#"><i class="fa fa-star"></i></a></li>
+                            <li><a href="#"><i class="fa fa-star"></i></a></li>
+                            <li><a href="#"><i class="fa fa-star"></i></a></li>
+                            <li><a href="#"><i class="fa fa-star"></i></a></li>
+                            <li><a href="#"><i class="fa fa-star"></i></a></li>
+                        </ul>
+                        <p>Accessories Here you can find the best computer accessory for your laptop, monitor, printer, scanner, speaker. Here you can find the best computer accessory for your laptop, monitor, printer, scanner, speaker.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
 <!--================Pagkages Area =================-->
 <section class="packages_area p_120">
     <div class="container">
@@ -149,16 +198,16 @@
                     </div>
                     <div class="pack_body">
                         <ul class="list">
-                            <li><a href="#" style="font-size: medium"> <i class="lnr lnr-checkmark-circle mr-lg-3" style="color: #385abe"></i>Managed IT Services</a></li>
-                            <li><a href="#" style="font-size: medium"><i class="lnr lnr-checkmark-circle mr-lg-3" style="color: #385abe"></i>Technical Support</a></li>
-                            <li><a href="#"><i class="lnr lnr-checkmark-circle mr-lg-3" style="color: #385abe"></i>Custom Website Development</a></li>
-                            <li><a href="#" style="font-size: medium"><i class="lnr lnr-checkmark-circle mr-lg-3" style="color: #385abe"></i>IT Strategy and System Integration</a></li>
-                            <li><a href="#" style="font-size: medium"><i class="lnr lnr-cross mr-lg-3" style="color: #eb6b55"></i>Cloud Hosting and Management of Services</a></li>
+                            <li><a href="#" style="font-size: medium"> <i class="lnr lnr-checkmark-circle mr-lg-3" style="color: #385abe; font-size: large;font-weight: bolder"></i>Managed IT Services</a></li>
+                            <li><a href="#" style="font-size: medium"><i class="lnr lnr-checkmark-circle mr-lg-3" style="color: #385abe; font-size: large;font-weight: bolder"></i>Technical Support</a></li>
+                            <li><a href="#"><i class="lnr lnr-checkmark-circle mr-lg-3" style="color: #385abe; font-size: large;font-weight: bolder"></i>Custom Website Development</a></li>
+                            <li><a href="#" style="font-size: medium"><i class="lnr lnr-checkmark-circle mr-lg-3" style="color: #385abe; font-size: large;font-weight: bolder"></i>IT Strategy and System Integration</a></li>
+                            <li><a href="#" style="font-size: medium"><i class="lnr lnr-cross mr-lg-3" style="color: red;font-size: large;font-weight: bolder"></i>Cloud Hosting and Management of Services</a></li>
                         </ul>
                     </div>
                     <div class="pack_footer">
-                        <h4>£399.00</h4>
-                        <a class="main_btn" href="#">Join Now</a>
+                        <h4>$200.00</h4>
+                        <a class="main_btn" href="{{route('contact')}}">Apply Now</a>
                     </div>
                 </div>
             </div>
@@ -171,16 +220,16 @@
                     </div>
                     <div class="pack_body">
                         <ul class="list">
-                            <li><a href="#" style="font-size: medium"><i class="lnr lnr-checkmark-circle mr-lg-3" style="color: #385abe"></i>Managed IT Services</a></li>
-                            <li><a href="#" style="font-size: medium"><i class="lnr lnr-checkmark-circle mr-lg-3" style="color: #385abe"></i>Technical Support</a></li>
-                            <li><a href="#"><i class="lnr lnr-checkmark-circle mr-lg-3" style="color: #385abe"></i>Custom Website Development</a></li>
-                            <li><a href="#" style="font-size: medium"><i class="lnr lnr-checkmark-circle mr-lg-3" style="color: #385abe"></i>IT Strategy and System Integration</a></li>
-                            <li><a href="#" style="font-size: medium"><i class="lnr lnr-checkmark-circle mr-lg-3" style="color: #385abe"></i>Cloud Hosting and Management of Services</a></li>
+                            <li><a href="#" style="font-size: medium"><i class="lnr lnr-checkmark-circle mr-lg-3" style="color: #385abe; font-size: large;font-weight: bolder"></i>Managed IT Services</a></li>
+                            <li><a href="#" style="font-size: medium"><i class="lnr lnr-checkmark-circle mr-lg-3" style="color: #385abe; font-size: large;font-weight: bolder"></i>Technical Support</a></li>
+                            <li><a href="#"><i class="lnr lnr-checkmark-circle mr-lg-3" style="color: #385abe; font-size: large;font-weight: bolder"></i>Custom Website Development</a></li>
+                            <li><a href="#" style="font-size: medium"><i class="lnr lnr-checkmark-circle mr-lg-3" style="color: #385abe; font-size: large;font-weight: bolder"></i>IT Strategy and System Integration</a></li>
+                            <li><a href="#" style="font-size: medium"><i class="lnr lnr-checkmark-circle mr-lg-3" style="color: #385abe; font-size: large;font-weight: bolder"></i>Cloud Hosting and Management of Services</a></li>
                         </ul>
                     </div>
                     <div class="pack_footer">
-                        <h4>£399.00</h4>
-                        <a class="main_btn" href="#">Join Now</a>
+                        <h4>$300.00</h4>
+                        <a class="main_btn" href="#">Apply Now</a>
                     </div>
                 </div>
             </div>

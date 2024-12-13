@@ -2,12 +2,12 @@
     "use strict"
 
 
-	var nav_offset_top = $('header').height() + 50;
+    var nav_offset_top = $('header').height() + 50;
     /*-------------------------------------------------------------------------------
 	  Navbar
 	-------------------------------------------------------------------------------*/
 
-	//* Navbar Fixed
+    //* Navbar Fixed
     function navbarFixed(){
         if ( $('.header_area').length ){
             $(window).scroll(function() {
@@ -23,13 +23,13 @@
     navbarFixed();
 
 
-	/*----------------------------------------------------*/
+    /*----------------------------------------------------*/
     /*  Parallax Effect js
     /*----------------------------------------------------*/
-	function parallaxEffect() {
-    	$('.bg-parallax').parallax();
-	}
-	parallaxEffect();
+    function parallaxEffect() {
+        $('.bg-parallax').parallax();
+    }
+    parallaxEffect();
 
 
 //	$('.courses_area').imagesLoaded(function(){
@@ -45,7 +45,7 @@
 
 
 
-	/*----------------------------------------------------*/
+    /*----------------------------------------------------*/
     /*  portfolio_isotope
     /*----------------------------------------------------*/
 
@@ -60,7 +60,7 @@
 //    });
 
 
-	/*----------------------------------------------------*/
+    /*----------------------------------------------------*/
     /*  Clients Slider
     /*----------------------------------------------------*/
 //    function clients_slider(){
@@ -95,7 +95,7 @@
 //        }
 //    }
 //    clients_slider();
-	/*----------------------------------------------------*/
+    /*----------------------------------------------------*/
     /*  MailChimp Slider
     /*----------------------------------------------------*/
     function mailChimp(){
@@ -103,19 +103,19 @@
     }
     mailChimp();
 
-	$('select').niceSelect();
+    $('select').niceSelect();
 
-	/*----------------------------------------------------*/
+    /*----------------------------------------------------*/
     /*  Simple LightBox js
     /*----------------------------------------------------*/
     $('.imageGallery1 .light').simpleLightbox();
 
-	$('.counter').counterUp({
-		delay: 10,
-		time: 1000
-	});
+    $('.counter').counterUp({
+        delay: 10,
+        time: 1000
+    });
 
-	/*----------------------------------------------------*/
+    /*----------------------------------------------------*/
     /*  Testimonials Slider
     /*----------------------------------------------------*/
     function testimonials_slider(){
@@ -136,19 +136,19 @@
     }
     testimonials_slider();
 
-	$(document).ready(function() {
-		$('.popup-youtube, .popup-vimeo, .popup-gmaps').magnificPopup({
-			disableOn: 700,
-			type: 'iframe',
-			mainClass: 'mfp-fade',
-			removalDelay: 160,
-			preloader: false,
+    $(document).ready(function() {
+        $('.popup-youtube, .popup-vimeo, .popup-gmaps').magnificPopup({
+            disableOn: 700,
+            type: 'iframe',
+            mainClass: 'mfp-fade',
+            removalDelay: 160,
+            preloader: false,
 
-			fixedContentPos: false
-		});
-	});
+            fixedContentPos: false
+        });
+    });
 
-	/*----------------------------------------------------*/
+    /*----------------------------------------------------*/
     /*  Google map js
     /*----------------------------------------------------*/
 
@@ -161,16 +161,16 @@
         var $markerLat = $('#mapBox').data('mlat');
         var $markerLon = $('#mapBox').data('mlon');
         var map = new GMaps({
-        el: '#mapBox',
-        lat: $lat,
-        lng: $lon,
-        scrollwheel: false,
-        scaleControl: true,
-        streetViewControl: false,
-        panControl: true,
-        disableDoubleClickZoom: true,
-        mapTypeControl: false,
-        zoom: $zoom,
+            el: '#mapBox',
+            lat: $lat,
+            lng: $lon,
+            scrollwheel: false,
+            scaleControl: true,
+            streetViewControl: false,
+            panControl: true,
+            disableDoubleClickZoom: true,
+            mapTypeControl: false,
+            zoom: $zoom,
             styles: [
                 {
                     "featureType": "water",
