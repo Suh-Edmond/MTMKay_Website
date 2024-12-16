@@ -5,15 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>@yield('title', 'MTMKay Technology Solutions') </title>
+    <title>@yield('title', 'MTMKay IT Training & Technology Solutions') </title>
 
     <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+{{--    <link rel="preconnect" href="https://fonts.bunny.net">--}}
+{{--    <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />--}}
 
     <!-- Scripts -->
     {{--        @vite(['resources/css/app.css', 'resources/js/app.js'])--}}
 
+    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="vendors/linericon/style.css">
     <link rel="stylesheet" href="css/font-awesome.min.css">
@@ -25,7 +26,7 @@
     <!-- main css -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/responsive.css">
-    <link rel="stylesheet" href="css/slider.css">
+{{--    <link rel="stylesheet" href="css/slider.css">--}}
 </head>
 <body>
 @include('components.header')
@@ -37,17 +38,12 @@
 
 @include('components.footer')
 <script src="https://maps.googleapis.com/maps/api/js?key={{ env('GOOGLE_MAP_KEY') }}&libraries=places&callback=initMap" async></script>
-
-<script type="text/javascript">
-
-
-</script>
 <script src="js/maps.js" type="text/javascript"></script>
+
 <script src="js/jquery-3.3.1.min.js"></script>
 <script src="js/popper.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/stellar.js"></script>
-<script src="js/slider.js"></script>
 <script src="vendors/lightbox/simpleLightbox.min.js"></script>
 <script src="vendors/nice-select/js/jquery.nice-select.min.js"></script>
 <script src="vendors/isotope/imagesloaded.pkgd.min.js"></script>
@@ -59,9 +55,9 @@
 <script src="vendors/counter-up/jquery.counterup.js"></script>
 <script src="js/mail-script.js"></script>
 <script src="js/theme.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.js"></script>
-<script src="js/counter.js"></script>
-<script src="js/enrollment.js"></script>
+{{--<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.js"></script>--}}
+{{--<script src="js/counter.js"></script>--}}
+{{--<script src="js/enrollment.js"></script>--}}
 
 </body>
 </html>

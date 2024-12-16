@@ -155,34 +155,48 @@
     <!--================ Why Choose Us ===================-->
     <section class="testimonials_area p_120">
         <div class="container">
-            <div class="main_title">
-                <h2>Why Choose Us</h2>
-                <p style="font-size: 15px">We bring together Expertise, Commitment, and Strong Industry Partnerships to deliver reliable, tailored solutions that meet the unique needs of businesses and individuals in our region.</p>
-            </div>
-            <div class="row mb-lg-4">
-                <div class="col-md-6">
-                    <img src="img/company/mission_1.jpg" alt="" class="img-fluid" height="100%" width="100%">
+            <div class="testi_slider owl-carousel">
+                <div class="item">
+                    <div class="testi_item">
+                        <img src="img/testimonials/testi-3.png" alt="">
+                        <h4>Fannie Rowe</h4>
+                        <ul class="list">
+                            <li><a href="#"><i class="fa fa-star"></i></a></li>
+                            <li><a href="#"><i class="fa fa-star"></i></a></li>
+                            <li><a href="#"><i class="fa fa-star"></i></a></li>
+                            <li><a href="#"><i class="fa fa-star"></i></a></li>
+                            <li><a href="#"><i class="fa fa-star"></i></a></li>
+                        </ul>
+                        <p>Accessories Here you can find the best computer accessory for your laptop, monitor, printer, scanner, speaker. Here you can find the best computer accessory for your laptop, monitor, printer, scanner, speaker.</p>
+                    </div>
                 </div>
-                <div class="col-md-6 mt-sm-20 left-align-p">
-                    <h3 class="mb-30 title_color">Our Mission</h3>
-                    <p  style="font-size: 15px">
-                        MTMKay Technology Solutions combines technical expertise, strategic partnerships with top technology providers, and a commitment to bridging the digital divide. Our team delivers tailored IT solutions that drive business success.
-                        At MTMKay Technology Solutions, our mission is to empower businesses and individuals through innovative IT solutions, advanced CyberSecurity, and industry-leading training programs.
-                        We are committed to driving digital transformation and fostering growth within our community and beyond.
-                    </p>
-
+                <div class="item">
+                    <div class="testi_item">
+                        <img src="img/testimonials/testi-3.png" alt="">
+                        <h4>Fannie Rowe</h4>
+                        <ul class="list">
+                            <li><a href="#"><i class="fa fa-star"></i></a></li>
+                            <li><a href="#"><i class="fa fa-star"></i></a></li>
+                            <li><a href="#"><i class="fa fa-star"></i></a></li>
+                            <li><a href="#"><i class="fa fa-star"></i></a></li>
+                            <li><a href="#"><i class="fa fa-star"></i></a></li>
+                        </ul>
+                        <p>Accessories Here you can find the best computer accessory for your laptop, monitor, printer, scanner, speaker. Here you can find the best computer accessory for your laptop, monitor, printer, scanner, speaker.</p>
+                    </div>
                 </div>
-            </div>
-            <div class="row mt-lg-5">
-                <div class="col-md-6 mt-sm-20 left-align-p">
-                    <h3 class="mb-30 title_color">Our Impact</h3>
-                    <p style="font-size: 15px">
-                        We believe that by providing access to IT education and affordable tech solutions, we can empower our community, create job opportunities, and foster innovation. Through partnerships with leading tech companies and dedicated training, MTMKay aims to uplift our local workforce and position our clients for success in a digital economy.
-                    </p>
-
-                </div>
-                <div class="col-md-6">
-                    <img src="img/company/company-image-2.jpg" alt="" class="img-fluid" height="100%" width="100%">
+                <div class="item">
+                    <div class="testi_item">
+                        <img src="img/testimonials/testi-3.png" alt="">
+                        <h4>Fannie Rowe</h4>
+                        <ul class="list">
+                            <li><a href="#"><i class="fa fa-star"></i></a></li>
+                            <li><a href="#"><i class="fa fa-star"></i></a></li>
+                            <li><a href="#"><i class="fa fa-star"></i></a></li>
+                            <li><a href="#"><i class="fa fa-star"></i></a></li>
+                            <li><a href="#"><i class="fa fa-star"></i></a></li>
+                        </ul>
+                        <p>Accessories Here you can find the best computer accessory for your laptop, monitor, printer, scanner, speaker. Here you can find the best computer accessory for your laptop, monitor, printer, scanner, speaker.</p>
+                    </div>
                 </div>
             </div>
         </div>
