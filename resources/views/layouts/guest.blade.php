@@ -8,8 +8,8 @@
     <title>@yield('title', 'MTMKay IT Training & Technology Solutions') </title>
 
     <!-- Fonts -->
-{{--    <link rel="preconnect" href="https://fonts.bunny.net">--}}
-{{--    <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />--}}
+    <link rel="preconnect" href="https://fonts.bunny.net">
+    <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
     <!-- Scripts -->
     {{--        @vite(['resources/css/app.css', 'resources/js/app.js'])--}}
@@ -26,7 +26,7 @@
     <!-- main css -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/responsive.css">
-{{--    <link rel="stylesheet" href="css/slider.css">--}}
+    <link rel="stylesheet" href="css/slider.css">
 </head>
 <body>
 @include('components.header')
@@ -55,9 +55,9 @@
 <script src="vendors/counter-up/jquery.counterup.js"></script>
 <script src="js/mail-script.js"></script>
 <script src="js/theme.js"></script>
-{{--<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.js"></script>--}}
-{{--<script src="js/counter.js"></script>--}}
-{{--<script src="js/enrollment.js"></script>--}}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.js"></script>
+<script src="js/counter.js"></script>
+<script src="js/enrollment.js"></script>
 
 </body>
 </html>
