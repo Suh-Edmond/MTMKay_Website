@@ -101,7 +101,7 @@
     <!--================End Infrastructure Area =================-->
 
     <!--================Testimonials Area =================-->
-    <section class="packages_area p_120">
+    <section class="testimonials_area  p_120">
         <div class="container">
             <div class="main_title">
                 <h2>Testimonials</h2>
@@ -134,7 +134,7 @@
         <div class="container">
             <div class="impress_inner text-center">
                 <h2>Improve Your Skills</h2>
-                <p> style="font-size: 15px"It is not too late to grow your IT skills in CyberSecurity solutions or Cloud Infrastructure. Get the certifications and training required to become the next IT consultant</p>
+                <p style="font-size: 15px"> It is not too late to grow your IT skills in CyberSecurity solutions or Cloud Infrastructure. Get the certifications and training required to become the next IT consultant</p>
                 <a class="main_btn2" href="#">Apply here</a>
             </div>
         </div>

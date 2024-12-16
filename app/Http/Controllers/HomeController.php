@@ -9,11 +9,10 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $successes = StudentSuccess::orderby('created_at', 'desc')->get();
+        $successes = StudentSuccess::orderby('created_at', 'desc')->take(5)->get();
         $data = [
             'successes' => $successes
         ];
-//        dd($data['successes']);
         return view("pages.main.index")->with($data);
     }
 }

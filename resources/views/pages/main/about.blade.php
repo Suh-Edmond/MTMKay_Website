@@ -182,19 +182,58 @@
 <!--================End Team Area =================-->
 
 <!--================Partner Area =================-->
-<section class="testimonials_area p_120">
-    <div class="container">
-        <div class="main_title">
-            <h2>Our Partners</h2>
-            <p style="font-size: 15px">MTMKay partners with leading Tech Providers, to deliver certified training and solutions backed by global standards</p>
+    <section class="testimonials_area p_120">
+        <div class="container">
+            <div class="main_title">
+                <h2>Our Partners</h2>
+                <p style="font-size: 15px">MTMKay partners with leading Tech Providers, to deliver certified training and solutions backed by global standards</p>
+            </div>
+            <div class="testi_slider owl-carousel">
+                <div class="item">
+                    <div class="testi_item">
+                        <img src="img/company/cisco-logo.png" alt="" width="100px" height="100px">
+                        <h4>Cisco Networking</h4>
+                        <ul class="list">
+                            <li><a href="#"><i class="fa fa-star"></i></a></li>
+                            <li><a href="#"><i class="fa fa-tag"></i></a></li>
+                            <li><a href="#"><i class="fa fa-star"></i></a></li>
+                            <li><a href="#"><i class="fa fa-star"></i></a></li>
+                            <li><a href="#"><i class="fa fa-star"></i></a></li>
+                        </ul>
+                        <p>Accessories Here you can find the best computer accessory for your laptop, monitor, printer, scanner, speaker. Here you can find the best computer accessory for your laptop, monitor, printer, scanner, speaker.</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="testi_item">
+                        <img src="img/company/comptia.png" alt="" width="100px" height="100px">
+                        <h4>CompTia Security +</h4>
+                        <ul class="list">
+                            <li><a href="#"><i class="fa fa-star"></i></a></li>
+                            <li><a href="#"><i class="fa fa-star"></i></a></li>
+                            <li><a href="#"><i class="fa fa-star"></i></a></li>
+                            <li><a href="#"><i class="fa fa-star"></i></a></li>
+                            <li><a href="#"><i class="fa fa-star"></i></a></li>
+                        </ul>
+                        <p>Accessories Here you can find the best computer accessory for your laptop, monitor, printer, scanner, speaker. Here you can find the best computer accessory for your laptop, monitor, printer, scanner, speaker.</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="testi_item">
+                        <img src="img/company/Microsoft-Logo.png" alt="" width="100px" height="100px">
+                        <h4>Microsoft</h4>
+                        <ul class="list">
+                            <li><a href="#"><i class="fa fa-star"></i></a></li>
+                            <li><a href="#"><i class="fa fa-star"></i></a></li>
+                            <li><a href="#"><i class="fa fa-star"></i></a></li>
+                            <li><a href="#"><i class="fa fa-star"></i></a></li>
+                            <li><a href="#"><i class="fa fa-star"></i></a></li>
+                        </ul>
+                        <p>Accessories Here you can find the best computer accessory for your laptop, monitor, printer, scanner, speaker. Here you can find the best computer accessory for your laptop, monitor, printer, scanner, speaker.</p>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="customer-logos slider">
-            <div class="slide"><img src="img/company/cisco-logo.png"></div>
-            <div class="slide"><img src="img/company/comptia.png" width="10px" height="50px"></div>
-            <div class="slide"><img src="img/company/Microsoft-Logo.png"></div>
-        </div>
-    </div>
-</section>
+    </section>
 <!--================End Partner Area =================-->
 
 <!--================Team Area =================-->

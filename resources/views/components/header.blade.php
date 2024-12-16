@@ -27,22 +27,22 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
                     <ul class="nav navbar-nav menu_nav ml-auto">
-                        <li class="nav-item active">
+                        <li class="nav-item {{ request()->routeIs('home') ? 'active' : ''}}">
                             <a class="nav-link " href="{{route('home')}}">Home</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item {{ request()->routeIs('about') ? 'active' : ''}}">
                             <a class="nav-link" href="{{route('about')}}">About</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item {{ request()->routeIs('services') ? 'active' : ''}}">
                             <a href="{{route('services')}}" class="nav-link">Services</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item {{ request()->routeIs('training') ? 'active' : ''}}">
                             <a href="{{route('training')}}" class="nav-link">Training</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item {{ request()->routeIs('blog') ? 'active' : ''}}">
                             <a href="{{route('blog')}}" class="nav-link">Blog</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item {{ request()->routeIs('contact') ? 'active' : ''}}">
                             <a class="nav-link" href="{{route('contact')}}">Contact</a>
                         </li>
                     </ul>

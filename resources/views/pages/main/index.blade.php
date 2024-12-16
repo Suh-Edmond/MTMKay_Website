@@ -73,7 +73,7 @@
     <!--================End Finance Area =================-->
 
     <!--================Courses Area =================-->
-    <section class="packages_area p_120">
+    <section class="courses_area p_120">
         <div class="container">
             <div class="main_title">
                 <h2>Key Services</h2>
@@ -151,43 +151,6 @@
         </div>
     </section>
     <!--================End Courses Area =================-->
-
-    <!--================ Why Choose Us ===================-->
-    <section class="testimonials_area p_120">
-        <div class="container">
-            <div class="main_title">
-                <h2>Why Choose Us</h2>
-                <p style="font-size: 15px">We bring together Expertise, Commitment, and Strong Industry Partnerships to deliver reliable, tailored solutions that meet the unique needs of businesses and individuals in our region.</p>
-            </div>
-            <div class="row mb-lg-4">
-                <div class="col-md-6">
-                    <img src="img/company/mission_1.jpg" alt="" class="img-fluid" height="100%" width="100%">
-                </div>
-                <div class="col-md-6 mt-sm-20 left-align-p">
-                    <h3 class="mb-30 title_color">Our Mission</h3>
-                    <p  style="font-size: 15px">
-                        MTMKay Technology Solutions combines technical expertise, strategic partnerships with top technology providers, and a commitment to bridging the digital divide. Our team delivers tailored IT solutions that drive business success.
-                        At MTMKay Technology Solutions, our mission is to empower businesses and individuals through innovative IT solutions, advanced CyberSecurity, and industry-leading training programs.
-                        We are committed to driving digital transformation and fostering growth within our community and beyond.
-                    </p>
-
-                </div>
-            </div>
-            <div class="row mt-lg-5">
-                <div class="col-md-6 mt-sm-20 left-align-p">
-                    <h3 class="mb-30 title_color">Our Impact</h3>
-                    <p style="font-size: 15px">
-                        We believe that by providing access to IT education and affordable tech solutions, we can empower our community, create job opportunities, and foster innovation. Through partnerships with leading tech companies and dedicated training, MTMKay aims to uplift our local workforce and position our clients for success in a digital economy.
-                    </p>
-
-                </div>
-                <div class="col-md-6">
-                    <img src="img/company/company-image-2.jpg" alt="" class="img-fluid" height="100%" width="100%">
-                </div>
-            </div>
-        </div>
-    </section>
-    <!--================ End of why choose us ===========--->
 
     <!--================Team Area =================-->
     <section class="team_area p_120">
@@ -269,6 +232,10 @@
     <!--================Testimonials Area =================-->
     <section class="testimonials_area p_120">
         <div class="container">
+            <div class="main_title">
+                <h2>Testimonials</h2>
+                <p style="font-size: 15px">What our students say about our Training Programs.</p>
+            </div>
             <div class="testi_slider owl-carousel">
                 @foreach($successes as $success)
                     <div class="item">

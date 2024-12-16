@@ -341,7 +341,8 @@ button:focus {
     min-height: 660px;
     z-index: 1; }
     .blog_banner .banner_inner .overlay {
-      background: url(../img/banner/banner-2.jpg) no-repeat scroll center center;
+      background: url(../img/company/blog_hero.png) no-repeat scroll center center;
+        background-size: cover;
       opacity: .5;
       height: 125%;
       position: absolute;
@@ -436,7 +437,8 @@ button:focus {
     z-index: 1;
 }
 .banner_area .banner_services .overlay {
-    background: url(../img/company/hero_1.jpg) no-repeat scroll center center;
+    background: url(../img/company/hero_services_2.jpg) no-repeat scroll center center;
+    background-size: cover;
     position: absolute;
     left: 0;
     right: 0;
@@ -488,7 +490,8 @@ button:focus {
     z-index: 1;
 }
 .banner_area .banner_training .overlay {
-    background: url(../img/company/hero_2.jpg) no-repeat scroll center center;
+    background: url(../img/company/training_2.jpg) no-repeat scroll center center;
+    background-size: cover;
     position: absolute;
     left: 0;
     right: 0;
@@ -577,6 +580,61 @@ button:focus {
     display: none; }
 .banner_area .banner_about .banner_content .page_link a:hover {
     color: #385abe; }
+
+.banner_area {
+    position: relative;
+    z-index: 1;
+    min-height: 300px;
+}
+.banner_area .banner_contact {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    min-height: 300px;
+    background: #04091e;
+    z-index: 1;
+}
+.banner_area .banner_contact .overlay {
+    background: url(../img/company/office.jpg) no-repeat scroll center center;
+    background-size: cover;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 125%;
+
+    bottom: 0;
+    z-index: -1;
+    opacity: .6;
+}
+.banner_area .banner_contact .banner_content h2 {
+    color: #fff;
+    font-size: 48px;
+    font-family: "Playfair Display", serif;
+    margin-bottom: 0px;
+    font-weight: bold;
+}
+.banner_area .banner_contact .banner_content .page_link a {
+    font-size: 14px;
+    color: #fff;
+    font-family: "Roboto", sans-serif;
+    margin-right: 32px;
+    position: relative; }
+.banner_area .banner_contact .banner_content .page_link a:before {
+    content: "\e87a";
+    font-family: 'Linearicons-Free';
+    position: absolute;
+    right: -25px;
+    top: 50%;
+    transform: translateY(-50%); }
+.banner_area .banner_contact .banner_content .page_link a:last-child {
+    margin-right: 0px; }
+.banner_area .banner_contact .banner_content .page_link a:last-child:before {
+    display: none; }
+.banner_area .banner_contact .banner_content .page_link a:hover {
+    color: #385abe; }
+
+
 /* End Home Banner Area css
 ============================================================================================ */
 /*---------------------------------------------------- */
@@ -2932,7 +2990,7 @@ h6 {
 /* Looking Area css
 ============================================================================================ */
 .impress_area {
-  background: url(../img/notify-bg.jpg) no-repeat scroll center center;
+  background: url(../img/company/learning.jpg) no-repeat scroll center center;
   background-size: cover; }
   .impress_area .impress_inner {
     color: #fff; }
