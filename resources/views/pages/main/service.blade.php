@@ -43,6 +43,9 @@
                             <li><a href="#" style="font-size: medium">Industry-leading IT Certification and Corporate Training</a></li>
                         </ul>
                     </div>
+                    <div class="pack_footer mt-5" style="margin-bottom: 90px !important;">
+                        <a class="main_btn" href="{{route('contact')}}">Apply Now</a>
+                    </div>
                 </div>
             </div>
             <div class="col-md-6">
@@ -58,6 +61,9 @@
                             <li><a href="#" style="font-size: medium">Scalable, reliable IT environments</a></li>
                             <li><a href="#" style="font-size: medium">Cloud Hosting and Management of Services</a></li>
                         </ul>
+                    </div>
+                    <div class="pack_footer mt-5" style="margin-bottom: 90px !important;">
+                        <a class="main_btn" href="{{route('contact')}}">Apply Now</a>
                     </div>
                 </div>
             </div>
@@ -77,6 +83,9 @@
                             <li><a href="#" style="font-size: medium">Optimize Technology for efficiency and growth</a></li>
                         </ul>
                     </div>
+                    <div class="pack_footer mt-5" style="margin-bottom: 90px !important;">
+                        <a class="main_btn" href="{{route('contact')}}">Apply Now</a>
+                    </div>
                 </div>
             </div>
             <div class="col-lg-6">
@@ -92,6 +101,9 @@
                             <li><a href="#" style="font-size: medium">Vulnerability Assessments and Penetration Testing</a></li>
                             <li><a href="#" style="font-size: medium">Protect digital assets with advanced security protocols</a></li>
                         </ul>
+                    </div>
+                    <div class="pack_footer mt-5" style="margin-bottom: 90px !important;">
+                        <a class="main_btn" href="{{route('contact')}}">Apply Now</a>
                     </div>
                 </div>
             </div>
@@ -111,12 +123,45 @@
                             <li><a href="#" style="font-size: medium">Optimize Technology for efficiency and growth</a></li>
                         </ul>
                     </div>
+                    <div class="pack_footer mt-5" style="margin-bottom: 90px !important;">
+                        <a class="main_btn" href="{{route('contact')}}">Apply Now</a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
 <!--================End Courses Area =================-->
+
+<!--=============Clients Testimonials ===============-->
+<section class="testimonials_area p_120">
+    <div class="container">
+        <div class="main_title">
+            <h2>Testimonials</h2>
+            <p style="font-size: 15px">What our Clients say about our Services.</p>
+        </div>
+        <div class="testi_slider owl-carousel">
+            @foreach($successes as $success)
+                <div class="item">
+                    <div class="testi_item">
+                        <img src="{{asset('img/success/success_1.png')}}" alt="" width="120px" height="120px" style="border-radius: 50%">
+                        <h4>{{$success->user->name ?? 'Enow James'}}</h4>
+                        <ul class="list">
+                            <li><a href="#"><i class="fa fa-star"></i></a></li>
+                            <li><a href="#"><i class="fa fa-star"></i></a></li>
+                            <li><a href="#"><i class="fa fa-star"></i></a></li>
+                            <li><a href="#"><i class="fa fa-star"></i></a></li>
+                            <li><a href="#"><i class="fa fa-star"></i></a></li>
+                        </ul>
+                        <p>{{$success->message}}</p>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+    </div>
+</section>
+<!--============= End of clients Testimonials =======-->
+
 
 <!--================Impress Area =================-->
 <section class="impress_area p_120">
@@ -129,55 +174,6 @@
     </div>
 </section>
 <!--================End Impress Area =================-->
-
-<section class="testimonials_area p_120">
-        <div class="container">
-            <div class="testi_slider owl-carousel">
-                <div class="item">
-                    <div class="testi_item">
-                        <img src="img/testimonials/testi-3.png" alt="">
-                        <h4>Fannie Rowe</h4>
-                        <ul class="list">
-                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                        </ul>
-                        <p>Accessories Here you can find the best computer accessory for your laptop, monitor, printer, scanner, speaker. Here you can find the best computer accessory for your laptop, monitor, printer, scanner, speaker.</p>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="testi_item">
-                        <img src="img/testimonials/testi-3.png" alt="">
-                        <h4>Fannie Rowe</h4>
-                        <ul class="list">
-                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                        </ul>
-                        <p>Accessories Here you can find the best computer accessory for your laptop, monitor, printer, scanner, speaker. Here you can find the best computer accessory for your laptop, monitor, printer, scanner, speaker.</p>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="testi_item">
-                        <img src="img/testimonials/testi-3.png" alt="">
-                        <h4>Fannie Rowe</h4>
-                        <ul class="list">
-                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                        </ul>
-                        <p>Accessories Here you can find the best computer accessory for your laptop, monitor, printer, scanner, speaker. Here you can find the best computer accessory for your laptop, monitor, printer, scanner, speaker.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
 <!--================Pagkages Area =================-->
 <section class="packages_area p_120">
@@ -192,7 +188,7 @@
             <div class="col-lg-6">
                 <div class="packages_item">
                     <div class="pack_head">
-                        <i class="lnr lnr-graduation-hat"></i>
+                        <i class="lnr lnr-heart-pulse"></i>
                         <h3>Premium</h3>
                         <p>For the individuals</p>
                     </div>
@@ -205,8 +201,7 @@
                             <li><a href="#" style="font-size: medium"><i class="lnr lnr-cross mr-lg-3" style="color: red;font-size: large;font-weight: bolder"></i>Cloud Hosting and Management of Services</a></li>
                         </ul>
                     </div>
-                    <div class="pack_footer">
-                        <h4>$200.00</h4>
+                    <div class="pack_footer mt-5" style="margin-bottom: 90px !important;">
                         <a class="main_btn" href="{{route('contact')}}">Apply Now</a>
                     </div>
                 </div>
@@ -227,9 +222,8 @@
                             <li><a href="#" style="font-size: medium"><i class="lnr lnr-checkmark-circle mr-lg-3" style="color: #385abe; font-size: large;font-weight: bolder"></i>Cloud Hosting and Management of Services</a></li>
                         </ul>
                     </div>
-                    <div class="pack_footer">
-                        <h4>$300.00</h4>
-                        <a class="main_btn" href="#">Apply Now</a>
+                    <div class="pack_footer mt-5" style="margin-bottom: 90px !important;">
+                        <a class="main_btn" href="{{route('contact')}}">Apply Now</a>
                     </div>
                 </div>
             </div>

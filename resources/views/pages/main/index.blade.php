@@ -23,7 +23,7 @@
                     <div class="finance_item">
                         <div class="media">
                             <div class="d-flex">
-                                <i class="lnr lnr-rocket"></i>
+                                <i class="lnr lnr-power-switch"></i>
                             </div>
                             <div class="media-body">
                                 <h5>Cisco Certified  <br />Network Associate (CCNA)</h5>
@@ -35,7 +35,7 @@
                     <div class="finance_item">
                         <div class="media">
                             <div class="d-flex">
-                                <i class="lnr lnr-earth"></i>
+                                <i class="lnr lnr-lock"></i>
                             </div>
                             <div class="media-body">
                                 <h5>CompTIA <br /> Security+</h5>
@@ -47,7 +47,7 @@
                     <div class="finance_item">
                         <div class="media">
                             <div class="d-flex">
-                                <i class="lnr lnr-smile"></i>
+                                <i class="lnr lnr-cloud-upload"></i>
                             </div>
                             <div class="media-body">
                                 <h5>Microsoft Azure <br /> Fundamentals </h5>
@@ -59,7 +59,7 @@
                     <div class="finance_item">
                         <div class="media">
                             <div class="d-flex">
-                                <i class="lnr lnr-tag"></i>
+                                <i class="lnr lnr-cog"></i>
                             </div>
                             <div class="media-body">
                                 <h5>IT Consulting & <br />Services</h5>
@@ -160,10 +160,10 @@
                 <p style="font-size: medium">Our dynamic. certified and well-trained instructors available to provide the top-notch services and training to our clients and students.</p>
             </div>
             <div class="row team_inner">
-                <div class="col-lg-3 col-sm-6">
+                <div class="col-lg-4 col-sm-6">
                     <div class="team_item">
                         <div class="team_img">
-                            <img class="rounded-circle" src="img/team/team-1.jpg" alt="">
+                            <img class="rounded-circle" src="img/team/team-1.png" alt="" style="border-radius: 50%" height="310px">
                             <div class="hover">
                                 <a href="#"><i class="fa fa-facebook"></i></a>
                                 <a href="#"><i class="fa fa-twitter"></i></a>
@@ -176,10 +176,10 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-sm-6">
+                <div class="col-lg-4 col-sm-6">
                     <div class="team_item">
                         <div class="team_img">
-                            <img class="rounded-circle" src="img/team/team-2.jpg" alt="">
+                            <img class="rounded-circle" src="img/team/team-2.jpeg" alt="" style="border-radius: 50%" height="310px">
                             <div class="hover">
                                 <a href="#"><i class="fa fa-facebook"></i></a>
                                 <a href="#"><i class="fa fa-twitter"></i></a>
@@ -192,10 +192,10 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-sm-6">
+                <div class="col-lg-4 col-sm-6">
                     <div class="team_item">
                         <div class="team_img">
-                            <img class="rounded-circle" src="img/team/team-3.jpg" alt="">
+                            <img class="rounded-circle" src="img/team/team-3.jpeg" alt="" style="border-radius: 50%" height="310px">
                             <div class="hover">
                                 <a href="#"><i class="fa fa-facebook"></i></a>
                                 <a href="#"><i class="fa fa-twitter"></i></a>
@@ -205,22 +205,6 @@
                         <div class="team_name">
                             <h4>Ben Joseph</h4>
                             <p>CyberSecurity Specialist</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6">
-                    <div class="team_item">
-                        <div class="team_img">
-                            <img class="rounded-circle" src="img/team/team-4.jpg" alt="">
-                            <div class="hover">
-                                <a href="#"><i class="fa fa-facebook"></i></a>
-                                <a href="#"><i class="fa fa-twitter"></i></a>
-                                <a href="#"><i class="fa fa-linkedin"></i></a>
-                            </div>
-                        </div>
-                        <div class="team_name">
-                            <h4>Enow Takang</h4>
-                            <p>Cloud and Infrastructure Engineer</p>
                         </div>
                     </div>
                 </div>
@@ -240,7 +224,7 @@
                 @foreach($successes as $success)
                     <div class="item">
                         <div class="testi_item">
-                            <img src="{{asset($success->user->profile_pic ?? 'img/testimonials/testi-1.png')}}" alt="">
+                            <img src="{{asset('img/success/success_1.png')}}" alt="" width="120px" height="120px" style="border-radius: 50%">
                             <h4>{{$success->user->name ?? 'Enow James'}}</h4>
                             <h4>{{$success->user->enrollments[0]->program->title ?? ''}}</h4>
                             <ul class="list">
@@ -272,7 +256,7 @@
                 <div class="col-lg-6">
                     <div class="packages_item">
                         <div class="pack_head">
-                            <i class="lnr lnr-graduation-hat"></i>
+                            <i class="lnr lnr-heart-pulse"></i>
                             <h3>Premium</h3>
                             <p>For the individuals</p>
                         </div>
