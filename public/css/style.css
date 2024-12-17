@@ -75,8 +75,8 @@ button:focus {
   box-shadow: none; }
 
 .p_120 {
-  padding-top: 120px;
-  padding-bottom: 120px; }
+  padding-top: 90px;
+  padding-bottom: 100px; }
 
 .pad_top {
   padding-top: 120px; }
@@ -2839,7 +2839,46 @@ h6 {
     padding-left: 15px;
     padding-right: 15px;
     position: relative;
-    overflow: hidden; }
+    overflow: hidden;
+  }
+.courses_inner .infrastructure {
+    padding-left: 15px;
+    padding-right: 15px;
+    position: relative;
+    overflow: hidden;
+    animation: translate 0.3s ease-in-out;
+    border-radius: 10px;
+}
+.courses_inner .infrastructure:hover {
+    padding-left: 15px;
+    padding-right: 15px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    z-index: 20;
+    transform: scale(1.07);
+    opacity:1;
+    transition: all .10s ease-in-out;
+}
+/*///*/
+@keyframes translate {
+    from {
+        transform: scale3d(0);
+    }
+    to {
+        transform: scale3d(40);
+    }
+}
+@keyframes translate-hover {
+    from {
+        transform: scaleX(0);
+    }
+    to {
+        transform: scale(40);
+    }
+}
+/*///*/
+
   .courses_inner .course_item {
     position: relative; }
     .courses_inner .course_item .hover_text {
@@ -3040,6 +3079,14 @@ h6 {
   padding-right: 55px;
   box-shadow: 0px 1.5rem 4rem  rgba(20,20,20,0.15);
 }
+.packages_item_training {
+    background: #fff;
+    border-radius: 5px;
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    box-shadow: 0px 1.5rem 4rem  rgba(20,20,20,0.15);
+}
   .packages_item .pack_head i {
     height: 140px;
     width: 140px;
@@ -3063,7 +3110,7 @@ h6 {
     display: block;
     transition: all .8s ease;
   }
-.packages_item .pack_body .list li a:hover {
+  .packages_item .pack_body .list li a:hover {
     color: #eeeeee;
     background-color: #385abe;
     line-height: 50px;
@@ -3072,6 +3119,7 @@ h6 {
     transform: translateY(-1.5rem) scale(1.03);
     transition: all .8s ease-in-out;
 }
+
   .packages_item .pack_body .list li:first-child a {
     border-top: 1px solid #eeeeee; }
   .packages_item .pack_footer {
@@ -3105,6 +3153,72 @@ h6 {
   .packages_item:hover .pack_footer .main_btn {
     opacity: 1; }
 
+
+.packages_item_training .pack_head i {
+    height: 90px;
+    width: 100px;
+    background: #edf8e8;
+    display: block;
+    border-radius: 50%;
+    margin: 0px auto 25px;
+    font-size: 36px;
+    color: #222222;
+    line-height: 90px;
+    transition: all 300ms linear 0s; }
+.packages_item_training .pack_head h3 {
+    color: #222222;
+    margin-bottom: 12px; }
+.packages_item_training .pack_head p {
+    margin-bottom: 25px; }
+.packages_item_training .pack_body .list li a {
+    color: #777777;
+    line-height: 50px;
+    border-bottom: 1px solid #eeeeee;
+    display: block;
+    transition: all .8s ease;
+}
+.packages_item_training .pack_body .list li a:hover {
+    color: #eeeeee;
+    background-color: #385abe;
+    line-height: 50px;
+    border-bottom: 1px solid #eeeeee;
+    display: block;
+    transform: translateY(-1.5rem) scale(1.03);
+    transition: all .8s ease-in-out;
+}
+.packages_item_training .pack_body .list li:first-child a {
+    border-top: 1px solid #eeeeee; }
+.packages_item_training .pack_footer {
+    position: relative; }
+.packages_item_training .pack_footer h4 {
+    color: #222222;
+    font-family: "Roboto", sans-serif;
+    font-size: 30px;
+    font-weight: normal;
+    margin-top: 40px;
+    margin-bottom: 0px; }
+.packages_item_training .pack_footer .main_btn {
+    padding: 0px 35px;
+    position: absolute;
+    top: -20px;
+    width: 100%;
+    max-width: 138px;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0px 10px 30px 0px rgba(0, 0, 0, 0.1);
+    opacity: 0; }
+.packages_item_training .pack_footer:hover h4 {
+    opacity: 0; }
+.packages_item_training .pack_footer:hover .main_btn {
+    opacity: 1; }
+.packages_item_training:hover .pack_head i {
+    background: #385abe;
+    color: #fff;
+}
+.packages_item_training:hover .pack_footer h4 {
+    opacity: 0; }
+.packages_item_training:hover .pack_footer .main_btn {
+    opacity: 1; }
 /* End Price Area css
 ============================================================================================ */
 /*---------------------------------------------------- */

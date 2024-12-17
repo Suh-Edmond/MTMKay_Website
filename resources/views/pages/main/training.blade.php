@@ -19,7 +19,7 @@
     <!--================End Home Banner Area =================-->
 
     <!--================Courses Area =================-->
-    <section class="courses_area p_120">
+    <section class="packages_area p_120">
         <div class="container">
             <div class="main_title">
                 <h2>Our Programs</h2>
@@ -48,8 +48,73 @@
     </section>
     <!--================End Courses Area =================-->
 
-    <!--================Infrastructure Area =================-->
+    <!--================Strength Area =================-->
     <section class="courses_area p_120">
+        <div class="container">
+            <div class="main_title">
+                <h2>Our Strengths and Uniqueness</h2>
+            </div>
+            <div class="row packages_inner">
+                <div class="col-4 col-md-4 col-lg-4 col-sm-12 col-xs-12">
+                    <div class="packages_item_training">
+                        <div class="pack_head">
+                            <i class="lnr lnr-graduation-hat"></i>
+                            <h4>Certified and Experienced Trainers</h4>
+                        </div>
+                        <div class="pack_body">
+                            <ul class="list">
+                                <li><a href="#"  >Teaching Expertise</a></li>
+                                <li><a href="#" class="first">Hands-On Experience</a></li>
+                                <li><a href="#">Professional Networking</a></li>
+                                <li><a href="#">Curriculum Development</a></li>
+                                <li><a href="#">Strong Communication Skills</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4 col-md-4 col-lg-4 col-sm-12 col-xs-12">
+                    <div class="packages_item_training">
+                        <div class="pack_head">
+                            <i class="lnr lnr-briefcase"></i>
+                            <h4>Internship and Placement Opportunities
+                            </h4>
+                        </div>
+                        <div class="pack_body">
+                            <ul class="list">
+                                <li><a href="#">Alumni Network</a></li>
+                                <li><a href="#">Industry Partnerships</a></li>
+                                <li><a href="#" class="second">Career Services Support</a></li>
+                                <li><a href="#">Skill Development Workshops</a></li>
+                                <li><a href="#">Internship Feedback Mechanism</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4 col-md-4 col-lg-4 col-sm-12 col-xs-12">
+                    <div class="packages_item_training">
+                        <div class="pack_head">
+                            <i class="lnr lnr-laptop"></i>
+                            <h4>Modern Infrastructures
+                            </h4>
+                        </div>
+                        <div class="pack_body">
+                            <ul class="list">
+                                <li><a href="#">Smart Classrooms</a></li>
+                                <li><a href="#">Flexible Learning Spaces</a></li>
+                                <li><a href="#">Dedicated and Equipped Labs</a></li>
+                                <li><a href="#">Advanced Technology and Internet Support</a></li>
+                                <li><a href="#" class="third">Robust CyberSecurity and Physical Security Systems </a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--================End Strength Area =================-->
+
+    <!--================Infrastructure Area =================-->
+    <section class="packages_area p_120">
         <div class="container">
             <div class="main_title">
                 <h2>Our Infrastructure</h2>
@@ -59,39 +124,39 @@
                 <div class="col-lg-9">
                     <div class="grid_inner">
                         <div class="grid_item wd55">
-                            <div class="courses_item">
+                            <div class="courses_item infrastructure">
                                 <a href="#">
-                                    <img src="img/company/office.jpg" alt="" height="220px" width="500px">
+                                    <img src="img/company/office.jpg" alt="" height="220px" width="500px" style="border-radius: 5px;">
                                 </a>
                             </div>
                         </div>
                         <div class="grid_item wd44">
-                            <div class="courses_item">
+                            <div class="courses_item infrastructure">
                                 <a href="#">
-                                    <img src="img/company/office.jpg" alt="" height="220px" width="500px">
+                                    <img src="img/company/starLink.png" alt="" height="220px" width="500px" style="border-radius: 5px;">
                                 </a>
                             </div>
                         </div>
                         <div class="grid_item wd44">
-                            <div class="courses_item">
+                            <div class="courses_item infrastructure">
                                 <a href="#">
-                                    <img src="img/company/ccna_lab.jpg" alt="" width="500px">
+                                    <img src="img/company/ccna_lab.jpg" alt="" width="500px" style="border-radius: 5px;">
                                 </a>
                             </div>
                         </div>
                         <div class="grid_item wd55">
-                            <div class="courses_item">
+                            <div class="courses_item infrastructure">
                                 <a href="#">
-                                    <img src="img/company/ccna_2_lab.jpg" alt="" height="283px" width="500px">
+                                    <img src="img/company/ccna_2_lab.jpg" alt="" height="283px" width="500px" style="border-radius: 5px;">
                                 </a>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-3">
-                    <div class="course_item">
+                    <div class="course_item infrastructure">
                         <a href="#">
-                            <img src="img/courses/course-3.jpg" alt="">
+                            <img src="img/company/cisco-side-img.png" alt="" height="530px" width="300px" style="border-radius: 5px;">
                         </a>
                     </div>
                 </div>
@@ -101,17 +166,18 @@
     <!--================End Infrastructure Area =================-->
 
     <!--================Testimonials Area =================-->
-    <section class="testimonials_area  p_120">
+    <section class="testimonials_area p_120">
         <div class="container">
             <div class="main_title">
                 <h2>Testimonials</h2>
+                <p style="font-size: 15px">Unlocking Potential: Student Voices on Their Training Experience!</p>
             </div>
             <div class="testi_slider owl-carousel">
-               @foreach($successes as $success)
+                @foreach($successes as $success)
                     <div class="item">
                         <div class="testi_item">
-                            <img src="{{$success->user->profile_pic}}" alt="">
-                            <h4>{{$success->user->name}}</h4>
+                            <img src="{{asset('img/success/success_1.png')}}" alt="" width="120px" height="120px" style="border-radius: 50%">
+                            <h4>{{$success->user->name ?? 'Enow James'}}</h4>
                             <h4>{{$success->user->enrollments[0]->program->title ?? ''}}</h4>
                             <ul class="list">
                                 <li><a href="#"><i class="fa fa-star"></i></a></li>
@@ -123,7 +189,7 @@
                             <p>{{$success->message}}</p>
                         </div>
                     </div>
-               @endforeach
+                @endforeach
             </div>
         </div>
     </section>

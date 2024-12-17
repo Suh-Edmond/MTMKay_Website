@@ -138,7 +138,7 @@
     <div class="container">
         <div class="main_title">
             <h2>Testimonials</h2>
-            <p style="font-size: 15px">What our Clients say about our Services.</p>
+            <p style="font-size: 15px">Your Path to Success! Discover What Our Clients Say!</p>
         </div>
         <div class="testi_slider owl-carousel">
             @foreach($successes as $success)

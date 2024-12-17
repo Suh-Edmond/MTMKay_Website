@@ -189,7 +189,7 @@
                 </div>
                 <div class="item">
                     <div class="testi_item">
-                        <img src="img/company/Microsoft-Logo.png" alt="" width="110px" height="110px">
+                        <img src="img/company/microsoft_1.png" alt="" width="110px" height="110px">
                         <h4>Microsoft</h4>
                         <p>Accessories Here you can find the best computer accessory for your laptop, monitor, printer, scanner, speaker. Here you can find the best computer accessory for your laptop, monitor, printer, scanner, speaker.</p>
                     </div>

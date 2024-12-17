@@ -35,7 +35,7 @@
             @foreach($categories as $category)
                 <div class="col-lg-4">
                     <div class="categories_post">
-                        <img src="{{$category->image_path}}" alt="post">
+                        <img src="{{$category->image_path}}" alt="post" height="200px" width="300px">
                         <div class="categories_details">
                             <div class="categories_text">
                                 <a href="{{route('blog', ['title' => $category->name, 'slug' => $category->slug])}}"><h5>{{$category->name}}</h5></a>
