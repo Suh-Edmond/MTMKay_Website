@@ -330,6 +330,21 @@ button:focus {
         transform: translate(0);
     }
 }
+@keyframes moveInUpImpress{
+    0% {
+        opacity: 1;
+        transform: translateY(100px);
+    }
+
+    80% {
+        transform: translateX(10px);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(0);
+    }
+}
 .home_banner_area {
   position: relative;
   z-index: 1;
@@ -643,6 +658,18 @@ button:focus {
 }
 .banner_area .banner_about .overlay {
     background: url(../img/company/office.jpg) no-repeat scroll center center;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 125%;
+    background-size: cover;
+    bottom: 0;
+    z-index: -1;
+    opacity: .6;
+}
+.banner_area .training-detail .overlay {
+    background: url(../img/company/training-detail.jpg) no-repeat scroll center center;
     position: absolute;
     left: 0;
     right: 0;
@@ -3157,16 +3184,37 @@ h6 {
 ============================================================================================ */
 .impress_area {
   background: url(../img/company/learning.jpg) no-repeat scroll center center;
-  background-size: cover; }
+  background-size: cover;
+}
+.service_impress {
+    background: url(../img/company/lets_work_together.png) no-repeat scroll center center;
+    background-size: cover;
+}
   .impress_area .impress_inner {
     color: #fff; }
     .impress_area .impress_inner h2 {
       text-transform: uppercase;
       font-size: 36px;
-      margin-bottom: 20px; }
+      margin-bottom: 20px;
+        animation-name: moveInLeft;
+        animation-duration: 3s;
+        animation-timing-function: ease-in-out;
+    }
     .impress_area .impress_inner p {
       max-width: 770px;
-      margin: 0px auto 45px; }
+      margin: 0px auto 45px;
+        animation-name: moveInRight;
+        animation-duration: 5s;
+        animation-timing-function: ease-in-out;
+    }
+
+.impress_area .impress_inner a {
+    max-width: 770px;
+    margin: 0px auto 45px;
+    animation-name: moveInUpImpress;
+    animation-duration: 3s;
+    animation-timing-function: ease-in-out;
+}
 
 /* End Looking Area css
 ============================================================================================ */

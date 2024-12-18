@@ -91,8 +91,8 @@
             </div>
             <div class="col-lg-6">
                 <div class="video_area" id="video">
-                    <img class="img-fluid" src="img/video-1.jpg" alt="">
-                    <img src="img/icon/video-icon-1.png" alt="">
+                    <img class="img-fluid" src="img/company/comp-mission.jpg" alt="">
+{{--                    <img src="img/icon/video-icon-1.png" alt="">--}}
                 </div>
             </div>
         </div>
@@ -274,7 +274,7 @@
     <div class="container">
         <div class="impress_inner text-center">
             <h2>Improve Your Skills</h2>
-            <p>It is not too late to grow your IT skills in CyberSecurity solutions or Cloud Infrastructure. Get the certifications and training required to become the next IT consultant</p>
+            <p style="font-size: 15px">Enhance your IT skills in CyberSecurity or Cloud Infrastructure. Obtain the certifications and training needed to become a successful IT consultant</p>
             <a class="main_btn2" href="#">Apply here</a>
         </div>
     </div>
