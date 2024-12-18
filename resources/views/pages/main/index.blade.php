@@ -6,9 +6,9 @@
             <div class="overlay bg-parallax" data-stellar-ratio="0.9" data-stellar-vertical-offset="0" data-background=""></div>
             <div class="container">
                 <div class="banner_content text-center">
-                    <h3>Empowering Businesses with Innovative <br />IT Solutions and Training</h3>
-                    <p>MTMKay Technology Solutions offers comprehensive IT consulting, cybersecurity, and certification training to drive digital transformation.</p>
-                    <a class="main_btn" href="{{route('training')}}">Get Started</a>
+                    <h3 class="banner_hero_text">Empowering Businesses with Innovative <br />IT Solutions and Training</h3>
+                    <p class="banner_hero_caption">MTMKay Technology Solutions offers comprehensive IT consulting, cybersecurity, and certification training to drive digital transformation.</p>
+                    <a class="main_btn banner_hero_btn" href="{{route('training')}}">Get Started</a>
                 </div>
             </div>
         </div>

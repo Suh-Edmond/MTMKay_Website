@@ -9,18 +9,18 @@
                 <div class="blog_b_text text-center">
                     <h2>Our Blogs on {{$filteredCategory->name}}</h2>
                     <p>{{$filteredCategory->caption_text}}. </p>
-                    <a class="main_btn" href="{{route('blog')}}">All Blogs</a>
+                    <a class="main_btn blog_hero_btn" href="{{route('blog')}}">All Blogs</a>
                 </div>
             @elseif(isset($tag)){
             <div class="blog_b_text text-center">
                 <h2>Our Blogs on {{$tag}}</h2>
-                <a class="main_btn" href="{{route('blog')}}">View More</a>
+                <a class="main_btn blog_hero_btn" href="{{route('blog')}}">View More</a>
             </div>
             @else
                 <div class="blog_b_text text-center">
                     <h2>Our Blogs</h2>
                     <p>Get to know MTMKay expertize, the events and new programs we launch.<br> Learn more on our well-equipped labs  and conducive learning rooms </p>
-                    <a class="main_btn" href="{{route('blog')}}">View More</a>
+                    <a class="main_btn blog_hero_btn" href="{{route('blog')}}">View More</a>
                 </div>
             @endif
         </div>
