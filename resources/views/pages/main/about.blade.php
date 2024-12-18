@@ -23,7 +23,8 @@
     <div class="container">
         <div class="main_title">
             <h2>Our Mission</h2>
-            <p style="font-size: 15px">With our strong background in IT and CyberSecurity, we have a vision to bridge the digital divide and create opportunities through Technology.</p>
+            <p style="font-size: 15px">With our strong background in IT and CyberSecurity, we have a vision to bridge the digital divide and create opportunities through Technology.<br>
+            Our main values are;</p>
         </div>
         <div class="row about_inner">
             <div class="col-lg-6">
@@ -112,7 +113,7 @@
             <p style="font-size: 15px">Our dynamic, certified and well-trained instructors available to provide the top-notch services and training to our clients and students.</p>
         </div>
         <div class="row team_inner">
-            <div class="col-lg-4 col-sm-6">
+            <div class="col-lg-3 col-sm-6">
                 <div class="team_item">
                     <div class="team_img">
                         <img class="rounded-circle" src="img/team/team-1.png" alt="" style="border-radius: 50%" height="310px">
@@ -128,7 +129,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-sm-6">
+            <div class="col-lg-3 col-sm-6">
                 <div class="team_item">
                     <div class="team_img">
                         <img class="rounded-circle" src="img/team/team-2.jpeg" alt="" style="border-radius: 50%" height="310px">
@@ -144,7 +145,23 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-sm-6">
+            <div class="col-lg-3 col-sm-6">
+                <div class="team_item">
+                    <div class="team_img">
+                        <img class="rounded-circle" src="img/team/team-3.jpeg" alt="" style="border-radius: 50%" height="310px">
+                        <div class="hover">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                    <div class="team_name">
+                        <h4>Ben Joseph</h4>
+                        <p>CyberSecurity Specialist</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
                 <div class="team_item">
                     <div class="team_img">
                         <img class="rounded-circle" src="img/team/team-3.jpeg" alt="" style="border-radius: 50%" height="310px">

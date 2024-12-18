@@ -152,15 +152,52 @@
     </section>
     <!--================End Courses Area =================-->
 
-    <!--================Team Area =================-->
+    <!--============ Why Choose us ========================-->
     <section class="team_area p_120">
         <div class="container">
             <div class="main_title">
+                <h2>Why Choose Us</h2>
+                <p style="font-size: 15px">We bring together Expertise, Commitment, and Strong Industry Partnerships to deliver reliable, tailored solutions that meet the unique needs of businesses and individuals in our region.</p>
+            </div>
+            <div class="row mb-lg-4">
+                <div class="col-md-6">
+                    <img src="img/company/company-image-2.jpg" alt="" class="img-fluid" height="100%" width="100%">
+                </div>
+                <div class="col-md-6 mt-sm-20 left-align-p">
+                    <h3 class="mb-30 title_color">Our Mission</h3>
+                    <p style="font-size: 15px">
+                        MTMKay Technology Solutions combines technical expertise, strategic partnerships with top technology providers, and a commitment to bridging the digital divide. Our team delivers tailored IT solutions that drive business success.
+                        <br>At MTMKay Technology Solutions, our mission is to empower businesses and individuals through innovative IT solutions, advanced CyberSecurity, and industry-leading training programs.
+                        We are committed to driving digital transformation and fostering growth within our community and beyond.
+                    </p>
+
+                </div>
+            </div>
+            <div class="row mt-lg-5">
+                <div class="col-md-6 mt-sm-20 left-align-p">
+                    <h3 class="mb-30 title_color">Our Impact</h3>
+                    <p style="font-size: 15px">
+                        We believe that by providing access to IT education and affordable tech solutions, we can empower our community, create job opportunities, and foster innovation. Through partnerships with leading tech companies and dedicated training, MTMKay aims to uplift our local workforce and position our clients for success in a digital economy.
+                    </p>
+
+                </div>
+                <div class="col-md-6">
+                    <img src="img/company/company-image-2.jpg" alt="" class="img-fluid" height="100%" width="100%">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--============ End of Why Choose us ================--->
+
+    <!--================Team Area =================-->
+    <section class="testimonials_area p_120">
+        <div class="container">
+            <div class="main_title">
                 <h2>Meet Our Team</h2>
-                <p style="font-size: medium">Our dynamic. certified and well-trained instructors available to provide the top-notch services and training to our clients and students.</p>
+                <p style="font-size: medium">Our dynamic, certified and well-trained instructors available to provide the top-notch services and training to our clients and students.</p>
             </div>
             <div class="row team_inner">
-                <div class="col-lg-4 col-sm-6">
+                <div class="col-lg-3 col-sm-6">
                     <div class="team_item">
                         <div class="team_img">
                             <img class="rounded-circle" src="img/team/team-1.png" alt="" style="border-radius: 50%" height="310px">
@@ -176,7 +213,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-sm-6">
+                <div class="col-lg-3 col-sm-6">
                     <div class="team_item">
                         <div class="team_img">
                             <img class="rounded-circle" src="img/team/team-2.jpeg" alt="" style="border-radius: 50%" height="310px">
@@ -192,7 +229,23 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-sm-6">
+                <div class="col-lg-3 col-sm-6">
+                    <div class="team_item">
+                        <div class="team_img">
+                            <img class="rounded-circle" src="img/team/team-3.jpeg" alt="" style="border-radius: 50%" height="310px">
+                            <div class="hover">
+                                <a href="#"><i class="fa fa-facebook"></i></a>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                <a href="#"><i class="fa fa-linkedin"></i></a>
+                            </div>
+                        </div>
+                        <div class="team_name">
+                            <h4>Ben Joseph</h4>
+                            <p>CyberSecurity Specialist</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
                     <div class="team_item">
                         <div class="team_img">
                             <img class="rounded-circle" src="img/team/team-3.jpeg" alt="" style="border-radius: 50%" height="310px">
@@ -214,7 +267,7 @@
     <!--================End Team Area =================-->
 
     <!--================Testimonials Area =================-->
-    <section class="testimonials_area p_120">
+    <section class="team_area p_120">
         <div class="container">
             <div class="main_title">
                 <h2>Testimonials</h2>
@@ -244,11 +297,11 @@
     <!--================End Testimonials Area =================-->
 
     <!--================Packages Area =================-->
-    <section class="packages_area p_120">
+    <section class="courses_area p_120">
         <div class="container">
             <div class="main_title">
                 <h2>Choose Packages</h2>
-                <p>
+                <p style="font-size: 15px">
                     Thank you for considering MTMKay, where we believe that technology should be accessible to all, empowering our community one step at a time.
                 </p>
             </div>
@@ -307,7 +360,7 @@
         <div class="container">
             <div class="impress_inner text-center">
                 <h2>Become a Student</h2>
-                <p>It is not too late to grow your IT skills in CyberSecurity solutions or Cloud Infrastructure. Get the certifications and training required to become the next IT consultant</p>
+                <p style="font-size: 15px">It is not too late to grow your IT skills in CyberSecurity solutions or Cloud Infrastructure. Get the certifications and training required to become the next IT consultant</p>
                 <a class="main_btn2" href="{{route('training')}}">Apply here</a>
             </div>
         </div>

@@ -133,8 +133,32 @@
 </section>
 <!--================End Courses Area =================-->
 
-<!--=============Clients Testimonials ===============-->
+<!--============ Why Choose us ========================-->
 <section class="testimonials_area p_120">
+        <div class="container">
+            <div class="main_title">
+                <h2>Why Choose Us</h2>
+                <p style="font-size: 15px">We bring together Expertise, Commitment, and Strong Industry Partnerships to deliver reliable, tailored solutions that meet the unique needs of businesses and individuals in our region.</p>
+            </div>
+            <div class="row mt-lg-5">
+                <div class="col-md-6 mt-sm-20 left-align-p">
+                    <h3 class="mb-30 title_color">Our Impact</h3>
+                    <p style="font-size: 15px">
+                        We believe that by providing access to IT education and affordable tech solutions, we can empower our community, create job opportunities, and foster innovation. Through partnerships with leading tech companies and dedicated training, MTMKay aims to uplift our local workforce and position our clients for success in a digital economy.
+                    </p>
+
+                </div>
+                <div class="col-md-6">
+                    <img src="img/company/company-image-2.jpg" alt="" class="img-fluid" height="100%" width="100%">
+                </div>
+            </div>
+        </div>
+    </section>
+<!--============ End of Why Choose us ================--->
+
+
+<!--=============Clients Testimonials ===============-->
+<section class="team_area p_120">
     <div class="container">
         <div class="main_title">
             <h2>Testimonials</h2>
