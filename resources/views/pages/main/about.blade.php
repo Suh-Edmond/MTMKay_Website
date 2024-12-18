@@ -274,7 +274,7 @@
     <div class="container">
         <div class="impress_inner text-center">
             <h2>Improve Your Skills</h2>
-            <p>It is not too late to grow your IT skills in CyberSecurity solutions or Cloud Infrastructure. Get the certifications and training required to become the next IT consultant</p>
+            <p style="font-size: 15px">It is not too late to grow your IT skills in CyberSecurity solutions or Cloud Infrastructure. Get the certifications and training required to become the next IT consultant</p>
             <a class="main_btn2" href="#">Apply here</a>
         </div>
     </div>

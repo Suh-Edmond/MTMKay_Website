@@ -330,6 +330,21 @@ button:focus {
         transform: translate(0);
     }
 }
+@keyframes moveInUpImpress{
+    0% {
+        opacity: 1;
+        transform: translateY(100px);
+    }
+
+    80% {
+        transform: translateX(10px);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(0);
+    }
+}
 .home_banner_area {
   position: relative;
   z-index: 1;
@@ -3163,10 +3178,26 @@ h6 {
     .impress_area .impress_inner h2 {
       text-transform: uppercase;
       font-size: 36px;
-      margin-bottom: 20px; }
+      margin-bottom: 20px;
+        animation-name: moveInLeft;
+        animation-duration: 3s;
+        animation-timing-function: ease-in-out;
+    }
     .impress_area .impress_inner p {
       max-width: 770px;
-      margin: 0px auto 45px; }
+      margin: 0px auto 45px;
+        animation-name: moveInRight;
+        animation-duration: 3s;
+        animation-timing-function: ease-in-out;
+    }
+
+.impress_area .impress_inner a {
+    max-width: 770px;
+    margin: 0px auto 45px;
+    animation-name: moveInUpImpress;
+    animation-duration: 3s;
+    animation-timing-function: ease-in-out;
+}
 
 /* End Looking Area css
 ============================================================================================ */

@@ -192,7 +192,7 @@
     <div class="container">
         <div class="impress_inner text-center">
             <h2>Let's Do Something together</h2>
-            <h4>We provide IT consulting and managed services to help local businesses improve their technology infrastructure.</h4>
+            <p style="font-size: 15px">We provide IT consulting and managed services to help local businesses improve their technology infrastructure.</p>
             <a class="main_btn2" href="{{route('contact')}}">Contact Us</a>
         </div>
     </div>
@@ -200,11 +200,11 @@
 <!--================End Impress Area =================-->
 
 <!--================Pagkages Area =================-->
-<section class="packages_area p_120">
+<section class="testimonials_area p_120">
     <div class="container">
         <div class="main_title">
             <h2>Choose Packages</h2>
-            <p>
+            <p style="font-size: 15px">
                 Thank you for considering MTMKay, where we believe that technology should be accessible to all, empowering our community one step at a time.
             </p>
         </div>
@@ -214,7 +214,7 @@
                     <div class="pack_head">
                         <i class="lnr lnr-heart-pulse"></i>
                         <h3>Premium</h3>
-                        <p>For the individuals</p>
+                        <p>For individuals</p>
                     </div>
                     <div class="pack_body">
                         <ul class="list">
@@ -235,7 +235,7 @@
                     <div class="pack_head">
                         <i class="lnr lnr-diamond"></i>
                         <h3>Exclusive</h3>
-                        <p>For the individuals</p>
+                        <p>For Startups and Enterprises</p>
                     </div>
                     <div class="pack_body">
                         <ul class="list">
