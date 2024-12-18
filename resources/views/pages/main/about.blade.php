@@ -23,7 +23,8 @@
     <div class="container">
         <div class="main_title">
             <h2>Our Mission</h2>
-            <p style="font-size: 15px">With our strong background in IT and CyberSecurity, we have a vision to bridge the digital divide and create opportunities through Technology.</p>
+            <p style="font-size: 15px">With our strong background in IT and CyberSecurity, we have a vision to bridge the digital divide and create opportunities through Technology.<br>
+            Our main values are;</p>
         </div>
         <div class="row about_inner">
             <div class="col-lg-6">
@@ -115,7 +116,7 @@
             <div class="col-lg-3 col-sm-6">
                 <div class="team_item">
                     <div class="team_img">
-                        <img class="rounded-circle" src="img/team/team-1.jpg" alt="">
+                        <img class="rounded-circle" src="img/team/team-1.png" alt="" style="border-radius: 50%" height="310px">
                         <div class="hover">
                             <a href="#"><i class="fa fa-facebook"></i></a>
                             <a href="#"><i class="fa fa-twitter"></i></a>
@@ -131,7 +132,7 @@
             <div class="col-lg-3 col-sm-6">
                 <div class="team_item">
                     <div class="team_img">
-                        <img class="rounded-circle" src="img/team/team-2.jpg" alt="">
+                        <img class="rounded-circle" src="img/team/team-2.jpeg" alt="" style="border-radius: 50%" height="310px">
                         <div class="hover">
                             <a href="#"><i class="fa fa-facebook"></i></a>
                             <a href="#"><i class="fa fa-twitter"></i></a>
@@ -147,7 +148,7 @@
             <div class="col-lg-3 col-sm-6">
                 <div class="team_item">
                     <div class="team_img">
-                        <img class="rounded-circle" src="img/team/team-3.jpg" alt="">
+                        <img class="rounded-circle" src="img/team/team-3.jpeg" alt="" style="border-radius: 50%" height="310px">
                         <div class="hover">
                             <a href="#"><i class="fa fa-facebook"></i></a>
                             <a href="#"><i class="fa fa-twitter"></i></a>
@@ -163,7 +164,7 @@
             <div class="col-lg-3 col-sm-6">
                 <div class="team_item">
                     <div class="team_img">
-                        <img class="rounded-circle" src="img/team/team-4.jpg" alt="">
+                        <img class="rounded-circle" src="img/team/team-3.jpeg" alt="" style="border-radius: 50%" height="310px">
                         <div class="hover">
                             <a href="#"><i class="fa fa-facebook"></i></a>
                             <a href="#"><i class="fa fa-twitter"></i></a>
@@ -171,8 +172,8 @@
                         </div>
                     </div>
                     <div class="team_name">
-                        <h4>Enow Takang</h4>
-                        <p>Cloud and Infrastructure Engineer</p>
+                        <h4>Ben Joseph</h4>
+                        <p>CyberSecurity Specialist</p>
                     </div>
                 </div>
             </div>
@@ -191,15 +192,8 @@
             <div class="testi_slider owl-carousel">
                 <div class="item">
                     <div class="testi_item">
-                        <img src="img/company/cisco-logo.png" alt="" width="100px" height="100px">
+                        <img src="img/company/cisco-logo.png" alt="" width="120px" height="120px">
                         <h4>Cisco Networking</h4>
-                        <ul class="list">
-                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                            <li><a href="#"><i class="fa fa-tag"></i></a></li>
-                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                        </ul>
                         <p>Accessories Here you can find the best computer accessory for your laptop, monitor, printer, scanner, speaker. Here you can find the best computer accessory for your laptop, monitor, printer, scanner, speaker.</p>
                     </div>
                 </div>
@@ -207,27 +201,20 @@
                     <div class="testi_item">
                         <img src="img/company/comptia.png" alt="" width="100px" height="100px">
                         <h4>CompTia Security +</h4>
-                        <ul class="list">
-                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                        </ul>
                         <p>Accessories Here you can find the best computer accessory for your laptop, monitor, printer, scanner, speaker. Here you can find the best computer accessory for your laptop, monitor, printer, scanner, speaker.</p>
                     </div>
                 </div>
                 <div class="item">
                     <div class="testi_item">
-                        <img src="img/company/Microsoft-Logo.png" alt="" width="100px" height="100px">
+                        <img src="img/company/microsoft_1.png" alt="" width="110px" height="110px">
                         <h4>Microsoft</h4>
-                        <ul class="list">
-                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                        </ul>
+                        <p>Accessories Here you can find the best computer accessory for your laptop, monitor, printer, scanner, speaker. Here you can find the best computer accessory for your laptop, monitor, printer, scanner, speaker.</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="testi_item">
+                        <img src="img/company/paloalto-logo.jpg" alt="" width="110px" height="110px">
+                        <h4>Microsoft</h4>
                         <p>Accessories Here you can find the best computer accessory for your laptop, monitor, printer, scanner, speaker. Here you can find the best computer accessory for your laptop, monitor, printer, scanner, speaker.</p>
                     </div>
                 </div>
@@ -247,7 +234,7 @@
             <div class="col-md-4">
                 <div class="packages_item">
                     <div class="pack_head">
-                        <i class="lnr lnr-graduation-hat"></i>
+                        <i class="lnr lnr-lock"></i>
                         <h1 data-to="30" data-speed="2000" class="timer count-title count-number" style="font-size: 40px"></h1>
                     </div>
                     <div class="pack_body">
@@ -258,7 +245,7 @@
             <div class="col-md-4">
                 <div class="packages_item">
                     <div class="pack_head">
-                        <i class="lnr lnr-graduation-hat"></i>
+                        <i class="lnr lnr-checkmark-circle"></i>
                         <h1 data-to="20" data-speed="2000" class="timer count-title count-number" style="font-size: 40px"> </h1>
                     </div>
                     <div class="pack_body">

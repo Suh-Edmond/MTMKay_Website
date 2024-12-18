@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\UpdateProgramInformationRequest;
 use App\Models\Program;
+use App\Models\StudentSuccess;
 use App\Traits\ProgramOutlineTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
@@ -21,9 +22,11 @@ class ProgramController extends Controller
 
     public function index(Request $request)
     {
+        $successes = StudentSuccess::orderby('created_at', 'desc')->take(5)->get();
         $programs = Program::all();
         $data = [
-            'programs' => $programs
+            'programs' => $programs,
+            'successes' => $successes
         ];
 
         return view('pages.management.program.index')->with($data);
