@@ -285,6 +285,51 @@ button:focus {
 /*----------------------------------------------------*/
 /* Home Banner Area css
 ============================================================================================ */
+@keyframes moveInLeft{
+    0% {
+        opacity: 0;
+        transform: translateX(-150px);
+    }
+
+    80% {
+        transform: translateX(10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+@keyframes moveInRight{
+    0% {
+        opacity: 1;
+        transform: translateX(150px);
+    }
+
+    80% {
+        transform: translateX(-10px);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(0);
+    }
+}
+@keyframes moveInUp{
+    0% {
+        opacity: 1;
+        transform: translateY(200px);
+    }
+
+    80% {
+        transform: translateX(10px);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(0);
+    }
+}
 .home_banner_area {
   position: relative;
   z-index: 1;
@@ -305,7 +350,23 @@ button:focus {
       bottom: 0;
       z-index: -1; }
     .home_banner_area .banner_inner .banner_content {
-      color: #fff; }
+      color: #fff;
+    }
+    .home_banner_area .banner_inner .banner_hero_text {
+        animation-name: moveInLeft;
+        animation-duration: 3s;
+        animation-timing-function: ease-in-out;
+    }
+    .home_banner_area .banner_inner .banner_hero_caption {
+        animation-name: moveInRight;
+        animation-duration: 3s;
+        animation-timing-function: ease-in-out;
+    }
+.home_banner_area .banner_inner .banner_hero_btn {
+    animation-name: moveInUp;
+    animation-duration: 3s;
+    animation-timing-function: ease-in-out;
+}
       .home_banner_area .banner_inner .banner_content h5 {
         text-transform: uppercase;
         font-family: "Roboto", sans-serif;
@@ -359,10 +420,24 @@ button:focus {
         font-weight: bold;
         font-family: "Playfair Display", serif;
         line-height: 66px;
-        margin-bottom: 15px; }
+        margin-bottom: 15px;
+          animation-name: moveInLeft;
+          animation-duration: 3s;
+          animation-timing-function: ease-in-out;
+      }
+
       .blog_banner .banner_inner .blog_b_text p {
         font-size: 16px;
-        margin-bottom: 35px; }
+        margin-bottom: 35px;
+          animation-name: moveInRight;
+          animation-duration: 3s;
+          animation-timing-function: ease-in-out;
+      }
+.blog_banner .banner_inner .blog_b_text .blog_hero_btn {
+    animation-name: moveInUp;
+    animation-duration: 3s;
+    animation-timing-function: ease-in-out;
+}
       .blog_banner .banner_inner .blog_b_text .white_bg_btn {
         line-height: 42px;
         padding: 0px 45px; }
@@ -455,12 +530,23 @@ button:focus {
     margin-bottom: 0px;
     font-weight: bold;
 }
+.banner_area .banner_services .banner_hero_text {
+    animation-name: moveInLeft;
+    animation-duration: 3s;
+    animation-timing-function: ease-in-out;
+}
 .banner_area .banner_services .banner_content .page_link a {
     font-size: 14px;
     color: #fff;
     font-family: "Roboto", sans-serif;
     margin-right: 32px;
-    position: relative; }
+    position: relative;
+}
+.banner_area .banner_services .banner_content .banner_hero_btn {
+    animation-name: moveInRight;
+    animation-duration: 3s;
+    animation-timing-function: ease-in-out;
+}
 .banner_area .banner_services .banner_content .page_link a:before {
     content: "\e87a";
     font-family: 'Linearicons-Free';
@@ -508,12 +594,25 @@ button:focus {
     margin-bottom: 0px;
     font-weight: bold;
 }
+.banner_area .banner_training .banner_content .banner_hero_text {
+    animation-name: moveInLeft;
+    animation-duration: 3s;
+    animation-timing-function: ease-in-out;
+}
+
 .banner_area .banner_training .banner_content .page_link a {
     font-size: 14px;
     color: #fff;
     font-family: "Roboto", sans-serif;
     margin-right: 32px;
-    position: relative; }
+    position: relative;
+}
+
+.banner_area .banner_training .banner_content .banner_hero_btn {
+    animation-name: moveInRight;
+    animation-duration: 3s;
+    animation-timing-function: ease-in-out;
+}
 .banner_area .banner_training .banner_content .page_link a:before {
     content: "\e87a";
     font-family: 'Linearicons-Free';
@@ -561,12 +660,23 @@ button:focus {
     margin-bottom: 0px;
     font-weight: bold;
 }
+.banner_area .banner_about .banner_content .banner_hero_text {
+    animation-name: moveInLeft;
+    animation-duration: 3s;
+    animation-timing-function: ease-in-out;
+}
 .banner_area .banner_about .banner_content .page_link a {
     font-size: 14px;
     color: #fff;
     font-family: "Roboto", sans-serif;
     margin-right: 32px;
-    position: relative; }
+    position: relative;
+}
+.banner_area .banner_about .banner_content .banner_hero_btn {
+    animation-name: moveInRight;
+    animation-duration: 3s;
+    animation-timing-function: ease-in-out;
+}
 .banner_area .banner_about .banner_content .page_link a:before {
     content: "\e87a";
     font-family: 'Linearicons-Free';
@@ -613,13 +723,22 @@ button:focus {
     font-family: "Playfair Display", serif;
     margin-bottom: 0px;
     font-weight: bold;
+    animation-name: moveInLeft;
+    animation-duration: 3s;
+    animation-timing-function: ease-in-out;
+}
+.banner_area .banner_contact .banner_content .page_link  {
+    animation-name: moveInRight;
+    animation-duration: 3s;
+    animation-timing-function: ease-in-out;
 }
 .banner_area .banner_contact .banner_content .page_link a {
     font-size: 14px;
     color: #fff;
     font-family: "Roboto", sans-serif;
     margin-right: 32px;
-    position: relative; }
+    position: relative;
+}
 .banner_area .banner_contact .banner_content .page_link a:before {
     content: "\e87a";
     font-family: 'Linearicons-Free';
@@ -3471,6 +3590,8 @@ h6 {
       .footer-bottom .footer-social a:hover {
         color: #fff;
         background: #385abe; }
+
+
 
 
 
