@@ -161,7 +161,7 @@
             </div>
             <div class="row mb-lg-4">
                 <div class="col-md-6">
-                    <img src="img/company/company-image-2.jpg" alt="" class="img-fluid" height="100%" width="100%">
+                    <img src="img/company/comp-mission.png" alt="" class="img-fluid">
                 </div>
                 <div class="col-md-6 mt-sm-20 left-align-p">
                     <h3 class="mb-30 title_color">Our Mission</h3>
@@ -182,7 +182,7 @@
 
                 </div>
                 <div class="col-md-6">
-                    <img src="img/company/company-image-2.jpg" alt="" class="img-fluid" height="100%" width="100%">
+                    <img src="img/company/all-impact.png" alt="" class="img-fluid" height="100%" width="100%">
                 </div>
             </div>
         </div>

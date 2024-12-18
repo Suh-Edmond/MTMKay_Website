@@ -149,7 +149,7 @@
 
                 </div>
                 <div class="col-md-6">
-                    <img src="img/company/company-image-2.jpg" alt="" class="img-fluid" height="100%" width="100%">
+                    <img src="img/company/all-impact.png" alt="" class="img-fluid" height="100%" width="100%">
                 </div>
             </div>
         </div>
@@ -188,11 +188,11 @@
 
 
 <!--================Impress Area =================-->
-<section class="impress_area p_120">
+<section class="impress_area service_impress p_120">
     <div class="container">
-        <div class="impress_inner text-center">
+        <div class="impress_inner text-center ">
             <h2>Let's Do Something together</h2>
-            <p style="font-size: 15px">We provide IT consulting and managed services to help local businesses improve their technology infrastructure.</p>
+            <p style="font-size: 15px">We offer IT consulting and managed services to empower local businesses in enhancing their technology infrastructure</p>
             <a class="main_btn2" href="{{route('contact')}}">Contact Us</a>
         </div>
     </div>
