@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Constant\Roles;
 use App\Models\Role;
 use App\Models\User;
+use Carbon\Carbon;
 use Faker\Generator;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -33,6 +34,7 @@ class UserSeeder extends Seeder
             'telephone'  => "+237673660071",
             'address' => "Upper Bonduma, Buea",
             'role_id' => $role->id,
+            'email_verified_at' => Carbon::now(),
             'profile_pic' => $generator->randomElement(['img/testimonials/testi-1.png', 'img/testimonials/testi-2.png', 'img/testimonials/testi-3.png',])
         ]);
     }
