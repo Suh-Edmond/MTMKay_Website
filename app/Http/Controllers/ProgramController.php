@@ -159,14 +159,16 @@ class ProgramController extends Controller
             $image    = $manager->read($file);
             $image    = $image->resize(250, 250);
 
-            $fileName     = str_replace(' ', '', $fileName);
-
-
-            Storage::disk('public_uploads')->put(self::IMAGE_DIR.$program->slug."/".$fileName, (string) $image->encode());
+            $extension = $file->getClientOriginalExtension();
+            $fileName  =   time() . '_' . uniqid() . '.' . $extension;
+//            $fileName     = str_replace(' ', '', $fileName);
 
             $program->update([
                 'image_path' => $fileName
             ]);
+
+            Storage::disk('public_uploads')->put(self::IMAGE_DIR.$program->slug."/".$fileName, (string) $image->encode());
+
 
         }catch (\Exception $exception){
 

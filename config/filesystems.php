@@ -33,6 +33,7 @@ return [
             'driver' => 'local',
             'root'   => public_path(),
             'visibility' => 'public',
+            'throw' => false,
         ],
 
         'local' => [
