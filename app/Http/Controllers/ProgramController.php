@@ -154,22 +154,21 @@ class ProgramController extends Controller
             ]);
             $file     = $request->file('image_path');
 
-//            $fileName = $file->getClientOriginalName();
-            $manager  = new ImageManager(new Driver());
-            $image    = $manager->read($file);
-            $image    = $image->resize(250, 250);
-
             $extension = $file->getClientOriginalExtension();
             $fileName  =   time() . '_' . uniqid() . '.' . $extension;
-//            $fileName     = str_replace(' ', '', $fileName);
+
+            $request->file('image')->storeAs(self::IMAGE_DIR.$program->slug, $fileName, 'public');
+
+//            Storage::disk('public_uploads')->put(self::IMAGE_DIR.$program->slug."/".$fileName, (string) $image->encode());
 
             $program->update([
                 'image_path' => $fileName
             ]);
 
-            Storage::disk('public_uploads')->put(self::IMAGE_DIR.$program->slug."/".$fileName, (string) $image->encode());
-
-
+//            $manager  = new ImageManager(new Driver());
+//            $image    = $manager->read(storage_path('app/'.self::IMAGE_DIR.$program->slug."/".$fileName));
+//            $image    = $image->resize(250, 250);
+//            $image->save($image);
         }catch (\Exception $exception){
 
         }
