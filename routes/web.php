@@ -7,6 +7,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EnrollmentController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PaymentTransactionController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\ProgramOutlineController;
@@ -27,7 +28,7 @@ Route::middleware(['auth', 'verified'])->prefix('dashboard')->group(function (){
     Route::get('manage-students', [EnrollmentController::class, 'index'])->name('manage-students');
     Route::get('manage-blogs', [BlogController::class, 'manageBlogs'])->name('manage-blogs');
     Route::delete('manage-students/delete', [EnrollmentController::class, 'deleteTrainee'])->name('trainee.destroy');
-    Route::post('manage-students/payment-fees', [EnrollmentController::class, 'makePayment'])->name('trainee.make_payment');
+    Route::post('manage-students/payment-fees', [PaymentTransactionController::class, 'makePayment'])->name('trainee.make_payment');
     Route::get('manage-programs/details', [ProgramController::class, 'show'])->name('show.program');
     Route::post('manage-programs/details/update-image', [ProgramController::class, 'updateProgramImage'])->name('program.update.image');
     Route::post('manage-programs/details/add-image', [ProgramController::class, 'storeProgramImage'])->name('program.store.image');
@@ -40,7 +41,7 @@ Route::middleware(['auth', 'verified'])->prefix('dashboard')->group(function (){
     Route::delete('manage-blogs/details/tags/delete', [BlogController::class, 'deleteTag'])->name('blog.tag.delete');
     Route::get('manage-blogs/details/comments', [BlogCommentsController::class, 'showBlogComments'])->name('show.blog.comments');
     Route::put('manage-blogs/details/comments/update-status', [BlogCommentsController::class, 'updateCommentStatus'])->name('show.blog.comments.update.status');
-    Route::get('manage-students/payments/view', [EnrollmentController::class, 'fetchPaymentTransactions'])->name('manage-students.view.payments');
+    Route::get('manage-students/payments/view', [PaymentTransactionController::class, 'fetchPaymentTransactions'])->name('manage-students.view.payments');
     Route::get('manage-blogs/create-blog/view', [BlogController::class, 'createBlog'])->name('manage-blogs.create');
     Route::post('manage-blogs/create-blog', [BlogController::class, 'storeBlog'])->name('manage-blogs.store');
     Route::get('manage-blogs/create/upload-images', [BlogController::class, 'addBlogImage'])->name('manage-blogs.create.image');

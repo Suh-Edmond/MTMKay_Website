@@ -34,9 +34,6 @@
                         <div class="blog_info text-right">
                             <div class="post_tag">
                                 <a href="{{route('blog', ['title' => $blog->category->name, 'id'=>$blog->category->id])}}" class="active">{{$blog->category->name}}</a>
-                                @foreach($blog->tags as $tag)
-                                    <a href="{{route('blog', ['tag' => $tag->name])}}" class="active">{{$tag->name}}</a>
-                                @endforeach
                             </div>
                             <ul class="blog_meta list">
                                 <li><a href="#">{{$blog->created_at->format('D, d M Y')}}<i class="lnr lnr-calendar-full"></i></a></li>
@@ -55,6 +52,12 @@
                             {!! $blog->description !!}
                          </p>
 
+                        <div>
+                            <label><h6>Tags:</h6></label>
+                            @foreach($blog->tags as $tag)
+                                <a href="{{route('blog', ['tag' => $tag->name])}}" class="genric-btn default circle">{{$tag->name}}</a>
+                            @endforeach
+                        </div>
                     </div>
                     <div class="col-lg-12">
 
@@ -76,7 +79,8 @@
                             <div class="single-comment justify-content-between d-flex">
                                 <div class="user justify-content-between d-flex">
                                     <div class="thumb">
-                                        <img src="img/company/human.png" alt="" width="60px" height="60px">
+
+                                        <img src="img/company/human_2.png" alt="" width="60px" height="60px">
                                     </div>
                                     <div class="desc">
                                         <h5><a href="#">{{$comment->name}}</a></h5>
