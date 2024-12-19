@@ -178,7 +178,7 @@
                                     <input  name="email" class="form-control" id="inlineFormInputGroup" placeholder="Enter email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email'" required type="email">
                                     <button  class="bbtns btn  sub-btn" type="submit" >Subscribe</button>
                                 </div>
-                                <div class="mt-10 info" id="show_subscription_process" style="display: none; background-color: #385abe !important;color: white!important;">Submitting...</div>
+                                <div class="mt-10 info" id="show_subscription_process" style="display: none; background-color: #385abe !important;color: white!important;">Subscribing...</div>
                             </form>
                         </div>
                         <p class="text-bottom">You can unsubscribe at any time</p>

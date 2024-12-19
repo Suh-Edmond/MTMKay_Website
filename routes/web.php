@@ -76,5 +76,6 @@ Route::post('/blog/create', [BlogCommentsController::class, 'createComment'])->n
 Route::post('/programs/{slug}/enroll', [UserController::class, 'enrollStudent'])->name('enroll-student');
 Route::get('/program-enrollment/verify-email', [UserController::class, 'completeEnrollment'])->name('complete-enrollment');
 Route::post('manage-subscribers/add-subscriber', [SubscribersController::class, 'addMemberSubscription'])->name('manage.subscription.add');
-
+Route::get('manage-subscribers/remove-subscriber', [SubscribersController::class, 'removeMemberSubscription'])->name('manage.subscription.remove');
+Route::get('manage-subscribers/re-subscriber', [SubscribersController::class, 'resubscribe'])->name('manage.subscription.resubscribe');
 require __DIR__.'/auth.php';

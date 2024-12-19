@@ -42,7 +42,7 @@
                                 <button class="btn  sub-btn" type="submit"  ><span class="lnr lnr-arrow-right"></span></button>
                             </div>
                         </form>
-                        <div class="mt-10 info" id="show_subscription_process" style="display: none">Submitting...</div>
+                        <div class="mt-10 info" id="show_subscription_process" style="display: none; background-color: #385abe !important;color: white!important;text-align: center">Subscribing...</div>
                     </div>
                 </aside>
             </div>

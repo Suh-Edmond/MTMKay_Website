@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('subscribers', function (Blueprint $table) {
             $table->id();
             $table->string('email');
-            $table->enum('is_active', [true, false])->default(true);
+            $table->boolean('is_active')->default(true);
             $table->timestamps();
         });
     }
