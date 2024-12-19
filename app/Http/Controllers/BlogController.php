@@ -363,7 +363,7 @@ class BlogController extends Controller
                 $fileName     = str_replace(' ', '', $fileName);
 
 
-                Storage::disk('public')->put(self::IMAGE_DIR.$blog->slug."/".$fileName, (string) $image->encode());
+                Storage::disk('public_uploads')->put(self::IMAGE_DIR.$blog->slug."/".$fileName, (string) $image->encode());
 
 
                 $this->saveBlogImages($fileName, $blog);
