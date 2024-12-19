@@ -190,13 +190,17 @@
                             Stay up-to-date with recent Technology Advancements and Certifications.
                         </p>
                         <div class="form-group d-flex flex-row">
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <div class="input-group-text"><i class="fa fa-envelope" aria-hidden="true"></i></div>
+                            <form id="myForm">
+                                @csrf
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text"><i class="fa fa-envelope" aria-hidden="true"></i></div>
+                                    </div>
+                                    <input  name="email" class="form-control" id="inlineFormInputGroup" placeholder="Enter email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email'" required type="email">
+                                    <button  class="bbtns btn  sub-btn" type="submit" >Subscribe</button>
                                 </div>
-                                <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Enter email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email'">
-                            </div>
-                            <a href="#" class="bbtns">Subscribe</a>
+                                <div class="mt-10 info" id="show_subscription_process" style="display: none; background-color: #385abe !important;color: white!important;">Submitting...</div>
+                            </form>
                         </div>
                         <p class="text-bottom">You can unsubscribe at any time</p>
                         <div class="br"></div>

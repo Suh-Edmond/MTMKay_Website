@@ -54,7 +54,6 @@ Route::middleware(['auth', 'verified'])->prefix('dashboard')->group(function (){
     Route::delete('manage-programs/delete', [ProgramController::class, 'deleteProgram'])->name('manage-programs.delete');
     Route::delete('manage-blogs/images/delete', [BlogController::class, 'deleteImage'])->name('confirm-blog-image-deletion');
     Route::get('manage-subscribers', [SubscribersController::class, 'index'])->name('manage.subscribers');
-    Route::post('manage-subscribers/add-subscriber', [SubscribersController::class, 'addMemberSubscription'])->name('manage.subscription.add');
 });
 
 Route::middleware('auth')->group(function () {
@@ -76,6 +75,6 @@ Route::get('/blog-detail', [BlogController::class, 'show'])->name('show-blog');
 Route::post('/blog/create', [BlogCommentsController::class, 'createComment'])->name('create-comment');
 Route::post('/programs/{slug}/enroll', [UserController::class, 'enrollStudent'])->name('enroll-student');
 Route::get('/program-enrollment/verify-email', [UserController::class, 'completeEnrollment'])->name('complete-enrollment');
-
+Route::post('manage-subscribers/add-subscriber', [SubscribersController::class, 'addMemberSubscription'])->name('manage.subscription.add');
 
 require __DIR__.'/auth.php';

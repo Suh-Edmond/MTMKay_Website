@@ -41,7 +41,7 @@ class SubscribersController extends Controller
     public function addMemberSubscription(Request $request)
     {
         $request->validate([
-            'email' => 'required|email|string|lowercase|unique:users,email',
+            'email' => 'required|email|string|lowercase|unique:subscribers,email',
         ]);
 
         $saved = Subscriber::create([
