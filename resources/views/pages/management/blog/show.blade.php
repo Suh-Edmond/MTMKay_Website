@@ -39,6 +39,29 @@
     $('#goBack').on('click', function (e){
         history.back();
     })
+
+    $(function () {
+        $(document).ready(function () {
+
+            $('#imageUploadForm').ajaxForm({
+                beforeSend: function () {
+                    var percentage = '0';
+                },
+                uploadProgress: function (event, position, total, percentComplete) {
+
+                    var percentage = percentComplete;
+                    $('.progress .progress-bar').css("width", percentage+'%', function() {
+                        return $(this).attr("aria-valuenow", percentage) + "%";
+                    })
+
+                },
+                complete: function (xhr) {
+                    $modal.modal('hide');
+                    window.location.reload();
+                }
+            });
+        });
+    });
 </script>
 
 

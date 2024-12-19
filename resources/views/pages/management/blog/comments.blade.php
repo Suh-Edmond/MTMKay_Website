@@ -10,7 +10,7 @@
                     </button>
                 </a>
                 <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                    Comments for {{ $blog->title }}
+                    Comments on the Blog Post: {{ $blog->title }}
                 </h2>
             </div>
             <x-primary-button
@@ -43,6 +43,14 @@
                 </select>
             </div>
         </div>
+        <div class="flex flex-row justify-center pt-3">
+            @if(session('status'))
+                <x-auth-session-status :status="session('status')" x-data="{ show: true }"
+                                       x-show="show"
+                                       x-init="setTimeout(() => show = false, 2000)" class="pt-1 pl-5">
+                </x-auth-session-status>
+            @endif
+        </div>
     </div>
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
@@ -50,13 +58,6 @@
                 <div class="mb-lg-5 mt-4 border rounded-md p-5  flex-auto">
                     <div class="flex justify-between">
                         <x-input-label for="name" :value="__('Comment detail')" />
-                        @if(session('status'))
-                            <x-auth-session-status :status="session('status')" x-data="{ show: true }"
-                                                   x-show="show"
-                                                   x-init="setTimeout(() => show = false, 2000)" class="pt-1 pl-5">
-                            </x-auth-session-status>
-                        @endif
-
                         @if($comment->status == \App\Constant\BlogState::PENDING)
                             <div class="flex gap-4">
 
@@ -101,31 +102,22 @@
                         @endif
                     </div>
                     <div class="grow my-4">
-                        <x-input-label for="name" :value="__('Name')" />
-                        <x-text-input id="name" name="name" type="text" class="mt-1 block w-full" :value="$comment->name" required   autocomplete="name" disabled />
+                        <x-input-label for="name" :value="__('Name')" /> <span><label class="font-medium">{{$comment->name}}</label></span>
                     </div>
                     <div class="grow my-4">
-                        <x-input-label for="email" :value="__('Email')" />
-                        <x-text-input id="email" name="email" type="email" class="mt-1 block w-full" :value="$comment->email" required   autocomplete="email" disabled />
+                        <x-input-label for="email" :value="__('Email')" /> <span><label class="font-medium">{{$comment->email}}</label></span>
                     </div>
                     @if($comment->status == \App\Constant\BlogState::PENDING)
                         <div class="grow my-4">
-                            <x-input-label for="category" :value="__('Status')" />
-                            <select   disabled class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                                <option value="PENDING" {{$comment->status == 'PENDING'? 'selected':''}}>PENDING</option>
-                                <option value="APPROVED" {{$comment->status == 'APPROVED'? 'selected':''}}>APPROVED</option>
-                                <option value="REJECTED" {{$comment->status == 'REJECTED'? 'selected':''}} >REJECTED</option>
-                            </select>
+                            <x-input-label for="email" :value="__('Status')" /> <span><label class="font-medium text-lowercase text-sky-400">{{$comment->status}}</label></span>
                         </div>
                     @endif
                     <div class="grow my-4">
-                        <x-input-label for="subject" :value="__('Subject')" />
-                        <x-text-input id="subject" name="subject" type="text" class="mt-1 block w-full" :value="$comment->subject" required   autocomplete="subject" disabled />
+                        <x-input-label for="subject" :value="__('Subject')" /> <span><label class="font-medium">{{$comment->subject}}</label></span>
                     </div>
                     <div>
-                        <x-input-label for="message" :value="__('Message')" />
-                        <textarea id="description" name="description"  disabled rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" >{{$comment->message}}</textarea>
-                    </div>
+                        <x-input-label for="message" :value="__('Message')" /><span><p class="font-medium">{!! $comment->message !!}</p></span>
+                     </div>
                 </div>
             @endforeach
             @if(count($comments) == 0)

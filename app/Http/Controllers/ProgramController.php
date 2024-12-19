@@ -153,6 +153,7 @@ class ProgramController extends Controller
                 'image_path' => 'required|image|mimes:jpg,jpeg,png'
             ]);
             $file     = $request->file('image_path');
+
             $fileName = $file->getClientOriginalName();
             $manager  = new ImageManager(new Driver());
             $image    = $manager->read($file);

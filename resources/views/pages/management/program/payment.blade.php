@@ -17,24 +17,42 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div>
-                    <div class="flex justify-between">
-                        <h2 class="font-semibold text-md text-gray-800 leading-tight p-4">
-                            Total: {{number_format($total)}} XAF
-                        </h2>
-                        @if($enrollment->has_completed_payment)
-                            <h2 class="font-semibold text-md text-gray-800 leading-tight p-4 text-green-700">
-                                Status: {{__('COMPLETED')}}
+                    <div class="flex flex-row justify-between">
+                        <div class="flex flex-col flex-wrap">
+                            <h2 class="font-semibold text-md text-gray-800 leading-tight py-2 px-4">
+                                Name: {{$user->name}}
                             </h2>
-                        @else
-                            <h2 class="font-semibold text-md text-gray-800 leading-tight p-4 text-yellow-600">
-                                Status: {{__('IN COMPLETED')}}
+                            <h2 class="font-semibold text-md text-gray-800 leading-tight py-2 px-4">
+                                Email: {{$user->email}}
                             </h2>
-                        @endif
-                        <h2 class="font-semibold text-md text-gray-800 leading-tight p-4">
-                            Balance: {{number_format($balance)}} XAF
-                        </h2>
+                            <h2 class="font-semibold text-md text-gray-800 leading-tight py-2 px-4">
+                                Telephone: {{$user->telephone}}
+                            </h2>
+                            <h2 class="font-semibold text-md text-gray-800 leading-tight py-2 px-4">
+                                Registration ID: {{substr(str_replace('-', '', $user->slug), 0, 10)}}
+                            </h2>
+                        </div>
+                        <div class="lex flex-col flex-wrap">
+                            <h2 class="font-semibold text-md text-gray-800 leading-tight py-2 px-4 ">
+                                Program: {{$enrollment->program->title}}
+                            </h2>
+                            <h2 class="font-semibold text-md text-gray-800 leading-tight py-2 px-4">
+                                Total: {{number_format($total)}} XAF
+                            </h2>
+                            <h2 class="font-semibold text-md text-gray-800 leading-tight py-2 px-4">
+                                Balance: {{number_format($balance)}} XAF
+                            </h2>
+                            @if($enrollment->has_completed_payment)
+                                <h2 class="font-semibold text-md leading-tight text-green-800 py-2 px-4">
+                                    Status: {{__('COMPLETED')}}
+                                </h2>
+                            @else
+                                <h2 class="font-semibold text-md  leading-tight  text-yellow-600 py-2 px-4">
+                                    Status: {{__('IN COMPLETED')}}
+                                </h2>
+                            @endif
+                        </div>
                     </div>
-
                     <table class="shadow-xs bg-white border-collapse w-full">
                         <thead>
                         <tr>

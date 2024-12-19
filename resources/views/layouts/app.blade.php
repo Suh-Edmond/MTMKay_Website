@@ -54,7 +54,7 @@
                     // Try the most popular premium features until Dec 26, 2024:
                     // 'checklist', 'mediaembed', 'casechange', 'a11ychecker', 'tinymcespellchecker', 'permanentpen', 'powerpaste', 'advtable', 'advcode', 'editimage', 'advtemplate', 'ai', 'mentions', 'tinycomments', 'tableofcontents', 'footnotes', 'mergetags', 'autocorrect', 'typography', 'inlinecss', 'markdown','importword', 'exportword', 'exportpdf'
                 ],
-                toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | addcomment showcomments | spellcheckdialog a11ycheck typography | checklist numlist bullist indent outdent | charmap | removeformat',
+                toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | checklist numlist bullist indent outdent | charmap | removeformat',
                 tinycomments_mode: 'embedded',
                 // tinycomments_author: 'Author name',
                 mergetags_list: [

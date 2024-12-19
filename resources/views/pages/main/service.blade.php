@@ -146,7 +146,7 @@
                     <p style="font-size: 15px">
                         We believe that by providing access to IT education and affordable tech solutions, we can empower our community, create job opportunities, and foster innovation. Through partnerships with leading tech companies and dedicated training, MTMKay aims to uplift our local workforce and position our clients for success in a digital economy.
                     </p>
-
+                    <a class="main_btn" href="{{route('blog')}}">Learn more</a>
                 </div>
                 <div class="col-md-6">
                     <img src="img/company/all-impact.png" alt="" class="img-fluid" height="100%" width="100%">

@@ -36,10 +36,10 @@
                         <li class="nav-item {{ request()->routeIs('services') ? 'active' : ''}}">
                             <a href="{{route('services')}}" class="nav-link">Services</a>
                         </li>
-                        <li class="nav-item {{ request()->routeIs('training') ? 'active' : ''}}">
+                        <li class="nav-item {{ request()->routeIs('training') || request()->routeIs('show-training') ? 'active' : ''}}">
                             <a href="{{route('training')}}" class="nav-link">Training</a>
                         </li>
-                        <li class="nav-item {{ request()->routeIs('blog') ? 'active' : ''}}">
+                        <li class="nav-item {{ request()->routeIs('blog') || request()->routeIs('show-blog') ? 'active' : ''}}">
                             <a href="{{route('blog')}}" class="nav-link">Blog</a>
                         </li>
                         <li class="nav-item {{ request()->routeIs('contact') ? 'active' : ''}}">

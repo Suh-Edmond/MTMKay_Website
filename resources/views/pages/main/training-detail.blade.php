@@ -4,12 +4,12 @@
 
 <!--================Home Banner Area =================-->
 <section class="banner_area">
-    <div class="banner_inner training-detail d-flex align-items-center">
+    <div class="banner_inner banner_training d-flex align-items-center">
         <div class="overlay bg-parallax" data-stellar-ratio="0.9" data-stellar-vertical-offset="0" data-background=""></div>
         <div class="container">
             <div class="banner_content text-center">
-                <h2>{{$program->title}}</h2>
-                <div class="page_link">
+                <h2 class="banner_hero_text">{{$program->title}}</h2>
+                <div class="page_link banner_hero_btn">
                     <a href="{{route('home')}}">Home</a>
                     <a href="{{route('training')}}">Program</a>
                     <a href="#">Program Details</a>

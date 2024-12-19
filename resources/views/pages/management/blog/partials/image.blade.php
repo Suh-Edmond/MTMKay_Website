@@ -19,7 +19,7 @@
             </div>
         @endif
         <div class="w-full">
-            <form method="post" action="{{ route('manage-blogs.upload-images', ['slug' => $blog->slug ?? '']) }}" class="mt-6 space-y-6"  enctype="multipart/form-data">
+            <form method="post" action="{{ route('manage-blogs.upload-images', ['slug' => $blog->slug ?? '']) }}" class="mt-6 space-y-6"  enctype="multipart/form-data" id="imageUploadForm">
                 @csrf
 
                 <div class="w-full">
@@ -28,7 +28,9 @@
                     <x-input-error class="mt-2" :messages="$errors->get('files')" />
                 </div>
 
-
+                <div class="progress mt-3 w-full">
+                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
+                </div>
 
                 <div class="flex flex-row justify-between">
                     <div class="flex items-center gap-4">
