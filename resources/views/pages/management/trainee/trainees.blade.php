@@ -44,7 +44,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden sm:rounded-lg">
                 <div>
-                    <table class=" bg-white border-collapse w-full">
+                    <table class=" bg-white border-collapse w-full" style="z-index: 50">
                         <thead>
                         <tr>
                             <th class="bg-blue-800 text-white border text-center px-1 py-2">S/N</th>
@@ -52,7 +52,7 @@
                             <th class="bg-blue-800 text-white border text-center px-4 py-2">Email</th>
                             <th class="bg-blue-800 text-white border text-center px-4 py-2">Program</th>
                             <th class="bg-blue-800 text-white border text-center px-2 py-2">Enrollment Date</th>
-{{--                            <th class="bg-blue-800 text-white border text-center px-4 py-2">Completed Fees</th>--}}
+                            <th class="bg-blue-800 text-white border text-center px-4 py-2">Fee Status</th>
                             <th class="bg-blue-800 text-white border text-center  py-2">Action</th>
                         </tr>
                         </thead>
@@ -64,13 +64,13 @@
                                 <td class="border px-4 py-4">{{$value->user->email ?? ''}}</td>
                                 <td class="border px-4 py-4  ">{{$value->program->title ?? ''}}</td>
                                 <td class="border px-4 py-4 ">{{$value->enrollment_date ?? $value->user->enrollment_date->format('D, d M Y') }}</td>
-{{--                                @if($value->has_completed_payment)--}}
-{{--                                    <td class="border px-4 py-4 text-green-700 text-center w-20">YES</td>--}}
-{{--                                @else--}}
-{{--                                    <td class="border px-4 py-4 text-yellow-600 text-center w-20">NO</td>--}}
-{{--                                @endif--}}
+                                @if($value->has_completed_payment)
+                                    <td class="border px-4 py-4 text-green-700 text-center w-20">Complete</td>
+                                @else
+                                    <td class="border px-4 py-4 text-yellow-600 text-center w-20">InComplete</td>
+                                @endif
                                 <td class="border  py-4 text-center cursor-pointer">
-                                    <x-dropdown align="right" width="48">
+                                    <x-dropdown align="right" width="48" style="z-index: 5">
                                         <x-slot name="trigger">
                                             <span><i class="fa fa-bars"></i></span>
                                         </x-slot>

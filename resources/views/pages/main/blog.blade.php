@@ -62,7 +62,10 @@
                             <div class="col-md-3">
                                 <div class="blog_info text-right">
                                     <div class="post_tag">
-                                        <a href="#" class="active">{{$blog->category->name}}</a>
+                                        <a href="{{route('blog', ['title' => $blog->category->name, 'id'=>$blog->category->id])}}" class="active">{{$blog->category->name}}</a>
+                                        @foreach($blog->tags as $tag)
+                                            <a href="{{route('blog', ['tag' => $tag->name])}}" class="active">{{$tag->name}}</a>
+                                        @endforeach
                                     </div>
                                     <ul class="blog_meta list">
                                         <li><a href="#">{{$blog->created_at->format('D, d M Y')}}<i class="lnr lnr-calendar-full"></i></a></li>
@@ -75,7 +78,7 @@
                                     <img src="{{asset($blog->getSingleBlogImage($blog->id))}}" alt="" width="100%">
                                     <div class="blog_details">
                                         <a href="{{route('show-blog', ['slug'=>$blog->slug])}}"><h2>{{$blog->title}}</h2></a>
-                                        <p>{{$blog->description}}.</p>
+                                        <p>{!! $blog->description !!}</p>
                                         <a href="{{route('show-blog', ['slug'=>$blog->slug])}}" class="white_bg_btn">View More</a>
                                     </div>
                                 </div>
@@ -148,7 +151,7 @@
                         <h3 class="widget_title">Popular Posts</h3>
                         @foreach($popularBlogs as $popularBlog)
                             <div class="media post_item">
-                                <img src="{{$popularBlog->getSingleBlogImage($popularBlog->id)->file_path ?? ''}}" alt="post" height="25%" width="25%">
+                                <img src="{{asset($popularBlog->getSingleBlogImage($popularBlog->id))}}" alt="post" height="25%" width="25%">
                                 <div class="media-body">
                                     <a href="{{route('show-blog', ['slug'=> $popularBlog->slug])}}"><h3>{{$popularBlog->title}}</h3></a>
                                     @if($popularBlog->getBlogCreatedHours($popularBlog->id) < 1)
@@ -164,7 +167,7 @@
                         <div class="br"></div>
                     </aside>
                     <aside class="single_sidebar_widget ads_widget">
-                        <a href="#"><img class="img-fluid" src="img/blog/add.jpg" alt=""></a>
+                        <a href="#"><img class="img-fluid" src="img/company/comp-impact.jpg" alt=""></a>
                         <div class="br"></div>
                     </aside>
                     <aside class="single_sidebar_widget post_category_widget">

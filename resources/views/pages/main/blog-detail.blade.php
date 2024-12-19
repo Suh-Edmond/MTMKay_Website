@@ -33,7 +33,10 @@
                     <div class="col-lg-3  col-md-3">
                         <div class="blog_info text-right">
                             <div class="post_tag">
-                                <a href="#" class="active">{{$blog->category->name}}</a>
+                                <a href="{{route('blog', ['title' => $blog->category->name, 'id'=>$blog->category->id])}}" class="active">{{$blog->category->name}}</a>
+                                @foreach($blog->tags as $tag)
+                                    <a href="{{route('blog', ['tag' => $tag->name])}}" class="active">{{$tag->name}}</a>
+                                @endforeach
                             </div>
                             <ul class="blog_meta list">
                                 <li><a href="#">{{$blog->created_at->format('D, d M Y')}}<i class="lnr lnr-calendar-full"></i></a></li>
@@ -49,7 +52,7 @@
                     <div class="col-lg-9 col-md-9 blog_details">
                         <h2>{{$blog->title}}</h2>
                         <p class="excert">
-                            {{$blog->description}}
+                            {!! $blog->description !!}
                          </p>
 
                     </div>
@@ -73,19 +76,16 @@
                             <div class="single-comment justify-content-between d-flex">
                                 <div class="user justify-content-between d-flex">
                                     <div class="thumb">
-                                        <img src="img/blog/c1.jpg" alt="">
+                                        <img src="img/company/human.png" alt="" width="60px" height="60px">
                                     </div>
                                     <div class="desc">
                                         <h5><a href="#">{{$comment->name}}</a></h5>
                                         <p class="date">{{$comment->created_at->format('D, d M Y')}} </p>
                                         <p class="comment">
-                                            {{$comment->message}}
+                                            {!! $comment->message !!}
                                         </p>
                                     </div>
                                 </div>
-{{--                                <div class="reply-btn">--}}
-{{--                                    <a href="" class="btn-reply text-uppercase">reply</a>--}}
-{{--                                </div>--}}
                             </div>
                         </div>
                     @endforeach
@@ -134,22 +134,26 @@
                                 <img src="{{asset($popularBlog->getSingleBlogImage($popularBlog->id))}}" alt="post" height="25%" width="25%">
                                 <div class="media-body">
                                     <a href="{{route('show-blog', ['id'=> $popularBlog->id])}}"><h3>{{$popularBlog->title}}</h3></a>
-                                    <p>02 Hours ago</p>
+                                    @if($popularBlog->getBlogCreatedHours($popularBlog->id) < 1)
+                                        <p>Few Minutes Ago</p>
+                                    @else
+                                        <p>{{$popularBlog->getBlogCreatedHours($popularBlog->id) }} Hours ago</p>
+                                    @endif
                                 </div>
                             </div>
                         @endforeach
                         <div class="br"></div>
                     </aside>
                     <aside class="single_sidebar_widget ads_widget">
-                        <a href="#"><img class="img-fluid" src="img/blog/add.jpg" alt=""></a>
+                        <a href="#"><img class="img-fluid" src="img/company/comp-impact.jpg" alt=""></a>
                         <div class="br"></div>
                     </aside>
                     <aside class="single_sidebar_widget post_category_widget">
-                        <h4 class="widget_title">Post Catgories</h4>
+                        <h4 class="widget_title">Post Categories</h4>
                         <ul class="list cat-list">
                             @foreach($categories as $category)
                                 <li>
-                                    <a href="{{route('blog', ['title' => $category->name, 'id'=>$category->id])}}"" class="d-flex justify-content-between">
+                                    <a href="{{route('blog', ['title' => $category->name, 'id'=>$category->id])}}" class="d-flex justify-content-between">
                                         <p>{{$category->name}}</p>
                                         <p>{{$category->blogs()->count()}}</p>
                                     </a>
@@ -171,7 +175,7 @@
                                 </div>
                                 <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Enter email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email'">
                             </div>
-                            <a href="#" class="bbtns">Subcribe</a>
+                            <a href="#" class="bbtns">Subscribe</a>
                         </div>
                         <p class="text-bottom">You can unsubscribe at any time</p>
                         <div class="br"></div>

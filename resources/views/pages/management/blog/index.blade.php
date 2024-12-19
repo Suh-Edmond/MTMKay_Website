@@ -91,7 +91,7 @@
                                        {{$blog->title}}
                                    </h6>
                                    <p class="text-slate-600 leading-normal font-light">
-                                       {{substr($blog->description, 0, 100)}}...
+                                       {!! substr($blog->description, 0, 200) !!}...
                                    </p>
                                </div>
 
