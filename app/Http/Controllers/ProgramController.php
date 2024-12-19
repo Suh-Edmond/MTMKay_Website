@@ -154,7 +154,7 @@ class ProgramController extends Controller
             ]);
             $file     = $request->file('image_path');
 
-            $fileName = $file->getClientOriginalName();
+//            $fileName = $file->getClientOriginalName();
             $manager  = new ImageManager(new Driver());
             $image    = $manager->read($file);
             $image    = $image->resize(250, 250);
