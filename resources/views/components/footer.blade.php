@@ -42,7 +42,7 @@
                                 <button class="btn  sub-btn" type="submit"  ><span class="lnr lnr-arrow-right"></span></button>
                             </div>
                         </form>
-                        <div class="mt-10 info" id="show_subscription_process" style="display: none">Submitting...</div>
+                        <div class="mt-10 info" id="show_subscription_process" style="display: none; background-color: #385abe !important;color: white!important;text-align: center">Subscribing...</div>
                     </div>
                 </aside>
             </div>
@@ -66,8 +66,36 @@
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <i class="fa fa-close"></i>
                     </button>
-                    <h4>Thank you for subscribing to our newsletter</h4>
+                    <h4 class="text-primary">Thank you for subscribing to our newsletter</h4>
+                    <p>You will receive notification emails for new blog posts and commencements of our training programs.<br>
+                    You will receive a mail confirming your subscription.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="already_subscribe" class="modal modal-message fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <i class="fa fa-close"></i>
+                    </button>
+                    <h4 class="text-primary">You have already subscribed to our newsletter</h4>
                     <p>You will receive notification emails for new blog posts and commencements of our training programs</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="error_subscribe" class="modal modal-message fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <i class="fa fa-close"></i>
+                    </button>
+                    <h4 class="text-primary">Oops! Error</h4>
+                    <p>An error occurred we could not complete your subscription. Please try agin</p>
                 </div>
             </div>
         </div>

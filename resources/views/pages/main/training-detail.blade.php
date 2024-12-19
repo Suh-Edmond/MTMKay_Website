@@ -145,6 +145,7 @@
     </div>
 </div>
 
+<!--========Success modal for enrollment ==============================-->
 <div id="success_exist_acc" class="modal modal-message fade" role="dialog">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -158,7 +159,9 @@
         </div>
     </div>
 </div>
+<!--========Success modal for enrollment ==============================-->
 
+<!--========Success modal for first time enrollment ==============================-->
 <div id="success_enrolled" class="modal modal-message fade" role="dialog">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -172,10 +175,9 @@
         </div>
     </div>
 </div>
+    <!--======== End Success modal for first time enrollment =====================-->
 
-
-<!-- Modals error -->
-
+<!-- =========Modals error ===================================-->
 <div id="error" class="modal modal-message fade" role="dialog">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -190,5 +192,6 @@
     </div>
 </div>
 <!--================End Contact Success and Error message Area =================-->
+
 
 </x-guest-layout>

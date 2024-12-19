@@ -15,7 +15,9 @@ Click to here to response
 </x-mail::button>
 
 <br><br>
-Best,<br>
-MTMKay IT Technologies,<br>
-Kumba, Cameroon.
+Best regards,<br>
+MTMKay Training.<br>
+Atlaska Street Buea road, Kumba, Cameroon<br>
+Email: mtmkay17@gmail.com<br>
+Tel: +16122241176
 </x-mail::message>

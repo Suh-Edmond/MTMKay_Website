@@ -14,9 +14,11 @@ Please click the button below visit your program.
 
 If you have any questions or concerns, feel free to contact support at  <a class="dn_btn" href="mailto:mtmkay17@gmail.com">mtmkay17@gmail.com</a> or <a class="dn_btn" href="tel:+4400123654896">+1 612 224 1176.</a>
 <br><br>
-Best,<br>
-MTMKay Training Staff,<br>
-Kumba, Cameroon.
+Best regards,<br>
+MTMKay Training.<br>
+Atlaska Street Buea road, Kumba, Cameroon<br>
+Email: mtmkay17@gmail.com<br>
+Tel: +16122241176
 </x-mail::message>
 
 
