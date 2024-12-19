@@ -162,7 +162,7 @@ class ProgramController extends Controller
             $fileName     = str_replace(' ', '', $fileName);
 
 
-            Storage::disk('public')->put(self::IMAGE_DIR.$program->slug."/".$fileName, (string) $image->encode());
+            Storage::disk('public_uploads')->put(self::IMAGE_DIR.$program->slug."/".$fileName, (string) $image->encode());
 
             $program->update([
                 'image_path' => $fileName
