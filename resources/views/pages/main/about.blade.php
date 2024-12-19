@@ -40,7 +40,7 @@
 
                         <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
                             <div class="card-body">
-                                Constantly advancing with the latest technology
+                                At MTMKay, we are dedicated to continuously innovating and integrating the latest technologies. Our focus is on leveraging advanced solutions to enhance efficiency, drive growth, and deliver exceptional results for our clients. By staying at the forefront of industry trends, we empower businesses to navigate the digital landscape with confidence and agility.
                              </div>
                         </div>
                     </div>
@@ -54,7 +54,7 @@
                         </div>
                         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
                             <div class="card-body">
-                                Upholding ethical practices and transparency
+                                Our IT company is committed to upholding the highest standards of integrity through ethical practices and transparency. We believe that trust is the foundation of successful partnerships, which is why we prioritize honesty in all our communications and actions. Our team is dedicated to providing clear insights into our processes, ensuring that our clients are informed and confident in their decisions. By fostering an environment of openness and accountability, we not only enhance our relationships but also contribute to a more responsible and sustainable tech industry.
                              </div>
                         </div>
                     </div>
@@ -68,8 +68,7 @@
                         </div>
                         <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
                             <div class="card-body">
-                                Delivering high-quality solutions that meet global standards.
-                                Through tailored IT solutions, our clients have achieved operational efficiency, CyberSecurity compliance, and digital transformation.
+                                Our IT company is committed to excellence by delivering high-quality solutions that meet and exceed global standards. We understand that every business is unique, which is why we provide tailored IT solutions designed to address specific challenges and goals. Our clients have experienced significant improvements in operational efficiency, ensuring their processes run smoothly and effectively
                              </div>
                         </div>
                     </div>
@@ -206,7 +205,7 @@
                 </div>
                 <div class="item">
                     <div class="testi_item">
-                        <img src="img/company/microsoft_1.png" alt="" width="110px" height="110px">
+                        <img src="img/company/microsoft_1.png" alt="" width="100px" height="90px">
                         <h4>Microsoft</h4>
                         <p>Accessories Here you can find the best computer accessory for your laptop, monitor, printer, scanner, speaker. Here you can find the best computer accessory for your laptop, monitor, printer, scanner, speaker.</p>
                     </div>

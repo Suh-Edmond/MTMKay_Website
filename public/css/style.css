@@ -475,8 +475,9 @@ button:focus {
     z-index: 1;
   }
     .banner_area .banner_inner .overlay {
-      background: url(../img/banner/banner.jpg) no-repeat scroll center center;
+      background: url(../img/company/blog_hero.png) no-repeat scroll center center;
       position: absolute;
+      background-size: cover;
       left: 0;
       right: 0;
       top: 0;

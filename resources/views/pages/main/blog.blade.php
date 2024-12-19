@@ -63,9 +63,6 @@
                                 <div class="blog_info text-right">
                                     <div class="post_tag">
                                         <a href="{{route('blog', ['title' => $blog->category->name, 'id'=>$blog->category->id])}}" class="active">{{$blog->category->name}}</a>
-                                        @foreach($blog->tags as $tag)
-                                            <a href="{{route('blog', ['tag' => $tag->name])}}" class="active">{{$tag->name}}</a>
-                                        @endforeach
                                     </div>
                                     <ul class="blog_meta list">
                                         <li><a href="#">{{$blog->created_at->format('D, d M Y')}}<i class="lnr lnr-calendar-full"></i></a></li>
