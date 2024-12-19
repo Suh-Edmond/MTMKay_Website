@@ -13,7 +13,7 @@ class Program extends Model
 
     use GenerateUUIDTrait;
 
-    const IMAGE_DIR ='/uploads/images/programs';
+    const IMAGE_DIR ='/uploads/uploads/images/programs';
 
 
     protected $fillable = [
