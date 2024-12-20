@@ -164,7 +164,7 @@ class ProgramController extends Controller
                 'image_path' => $thumbnailpic
             ]);
             $savePath = storage_path('app/public/'.self::IMAGE_DIR.$program->slug."/".$fileName);
-            $disPath  = storage_path('app/public/'.self::IMAGE_DIR.$program->slug."/".$thumbnailpic);
+            $disPath  = public_path(self::IMAGE_DIR.$program->slug."/".$thumbnailpic);
 
             if (!Storage::disk('public')->exists(self::IMAGE_DIR.$program->slug)) {
                 Storage::disk('public')->makeDirectory(self::IMAGE_DIR.$program->slug);
