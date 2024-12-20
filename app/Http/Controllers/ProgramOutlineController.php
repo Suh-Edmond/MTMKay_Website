@@ -31,7 +31,7 @@ class ProgramOutlineController extends Controller
             'topic' => $request['topic']
         ]);
 
-        return Redirect::route('show.program', ['slug' => $slug])->with('status', 'Program outline save successfully');
+        return Redirect::back()->with('status', 'Program outline save successfully');
     }
 
     public function storeOutline(Request $request)

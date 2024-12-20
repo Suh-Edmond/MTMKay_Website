@@ -7,6 +7,7 @@ use App\Models\Program;
 use App\Models\StudentSuccess;
 use App\Traits\ProgramOutlineTrait;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Drivers\Gd\Driver;
@@ -160,6 +161,7 @@ class ProgramController extends Controller
             $program->update([
                 'image_path' => $fileName
             ]);
+            Log::info(storage_path('app/public/'.$path));
             $manager  = new ImageManager(new Driver());
             $image    = $manager->read(storage_path('app/public/'.$path));
             $image    = $image->resize(250, 250);
