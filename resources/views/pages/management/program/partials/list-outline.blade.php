@@ -21,7 +21,9 @@
                     </x-slot>
                 </x-dropdown>
             </div>
-            <x-text-input id="topic" name="topic" type="text" class="mt-1 block w-full" disabled :value="old('topic', $outline->topic)" required   autocomplete="topic" />
+            <div class="flex flex-row justify-start">
+                <p>{!! $outline->topic !!}</p>
+            </div>
             <x-input-error class="mt-2" :messages="$errors->get('topic')" />
         </div>
         @include('pages.management.program.partials.delete-outline')
@@ -50,8 +52,10 @@
                     </x-slot>
                 </x-dropdown>
             </div>
-            <x-text-input id="topic" name="topic" type="text" class="mt-1 block w-full" disabled :value="old('topic', $outline->topic)" required   autocomplete="topic" />
-            <x-input-error class="mt-2" :messages="$errors->get('topic')" />
+            <div class="flex flex-row justify-start">
+                <p>{!! $outline->topic !!}</p>
+            </div>
+             <x-input-error class="mt-2" :messages="$errors->get('topic')" />
         </div>
         @include('pages.management.program.partials.delete-outline')
         @include('pages.management.program.partials.edit-outline')

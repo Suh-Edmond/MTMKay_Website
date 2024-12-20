@@ -12,7 +12,7 @@
             Period: {{ $outline->period }}
         </p>
         <p class="mt-1 text-md font-medium text-gray-600">
-            Topic: {{ $outline->topic }}
+            Topic: {!! $outline->topic !!}
         </p>
 
 
