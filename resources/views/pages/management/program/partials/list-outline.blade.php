@@ -21,9 +21,7 @@
                     </x-slot>
                 </x-dropdown>
             </div>
-            <div class="flex flex-row justify-start">
-                <p>{!! $outline->topic !!}</p>
-            </div>
+            <p>{!! $outline->topic !!}</p>
             <x-input-error class="mt-2" :messages="$errors->get('topic')" />
         </div>
         @include('pages.management.program.partials.delete-outline')
@@ -52,9 +50,7 @@
                     </x-slot>
                 </x-dropdown>
             </div>
-            <div class="flex flex-row justify-start">
-                <p>{!! $outline->topic !!}</p>
-            </div>
+            <p>{!! $outline->topic !!}</p>
              <x-input-error class="mt-2" :messages="$errors->get('topic')" />
         </div>
         @include('pages.management.program.partials.delete-outline')
