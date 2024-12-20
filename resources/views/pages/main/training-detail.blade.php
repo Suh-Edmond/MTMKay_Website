@@ -57,7 +57,7 @@
                         <div class="objctive_text">
                             <ul class="list">
                                 @foreach($program->programOutlines as $key => $outline)
-                                    <li><h5>{{substr($outline->period, 0, strlen($outline->period) - 1 )}} {{$key+1}}</h5> <a href="#">{{$outline->topic}}</a></li>
+                                    <li><h5>{{substr($outline->period, 0, strlen($outline->period) - 1 )}} {{$key+1}}</h5> <a href="#">{!! $outline->topic !!}</a></li>
                                 @endforeach
                             </ul>
                             <p>The program includes an internship during the final quarter, where students gain real-world experience and apply their skills in industry settings. This hands-on exposure ensures students are job-ready upon completion.</p>
