@@ -174,7 +174,7 @@ class ProgramController extends Controller
 //            $image->save($disPath);
 
 
-            Storage::disk('local')->put(self::IMAGE_DIR.$program->slug."/".$thumbnailpic, (string) $image->encode());
+            Storage::disk('public')->put(self::IMAGE_DIR.$program->slug."/".$thumbnailpic, (string) $image->encode());
 
 
         }catch (\Exception $exception){
