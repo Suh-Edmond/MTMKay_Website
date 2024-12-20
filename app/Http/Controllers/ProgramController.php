@@ -163,17 +163,18 @@ class ProgramController extends Controller
             $program->update([
                 'image_path' => $thumbnailpic
             ]);
-            $savePath = storage_path('app/public/'.self::IMAGE_DIR.$program->slug."/".$fileName);
-            $disPath  = public_path(self::IMAGE_DIR.$program->slug."/".$thumbnailpic);
+            $location = public_path("image");
 
-            if (!Storage::disk('public')->exists(self::IMAGE_DIR.$program->slug)) {
-                Storage::disk('public')->makeDirectory(self::IMAGE_DIR.$program->slug);
-            }
+            $savePath = storage_path('app/public/'.self::IMAGE_DIR.$program->slug."/".$fileName);
+            $disPath  = storage_path('app/public/'.self::IMAGE_DIR.$program->slug."/".$thumbnailpic);
+
             $manager  = new ImageManager(new Driver());
             $image    = $manager->read($savePath);
             $image    = $image->resize(250, 250);
-            $image->save($disPath);
+//            $image->save($location."/".$thumbnailpic);
 
+
+            Storage::disk('public')->put(self::IMAGE_DIR.$program->slug."/".$thumbnailpic, (string) $image->encode());
 
 
         }catch (\Exception $exception){
