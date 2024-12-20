@@ -21,7 +21,7 @@
                     </x-slot>
                 </x-dropdown>
             </div>
-            <p>{!! $outline->topic !!}</p>
+            <div>{!! $outline->topic !!}</div>
             <x-input-error class="mt-2" :messages="$errors->get('topic')" />
         </div>
         @include('pages.management.program.partials.delete-outline')
@@ -50,7 +50,7 @@
                     </x-slot>
                 </x-dropdown>
             </div>
-            <p>{!! $outline->topic !!}</p>
+            <div>{!! $outline->topic !!}</div>
              <x-input-error class="mt-2" :messages="$errors->get('topic')" />
         </div>
         @include('pages.management.program.partials.delete-outline')
