@@ -163,9 +163,9 @@ class ProgramController extends Controller
             ]);
             Log::info(storage_path('app/public/'.$path));
             $manager  = new ImageManager(new Driver());
-            $image    = $manager->read(storage_path('app/public/'.$path));
+            $image    = $manager->read(public_path(self::IMAGE_DIR.$program->slug."/".$program->image_path));
             $image    = $image->resize(250, 250);
-            $image->save(storage_path('app/public/'.$path));
+            $image->save(public_path(self::IMAGE_DIR.$program->slug."/".$program->image_path));
         }catch (\Exception $exception){
 
         }
