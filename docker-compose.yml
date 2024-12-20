@@ -1,0 +1,81 @@
+version: '3.8'
+
+services:
+
+    # Laravel app
+    mtmkay_app:
+        build:
+            args:
+                user: mtmkay
+                uid: 1000
+            context: .
+            dockerfile: Dockerfile
+        platform: linux/amd64
+        image: mtmkay_app_image
+        container_name: mtmkay_app_container
+        restart: unless-stopped
+        depends_on:
+            - mtmkay_mysql
+        volumes:
+            - ./:/var/www
+        networks:
+            - mtmkay_network
+
+    # Nginx Service
+    mtmkay_nginx:
+        platform: linux/amd64
+        image: nginx:alpine
+        container_name: mtmkay_nginx
+        restart: unless-stopped
+        ports:
+            - "80:80"
+        depends_on:
+            - mtmkay_app
+        volumes:
+            - ./:/var/www
+            - ./docker-compose/nginx/:/etc/nginx/conf.d
+        networks:
+            - mtmkay_network
+
+    # MySQL Service
+    mtmkay_mysql:
+        platform: linux/amd64
+        image: mysql:latest
+        container_name: mtmkay_mysql
+        restart: unless-stopped
+        ports:
+            - "3337:3306"
+        environment:
+            MYSQL_ROOT_PASSWORD: Summer123!
+            MYSQL_DATABASE: mtmkay_db
+            MYSQL_USER: root
+            MYSQL_PASSWORD: Summer123!
+        networks:
+            - mtmkay_network
+        volumes:
+            -   mtmkay_mysql_data:/var/lib/mysql
+            -   ./docker-compose/mysql/my.cnf:/etc/mysql/my.cnf
+
+    # phpMyAdmin Service
+#    crowdfund_phpmyadmin:
+#        image: phpmyadmin:5.2.1-apache
+#        container_name: crowdfund_phpmyadmin
+#        restart: unless-stopped
+#        ports:
+#            - "8383:80"
+#        environment:
+#            PMA_HOST: crowdfund_mysql
+#            PMA_PORT: 3306
+#            PMA_USER: root
+#            PMA_PASSWORD:  Summer123!
+#        depends_on:
+#            - crowdfund_mysql
+#        networks:
+#            - crowdfund_network
+
+networks:
+    mtmkay_network:
+        driver: bridge
+volumes:
+    mtmkay_mysql_data:
+        driver: local
