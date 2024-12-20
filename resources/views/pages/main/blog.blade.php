@@ -78,7 +78,7 @@
                                         <p>{!! substr($blog->description, 0, 300) !!}</p>
                                     </div>
                                     <div>
-                                        <a href="{{route('show-blog', ['slug'=>$blog->slug])}}" class="white_bg_btn">View More</a>
+{{--                                        <a href="{{route('show-blog', ['slug'=>$blog->slug])}}" class="white_bg_btn">View More</a>--}}
                                     </div>
                                 </div>
                             </div>
