@@ -39,7 +39,7 @@ class ProgramOutlineController extends Controller
 
         $request->validate([
             'period' => ['required', 'string', Rule::in(self::PERIODS)],
-            'topic' => ['required', 'string', 'max:255']
+            'topic' => ['required', 'string', 'max:1000']
         ]);
         $slug = $request['slug'];
         $program = Program::where('slug', $slug)->first();
