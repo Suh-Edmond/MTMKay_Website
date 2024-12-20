@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Blog extends Model
 {
-    const IMAGE_DIR ='/uploads/images/blogs/';
+    const IMAGE_DIR ='/storage/uploads/images/blogs/';
     use HasFactory, SoftDeletes;
 
     use GenerateUUIDTrait;

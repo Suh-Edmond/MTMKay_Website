@@ -314,9 +314,8 @@ class BlogController extends Controller
         $imageSlug = $request['imageSlug'];
         $blog = Blog::where('slug', $slug)->first();
         $image = BlogImages::where('slug', $imageSlug)->where('blog_id', $blog->id)->first();
-        $path = self::IMAGE_DIR.$blog->slug."/".$image->file_path;
-
-        Storage::delete($path);
+        $path = public_path(self::IMAGE_DIR.$blog->slug."/".$image->file_path);
+        Storage::disk('public')->delete($path);
         $image->delete();
 
         return Redirect::back()->with(['status' => 'Blog image remove successfully']);
@@ -350,23 +349,18 @@ class BlogController extends Controller
 
         foreach ($request->file('files') as $file){
             try {
-                $fileName = $file->getClientOriginalName();
-                $fileName = str_replace(' ', '', $fileName);
+                $extension = $file->getClientOriginalExtension();
 
-                $file->storeAs(self::IMAGE_DIR.$blog->slug, $fileName, 'public');
+                $fileName  =   time() . '_' . uniqid() . '.' . $extension;
 
-                $manager  = new ImageManager(new Driver());
-
-                $image    = $manager->read($file);
-                $image    = $image->resize(250, 250);
-
-                $fileName     = str_replace(' ', '', $fileName);
-
-
-                Storage::disk('public_uploads')->put(self::IMAGE_DIR.$blog->slug."/".$fileName, (string) $image->encode());
-
+                $path =$file->storeAs(self::IMAGE_DIR.$blog->slug, $fileName, 'public');
 
                 $this->saveBlogImages($fileName, $blog);
+
+                $manager  = new ImageManager(new Driver());
+                $image    = $manager->read(storage_path('app/public/'.$path));
+                $image    = $image->resize(250, 250);
+                $image->save(storage_path('app/public/'.$path));
             }catch (\Exception $exception){
 
             }
