@@ -161,7 +161,7 @@ class ProgramController extends Controller
             $path = $request->file('image_path')->storeAs(self::IMAGE_DIR.$slug, $fileName, 'public');
 
             $program->update([
-                'image_path' => $thumbnailpic
+                'image_path' => $fileName
             ]);
             $savePath = public_path(self::IMAGE_DIR.$slug."/".$fileName);
             $manager  = new ImageManager(new Driver());
