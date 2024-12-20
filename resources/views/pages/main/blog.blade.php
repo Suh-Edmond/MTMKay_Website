@@ -75,7 +75,7 @@
                                     <img src="{{asset($blog->getSingleBlogImage($blog->id))}}" alt="" width="100%">
                                     <div class="blog_details">
                                         <a href="{{route('show-blog', ['slug'=>$blog->slug])}}"><h2>{{$blog->title}}</h2></a>
-                                        <p>{!! substr($blog->description, 0, 300) !!}</p>
+                                        <p>{!! substr($blog->description, 0, 300) !!}</p><br>
                                         <a href="{{route('show-blog', ['slug'=>$blog->slug])}}" class="white_bg_btn">View More</a>
                                     </div>
                                 </div>
