@@ -171,10 +171,10 @@ class ProgramController extends Controller
             $manager  = new ImageManager(new Driver());
             $image    = $manager->read($savePath);
             $image    = $image->resize(250, 250);
-//            $image->save($location."/".$thumbnailpic);
+//            $image->save($disPath);
 
 
-            Storage::disk('public')->put(self::IMAGE_DIR.$program->slug."/".$thumbnailpic, (string) $image->encode());
+            Storage::disk('local')->put(self::IMAGE_DIR.$program->slug."/".$thumbnailpic, (string) $image->encode());
 
 
         }catch (\Exception $exception){
