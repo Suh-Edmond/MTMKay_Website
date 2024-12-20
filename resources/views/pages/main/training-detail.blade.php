@@ -55,13 +55,12 @@
                     </div>
                     <div class="tab-pane fade" id="outline" role="tabpanel" aria-labelledby="outline-tab">
                         <div class="objctive_text">
-                            <ul class="list">
+{{--                            <ul class="list">--}}
                                 @foreach($program->programOutlines as $key => $outline)
-                                    <li><h5>{{substr($outline->period, 0, strlen($outline->period) - 1 )}} {{$key+1}}</h5></li>
+                                    <h6>{{substr($outline->period, 0, strlen($outline->period) - 1 )}} {{$key+1}}</h6>
                                     <p href="#">{!! $outline->topic !!}</p>
                                 @endforeach
-                            </ul>
-                            <p>The program includes an internship during the final quarter, where students gain real-world experience and apply their skills in industry settings. This hands-on exposure ensures students are job-ready upon completion.</p>
+{{--                            </ul>--}}
 
                         </div>
                     </div>
