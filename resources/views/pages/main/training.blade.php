@@ -73,7 +73,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-4 col-md-4 col-lg-4 col-sm-12 col-xs-12">
+                <div class="col-md-4">
                     <div class="packages_item_training">
                         <div class="pack_head">
                             <i class="lnr lnr-briefcase"></i>
@@ -91,7 +91,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-4 col-md-4 col-lg-4 col-sm-12 col-xs-12">
+                <div class="col-md-4">
                     <div class="packages_item_training">
                         <div class="pack_head">
                             <i class="lnr lnr-laptop"></i>
