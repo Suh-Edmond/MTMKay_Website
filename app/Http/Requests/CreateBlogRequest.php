@@ -25,7 +25,7 @@ class CreateBlogRequest extends FormRequest
     {
         return [
             'title' => 'required|string|max:255',
-            'description' => 'required|string|max:1000',
+            'description' => 'required|string|max:9000',
             'category_id' => 'required|string',
             'tag_id'      => 'required|array',
             'blog_state'   => ['required', Rule::in([BlogState::APPROVED, BlogState::REJECTED, BlogState::PENDING]) ]
