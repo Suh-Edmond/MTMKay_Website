@@ -158,24 +158,18 @@ class ProgramController extends Controller
             $extension = $file->getClientOriginalExtension();
             $fileName  =   time() . '_' . uniqid() . '.' . $extension;
             $thumbnailpic = 'thumb'.'-'.$fileName;
-            $path = $request->file('image_path')->storeAs(self::IMAGE_DIR.$program->slug, $fileName, 'public');
+            $path = $request->file('image_path')->storeAs(self::IMAGE_DIR.$slug, $fileName, 'public');
 
             $program->update([
                 'image_path' => $thumbnailpic
             ]);
-            $location = public_path("image");
 
-            $savePath = public_path(self::IMAGE_DIR.$program->slug."/".$fileName);
-//            $disPath  = storage_path('app/public/'.self::IMAGE_DIR.$program->slug."/".$thumbnailpic);
-//            dd($savePath);
+
+            $savePath = public_path(self::IMAGE_DIR.$slug."/".$fileName);
             $manager  = new ImageManager(new Driver());
             $image    = $manager->read($savePath);
             $image    = $image->resize(250, 250);
-            $image->save(public_path().self::IMAGE_DIR.$program->slug."/".$thumbnailpic);
-//            $path = public_path() . self::IMAGE_DIR.$program->slug . $fileName;
-//            $image->save($path);
-
-//            Storage::disk('public_uploads')->put(self::IMAGE_DIR.$program->slug."/".$thumbnailpic, (string) $image->encode());
+            $image->save(public_path().self::IMAGE_DIR.$slug."/".$thumbnailpic);
 
 
         }catch (\Exception $exception){
