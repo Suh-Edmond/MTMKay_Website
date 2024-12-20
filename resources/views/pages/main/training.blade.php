@@ -29,7 +29,7 @@
             </div>
             <div class="row courses_inner">
                 @foreach($programs as $key => $program)
-                    <div class="col-4 col-md-4 col-sm-12 col-lg-4 col-xs-12 mt-4">
+                    <div class="col-md-4 mt-4">
                         <a href="{{route('show-training', ['slug' => $program->slug])}}">
                             <div class="course_item">
                             <img src="{{$program->getImagePath($program, $program->image_path)}}" alt="" width="100%" height="100%">
@@ -56,7 +56,7 @@
                 <h2>Our Strengths and Uniqueness</h2>
             </div>
             <div class="row packages_inner">
-                <div class="col-4 col-md-4 col-lg-4 col-sm-12 col-xs-12">
+                <div class="col-md-4">
                     <div class="packages_item_training">
                         <div class="pack_head">
                             <i class="lnr lnr-graduation-hat"></i>
