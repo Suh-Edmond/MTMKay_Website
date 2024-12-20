@@ -176,7 +176,7 @@ class BlogController extends Controller
         $request->validate([
             'title' => 'required|string|max:255|min:10',
             'blog_state' => ['required', Rule::in([BlogState::PENDING, BlogState::REJECTED, BlogState::APPROVED])],
-            'description' => 'required|string|max:1000',
+            'description' => 'required|string|max:9000',
             'category_id'   => ['required'],
             'tag_id'      => 'required|array'
         ]);
@@ -231,7 +231,7 @@ class BlogController extends Controller
     {
         $request->validate([
             'title' => 'required|string|max:255',
-            'description' => 'required|string|max:1000',
+            'description' => 'required|string|max:9000',
             'category_id' => 'required|string',
             'tag_id'      => 'required|array',
             'blog_state'   => ['required', Rule::in([BlogState::APPROVED, BlogState::REJECTED, BlogState::PENDING]) ]
