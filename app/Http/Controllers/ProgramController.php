@@ -16,7 +16,7 @@ use Intervention\Image\Laravel\Facades\Image;
 
 class ProgramController extends Controller
 {
-    const IMAGE_DIR ='uploads/images/programs/';
+    const IMAGE_DIR ='/uploads/images/programs/';
     const PERIODS = array('Quarter1', 'Quarter2', 'Quarter3', 'Quarter4', 'Quarter5', 'Quarter6', 'Quarter7', 'Quarter8', 'Quarter9', 'Quarter10', 'Quarter11', 'Quarter12');
 
     use ProgramOutlineTrait;
@@ -165,19 +165,17 @@ class ProgramController extends Controller
             ]);
             $location = public_path("image");
 
-            $savePath = storage_path('app/public/'.self::IMAGE_DIR.$program->slug."/".$fileName);
-            $disPath  = storage_path('app/public/'.self::IMAGE_DIR.$program->slug."/".$thumbnailpic);
-
-            if (!Storage::disk('public')->exists(self::IMAGE_DIR.$program->slug)) {
-                Storage::disk('public')->makeDirectory(self::IMAGE_DIR.$program->slug);
-            }
+            $savePath = public_path(self::IMAGE_DIR.$program->slug."/".$fileName);
+//            $disPath  = storage_path('app/public/'.self::IMAGE_DIR.$program->slug."/".$thumbnailpic);
+//            dd($savePath);
             $manager  = new ImageManager(new Driver());
             $image    = $manager->read($savePath);
             $image    = $image->resize(250, 250);
-//            $image->save(public_path(self::IMAGE_DIR.$program->slug."/".$thumbnailpic));
+            $image->save(public_path().self::IMAGE_DIR.$program->slug."/".$thumbnailpic);
+//            $path = public_path() . self::IMAGE_DIR.$program->slug . $fileName;
+//            $image->save($path);
 
-
-            Storage::disk('public')->put(self::IMAGE_DIR.$program->slug."/".$thumbnailpic, (string) $image->encode());
+//            Storage::disk('public_uploads')->put(self::IMAGE_DIR.$program->slug."/".$thumbnailpic, (string) $image->encode());
 
 
         }catch (\Exception $exception){
