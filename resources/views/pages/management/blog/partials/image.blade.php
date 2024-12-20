@@ -13,7 +13,7 @@
             <div class="flex gap-4">
                 @foreach($blog->blogImages as $image)
                     <div class="bg-white shadow-sm sm:rounded-lg cursor-pointer" >
-                        <img src="{{ asset($blog->getImagePath($blog, $image->file_path)) }}" alt="Blog Image" >
+                        <img src="{{ asset($blog->getImagePath($blog, $image->file_path)) }}" alt="Blog Image" width="250px" height="250px" >
                     </div>
                 @endforeach
             </div>

@@ -1,4 +1,4 @@
-<div class="max-w-xl">
+<div class="max-w-7xl">
     <section>
         <header>
             <h2 class="text-lg font-medium text-gray-900">
@@ -11,7 +11,7 @@
         </header>
         @if(isset($program) && ! $is_first_time)
             <div class="grow w-3/4">
-                <img src="{{ asset($program->getImagePath($program, $program->image_path)) }}" >
+                <img src="{{ asset($program->getImagePath($program, $program->image_path)) }}" width="250px" height="250px" >
             </div>
         @endif
         <div class="w-full">

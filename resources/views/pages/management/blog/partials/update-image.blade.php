@@ -14,7 +14,7 @@
                 @foreach($blog->blogImages   as $image)
                     <div class="bg-white shadow-sm sm:rounded-lg text-end">
                         <img src="{{ asset($blog->getImagePath($blog, $image->file_path)) }}" alt="Blog Image" x-data="confirm-blog-image-deletion{{$image->id}}"
-                             x-on:click.prevent="$dispatch('open-modal', 'confirm-blog-image-deletion{{$image->id}}')" class="cursor-pointer">
+                             x-on:click.prevent="$dispatch('open-modal', 'confirm-blog-image-deletion{{$image->id}}')" class="cursor-pointer" width="250px" height="250px">
                         @include('pages.management.blog.partials.delete-image')
                     </div>
                 @endforeach

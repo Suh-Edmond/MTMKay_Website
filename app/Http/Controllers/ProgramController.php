@@ -171,9 +171,7 @@ class ProgramController extends Controller
 
     private function deleteProgramFile($program)
     {
-        $programTitle = str_replace(' ', '', $program->title);
-        $programTitle = str_replace('+', '', $programTitle);
-        $path = public_path(self::IMAGE_DIR.$programTitle."/".$program->image_path);
-        Storage::delete($path);
+        $path     =  public_path(self::IMAGE_DIR.$program->slug."/".$program->image_path);
+        Storage::disk('public')->delete($path);
     }
 }
