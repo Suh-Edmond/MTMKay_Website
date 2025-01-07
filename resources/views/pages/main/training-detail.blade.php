@@ -117,10 +117,12 @@
                             <input type="text" id="address" name="address" placeholder="Address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Address'" required class="single-input py-lg-2">
                             <span class="error text-danger d-none"></span>
                         </div>
-                        <div class="mt-lg-5 mb-lg-4">
-                            <button type="submit" value="submit"  class="btn main_btn" id="submitEnrollment">
+                        <div class="mt-lg-5 mb-lg-4 ">
+                            <button type="submit" value="submit"  class="btn main_btn submit_enroll_button" id="submitEnrollment">
                                 <span class="btn-text">Enroll Now</span>
                             </button>
+
+                            <div class="spinner mb-lg-5 loader" style="margin-bottom: 50px; display: none"></div>
                         </div>
                     </form>
                 </div>
