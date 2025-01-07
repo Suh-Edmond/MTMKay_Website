@@ -9,7 +9,7 @@ You’ve successfully enrolled for {{$data['program']->title}} training program 
 Please click the button below visit your program.
 
 <x-mail::button :url="$data['program_link']">
-    Click here to check program
+    Click here to check the program
 </x-mail::button>
 
 If you have any questions or concerns, feel free to contact support at  <a class="dn_btn" href="mailto:mtmkay17@gmail.com">mtmkay17@gmail.com</a> or <a class="dn_btn" href="tel:+4400123654896">+1 612 224 1176.</a>

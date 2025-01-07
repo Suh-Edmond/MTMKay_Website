@@ -1,15 +1,12 @@
 <x-mail::message>
-<img src="{{asset($data['program_image'])}}" alt="Program Image" width="100%" height="130px"/><br><br>
 Hi <b>{{ $data['name'] }}<b>!<br>
 
-Congratulations!<br>
+Thank you for your Interest in {{$data['program']->title}} training program at MTMKay. Your registration is confirmed.
 
-You’ve successfully enrolled for {{$data['program']->title}} training program with MTMKay. Your registration is confirmed.
-
-Please click the button below to complete your enrollment to the program.
+Please click the button below to complete registration.
 
 <x-mail::button :url="$data['verificationUrl']">
-    Click here to complete your enrollment
+    Click here to complete your registration
 </x-mail::button>
 
 If you have any questions or concerns, feel free to contact support at  <a class="dn_btn" href="mailto:mtmkay17@gmail.com">mtmkay17@gmail.com</a> or <a class="dn_btn" href="tel:+4400123654896">+1 612 224 1176.</a>

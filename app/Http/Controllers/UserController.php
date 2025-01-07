@@ -5,8 +5,8 @@ namespace App\Http\Controllers;
 use App\Constant\Roles;
 use App\Http\Requests\EnrollmentRequest;
 use App\Mail\EnrollmentMail;
+use App\Mail\EnrollmentNotification;
 use App\Mail\NewStudentMail;
-use App\Mail\StudentEnrollmentMail;
 use App\Models\Enrollment;
 use App\Models\Program;
 use App\Models\Role;
@@ -49,7 +49,8 @@ class UserController extends Controller
                 ]);
 
                 $emailData = $this->setEmailData($request, $program, $exist);
-                Mail::to($request['email'])->send(new NewStudentMail($emailData));
+                $this->sendNotificationsUponEnrollment($request, $emailData, $program, $exist);
+
             }
         }
          return response()->json(['message' => 'Successfully enrolled new student', 'status' => 200, 'code' => !isset($exist) ? 'NEW_ACCOUNT_CREATION' : 'EXISTING_ACCOUNT']);
@@ -112,9 +113,26 @@ class UserController extends Controller
 
        $enrollment = Enrollment::where('program_id', $program->id)->where('user_id', $user->id)->first();
        if(isset($enrollment) && !isset($enrollment->enrollment_date)){
+           $user->update([
+               'email_verified_at' => Carbon::now()
+           ]);
            $enrollment->update([
                'enrollment_date' => Carbon::now()
            ]);
+
+           $program_link = url()->query('training-detail', ['slug' => $program->slug]);
+
+           $emailData = [
+               'name' => $user['name'],
+               'email' => $user['email'],
+               'program' => $program,
+               'is_first_time' => true,
+               'program_image' => $program->getImagePath($program, $program->image_path),
+               'program_link' => $program_link,
+               'verificationUrl' => str_replace('amp;', '', $this->generationEnrollmentVerificationLink($program,$user))
+           ];
+
+           $this->sendNotificationsUponEnrollment($user['email'], $emailData, $program, $user);
        }
 
        $data = [
@@ -142,6 +160,33 @@ class UserController extends Controller
             'program_link' => $program_link,
             'verificationUrl' => str_replace('amp;', '', $this->generationEnrollmentVerificationLink($program,$student))
         ];
+    }
+
+    private function sendNotificationsUponEnrollment($studentEmail, $emailData, $program, $exist)
+    {
+        try {
+            Mail::to($studentEmail)->send(new NewStudentMail($emailData));
+
+        }catch (\Exception $e){
+            return  response()->json(['message' => 'Could not sent email notification mail to student', 'code' => 'FAILED']);
+        }
+
+        try {
+            $data = [
+                'program'        => $program->title,
+                'studentName'    => $exist->name,
+                'studentEmail'   => $exist->email,
+                'studentPhone'   => $exist->telephone,
+                'studentAddress' => $exist->address
+            ];
+
+            Mail::to(env('MAIL_FROM_ADDRESS'))->send(new EnrollmentNotification($data));
+
+        }catch (\Exception $e){
+            return  response()->json(['message' => 'Could not sent email notification mail to admin', 'code' => 'FAILED']);
+        }
+
+        return true;
     }
 
 }
