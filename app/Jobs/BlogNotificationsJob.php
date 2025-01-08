@@ -1,0 +1,52 @@
+<?php
+
+namespace App\Jobs;
+
+use App\Mail\BlogNotificationMail;
+use App\Models\Blog;
+use App\Models\Subscriber;
+use Carbon\Carbon;
+use Illuminate\Bus\Queueable;
+use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Foundation\Bus\Dispatchable;
+use Illuminate\Queue\InteractsWithQueue;
+use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Facades\Mail;
+
+class BlogNotificationsJob implements ShouldQueue
+{
+    use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
+
+    /**
+     * Create a new job instance.
+     */
+    public function __construct()
+    {
+        //
+    }
+
+    /**
+     * Execute the job.
+     */
+    public function handle(): void
+    {
+        $activeSubscribers = Subscriber::where('is_active', true)->get();
+        $blogs = Blog::whereDate('created_at', Carbon::today())->get();
+        foreach ($activeSubscribers as $subscriber){
+            foreach ($blogs as $blog) {
+                $notificationData = [
+                    'subscriber' => $subscriber->email,
+                    'post'      => $blog,
+                    'category'   => $blog->category->name,
+                    'tags'       => $blog->tags,
+                    'title'      => $blog->title,
+                    'blog_image' => $blog->getSingleBlogImage($blog->id),
+                    'blog_slug'  => $blog->slug,
+                    'blog_detail_url' =>  url()->query('blog-detail', ['slug' => $blog->slug]),
+                ];
+
+                Mail::to($subscriber->email)->send(new BlogNotificationMail($notificationData));
+            }
+        }
+    }
+}
