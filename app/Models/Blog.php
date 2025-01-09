@@ -75,4 +75,9 @@ class Blog extends Model
     {
         return self::IMAGE_DIR.$blog->slug."/".$image_path;
     }
+
+    public function stripDescriptionTags($desc)
+    {
+        return strip_tags($desc);
+    }
 }

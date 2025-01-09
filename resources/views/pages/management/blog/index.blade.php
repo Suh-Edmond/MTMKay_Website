@@ -56,100 +56,124 @@
             </div>
         </div>
     </div>
+
     <div class="py-12">
         <h6 class="font-semibold text-xl text-gray-800 leading-tight text-center mb-4">
             {{ __('Showing') }} {{count($blogs->items())}} / {{ $blogs->total() }} {{__('Blog Posts')}}
         </h6>
-        <div  class="max-w-7xl mx-auto sm:px-6 lg:px-8 flex flex-row flex-wrap h-full gap-3">
-            @foreach($blogs as $key => $blog)
-                <div class="bg-white shadow-sm sm:rounded-lg basis-1/4 flex-auto">
-                    <a href="{{route('show.blog', ['slug'=> $blog->slug])}}">
-                        <div class="relative flex flex-col my-6 bg-white shadow-sm   border-slate-200 rounded-lg w-96">
-                            <div class="relative h-56 m-2.5 overflow-hidden text-white rounded-md">
-                                <img src="{{asset($blog->getSingleBlogImage($blog->id))}}" alt="card-image"  width="100%" height="100%"/>
-                            </div>
-                            <div class="p-4">
-                                <div class="flex flex-row gap-4 justify-between">
-                                    <div class="mb-4 rounded-full bg-blue-800 py-0.5 px-2.5 border border-transparent text-xs text-white transition-all shadow-sm w-1/2 text-center">
-                                        {{$blog->category->name}}
-                                    </div>
-                                    @if($blog->blog_state == \App\Constant\BlogState::PENDING)
-                                        <div class="mb-4 rounded-full bg-sky-400 py-0.5 px-2.5 border border-transparent text-xs text-white transition-all shadow-sm w-1/4 text-center">
-                                            {{$blog->blog_state}}
-                                        </div>
-                                    @elseif($blog->blog_state == \App\Constant\BlogState::APPROVED)
-                                        <div class="mb-4 rounded-full bg-green-700 py-0.5 px-2.5 border border-transparent text-xs text-white transition-all shadow-sm w-1/4 text-center">
-                                            {{$blog->blog_state}}
-                                        </div>
-                                    @elseif($blog->blog_state == \App\Constant\BlogState::REJECTED)
-                                        <div class="mb-4 rounded-full bg-red-700 py-0.5 px-2.5 border border-transparent text-xs text-white transition-all shadow-sm w-1/4 text-center">
-                                            {{$blog->blog_state}}
-                                        </div>
-                                    @endif
-                                </div>
-                                <h6 class="mb-2 text-slate-800 text-xl font-semibold">
-                                    {{$blog->title}}
-                                </h6>
-                                <p class="text-slate-600 leading-normal font-light">
-                                    {!! substr($blog->description, 0, 200) !!}...
-                                </p>
-                            </div>
+    </div>
 
-                            <div class="flex items-center justify-between p-4">
-                                <div class="flex items-center">
-                                    <img
-                                        alt="Tania Andrew"
-                                        src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1480&amp;q=80"
-                                        class="relative inline-block h-8 w-8 rounded-full"
-                                    />
-                                    <div class="flex flex-col ml-3 text-sm">
-                                        <span class="text-slate-800 font-semibold">{{\Illuminate\Support\Facades\Auth::user()->name}}</span>
-                                        <span class="text-slate-600">{{$blog->created_at->format('D, d M Y')}}</span>
-                                    </div>
-                                </div>
-                            </div>
+    <div class="max-w-7xl mx-auto bg-white shadow-sm sm:rounded-lg py-5 px-5">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
+
+            @foreach($blogs as $key => $blog)
+            <div class="rounded overflow-hidden shadow-lg flex flex-col">
+                <a href="{{route('show.blog', ['slug'=> $blog->slug])}}"></a>
+                <div class="relative"><a href="{{route('show.blog', ['slug'=> $blog->slug])}}">
+                        <img class="w-full"
+                             src="{{asset($blog->getSingleBlogImage($blog->id))}}"
+                             alt="Blog Image" height="50px">
+                        <div
+                            class="hover:bg-transparent transition duration-300 absolute bottom-0 top-0 right-0 left-0 bg-gray-900 opacity-25">
                         </div>
                     </a>
+                    <a href="{{route('show.blog', ['slug'=> $blog->slug])}}">
+                        @if($blog->blog_state == \App\Constant\BlogState::PENDING)
+                            <div
+                                class="text-xs absolute top-0 right-0 bg-indigo-600 px-4 py-2 text-white mt-3 mr-3 hover:bg-white hover:text-indigo-600 transition duration-500 ease-in-out">
+                                {{$blog->blog_state}}
+                            </div>
+                        @elseif($blog->blog_state == \App\Constant\BlogState::APPROVED)
+                            <div
+                                class="text-xs absolute top-0 right-0 bg-indigo-600 px-4 py-2 text-white mt-3 mr-3 hover:bg-white hover:text-indigo-600 transition duration-500 ease-in-out">
+                                {{$blog->blog_state}}
+                            </div>
+                        @elseif($blog->blog_state == \App\Constant\BlogState::REJECTED)
+                            <div
+                                class="text-xs absolute top-0 right-0 bg-indigo-600 px-4 py-2 text-white mt-3 mr-3 hover:bg-white hover:text-indigo-600 transition duration-500 ease-in-out">
+                                {{$blog->blog_state}}
+                            </div>
+                        @endif
+
+                    </a>
                 </div>
+                <div class="px-6 py-4 mb-auto">
+                    <a href="{{route('show.blog', ['slug'=> $blog->slug])}}"
+                       class="font-medium text-lg inline-block hover:text-indigo-600 transition duration-500 ease-in-out mb-2">{{$blog->title}}</a>
+                    <p class="text-gray-500 text-sm">
+                        {{substr($blog->stripDescriptionTags($blog->description), 0, 200)}}...
+                    </p>
+                </div>
+                <div class="px-6 py-3 flex flex-row items-center justify-between bg-gray-100">
+                <span href="#" class="py-1 text-xs font-regular text-gray-900 mr-1 flex flex-row items-center">
+                    <svg height="13px" width="13px" version="1.1" id="Layer_1"
+                         xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+                         y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;"
+                         xml:space="preserve">
+                        <g>
+                            <g>
+                                <path
+                                    d="M256,0C114.837,0,0,114.837,0,256s114.837,256,256,256s256-114.837,256-256S397.163,0,256,0z M277.333,256 c0,11.797-9.536,21.333-21.333,21.333h-85.333c-11.797,0-21.333-9.536-21.333-21.333s9.536-21.333,21.333-21.333h64v-128 c0-11.797,9.536-21.333,21.333-21.333s21.333,9.536,21.333,21.333V256z">
+                                </path>
+                            </g>
+                        </g>
+                    </svg>
+                    <span class="ml-1">{{$blog->created_at->format('D, d M Y')}}</span>
+                </span>
+
+                    <span href="#" class="py-1 text-xs font-regular text-gray-900 mr-1 flex flex-row items-center">
+                    <svg class="h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z">
+                        </path>
+                    </svg>
+                    <span class="ml-1">{{count($blog->blogComments)}} Comments</span>
+                </span>
+                </div>
+            </div>
             @endforeach
         </div>
     </div>
 
-    @if(($blogs->count() > 0))
-        <div class="flex justify-center mb-4 pb-4">
-            <nav aria-label="Page navigation example">
-                <ul class="flex items-center -space-x-px h-10 text-base">
-                    <li  class="{{$blogs->currentPage() == 1 ? 'page-item disabled':'page-item'}}">
-                        <a href="{{route('manage-blogs', ['page' =>$blogs->currentPage() - 1])}}" class="{{$blogs->currentPage() == 1? 'cursor-not-allowed flex items-center justify-center px-4 h-10 ms-0 leading-tight text-gray-500 bg-white border border-e-0 border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white':'flex items-center justify-center px-4 h-10 ms-0 leading-tight text-gray-500 bg-white border border-e-0 border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white'}}">
-                            <span class="sr-only">Previous</span>
-                            <svg class="w-3 h-3 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4"/>
-                            </svg>
-                        </a>
-                    </li>
-                    @for($i = 1; $i <= $blogs->lastPage(); $i++)
-                        <li>
-                            <a href="{{route('manage-blogs', ['page' => $i])}}" class="{{$blogs->currentPage() == $i ?'flex items-center justify-center px-4 h-10 leading-tight text-white bg-blue-800 border border-blue-800 hover:bg-blue-800 hover:text-white dark:bg-blue-800 dark:border-blue-800 dark:text-white dark:hover:bg-blue-800 dark:hover:text-white' : 'flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white'}}">
-                                {{$i}}
-                            </a>
-                        </li>
-                    @endfor
+    <div class="max-w-7xl mx-auto  py-3 flex justify-end">
+        @if(($blogs->count() > 0))
+            <div class="py-12 max-w-7xl mx-auto sm:px-6 lg:px-8">
+                <div class="m-5 p-5 flex justify-end">
+                    <nav aria-label="Page navigation example">
+                        <ul class="flex items-center -space-x-px h-10 text-base">
+                            <li  class="{{$blogs->currentPage() == 1 ? 'page-item disabled':'page-item'}}">
+                                <a href="{{route('manage-blogs', ['page' =>$blogs->currentPage() - 1])}}" class="{{$blogs->currentPage() == 1? 'cursor-not-allowed flex items-center justify-center px-4 h-10 ms-0 leading-tight text-gray-500 bg-white border border-e-0 border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white':'flex items-center justify-center px-4 h-10 ms-0 leading-tight text-gray-500 bg-white border border-e-0 border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white'}}">
+                                    <span class="sr-only">Previous</span>
+                                    <svg class="w-3 h-3 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4"/>
+                                    </svg>
+                                </a>
+                            </li>
+                            @for($i = 1; $i <= $blogs->lastPage(); $i++)
+                                <li>
+                                    <a href="{{route('manage-blogs', ['page' => $i])}}" class="{{$blogs->currentPage() == $i ?'flex items-center justify-center px-4 h-10 leading-tight text-white bg-blue-800 border border-blue-800 hover:bg-blue-800 hover:text-white dark:bg-blue-800 dark:border-blue-800 dark:text-white dark:hover:bg-blue-800 dark:hover:text-white' : 'flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white'}}">
+                                        {{$i}}
+                                    </a>
+                                </li>
+                            @endfor
 
-                    <li class="{{$blogs->currentPage() == $blogs->lastPage() ? 'page-item disabled': 'page-item'}}">
-                        <a href="{{route('manage-blogs', ['page' =>$blogs->currentPage() + 1])}}" class="{{$blogs->currentPage() == $blogs->lastPage() ? 'cursor-not-allowed flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white'
+                            <li class="{{$blogs->currentPage() == $blogs->lastPage() ? 'page-item disabled': 'page-item'}}">
+                                <a href="{{route('manage-blogs', ['page' =>$blogs->currentPage() + 1])}}" class="{{$blogs->currentPage() == $blogs->lastPage() ? 'cursor-not-allowed flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white'
 :'flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white'}}">
-                            <span class="sr-only">Next</span>
-                            <svg class="w-3 h-3 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
-                            </svg>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-
-        </div>
-    @endif
+                                    <span class="sr-only">Next</span>
+                                    <svg class="w-3 h-3 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
+                                    </svg>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        @endif
+    </div>
 </x-app-layout>
+
 
 <script>
     $(document).ready(function() {
