@@ -61,58 +61,58 @@
             {{ __('Showing') }} {{count($blogs->items())}} / {{ $blogs->total() }} {{__('Blog Posts')}}
         </h6>
         <div  class="max-w-7xl mx-auto sm:px-6 lg:px-8 flex flex-row flex-wrap h-full gap-3">
-                @foreach($blogs as $key => $blog)
-                   <div class="bg-white shadow-sm sm:rounded-lg basis-1/4 flex-auto">
-                       <a href="{{route('show.blog', ['slug'=> $blog->slug])}}">
-                           <div class="relative flex flex-col my-6 bg-white shadow-sm   border-slate-200 rounded-lg w-96">
-                               <div class="relative h-56 m-2.5 overflow-hidden text-white rounded-md">
-                                   <img src="{{asset($blog->getSingleBlogImage($blog->id))}}" alt="card-image"  width="100%" height="100%"/>
-                               </div>
-                               <div class="p-4">
-                                   <div class="flex flex-row gap-4 justify-between">
-                                       <div class="mb-4 rounded-full bg-blue-800 py-0.5 px-2.5 border border-transparent text-xs text-white transition-all shadow-sm w-1/2 text-center">
-                                           {{$blog->category->name}}
-                                       </div>
-                                       @if($blog->blog_state == \App\Constant\BlogState::PENDING)
-                                           <div class="mb-4 rounded-full bg-sky-400 py-0.5 px-2.5 border border-transparent text-xs text-white transition-all shadow-sm w-1/4 text-center">
-                                               {{$blog->blog_state}}
-                                           </div>
-                                       @elseif($blog->blog_state == \App\Constant\BlogState::APPROVED)
-                                           <div class="mb-4 rounded-full bg-green-700 py-0.5 px-2.5 border border-transparent text-xs text-white transition-all shadow-sm w-1/4 text-center">
-                                               {{$blog->blog_state}}
-                                           </div>
-                                       @elseif($blog->blog_state == \App\Constant\BlogState::REJECTED)
-                                           <div class="mb-4 rounded-full bg-red-700 py-0.5 px-2.5 border border-transparent text-xs text-white transition-all shadow-sm w-1/4 text-center">
-                                               {{$blog->blog_state}}
-                                           </div>
-                                       @endif
-                                   </div>
-                                   <h6 class="mb-2 text-slate-800 text-xl font-semibold">
-                                       {{$blog->title}}
-                                   </h6>
-                                   <p class="text-slate-600 leading-normal font-light">
-                                       {!! substr($blog->description, 0, 200) !!}...
-                                   </p>
-                               </div>
+            @foreach($blogs as $key => $blog)
+                <div class="bg-white shadow-sm sm:rounded-lg basis-1/4 flex-auto">
+                    <a href="{{route('show.blog', ['slug'=> $blog->slug])}}">
+                        <div class="relative flex flex-col my-6 bg-white shadow-sm   border-slate-200 rounded-lg w-96">
+                            <div class="relative h-56 m-2.5 overflow-hidden text-white rounded-md">
+                                <img src="{{asset($blog->getSingleBlogImage($blog->id))}}" alt="card-image"  width="100%" height="100%"/>
+                            </div>
+                            <div class="p-4">
+                                <div class="flex flex-row gap-4 justify-between">
+                                    <div class="mb-4 rounded-full bg-blue-800 py-0.5 px-2.5 border border-transparent text-xs text-white transition-all shadow-sm w-1/2 text-center">
+                                        {{$blog->category->name}}
+                                    </div>
+                                    @if($blog->blog_state == \App\Constant\BlogState::PENDING)
+                                        <div class="mb-4 rounded-full bg-sky-400 py-0.5 px-2.5 border border-transparent text-xs text-white transition-all shadow-sm w-1/4 text-center">
+                                            {{$blog->blog_state}}
+                                        </div>
+                                    @elseif($blog->blog_state == \App\Constant\BlogState::APPROVED)
+                                        <div class="mb-4 rounded-full bg-green-700 py-0.5 px-2.5 border border-transparent text-xs text-white transition-all shadow-sm w-1/4 text-center">
+                                            {{$blog->blog_state}}
+                                        </div>
+                                    @elseif($blog->blog_state == \App\Constant\BlogState::REJECTED)
+                                        <div class="mb-4 rounded-full bg-red-700 py-0.5 px-2.5 border border-transparent text-xs text-white transition-all shadow-sm w-1/4 text-center">
+                                            {{$blog->blog_state}}
+                                        </div>
+                                    @endif
+                                </div>
+                                <h6 class="mb-2 text-slate-800 text-xl font-semibold">
+                                    {{$blog->title}}
+                                </h6>
+                                <p class="text-slate-600 leading-normal font-light">
+                                    {!! substr($blog->description, 0, 200) !!}...
+                                </p>
+                            </div>
 
-                               <div class="flex items-center justify-between p-4">
-                                   <div class="flex items-center">
-                                       <img
-                                           alt="Tania Andrew"
-                                           src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1480&amp;q=80"
-                                           class="relative inline-block h-8 w-8 rounded-full"
-                                       />
-                                       <div class="flex flex-col ml-3 text-sm">
-                                           <span class="text-slate-800 font-semibold">{{\Illuminate\Support\Facades\Auth::user()->name}}</span>
-                                           <span class="text-slate-600">{{$blog->created_at->format('D, d M Y')}}</span>
-                                       </div>
-                                   </div>
-                               </div>
-                           </div>
-                       </a>
-                   </div>
-               @endforeach
-         </div>
+                            <div class="flex items-center justify-between p-4">
+                                <div class="flex items-center">
+                                    <img
+                                        alt="Tania Andrew"
+                                        src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1480&amp;q=80"
+                                        class="relative inline-block h-8 w-8 rounded-full"
+                                    />
+                                    <div class="flex flex-col ml-3 text-sm">
+                                        <span class="text-slate-800 font-semibold">{{\Illuminate\Support\Facades\Auth::user()->name}}</span>
+                                        <span class="text-slate-600">{{$blog->created_at->format('D, d M Y')}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            @endforeach
+        </div>
     </div>
 
     @if(($blogs->count() > 0))

@@ -103,8 +103,8 @@
 
                 @if(($trainees->count() > 0))
                     <div class="m-5 p-5 flex justify-end">
-                    <nav aria-label="Page navigation example py-5">
-                        <ul class="flex items-center -space-x-px h-10 text-base">
+                        <nav aria-label="Page navigation example py-5">
+                            <ul class="flex items-center -space-x-px h-10 text-base">
                             <li  class="{{$trainees->currentPage() == 1 ? 'page-item disabled':'page-item'}}">
                                 <a href="{{route('manage-students', ['page' =>$trainees->currentPage() - 1])}}" class="{{$trainees->currentPage() == 1? 'cursor-not-allowed flex items-center justify-center px-4 h-10 ms-0 leading-tight text-gray-500 bg-white border border-e-0 border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white':'flex items-center justify-center px-4 h-10 ms-0 leading-tight text-gray-500 bg-white border border-e-0 border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white'}}">
                                     <span class="sr-only">Previous</span>
@@ -131,9 +131,8 @@
                                 </a>
                             </li>
                         </ul>
-                    </nav>
-
-                </div>
+                        </nav>
+                    </div>
                 @endif
             </div>
         </div>
