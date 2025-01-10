@@ -1,4 +1,4 @@
-@section('title', 'Program details')
+@section('title', 'MTMKay IT Services-Program details')
 
 <x-guest-layout>
 

@@ -1,4 +1,4 @@
-@section('title', 'Blogs')
+@section('title', 'MTMKay IT Services-Blogs')
 <x-guest-layout>
 <!--================Home Banner Area =================-->
 <section class="home_banner_area blog_banner">

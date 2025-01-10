@@ -60,7 +60,8 @@
                 </div>
 
                 @if(($subscribers->count() > 0))
-                    <div class="m-4 flex justify-end">
+                    <div class="m-4 flex justify-between">
+                        <p class="font-bold">Total Subscribers: {{$subscribers->total()}}</p>
                         <nav aria-label="Page navigation example">
                             <ul class="flex items-center -space-x-px h-10 text-base">
                                 <li  class="{{$subscribers->currentPage() == 1 ? 'page-item disabled':'page-item'}}">
@@ -90,7 +91,6 @@
                                 </li>
                             </ul>
                         </nav>
-
                     </div>
                 @endif
             </div>
