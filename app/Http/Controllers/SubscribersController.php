@@ -85,7 +85,6 @@ class SubscribersController extends Controller
     {
         $slug = $request['subscriber'];
         $email = $request['email'];
-        $expires = $request['expires'];
 
         $subscriber = "";
         if(isset($slug)){

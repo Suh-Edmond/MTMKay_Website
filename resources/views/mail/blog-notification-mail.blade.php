@@ -46,7 +46,7 @@ MTMKay Team.<br>
         <span>This email was sent to <a class="dn_btn">{{$data['subscriber']}}.</a><br>You've received it because you've subscribed to our newsletter.</span>
     </div>
     <div style="display: flex;justify-content: center; padding: 10px">
-        | <a class="dn_btn" style="display: flex; justify-content: center; padding-left: 5px" href="mailto:mtmkay17@gmail.com">Unsubscribe</a>
+        | <a class="dn_btn" style="display: flex; justify-content: center; padding-left: 5px" href="{{$data['unsubscription_link']}}">Unsubscribe</a>
     </div>
 </div>
 </x-mail::message>
