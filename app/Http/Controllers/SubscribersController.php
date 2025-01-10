@@ -94,14 +94,21 @@ class SubscribersController extends Controller
             ]);
         }
         if(isset($email)){
-            $subscriber = Subscriber::create([
-                'email' => $request['email'],
-                'is_active' => true
-            ]);
+            $existSubscriber = Subscriber::where('email', $email)->first();
+            if(!isset($existSubscriber)){
+                $subscriber = Subscriber::create([
+                    'email' => $request['email'],
+                    'is_active' => true
+                ]);
+            }else {
+                $existSubscriber->update([
+                    'is_active' => true
+                ]);
+            }
         }
 
         $data = [
-            'message' => "Thank you for resubscribing to our news letter. You will be amongst the first to receive news and updates about our training programs and blogs",
+            'message' => "Thank you for subscribing to our news letter. You will be amongst the first to receive news and updates about our training programs and blogs",
             'resubscribe_link' => $this->generationSubscriptionLink($subscriber),
             'subscriber' => $subscriber,
             'link_training_programs' => env('APP_TRAINING_URL')
