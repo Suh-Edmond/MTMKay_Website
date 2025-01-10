@@ -6,7 +6,7 @@
     </div>
     @if($subscriber->is_active)
     <div class="flex justify-start my-3">
-        <a href="{{$website_link}}">
+        <a href="{{$link_training_programs}}">
             <x-primary-button>
                 Visit our Training Programs
             </x-primary-button>

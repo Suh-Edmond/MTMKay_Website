@@ -31,10 +31,10 @@ MTMKay Team.<br>
         <span>Atlaska Street Buea road Kumba, Cameroon.</span>
     </div>
     <div style="display: flex;justify-content: center;padding: 10px">
-        <span>This email was sent to <a class="dn_btn">{{$data['email']}}</a><br>You subscribe ro unsubscribe to our newsletter.</span>
+        <span>This email was sent to <a class="dn_btn">{{$data['email']}}</a><br>You Subscribe to our newsletter.</span>
     </div>
     <div style="display: flex;justify-content: center; padding: 10px">
-        <a class="dn_btn" style="display: flex; justify-content: center; padding-left: 5px;padding-right: 5px" href="#">Subscribe</a> | <a class="dn_btn" style="display: flex; justify-content: center; padding-left: 5px" href="#">Unsubscribe</a>
+        | <a class="dn_btn" style="display: flex; justify-content: center; padding-left: 5px;padding-right: 5px" href="{{$data['subscription_link']}}">Subscribe</a>
     </div>
 </div>
 </x-mail::message>

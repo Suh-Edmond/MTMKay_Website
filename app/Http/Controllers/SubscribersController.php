@@ -62,7 +62,12 @@ class SubscribersController extends Controller
     public function removeMemberSubscription(Request $request)
     {
         $slug = $request['subscriber'];
-        $subscriber = Subscriber::where('slug', $slug)->first();
+        $subscriber = "";
+
+        if (isset($slug)){
+            $subscriber = Subscriber::where('slug', $slug)->first();
+        }
+
         $subscriber->update([
             'is_active' => false
         ]);
@@ -79,16 +84,28 @@ class SubscribersController extends Controller
     public function resubscribe(Request $request)
     {
         $slug = $request['subscriber'];
-        $subscriber = Subscriber::where('slug', $slug)->first();
-        $subscriber->update([
-            'is_active' => true
-        ]);
+        $email = $request['email'];
+        $expires = $request['expires'];
+
+        $subscriber = "";
+        if(isset($slug)){
+            $subscriber = Subscriber::where('slug', $slug)->first();
+            $subscriber->update([
+                'is_active' => true
+            ]);
+        }
+        if(isset($email)){
+            $subscriber = Subscriber::create([
+                'email' => $request['email'],
+                'is_active' => true
+            ]);
+        }
 
         $data = [
             'message' => "Thank you for resubscribing to our news letter. You will be amongst the first to receive news and updates about our training programs and blogs",
             'resubscribe_link' => $this->generationSubscriptionLink($subscriber),
             'subscriber' => $subscriber,
-            'website_link' => env('APP_URL')
+            'link_training_programs' => env('APP_TRAINING_URL')
         ];
 
         return view('pages.subscription.unsubscribe')->with($data);
