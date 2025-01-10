@@ -63,8 +63,8 @@
 
                         <div class="row">
                             @foreach($blog->blogImages as $image)
-                                <div class="col-6 col-md-6 mt-4">
-                                    <img class="img-fluid" src="{{ asset($blog->getImagePath($blog, $image->file_path))}}" alt="" height="60%" width="100%">
+                                <div class="col-6 col-md-6 mt-4 blog_image_list">
+                                    <img class="img-fluid" src="{{ asset($blog->getImagePath($blog, $image->file_path))}}" alt="" height="40%" width="40%">
                                 </div>
                             @endforeach
 

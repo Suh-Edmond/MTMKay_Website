@@ -5,6 +5,7 @@ namespace App\Jobs;
 use App\Mail\BlogNotificationMail;
 use App\Models\Blog;
 use App\Models\Subscriber;
+use App\Traits\SubscriptionTrait;
 use Carbon\Carbon;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -15,7 +16,7 @@ use Illuminate\Support\Facades\Mail;
 
 class BlogNotificationsJob implements ShouldQueue
 {
-    use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
+    use Dispatchable, InteractsWithQueue, Queueable, SerializesModels, SubscriptionTrait;
 
     /**
      * Create a new job instance.
@@ -43,6 +44,7 @@ class BlogNotificationsJob implements ShouldQueue
                     'blog_image' => $blog->getSingleBlogImage($blog->id),
                     'blog_slug'  => $blog->slug,
                     'blog_detail_url' =>  url()->query('blog-detail', ['slug' => $blog->slug]),
+                    'unsubscription_link' => $this->generationUnSubscriptionLink($subscriber)
                 ];
 
                 Mail::to($subscriber->email)->send(new BlogNotificationMail($notificationData));

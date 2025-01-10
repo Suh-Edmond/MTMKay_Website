@@ -11,6 +11,7 @@ use App\Models\Enrollment;
 use App\Models\Program;
 use App\Models\Role;
 use App\Models\User;
+use App\Traits\SubscriptionTrait;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -18,6 +19,7 @@ use Illuminate\Support\Facades\Mail;
 
 class UserController extends Controller
 {
+    use SubscriptionTrait;
     public function enrollStudent($slug, EnrollmentRequest $request)
     {
 
@@ -72,7 +74,7 @@ class UserController extends Controller
                 'telephone' => $request['telephone'],
                 'address'  => $request['address'],
                 'password' => Hash::make('password'),
-                'role_id'   => $role->id
+                'role_id'   => $role->id,
             ]);
 
             $data = $this->setEmailData($request, $program, $student);
@@ -129,7 +131,9 @@ class UserController extends Controller
                'is_first_time' => true,
                'program_image' => $program->getImagePath($program, $program->image_path),
                'program_link' => $program_link,
-               'verificationUrl' => str_replace('amp;', '', $this->generationEnrollmentVerificationLink($program,$user))
+               'verificationUrl' => str_replace('amp;', '', $this->generationEnrollmentVerificationLink($program,$user)),
+               'subscription_link' => $this->generationSubscriptionLinkUsingEmail($user['email']),
+               'unsubscription_link' => $this->generationUnSubscriptionLinkUsingEmail($user['email'])
            ];
 
            $this->sendNotificationsUponEnrollment($user['email'], $emailData, $program, $user);
@@ -158,7 +162,9 @@ class UserController extends Controller
             'is_first_time' => true,
             'program_image' => $program->getImagePath($program, $program->image_path),
             'program_link' => $program_link,
-            'verificationUrl' => str_replace('amp;', '', $this->generationEnrollmentVerificationLink($program,$student))
+            'verificationUrl' => str_replace('amp;', '', $this->generationEnrollmentVerificationLink($program,$student)),
+            'subscription_link' => $this->generationSubscriptionLinkUsingEmail($request['email']),
+            'unsubscription_link' => $this->generationUnSubscriptionLinkUsingEmail($request['email'])
         ];
     }
 
@@ -177,7 +183,8 @@ class UserController extends Controller
                 'studentName'    => $exist->name,
                 'studentEmail'   => $exist->email,
                 'studentPhone'   => $exist->telephone,
-                'studentAddress' => $exist->address
+                'studentAddress' => $exist->address,
+                'adminEmail'     => env('MAIL_FROM_ADDRESS')
             ];
 
             Mail::to(env('MAIL_FROM_ADDRESS'))->send(new EnrollmentNotification($data));
