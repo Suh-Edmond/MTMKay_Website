@@ -1,4 +1,4 @@
-@section('title', 'MTMKay IT Services-Contact Us')
+@section('title', 'MTMKay-Contact Us')
 <x-guest-layout>
 <!--================Home Banner Area =================-->
 <section class="banner_area">
@@ -34,7 +34,7 @@
                     <div class="info_item">
                         <i class="lnr lnr-home"></i>
                         <h6>Kumba, Cameroon</h6>
-                        <p>Atlasca Street</p>
+                        <p>Alaska Street</p>
                     </div>
                     <div class="info_item">
                         <i class="lnr lnr-phone-handset"></i>
@@ -48,23 +48,47 @@
                     </div>
                 </div>
             </div>
+
             <div class="col-lg-9">
-                <form class="row contact_form" action="{{route('on-inquire')}}"  method="post" id="contactForm" >
+                @if(session('message'))
+                    <p class="d-flex justify-content-center my-4 font-bold text-primary">{{session('message')}}</p>
+                @endif
+                <form class="row contact_form" action="{{route('on-inquire')}}" method="post"  >
                     @csrf
                     <div class="col-md-6">
                         <div class="form-group">
-                            <input type="text" class="form-control"  name="name" placeholder="Enter your name" required>
+                            <input type="text" class="form-control"  name="name" placeholder="Enter your name" required value="{{old('name')}}"/>
+                            @if($errors->has('name'))
+                                @foreach($errors->get('name') as $message )
+                                    <span style="color: red">{{ $message }}</span><br>
+                                @endforeach
+                            @endif
                         </div>
                         <div class="form-group">
-                            <input type="email" class="form-control"   name="email" placeholder="Enter email address" required>
+                            <input type="email" class="form-control " name="email" placeholder="Enter email address" required value="{{old('email')}}"/>
+                            @if($errors->has('email'))
+                                @foreach($errors->get('email') as $message )
+                                    <span style="color: red">{{ $message }}</span><br>
+                                @endforeach
+                            @endif
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control"   name="subject" placeholder="Enter Subject" required>
+                            <input type="text" class="form-control"   name="subject" placeholder="Enter Subject" value="{{old('subject')}}" required/>
+                            @if($errors->has('subject'))
+                                @foreach($errors->get('subject') as $message )
+                                    <span style="color: red">{{ $message }}</span><br>
+                                @endforeach
+                            @endif
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <textarea class="form-control" name="message"   rows="1" placeholder="Enter Message" required></textarea>
+                            <textarea class="form-control" name="message"   rows="1" placeholder="Enter Message" required >{{old('message')}}</textarea>
+                            @if($errors->has('message'))
+                                @foreach($errors->get('message') as $message )
+                                    <span style="color: red">{{ $message }}</span><br>
+                                @endforeach
+                            @endif
                         </div>
                     </div>
                     <div class="col-md-12 text-right">

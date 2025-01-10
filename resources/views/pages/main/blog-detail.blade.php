@@ -1,4 +1,4 @@
-@section('title', 'MTMKay IT Services-Blog details')
+@section('title', 'MTMKay-Blog details')
 
 <x-guest-layout>
 <!--================Home Banner Area =================-->
@@ -27,7 +27,7 @@
                 <div class="single-post row">
                     <div class="col-lg-12">
                         <div class="feature-img">
-                            <img class="img-fluid" src="{{asset($blog->getSingleBlogImage($blog->id))}}" alt="" width="100%" height="100%">
+                            <img class="img-fluid" src="{{asset($blog->getSingleBlogImage($blog->id) ?? '')}}" alt="" width="100%" height="100%">
                         </div>
                     </div>
                     <div class="col-lg-3  col-md-3">
@@ -94,23 +94,46 @@
                         </div>
                     @endforeach
                 </div>
+                @if(session('success'))
+                    <div class="d-flex justify-content-center mt-4 font-bold text-primary">{{session('success')}}</div>
+                @endif
                 <div class="comment-form">
                     <h4>Leave a Reply</h4>
-                    <form action="{{route('create-comment', ['id' => $blog->id])}}" method="post" id="contactForm">
+                    <form action="{{route('create-comment', ['id' => $blog->id])}}" method="post">
                         @csrf
                         <div class="form-group form-inline">
                             <div class="form-group col-lg-6 col-md-6 name">
-                                <input type="text" class="form-control" id="name" name="name" placeholder="Enter Name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Name'" required>
+                                <input type="text" class="form-control" id="name" name="name" placeholder="Enter Name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Name'" required value="{{old('name')}}">
+                                @if($errors->has('name'))
+                                    @foreach($errors->get('name') as $message )
+                                        <span style="color: red">{{ $message }}</span><br>
+                                    @endforeach
+                                @endif
                             </div>
                             <div class="form-group col-lg-6 col-md-6 email">
-                                <input type="email" class="form-control" id="email" name="email" placeholder="Enter email address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email address'" required>
+                                <input type="email" class="form-control" id="email" name="email" placeholder="Enter email address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email address'" required value="{{old('email')}}">
+                                @if($errors->has('email'))
+                                    @foreach($errors->get('email') as $message )
+                                        <span style="color: red">{{ $message }}</span><br>
+                                    @endforeach
+                                @endif
                             </div>
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Subject'" required>
+                            <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Subject'" required value="{{old('subject')}}">
+                            @if($errors->has('subject'))
+                                @foreach($errors->get('subject') as $message )
+                                    <span style="color: red">{{ $message }}</span><br>
+                                @endforeach
+                            @endif
                         </div>
                         <div class="form-group">
-                            <textarea class="form-control mb-10" rows="5" name="message" placeholder="Messege" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Messege'" required=""></textarea>
+                            <textarea class="form-control mb-10" rows="5" name="message" placeholder="Messege" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Messege'" required="">{{old('message')}}</textarea>
+                            @if($errors->has('message'))
+                                @foreach($errors->get('message') as $message )
+                                    <span style="color: red">{{ $message }}</span><br>
+                                @endforeach
+                            @endif
                         </div>
                         <button type="submit" value="submit" class="btn submit_btn">Post Comment</button>
                     </form>
