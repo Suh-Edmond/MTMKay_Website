@@ -12,6 +12,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 
 class BlogNotificationsJob implements ShouldQueue
@@ -31,8 +32,13 @@ class BlogNotificationsJob implements ShouldQueue
      */
     public function handle(): void
     {
+        Log::info("Start processing notifications...");
         $activeSubscribers = Subscriber::where('is_active', true)->get();
-        $blogs = Blog::whereDate('created_at', Carbon::today())->get();
+
+        Log::info("Fetch all subscribers...");
+        $blogs = Blog::whereDate('created_at', Carbon::yesterday())->get();
+
+        Log::info("Fetch all blogs posted today...");
         foreach ($activeSubscribers as $subscriber){
             foreach ($blogs as $blog) {
                 $notificationData = [
@@ -47,7 +53,13 @@ class BlogNotificationsJob implements ShouldQueue
                     'unsubscription_link' => $this->generationUnSubscriptionLink($subscriber)
                 ];
 
-                Mail::to($subscriber->email)->send(new BlogNotificationMail($notificationData));
+                Log::info("Sending email notification");
+                try {
+                    Mail::to($subscriber->email)->send(new BlogNotificationMail($notificationData));
+                    Log::info("Notification was successfully sent");
+                }catch (\Exception $exception){
+                    Log::error("Email notification could not be sent");
+                }
             }
         }
     }

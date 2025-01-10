@@ -28,7 +28,7 @@ class BlogNotificationMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'New Blog Post Notification',
+            subject: 'MTMKay IT Services Notification',
         );
     }
 
