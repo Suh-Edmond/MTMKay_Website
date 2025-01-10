@@ -177,7 +177,8 @@ class UserController extends Controller
                 'studentName'    => $exist->name,
                 'studentEmail'   => $exist->email,
                 'studentPhone'   => $exist->telephone,
-                'studentAddress' => $exist->address
+                'studentAddress' => $exist->address,
+                'adminEmail'     => env('MAIL_FROM_ADDRESS')
             ];
 
             Mail::to(env('MAIL_FROM_ADDRESS'))->send(new EnrollmentNotification($data));

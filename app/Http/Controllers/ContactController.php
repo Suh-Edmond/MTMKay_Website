@@ -28,6 +28,7 @@ class ContactController extends Controller
             'email' =>  $data['email'],
             'subject' => $data['subject'],
             'message' => $data['message'],
+            'adminEmail' => env('MAIL_FROM_ADDRESS')
         ];
 
         Mail::to(env('MAIL_FROM_ADDRESS'))->send(new ContactMail($emailData));

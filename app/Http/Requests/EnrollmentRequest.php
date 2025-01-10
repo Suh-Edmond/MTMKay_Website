@@ -25,7 +25,7 @@ class EnrollmentRequest extends FormRequest
             'name'  => 'required|min:5',
             'email' => 'required|email|string|lowercase',
 //            'telephone' => 'required|string|min:9|max:18|regex:/(0)[0-9]/|not_regex:/[a-z]/',
-            'telephone' => 'required|string|min:9|max:18|regex:/(0)[0-9]/',
+            'telephone' => 'required|string|min:9|max:18',
             'address'   => 'required|string|max:50'
         ];
     }

@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Mail\SubscriptionMail;
 use App\Models\Subscriber;
+use App\Traits\SubscriptionTrait;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
 class SubscribersController extends Controller
 {
+    use SubscriptionTrait;
     public function index(Request $request)
     {
         $filter = $request['filter'];
@@ -92,10 +94,6 @@ class SubscribersController extends Controller
         return view('pages.subscription.unsubscribe')->with($data);
     }
 
-    private function generationUnSubscriptionLink($subscriber)
-    {
-        return urldecode(url()->query(env('UNSUBSCRIPTION_URL'), ['subscriber' => $subscriber->slug,'expires' => strtotime(Carbon::now()->addHours(24))]));
-    }
 
     private function generationSubscriptionLink($subscriber)
     {

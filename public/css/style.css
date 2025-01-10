@@ -3007,6 +3007,27 @@ h6 {
     opacity:1;
     transition: all .10s ease-in-out;
 }
+
+.blog_image_list {
+    padding-left: 15px;
+    padding-right: 15px;
+    position: relative;
+    overflow: hidden;
+    animation: translate 0.3s ease-in-out;
+    border-radius: 10px;
+}
+
+.blog_image_list:hover {
+    padding-left: 15px;
+    padding-right: 15px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    z-index: 20;
+    transform: scale(1.07);
+    opacity:1;
+    transition: all .10s ease-in-out;
+}
 /*///*/
 @keyframes translate {
     from {
