@@ -34,7 +34,7 @@ MTMKay Team.<br>
         <span>Atlaska Street Buea road Kumba, Cameroon.</span>
     </div>
     <div style="display: flex;justify-content: center;padding: 10px">
-        <span>This email was sent to <a class="dn_btn">{{$data['email']}}</a><br>You Subscribe to our newsletter.</span>
+        <span>This email was sent to <a class="dn_btn">{{$data['email']}}</a><br>You can subscribe to our newsletter to stay updated on news and events at MTMKay.</span>
     </div>
     <div style="display: flex;justify-content: center; padding: 10px">
         | <a class="dn_btn" style="display: flex; justify-content: center; padding-left: 5px;padding-right: 5px" href="{{$data['subscription_link']}}">Subscribe</a>
