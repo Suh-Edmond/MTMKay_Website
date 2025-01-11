@@ -56,6 +56,17 @@
             </div>
         </div>
     </div>
+    <div class="pt-4 max-w-7xl mx-auto sm:px-6 lg:px-8">
+        <div class="flex flex-wrap w-full">
+           <form method="get" action="{{ route('manage-blogs') }}" class="w-full">
+               <div class="md:flex md:items-center">
+                   <x-text-input id="search_title" name="search_title" type="text" class="mt-1 mr-2 block w-full" placeholder="Search blog by name..." required autocomplete="search"/>
+                   <x-primary-button
+                   >{{ __('Search') }}</x-primary-button>
+               </div>
+           </form>
+        </div>
+    </div>
 
     <div class="py-12">
         <h6 class="font-semibold text-xl text-gray-800 leading-tight text-center mb-4">
@@ -178,9 +189,14 @@
 <script>
     $(document).ready(function() {
 
+        // return urlObj.toString();
+
         $('#status').on('change', function (e){
             let url = new URL(location.href);
+
             let searchParams = new URLSearchParams(url.search);
+
+            searchParams.delete('search_title');
 
             searchParams.set('filter', e.target.value)
 
@@ -197,6 +213,7 @@
 
             searchParams.set('tag', parsedTag.name)
             searchParams.set('tag_id', parsedTag.id)
+            searchParams.delete('search_title');
 
             url.search = searchParams.toString();
 
@@ -207,6 +224,7 @@
         $('#category').on('change', function (e){
             let url = new URL(location.href);
             let searchParams = new URLSearchParams(url.search);
+            searchParams.delete('search_title');
 
             searchParams.set('category_slug', e.target.value)
 
@@ -219,6 +237,7 @@
         $('#sort').on('change', function (e){
             let url = new URL(location.href);
             let searchParams = new URLSearchParams(url.search);
+            searchParams.delete('search_title');
 
             searchParams.set('sort', e.target.value)
 

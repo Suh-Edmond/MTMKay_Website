@@ -33,7 +33,7 @@ MTMKay Team.<br>
         <span style="display: flex; justify-content: center;font-weight: bold;margin-left: 2px">MTMKay Technology Solutions Ltd</span><br>
     </div>
     <div style="display: flex;justify-content: center; margin-bottom: 5px;padding: 10px">
-        <span>Atlaska Street Buea road Kumba, Cameroon.</span>
+        <span>Opposite Alaska Street Buea Road Kumba, Cameroon.</span>
     </div>
     <div style="display: flex;justify-content: center;padding: 10px">
         <span>This email was sent to <a class="dn_btn">{{$data['adminEmail']}}.</a><br>You've received it because you're the administrator of MTMKay Technology Solutions.</span>

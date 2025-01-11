@@ -33,13 +33,13 @@
                 <div class="contact_info">
                     <div class="info_item">
                         <i class="lnr lnr-home"></i>
-                        <h6>Kumba, Cameroon</h6>
-                        <p>Alaska Street</p>
+                        <h6>Southwest Region, Cameroon</h6>
+                        <p>Opposite Alaska Street Buea Road Kumba</p>
                     </div>
                     <div class="info_item">
                         <i class="lnr lnr-phone-handset"></i>
                         <h6><a href="#">+1 612 224 1176</a></h6>
-                        <p>Mon to Fri 9am to 6 pm</p>
+                        <p>Mon to Saturday 8 am to 9 pm</p>
                     </div>
                     <div class="info_item">
                         <i class="lnr lnr-envelope"></i>
