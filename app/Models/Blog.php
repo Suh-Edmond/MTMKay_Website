@@ -62,9 +62,35 @@ class Blog extends Model
         $blog = Blog::find($id);
         $currentTime = Carbon::now();
         $blogCreatedTime = new Carbon($blog->created_at);
+        $time = $blogCreatedTime->diffInHours($currentTime);
+        $time = round($time);
 
-        return (int) $blogCreatedTime->diffInHours($currentTime);
+        $displayTime = "";
+        switch ($time){
+            case $time < 1:
+                $displayTime = "Few Minute ago";
+            break;
+            case $time == 1:
+                $actualTime = $blogCreatedTime->diffInMinutes($currentTime);
+                $displayTime = $actualTime. " Minutes ago";
+                break;
+            case $time > 1 && $time <= 60;
+                $displayTime = $time. " Hours ago";
+                break;
+            case $time > 60 && $time <= 1440:
+                $actualTime = $time/24;
+                $displayTime = round($actualTime). " Days ago";
+                break;
+            case $time > 1440 && $time <= 1860:
+                $actualTime = $time/744;
+                $displayTime = round($actualTime). " Months ago";
+            break;
+        }
+
+        return ($displayTime);
     }
+
+
 
     public function tags()
     {

@@ -1,4 +1,4 @@
-@section('title', 'MTMKay IT Services-Blog details')
+@section('title', 'MTMKay-Blog details')
 
 <x-guest-layout>
 <!--================Home Banner Area =================-->
@@ -27,7 +27,7 @@
                 <div class="single-post row">
                     <div class="col-lg-12">
                         <div class="feature-img">
-                            <img class="img-fluid" src="{{asset($blog->getSingleBlogImage($blog->id))}}" alt="" width="100%" height="100%">
+                            <img class="img-fluid" src="{{asset($blog->getSingleBlogImage($blog->id) ?? '')}}" alt="" width="100%" height="100%">
                         </div>
                     </div>
                     <div class="col-lg-3  col-md-3">
@@ -36,8 +36,8 @@
                                 <a href="{{route('blog', ['title' => $blog->category->name, 'id'=>$blog->category->id])}}" class="active">{{$blog->category->name}}</a>
                             </div>
                             <ul class="blog_meta list">
-                                <li><a href="#">{{$blog->created_at->format('D, d M Y')}}<i class="lnr lnr-calendar-full"></i></a></li>
-                                <li><a href="#">{{ $blog->blogComments()->count()}} Comments<i class="lnr lnr-bubble"></i></a></li>
+                                <li><a >{{$blog->created_at->format('D, d M Y')}}<i class="lnr lnr-calendar-full"></i></a></li>
+                                <li><a href="#blog_comments">{{ $blog->getApprovedBlogComments($blog->id)->count()}} Comments<i class="lnr lnr-bubble"></i></a></li>
                             </ul>
                             <ul class="social-links">
                                 <li><a href="#"><i class="fa fa-facebook"></i></a></li>
@@ -72,7 +72,7 @@
                     </div>
                 </div>
 
-                <div class="comments-area">
+                <div class="comments-area" id="blog_comments">
                     <h4>{{$blog->getApprovedBlogComments($blog->id)->count()}} Comments</h4>
                     @foreach($blog->getApprovedBlogComments($blog->id) as $comment)
                         <div class="comment-list">
@@ -94,23 +94,50 @@
                         </div>
                     @endforeach
                 </div>
+                @if(session('success'))
+                    <div class="d-flex justify-content-center session_message">
+                        <div class=" my-4 font-bold text-primary session_message">
+                            {{session('success')}}
+                        </div>
+                    </div>
+                @endif
                 <div class="comment-form">
                     <h4>Leave a Reply</h4>
-                    <form action="{{route('create-comment', ['id' => $blog->id])}}" method="post" id="contactForm">
+                    <form action="{{route('create-comment', ['id' => $blog->id])}}" method="post">
                         @csrf
                         <div class="form-group form-inline">
                             <div class="form-group col-lg-6 col-md-6 name">
-                                <input type="text" class="form-control" id="name" name="name" placeholder="Enter Name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Name'" required>
+                                <input type="text" class="form-control" id="name" name="name" placeholder="Enter Name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Name'" required value="{{old('name')}}">
+                                @if($errors->has('name'))
+                                    @foreach($errors->get('name') as $message )
+                                        <span style="color: red">{{ $message }}</span><br>
+                                    @endforeach
+                                @endif
                             </div>
                             <div class="form-group col-lg-6 col-md-6 email">
-                                <input type="email" class="form-control" id="email" name="email" placeholder="Enter email address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email address'" required>
+                                <input type="email" class="form-control" id="email" name="email" placeholder="Enter email address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email address'" required value="{{old('email')}}">
+                                @if($errors->has('email'))
+                                    @foreach($errors->get('email') as $message )
+                                        <span style="color: red">{{ $message }}</span><br>
+                                    @endforeach
+                                @endif
                             </div>
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Subject'" required>
+                            <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Subject'" required value="{{old('subject')}}">
+                            @if($errors->has('subject'))
+                                @foreach($errors->get('subject') as $message )
+                                    <span style="color: red">{{ $message }}</span><br>
+                                @endforeach
+                            @endif
                         </div>
                         <div class="form-group">
-                            <textarea class="form-control mb-10" rows="5" name="message" placeholder="Messege" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Messege'" required=""></textarea>
+                            <textarea class="form-control mb-10" rows="5" name="message" placeholder="Messege" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Messege'" required="">{{old('message')}}</textarea>
+                            @if($errors->has('message'))
+                                @foreach($errors->get('message') as $message )
+                                    <span style="color: red">{{ $message }}</span><br>
+                                @endforeach
+                            @endif
                         </div>
                         <button type="submit" value="submit" class="btn submit_btn">Post Comment</button>
                     </form>
@@ -137,12 +164,8 @@
                             <div class="media post_item">
                                 <img src="{{asset($popularBlog->getSingleBlogImage($popularBlog->id))}}" alt="post" height="25%" width="25%">
                                 <div class="media-body">
-                                    <a href="{{route('show-blog', ['id'=> $popularBlog->id])}}"><h3>{{$popularBlog->title}}</h3></a>
-                                    @if($popularBlog->getBlogCreatedHours($popularBlog->id) < 1)
-                                        <p>Few Minutes Ago</p>
-                                    @else
-                                        <p>{{$popularBlog->getBlogCreatedHours($popularBlog->id) }} Hours ago</p>
-                                    @endif
+                                    <a href="{{route('show-blog', ['slug'=> $popularBlog->slug])}}"><h3>{{$popularBlog->title}}</h3></a>
+                                    <p>{{$popularBlog->getBlogCreatedHours($popularBlogs[1]->id) }}</p>
                                 </div>
                             </div>
                         @endforeach
@@ -204,3 +227,13 @@
 <!--================Blog Area =================-->
 
 </x-guest-layout>
+
+<script>
+    $(document).ready(function () {
+        setTimeout(showFeedback, 3000)
+    });
+
+    function showFeedback() {
+        $(".session_message").css("display", "none");
+    }
+</script>

@@ -102,6 +102,12 @@
                 <div class="grow my-4">
                     <x-input-label for="subject" :value="__('Subject')" /> <span><label class="font-medium">{{$comment->subject}}</label></span>
                 </div>
+                <div class="grow my-4">
+                    <x-input-label for="subject" :value="__('Created Date')" /> <span><label class="font-medium">{{$comment->created_at->format('D, d M Y')}}</label></span>
+                </div>
+                <div class="grow my-4">
+                    <x-input-label for="subject" :value="__('Updated Date')" /> <span><label class="font-medium">{{$comment->updated_at->format('D, d M Y')}}</label></span>
+                </div>
                 <div>
                     <x-input-label for="message" :value="__('Message')" /><span><p class="font-medium">{!! $comment->message !!}</p></span>
                 </div>

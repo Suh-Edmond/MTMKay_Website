@@ -1,4 +1,4 @@
-@section('title', 'MTMKay IT Services-Blogs')
+@section('title', 'MTMKay-Blogs')
 <x-guest-layout>
 <!--================Home Banner Area =================-->
 <section class="home_banner_area blog_banner">
@@ -122,7 +122,7 @@
             <div class="col-lg-4">
                 <div class="blog_right_sidebar">
                     <aside class="single_sidebar_widget search_widget">
-                        <form action="{{route('blog')}}" method="get" id="contactForm">
+                        <form action="{{route('blog')}}" method="get">
                             <div class="input-group">
                                 <input type="text" class="form-control" placeholder="Search Posts" name="search">
                                 <span class="input-group-btn">

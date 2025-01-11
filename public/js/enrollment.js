@@ -80,14 +80,14 @@ $(document).ready(function() {
             data: $form.serialize(),
             headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
             success:function (response){
-                $(".btn-text").text("Submit");
+                $(".btn-text").text("Send Message");
 
                 $('#success').fadeIn()
                 $('.modal').modal('hide');
                 $('#success').modal('show');
 
-                $form.reset();
-                $(".btn-text").text("Send Message");
+                // $form.reset();
+
 
             },
             error:function (error){

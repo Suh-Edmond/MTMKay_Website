@@ -5,28 +5,33 @@ namespace App\Http\Controllers;
 use App\Models\Blog;
 use App\Models\BlogComments;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class BlogCommentsController extends Controller
 {
    public function createComment(Request $request)
    {
        $blog_id = $request['id'];
-       $validData = $request->validate([
-           'name' => 'required|string|max:60',
-           'email' => 'required|email',
-           'subject' => 'required|string|max:100',
-           'message' => 'required|string|max:700'
+       $validation = Validator::make($request->all(), [
+           'name' => 'required|string|max:60|min:5|max:255',
+           'email' => 'required|email|string|lowercase|max:255',
+           'subject' => 'required|string|max:500|min:40',
+           'message' => 'required|string|max:1000|min:100'
        ]);
+
+       if($validation->fails()){
+           return redirect()->back()->withErrors($validation)->withInput();
+       }
 
        BlogComments::create([
            'blog_id' => $blog_id,
-           'name' => $validData['name'],
-           'email' => $validData['email'],
-           'subject' => $validData['subject'],
-           'message' => $validData['message']
+           'name' => $request['name'],
+           'email' => $request['email'],
+           'subject' => $request['subject'],
+           'message' => $request['message']
        ]);
 
-       return redirect()->back();
+       return redirect()->back()->with(['success' => "Comments sent successfully! Pending Approval"]);
    }
 
 
