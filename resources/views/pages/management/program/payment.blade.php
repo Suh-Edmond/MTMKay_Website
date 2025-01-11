@@ -1,15 +1,22 @@
 @section('title', "MTMKay-Payment Transaction")
 <x-app-layout>
     <x-slot name="header">
-        <div class="flex flex-row">
-            <a href="{{route('manage-students')}}" >
-                <button id="goBack" class="text-blue-800 text-xl">
-                    <span><i class="fa fa-arrow-left px-5"></i></span>
-                </button>
-            </a>
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                {{$user->name}}    {{ __('Payment Transactions') }}
-            </h2>
+        <div class="flex flex-row justify-between">
+            <div class="flex flex-row">
+                <a href="{{route('manage-students')}}" >
+                    <button id="goBack" class="text-blue-800 text-xl">
+                        <span><i class="fa fa-arrow-left px-5"></i></span>
+                    </button>
+                </a>
+                <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+                    {{$user->name}}    {{ __('Payment Transactions') }}
+                </h2>
+            </div>
+{{--            <x-primary-button--}}
+{{--                x-data="add-comment-modal"--}}
+{{--                x-on:click.prevent="$dispatch('open-modal', 'fee-payment{{$enrollment->id}}')"--}}
+{{--            >{{ __('Add Payment') }}</x-primary-button>--}}
+{{--            @include('pages.management.trainee.payment')--}}
         </div>
     </x-slot>
 

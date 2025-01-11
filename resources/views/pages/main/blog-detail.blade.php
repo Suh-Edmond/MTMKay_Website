@@ -164,12 +164,8 @@
                             <div class="media post_item">
                                 <img src="{{asset($popularBlog->getSingleBlogImage($popularBlog->id))}}" alt="post" height="25%" width="25%">
                                 <div class="media-body">
-                                    <a href="{{route('show-blog', ['id'=> $popularBlog->id])}}"><h3>{{$popularBlog->title}}</h3></a>
-                                    @if($popularBlog->getBlogCreatedHours($popularBlog->id) < 1)
-                                        <p>Few Minutes Ago</p>
-                                    @else
-                                        <p>{{$popularBlog->getBlogCreatedHours($popularBlog->id) }} Hours ago</p>
-                                    @endif
+                                    <a href="{{route('show-blog', ['slug'=> $popularBlog->slug])}}"><h3>{{$popularBlog->title}}</h3></a>
+                                    <p>{{$popularBlog->getBlogCreatedHours($popularBlogs[1]->id) }}</p>
                                 </div>
                             </div>
                         @endforeach
