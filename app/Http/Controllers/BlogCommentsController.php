@@ -16,7 +16,7 @@ class BlogCommentsController extends Controller
            'name' => 'required|string|max:60|min:5|max:255',
            'email' => 'required|email|string|lowercase|max:255',
            'subject' => 'required|string|max:500|min:40',
-           'message' => 'required|string|max:1000|min:200'
+           'message' => 'required|string|max:1000|min:100'
        ]);
 
        if($validation->fails()){

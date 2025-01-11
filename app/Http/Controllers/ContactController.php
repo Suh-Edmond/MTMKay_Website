@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Mail\ContactMail;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
@@ -38,8 +39,8 @@ class ContactController extends Controller
             'adminEmail' => env('MAIL_FROM_ADDRESS')
         ];
 
-        Mail::to(env('MAIL_FROM_ADDRESS'))->send(new ContactMail($emailData));
+//        Mail::to(env('MAIL_FROM_ADDRESS'))->send(new ContactMail($emailData));
 
-        return redirect()->back()->with(['message' => "Your Inquiry was sent successfully. We will get back to you soonest"]);
+        return redirect()->back()->with(['message' => "Your Inquiry was sent successfully. We will get back to you soonest", "expires" => Carbon::now()->addSeconds(3)]);
     }
 }

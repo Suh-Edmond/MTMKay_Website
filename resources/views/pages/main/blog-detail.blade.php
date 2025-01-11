@@ -36,8 +36,8 @@
                                 <a href="{{route('blog', ['title' => $blog->category->name, 'id'=>$blog->category->id])}}" class="active">{{$blog->category->name}}</a>
                             </div>
                             <ul class="blog_meta list">
-                                <li><a href="#">{{$blog->created_at->format('D, d M Y')}}<i class="lnr lnr-calendar-full"></i></a></li>
-                                <li><a href="#">{{ $blog->blogComments()->count()}} Comments<i class="lnr lnr-bubble"></i></a></li>
+                                <li><a >{{$blog->created_at->format('D, d M Y')}}<i class="lnr lnr-calendar-full"></i></a></li>
+                                <li><a href="#blog_comments">{{ $blog->getApprovedBlogComments($blog->id)->count()}} Comments<i class="lnr lnr-bubble"></i></a></li>
                             </ul>
                             <ul class="social-links">
                                 <li><a href="#"><i class="fa fa-facebook"></i></a></li>
@@ -72,7 +72,7 @@
                     </div>
                 </div>
 
-                <div class="comments-area">
+                <div class="comments-area" id="blog_comments">
                     <h4>{{$blog->getApprovedBlogComments($blog->id)->count()}} Comments</h4>
                     @foreach($blog->getApprovedBlogComments($blog->id) as $comment)
                         <div class="comment-list">
@@ -95,7 +95,11 @@
                     @endforeach
                 </div>
                 @if(session('success'))
-                    <div class="d-flex justify-content-center mt-4 font-bold text-primary">{{session('success')}}</div>
+                    <div class="d-flex justify-content-center session_message">
+                        <div class=" my-4 font-bold text-primary session_message">
+                            {{session('success')}}
+                        </div>
+                    </div>
                 @endif
                 <div class="comment-form">
                     <h4>Leave a Reply</h4>
@@ -227,3 +231,13 @@
 <!--================Blog Area =================-->
 
 </x-guest-layout>
+
+<script>
+    $(document).ready(function () {
+        setTimeout(showFeedback, 3000)
+    });
+
+    function showFeedback() {
+        $(".session_message").css("display", "none");
+    }
+</script>

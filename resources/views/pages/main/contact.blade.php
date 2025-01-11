@@ -51,7 +51,11 @@
 
             <div class="col-lg-9">
                 @if(session('message'))
-                    <p class="d-flex justify-content-center my-4 font-bold text-primary">{{session('message')}}</p>
+                    <div class="d-flex justify-content-center session_message">
+                        <div class=" my-4 font-bold text-primary session_message">
+                            {{session('message')}}
+                        </div>
+                    </div>
                 @endif
                 <form class="row contact_form" action="{{route('on-inquire')}}" method="post"  >
                     @csrf
@@ -138,3 +142,12 @@
 
 
 </x-guest-layout>
+<script>
+    $(document).ready(function () {
+        setTimeout(showFeedback, 3000)
+    });
+
+    function showFeedback() {
+        $(".session_message").css("display", "none");
+    }
+</script>
