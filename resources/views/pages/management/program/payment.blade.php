@@ -12,11 +12,6 @@
                     {{$user->name}}    {{ __('Payment Transactions') }}
                 </h2>
             </div>
-{{--            <x-primary-button--}}
-{{--                x-data="add-comment-modal"--}}
-{{--                x-on:click.prevent="$dispatch('open-modal', 'fee-payment{{$enrollment->id}}')"--}}
-{{--            >{{ __('Add Payment') }}</x-primary-button>--}}
-{{--            @include('pages.management.trainee.payment')--}}
         </div>
     </x-slot>
 

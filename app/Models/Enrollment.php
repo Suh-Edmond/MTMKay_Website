@@ -15,15 +15,15 @@ class Enrollment extends Model
 
 
     protected $fillable = [
-        'program_id',
+        'training_slot_id',
         'user_id',
         'has_completed_payment',
         'enrollment_date'
     ];
 
-    public function program()
+    public function trainingSlot()
     {
-        return $this->belongsTo(Program::class);
+        return $this->belongsTo(TrainingSlot::class);
     }
 
     public function paymentTransactions()

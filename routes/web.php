@@ -55,6 +55,7 @@ Route::middleware(['auth', 'verified'])->prefix('dashboard')->group(function (){
     Route::delete('manage-programs/delete', [ProgramController::class, 'deleteProgram'])->name('manage-programs.delete');
     Route::delete('manage-blogs/images/delete', [BlogController::class, 'deleteImage'])->name('confirm-blog-image-deletion');
     Route::get('manage-subscribers', [SubscribersController::class, 'index'])->name('manage.subscribers');
+    Route::get('manage-training-slots', [TrainingController::class, 'index'])->name('manage.training.slot.index');
 });
 
 Route::middleware('auth')->group(function () {

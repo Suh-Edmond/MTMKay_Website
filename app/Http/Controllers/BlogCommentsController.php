@@ -58,10 +58,10 @@ class BlogCommentsController extends Controller
    private function saveComment(Request $request, $blog_id)
    {
        $validData = $request->validate([
-           'name' => 'required|string|max:255',
-           'email' => 'required|email|max:255|lowercase|string',
-           'subject' => 'required|string|max:255',
-           'message' => 'required|string|max:1000'
+           'name' => 'required|string|max:60|min:5|max:255',
+           'email' => 'required|email|string|lowercase|max:255',
+           'subject' => 'required|string|max:500|min:40',
+           'message' => 'required|string|max:1000|min:100'
        ]);
 
        BlogComments::create([
