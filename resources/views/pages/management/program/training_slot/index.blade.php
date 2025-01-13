@@ -3,19 +3,22 @@
     <x-slot name="header">
        <div class="flex justify-between">
            <header class="flex flex-row ">
+               <a href="{{route('show.program', ['slug' => $program->slug])}}" >
+                   <button id="goBack" class="text-blue-800 text-xl">
+                       <span><i class="fa fa-arrow-left px-5"></i></span>
+                   </button>
+               </a>
                <h2 class="font-semibold text-xl text-gray-800 leading-tight">
                    {{__('Training Slot Management')}}
                </h2>
-               @if (session('status') === 'Training slot save successfully' || session('status') === 'Training slot deleted successfully')
-                   <x-auth-session-status :status="session('status')"
-                                          x-data="{ show: true }"
-                                          x-show="show"
-                                          x-init="setTimeout(() => show = false, 2000)" class="ml-4 pt-2">
-                   </x-auth-session-status>
-               @endif
+               <x-auth-session-status :status="session('status')"
+                                      x-data="{ show: true }"
+                                      x-show="show"
+                                      x-init="setTimeout(() => show = false, 2000)" class="ml-4 pt-2">
+               </x-auth-session-status>
            </header>
 
-           <x-primary-button id="addOutline">{{ __('Add Slot') }}</x-primary-button>
+           <x-primary-button x-data="add-training-slot-modal" x-on:click.prevent="$dispatch('open-modal', 'add-training-slot-modal')">{{ __('Add Training Slot') }}</x-primary-button>
        </div>
     </x-slot>
 
@@ -28,7 +31,7 @@
                     <option value="AVAILABLE">Available</option>
                     <option value="ALMOST_FULL">Almost full</option>
                     <option value="FULL">Full</option>
-                    <option value="ALL">A</option>
+                    <option value="ALL">All</option>
                 </select>
             </div>
             <div class="basis-1/4 flex-auto">
@@ -62,11 +65,17 @@
                         @foreach($training_slots as $key => $value)
                             <tr class="hover:bg-gray-100 focus:bg-gray-300 active:bg-gray-400"  tabindex="0">
                                 <td class="border text-center py-4">{{$key+1}}</td>
-                                <td class="border px-4 py-4">{{$value->name ?? ''}}</td>
-                                <td class="border px-4 py-4">{{$value->start_time ?? ''}}</td>
-                                <td class="border px-4 py-4  ">{{$value->end_time ?? ''}}</td>
-                                <td class="border px-4 py-4  ">{{$value->available_seats ?? ''}}</td>
-                                <td class="border px-4 py-4 ">{{$value->status }}</td>
+                                <td class="border px-4 py-4 text-center">{{$value->name ?? ''}}</td>
+                                <td class="border px-4 py-4 text-center">{{$value->start_time ?? ''}}</td>
+                                <td class="border px-4 py-4 text-center ">{{$value->end_time ?? ''}}</td>
+                                <td class="border px-4 py-4 text-center ">{{$value->available_seats ?? ''}}</td>
+                                @if($value->status == \App\Constant\ProgramEnrollmentStatus::AVAILABLE)
+                                    <td class="border px-4 py-4 text-center text-green-700">{{$value->status }}</td>
+                                @elseif($value->status == \App\Constant\ProgramEnrollmentStatus::ALMOST_FULL)
+                                    <td class="border px-4 py-4 text-center text-warning">{{$value->status }}</td>
+                                @else
+                                    <td class="border px-4 py-4 text-center text-red-600">{{$value->status }}</td>
+                                @endif
 
                                 <td class="border  py-4 text-center cursor-pointer">
                                     <x-dropdown align="right" width="48" style="z-index: 5">
@@ -74,21 +83,18 @@
                                             <span><i class="fa fa-bars"></i></span>
                                         </x-slot>
                                         <x-slot name="content">
-                                            <x-dropdown-link href="{{route('manage-students.view.payments', ['slug' => $value->slug])}}">
-                                                <span><i class="fa fa-money   cursor-pointer mr-5 "></i>{{ __('View Payments') }}</span>
+                                            <x-dropdown-link x-data="update-training-slot-modal" x-on:click.prevent="$dispatch('open-modal', 'update-training-slot-modal{{$value->id}}')">
+                                                <span><i class="fa fa-pencil   cursor-pointer mr-5 "></i>{{ __('Edit Slot') }}</span>
                                             </x-dropdown-link>
-                                            <x-dropdown-link x-on:click.prevent="$dispatch('open-modal', 'fee-payment{{$value->id}}')">
-                                                <span><i class="fa fa-money   cursor-pointer mr-5 "></i>{{ __('Make Payment') }}</span>
-                                            </x-dropdown-link>
-                                            <x-dropdown-link   class="text-red-600" x-on:click.prevent="$dispatch('open-modal', 'confirm-trainee-deletion{{$value->id}}')">
-                                                <span><i class="fa fa-trash text-red-600 cursor-pointer mr-6 "></i>{{ __('Remove') }}</span>
+                                            <x-dropdown-link   class="text-red-600" x-data="confirm-deletion" x-on:click.prevent="$dispatch('open-modal', 'confirm-deletion{{$value->id}}')">
+                                                <span><i class="fa fa-trash text-red-600 cursor-pointer mr-6 "></i>{{ __('Remove Slot') }}</span>
                                             </x-dropdown-link>
                                         </x-slot>
                                     </x-dropdown>
                                 </td>
                             </tr>
-{{--                            @include('pages.management.trainee.delete-trainee')--}}
-{{--                            @include('pages.management.trainee.payment')--}}
+                            @include('pages.management.program.partials.edit-training-slot-modal')
+                            @include('pages.management.program.partials.delete-training-slot-modal')
 
                         @endforeach
                         </tbody>
@@ -105,7 +111,7 @@
                         <nav aria-label="Page navigation example py-5">
                             <ul class="flex items-center -space-x-px h-10 text-base">
                                 <li  class="{{$training_slots->currentPage() == 1 ? 'page-item disabled':'page-item'}}">
-                                    <a href="{{route('manage-students', ['page' =>$training_slots->currentPage() - 1])}}" class="{{$training_slots->currentPage() == 1? 'cursor-not-allowed flex items-center justify-center px-4 h-10 ms-0 leading-tight text-gray-500 bg-white border border-e-0 border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white':'flex items-center justify-center px-4 h-10 ms-0 leading-tight text-gray-500 bg-white border border-e-0 border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white'}}">
+                                    <a href="{{route('manage.training.slot.index', ['page' =>$training_slots->currentPage() - 1, 'slug' => $program->slug])}}" class="{{$training_slots->currentPage() == 1? 'cursor-not-allowed flex items-center justify-center px-4 h-10 ms-0 leading-tight text-gray-500 bg-white border border-e-0 border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white':'flex items-center justify-center px-4 h-10 ms-0 leading-tight text-gray-500 bg-white border border-e-0 border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white'}}">
                                         <span class="sr-only">Previous</span>
                                         <svg class="w-3 h-3 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
                                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4"/>
@@ -114,14 +120,14 @@
                                 </li>
                                 @for($i = 1; $i <= $training_slots->lastPage(); $i++)
                                     <li>
-                                        <a href="{{route('manage-students', ['page' => $i])}}" class="{{$training_slots->currentPage() == $i ?'flex items-center justify-center px-4 h-10 leading-tight text-white bg-blue-800 border border-blue-800 hover:bg-blue-800 hover:text-white dark:bg-blue-800 dark:border-blue-800 dark:text-white dark:hover:bg-blue-800 dark:hover:text-white' : 'flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white'}}">
+                                        <a href="{{route('manage.training.slot.index', ['page' => $i, 'slug' => $program->slug])}}" class="{{$training_slots->currentPage() == $i ?'flex items-center justify-center px-4 h-10 leading-tight text-white bg-blue-800 border border-blue-800 hover:bg-blue-800 hover:text-white dark:bg-blue-800 dark:border-blue-800 dark:text-white dark:hover:bg-blue-800 dark:hover:text-white' : 'flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white'}}">
                                             {{$i}}
                                         </a>
                                     </li>
                                 @endfor
 
                                 <li class="{{$training_slots->currentPage() == $training_slots->lastPage() ? 'page-item disabled': 'page-item'}}">
-                                    <a href="{{route('manage-students', ['page' =>$training_slots->currentPage() + 1])}}" class="{{$training_slots->currentPage() == $training_slots->lastPage() ? 'cursor-not-allowed flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white'
+                                    <a href="{{route('manage.training.slot.index', ['page' =>$training_slots->currentPage() + 1, 'slug' => $program->slug])}}" class="{{$training_slots->currentPage() == $training_slots->lastPage() ? 'cursor-not-allowed flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white'
 :'flex items-center justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white'}}">
                                         <span class="sr-only">Next</span>
                                         <svg class="w-3 h-3 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
@@ -137,8 +143,7 @@
         </div>
     </div>
 
-
-
+    @include('pages.management.program.partials.add-training-slot-modal')
 </x-app-layout>
 
 <script>
@@ -157,18 +162,7 @@
 
         })
 
-        $('#program_id').on('change', function (e){
-            let url = new URL(location.href);
-            let searchParams = new URLSearchParams(url.search);
 
-
-            searchParams.set('program_id', e.target.value)
-
-            url.search = searchParams.toString();
-
-            location.href = url
-
-        })
 
         $('#sort').on('change', function (e){
             let url = new URL(location.href);

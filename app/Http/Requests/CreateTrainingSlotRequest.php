@@ -24,13 +24,10 @@ class CreateTrainingSlotRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'slug'              =>  'string|exists:training_slots,slug',
             'name'              =>  'required|string|max:255',
             'start_time'        =>  'required|date_format:H:i',
             'end_time'          =>  'required|date_format:H:i|after:start_time',
             'available_seat'    =>  'required|numeric|min:1',
-            'status'            =>  ['required', Rule::in(ProgramEnrollmentStatus::AVAILABLE, ProgramEnrollmentStatus::ALMOST_FULL, ProgramEnrollmentStatus::FULL)],
-            'program_slug'      =>  'required|exists:programs,slug'
         ];
     }
 }

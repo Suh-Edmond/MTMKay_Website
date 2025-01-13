@@ -3,9 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Enrollment;
-use App\Models\PaymentTransaction;
 use App\Models\Program;
-use App\Models\User;
 use App\Traits\PaymentTransactionTrait;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -51,7 +49,7 @@ class EnrollmentController extends Controller
             }
         }
         if(isset($programId) && $programId !== "ALL"){
-            $trainees = $trainees->where('program_id', $programId);
+//            $trainees = $trainees->where('program_id', $programId);
         }
 
         $this->setNavigationTitle( "Enrollment Management");

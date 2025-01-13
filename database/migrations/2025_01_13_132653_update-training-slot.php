@@ -11,10 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-
-        Schema::table('enrollments', function (Blueprint $table){
-            $table->dropColumn('program_id');
-            $table->foreignId('training_slot_id')->constrained();
+        Schema::table('training_slots', function (Blueprint $table){
+            $table->dropColumn('end_date');
+            $table->time('end_time');
         });
     }
 

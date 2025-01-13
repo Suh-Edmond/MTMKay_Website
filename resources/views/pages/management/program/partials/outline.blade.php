@@ -34,7 +34,8 @@
                 </a>
             @endif
         @endif
-            @include('pages.management.program.partials.add-outline-form')
+
+        @include('pages.management.program.partials.add-outline-form')
     </section>
 </div>
 <script>

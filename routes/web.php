@@ -14,6 +14,7 @@ use App\Http\Controllers\ProgramOutlineController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\SubscribersController;
 use App\Http\Controllers\TrainingController;
+use App\Http\Controllers\TrainingSlotController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -55,7 +56,10 @@ Route::middleware(['auth', 'verified'])->prefix('dashboard')->group(function (){
     Route::delete('manage-programs/delete', [ProgramController::class, 'deleteProgram'])->name('manage-programs.delete');
     Route::delete('manage-blogs/images/delete', [BlogController::class, 'deleteImage'])->name('confirm-blog-image-deletion');
     Route::get('manage-subscribers', [SubscribersController::class, 'index'])->name('manage.subscribers');
-    Route::get('manage-training-slots', [TrainingController::class, 'index'])->name('manage.training.slot.index');
+    Route::get('manage-programs/training-slots', [TrainingSlotController::class, 'index'])->name('manage.training.slot.index');
+    Route::post('manage-programs/training-slots/create-slot', [TrainingSlotController::class, 'store'])->name('manage.training.slot.store');
+    Route::put('manage-programs/training-slots/update-slot', [TrainingSlotController::class, 'update'])->name('manage.training.slot.update');
+    Route::delete('manage-programs/training-slots/delete-slot', [TrainingSlotController::class, 'destroy'])->name('manage.training.slot.destroy');
 });
 
 Route::middleware('auth')->group(function () {
