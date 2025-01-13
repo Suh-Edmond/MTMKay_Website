@@ -41,6 +41,9 @@
                     <li class="nav-item">
                         <a class="nav-link" id="job_opportunities-tab" data-toggle="tab" href="#job_opportunities" role="tab" aria-controls="job_opportunities" aria-selected="false">Job Opportunities</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="training-slot-tab" data-toggle="tab" href="#training_slots" role="tab" aria-controls="training_slots" aria-selected="false">Training Slots</a>
+                    </li>
                 </ul>
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade show active" id="objectives" role="tabpanel" aria-labelledby="objectives-tab">
@@ -69,6 +72,27 @@
                             <p>{!! $program->job_opportunities !!}</p>
                         </div>
                     </div>
+                    <div class="tab-pane fade" id="training_slots" role="tabpanel" aria-labelledby="training-slot-tab">
+                        <div class="objctive_text">
+                            <p>Our Training Programs normally runs through from Monday to Friday. You can find this different slots  and their status below</p>
+                        </div>
+                       @foreach($trainingSlots as $slot)
+                            <div class="objctive_text">
+                                <h6>Name: {{$slot->name}}</h6>
+                                <p>Start Time: {{$slot->start_time}}</p>
+                                <p>End Time: {{$slot->end_time}}</p>
+                                <p>Available Seats: {{$slot->available_seats}}</p>
+                                <p>Enrolled Number: {{$slot->enrollments()->count()}}</p>
+                                @if(\App\Constant\ProgramEnrollmentStatus::AVAILABLE == $slot->status)
+                                    <p style="color: #0E9F6E">Status: {{$slot->status}}</p>
+                                @elseif(\App\Constant\ProgramEnrollmentStatus::ALMOST_FULL == $slot->status)
+                                    <p style="color: #e0a800">Status: {{str_replace('_', ' ', $slot->status)}}</p>
+                                @else
+                                    <p style="color: #b21f2d">Status: {{$slot->status}}</p>
+                                @endif
+                            </div>
+                       @endforeach
+                    </div>
                 </div>
             </div>
             <div class="col-lg-4">
@@ -76,10 +100,7 @@
                     <ul class="list">
                         <li><a href="#">Trainer’s Name <span>{{$program->trainer_name}}</span></a></li>
                         <li><a href="#">Program Fee <span>{{number_format($program->cost)}} XAF</span></a></li>
-                        <li><a href="#">Available Seats <span>{{$program->available_seats}}</span></a></li>
                         <li><a href="#">Duration <span>{{$program->duration}} months</span></a></li>
-                        <li><a href="#">Schedule <span>Monday - Friday</span></a></li>
-                        <li><a href="#">Time <span>8.00 am to 4.00 pm</span></a></li>
                     </ul>
                     <a class="main_btn" href="#" id="enrollmentBtn">Enroll for Program</a>
                  </div>
@@ -90,9 +111,9 @@
 <!--================End Course Details Area =================-->
 
 <!--=================Enrollment Form ========================-->
-<div id="success" class="modal modal-message fade" role="dialog">
-    <div class="modal-dialog modal-xl modal-dialog-centered">
-        <div class="modal-content">
+<div id="success" class="modal modal-message fade mt-5" role="dialog">
+    <div class="modal-dialog modal-xl modal-dialog-centered mt-5">
+        <div class="modal-content mt-5">
             <div class="modal-header">
                 <button type="button" id="closeModal" class="close" data-dismiss="modal" aria-label="Close">
                     <i class="fa fa-close"></i>
@@ -117,7 +138,16 @@
                             <input type="text" id="address" name="address" placeholder="Address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Address'" required class="single-input py-lg-2">
                             <span class="error text-danger d-none"></span>
                         </div>
-                        <div class="mt-lg-5 mb-lg-4 ">
+                        <div class="mt-md-4">
+                            <select type="text" id="training_slot" name="training_slot"  onfocus="this.placeholder = ''" onblur="this.placeholder = 'Training Slot'" required class="single-input py-lg-2 mb-5">
+                                <option>Select Training Slot</option>
+                                @foreach($availableSlots as $slot)
+                                    <option value="{{$slot->id}}">{{$slot->name}} {{$slot->start_time}} - {{$slot->end_time}}</option>
+                                @endforeach
+                            </select>
+                            <span class="error text-danger d-none"></span>
+                        </div>
+                        <div class="mt-lg-5 mb-lg-4">
                             <button type="submit" value="submit"  class="btn main_btn submit_enroll_button" id="submitEnrollment">
                                 <span class="btn-text">Enroll Now</span>
                             </button>
@@ -172,7 +202,7 @@
                     <i class="fa fa-close"></i>
                 </button>
                 <h2>Thank you</h2>
-                <p>You have already Enrolled for this program...</p>
+                <p>You have already Enrolled for this training slot...</p>
             </div>
         </div>
     </div>

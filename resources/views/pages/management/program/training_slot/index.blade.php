@@ -72,7 +72,7 @@
                                 @if($value->status == \App\Constant\ProgramEnrollmentStatus::AVAILABLE)
                                     <td class="border px-4 py-4 text-center text-green-700">{{$value->status }}</td>
                                 @elseif($value->status == \App\Constant\ProgramEnrollmentStatus::ALMOST_FULL)
-                                    <td class="border px-4 py-4 text-center text-warning">{{$value->status }}</td>
+                                    <td class="border px-4 py-4 text-center text-yellow-500">{{str_replace('_', ' ', $value->status)}}</td>
                                 @else
                                     <td class="border px-4 py-4 text-center text-red-600">{{$value->status }}</td>
                                 @endif

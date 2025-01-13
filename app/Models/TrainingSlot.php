@@ -32,4 +32,6 @@ class TrainingSlot extends Model
     {
         return $this->hasMany(Enrollment::class);
     }
+
+
 }

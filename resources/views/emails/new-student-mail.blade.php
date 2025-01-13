@@ -5,6 +5,13 @@ Hi <b>{{ $data['name'] }}<b>!<br>
 Congratulations!<br>
 
 You’ve successfully enrolled for {{$data['program']->title}} training program with MTMKay. Your enrollment is confirmed.
+Our Training runs weekly from Monday to Friday, below is your training schedule
+
+- Schedule Type: {{$data['trainingSlot']->name}}
+
+- Start Time: {{date('h:i A', strtotime($data['trainingSlot']->start_time))}}
+
+- End Time: {{date('h:i A', strtotime($data['trainingSlot']->end_time))}}
 
 Please click the button below visit your program.
 
