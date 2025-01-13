@@ -60,6 +60,7 @@ Route::middleware(['auth', 'verified'])->prefix('dashboard')->group(function (){
     Route::post('manage-programs/training-slots/create-slot', [TrainingSlotController::class, 'store'])->name('manage.training.slot.store');
     Route::put('manage-programs/training-slots/update-slot', [TrainingSlotController::class, 'update'])->name('manage.training.slot.update');
     Route::delete('manage-programs/training-slots/delete-slot', [TrainingSlotController::class, 'destroy'])->name('manage.training.slot.destroy');
+    Route::get('manage-students/view-information', [EnrollmentController::class, 'viewStudent'])->name('manage-students.view.info');
 });
 
 Route::middleware('auth')->group(function () {

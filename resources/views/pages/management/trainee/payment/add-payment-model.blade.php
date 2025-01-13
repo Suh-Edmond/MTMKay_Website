@@ -1,8 +1,7 @@
+<section>
+    <x-modal name="make-payment-modal" :show="$errors->userDeletion->isNotEmpty()" focusable :data="'make payment'" :maxWidth="$enrollment->has_completed_payment?'md':'2xl'">
 
-<section >
-    <x-modal name="fee-payment{{$value->id}}" :show="$errors->userDeletion->isNotEmpty()" focusable :data="$value" :maxWidth="$value->has_completed_payment?'md':'2xl'">
-
-        @if($value->has_completed_payment)
+        @if($enrollment->has_completed_payment)
 
             <div class="m-4">
                 <h2 class="text-lg font-medium text-gray-900 flex justify-center">
@@ -10,7 +9,7 @@
                 </h2>
 
                 <h3 class="my-3 text-lg font-medium text-gray-900 flex justify-center">
-                    Trainee: {{ $value->user->name ?? '' }}
+                    Trainee: {{ $enrollment->user->name ?? '' }}
                 </h3>
 
                 <p class="my-3 text-sm text-gray-600 flex justify-center">
@@ -29,33 +28,35 @@
                     {{ __('Make Program Payment') }}
                 </h2>
             </div>
-            <form method="post" action="{{ route('trainee.make_payment', ['slug'=> $value->slug, 'programSlug' => $value->trainingSlot->program->slug ?? '']) }} " class="mx-5">
+
+
+            <form method="post" action="{{ route('trainee.make_payment', ['slug'=> $enrollment->slug, 'programSlug' => $enrollment->trainingSlot->program->slug ?? '']) }} " class="mx-5">
                 @csrf
                 <div class="my-5 mx-5">
                     <x-input-label for="program" :value="__('Trainee')" />
-                    <x-text-input id="trainee" name="trainee" type="text" class="mt-1 block w-full" :value="$value->user->name ?? ''" disabled />
+                    <x-text-input id="trainee" name="trainee" type="text" class="mt-1 block w-full" :value="$enrollment->user->name ?? ''" disabled />
                 </div>
 
                 <div class="my-5 mx-5">
                     <x-input-label for="program" :value="__('Program')" />
-                    <x-text-input id="program" name="program" type="text" class="mt-1 block w-full" :value="$value->trainingSlot->program->title ?? ''" disabled />
+                    <x-text-input id="program" name="program" type="text" class="mt-1 block w-full" :value="$enrollment->trainingSlot->program->title ?? ''" disabled />
                 </div>
 
                 <div class="my-5 mx-5">
                     <x-input-label for="amount" :value="__('Program Cost')" />
-                    <x-text-input id="program_cost" name="program_cost" type="number" class="mt-1 block w-full" :value="$value->trainingSlot->program->cost ?? ''" disabled  />
+                    <x-text-input id="program_cost" name="program_cost" type="number" class="mt-1 block w-full" :value="$enrollment->trainingSlot->program->cost ?? ''" disabled  />
                     <x-input-error class="mt-2" :messages="$errors->get('name')" />
                 </div>
 
                 <div class="my-5 mx-5">
                     <x-input-label for="amount" :value="__('Balance')" />
-                    <x-text-input id="balance" name="balance" type="number" class="mt-1 block w-full" :value="$value->getTotalEnrollmentPayment($value, $value->trainingSlot->program ?? '')" disabled  />
+                    <x-text-input id="balance" name="balance" type="number" class="mt-1 block w-full" :value="$balance" disabled  />
                     <x-input-error class="mt-2" :messages="$errors->get('balance')" />
                 </div>
 
                 <div class="my-5 mx-5">
                     <x-input-label for="name" :value="__('Amount Deposited')" />
-                    <x-text-input id="amount_deposited" name="amount_deposited" type="number" class="mt-1 block w-full" :value="old('amount_deposited', $value->amount_deposited)" required autofocus autocomplete="amount_deposited" />
+                    <x-text-input id="amount_deposited" name="amount_deposited" type="number" class="mt-1 block w-full" :value="old('amount_deposited', $enrollment->amount_deposited)" required autofocus autocomplete="amount_deposited" />
                     <x-input-error class="mt-2" :messages="$errors->get('amount_deposited')" />
                 </div>
 
@@ -78,4 +79,3 @@
         @endif
     </x-modal>
 </section>
-

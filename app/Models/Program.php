@@ -29,12 +29,6 @@ class Program extends Model
         'job_opportunities'
     ];
 
-    //TODO: REMOVE THIS METHOD
-    public function enrollments()
-    {
-        return $this->hasMany(Enrollment::class);
-    }
-
     public function trainingSlots()
     {
         return $this->hasMany(TrainingSlot::class);

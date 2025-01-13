@@ -6,6 +6,7 @@ use App\Traits\GenerateUUIDTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use function PHPUnit\Framework\isEmpty;
 
 class Enrollment extends Model
 {
@@ -19,6 +20,10 @@ class Enrollment extends Model
         'user_id',
         'has_completed_payment',
         'enrollment_date'
+    ];
+
+    protected $with = [
+        'trainingSlot'
     ];
 
     public function trainingSlot()
@@ -38,6 +43,6 @@ class Enrollment extends Model
 
     public function getTotalEnrollmentPayment($enrollment, $program)
     {
-        return $program->cost - $enrollment->paymentTransactions()->sum('amount_deposited');
+        return !isEmpty($program) ? $program->cost - $enrollment->paymentTransactions()->sum('amount_deposited'): 0;
     }
 }
