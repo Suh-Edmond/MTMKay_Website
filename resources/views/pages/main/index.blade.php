@@ -279,7 +279,7 @@
                         <div class="testi_item">
                             <img src="{{asset('img/success/success_1.png')}}" alt="" width="120px" height="120px" style="border-radius: 50%">
                             <h4>{{$success->user->name ?? 'Enow James'}}</h4>
-                            <h4>{{$success->user->enrollments[0]->program->title ?? ''}}</h4>
+                            <h4>{{$success->user->enrollments[0]->trainingSlot->program->title ?? ''}}</h4>
                             <ul class="list">
                                 <li><a href="#"><i class="fa fa-star"></i></a></li>
                                 <li><a href="#"><i class="fa fa-star"></i></a></li>
