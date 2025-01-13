@@ -3,9 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Enrollment;
-use App\Models\PaymentTransaction;
 use App\Models\Program;
-use App\Models\User;
 use App\Traits\PaymentTransactionTrait;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -29,7 +27,9 @@ class EnrollmentController extends Controller
         $trainees = Enrollment::whereNotNull('enrollment_date');
         $filter = $request['filter'];
         $sort  = $request['sort'];
-        $programId  = $request['program_id'];
+        $programSlug  = $request['program_slug'];
+        $program      = Program::where('slug', $programSlug)->first();
+
         if(isset($filter)){
             switch ($filter){
                 case "COMPLETED":
@@ -50,15 +50,16 @@ class EnrollmentController extends Controller
                     break;
             }
         }
-        if(isset($programId) && $programId !== "ALL"){
-            $trainees = $trainees->where('program_id', $programId);
-        }
 
-        $this->setNavigationTitle( "Enrollment Management");
+        if(isset($programId) && $programId !== "ALL"){
+            $trainees = $trainees->whereHas('trainingSlot', function ($query) use ($program){
+                $query->where('program_id', $program->id);
+            });
+        }
 
         $trainees = $trainees->paginate(10);
         $programs = Program::all();
-        $date = Carbon::now();
+        $date     = Carbon::now();
         $data = [
             'trainees' => $trainees,
             'date'     => $date,
@@ -75,5 +76,17 @@ class EnrollmentController extends Controller
         $enrollment->delete();
 
         return redirect()->back()->with('status', 'Enrollment deleted successfully');
+    }
+
+    public function viewStudent(Request $request)
+    {
+        $slug = $request['slug'];
+        $enrollment = Enrollment::where('slug', $slug)->firstOrFail();
+
+        $data = [
+            'enrollment' => $enrollment
+        ];
+
+        return view('pages.management.trainee.profile')->with($data);
     }
 }

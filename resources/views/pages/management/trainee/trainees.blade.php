@@ -14,7 +14,7 @@
                     <option selected>Choose a program</option>
 
                     @foreach($programs as $program)
-                        <option value="{{$program->id}}">{{$program->title}}</option>
+                        <option value="{{$program->slug}}">{{$program->title}}</option>
                     @endforeach
                     <option value="ALL">All</option>
                 </select>
@@ -62,7 +62,7 @@
                                 <td class="border text-center py-4">{{$key+1}}</td>
                                 <td class="border px-4 py-4">{{$value->user->name ?? ''}}</td>
                                 <td class="border px-4 py-4">{{$value->user->email ?? ''}}</td>
-                                <td class="border px-4 py-4  ">{{$value->program->title ?? ''}}</td>
+                                <td class="border px-4 py-4  ">{{$value->trainingSlot->program->title ?? ''}}</td>
                                 <td class="border px-4 py-4 ">{{$value->enrollment_date ?? $value->user->enrollment_date->format('D, d M Y') }}</td>
                                 @if($value->has_completed_payment)
                                     <td class="border px-4 py-4 text-green-700 text-center w-20">Complete</td>
@@ -75,6 +75,9 @@
                                             <span><i class="fa fa-bars"></i></span>
                                         </x-slot>
                                         <x-slot name="content">
+                                            <x-dropdown-link href="{{route('manage-students.view.info', ['slug' => $value->slug])}}">
+                                                <span><i class="fa fa-info-circle   cursor-pointer mr-5 "></i>{{ __('Profile') }}</span>
+                                            </x-dropdown-link>
                                             <x-dropdown-link href="{{route('manage-students.view.payments', ['slug' => $value->slug])}}">
                                                 <span><i class="fa fa-money   cursor-pointer mr-5 "></i>{{ __('View Payments') }}</span>
                                             </x-dropdown-link>
@@ -102,7 +105,8 @@
                 </div>
 
                 @if(($trainees->count() > 0))
-                    <div class="m-5 p-5 flex justify-end">
+                    <div class="m-5 p-5 flex justify-between">
+                        <p class="font-bold">Total Enrollment: {{$trainees->total()}}</p>
                         <nav aria-label="Page navigation example py-5">
                             <ul class="flex items-center -space-x-px h-10 text-base">
                             <li  class="{{$trainees->currentPage() == 1 ? 'page-item disabled':'page-item'}}">
@@ -163,7 +167,7 @@
             let searchParams = new URLSearchParams(url.search);
 
 
-            searchParams.set('program_id', e.target.value)
+            searchParams.set('program_slug', e.target.value)
 
             url.search = searchParams.toString();
 

@@ -44,7 +44,7 @@ class PaymentTransactionController extends Controller
 
         $payments = $enrollment->paymentTransactions();
 
-        $programCost = $enrollment->program->cost;
+        $programCost = $enrollment->trainingSlot->program->cost;
 
         $total = $payments->sum('amount_deposited');
 

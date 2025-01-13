@@ -3,20 +3,23 @@
     <x-slot name="header">
         <div class="flex flex-row justify-between">
             <div class="flex flex-row">
-                <a href="{{route('manage-students')}}" >
-                    <button id="goBack" class="text-blue-800 text-xl">
-                        <span><i class="fa fa-arrow-left px-5"></i></span>
-                    </button>
-                </a>
+                <button id="goBack" class="text-blue-800 text-xl">
+                    <span><i class="fa fa-arrow-left px-5"></i></span>
+                </button>
                 <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                    {{$user->name}}    {{ __('Payment Transactions') }}
+                    {{ __('Payment Transactions') }}
                 </h2>
+                @if (session('status'))
+                    <x-auth-session-status :status="session('status')"
+                                           x-data="{ show: true }"
+                                           x-show="show"
+                                           x-init="setTimeout(() => show = false, 2000)" class="ml-4 pt-2">
+                    </x-auth-session-status>
+                @endif
             </div>
-{{--            <x-primary-button--}}
-{{--                x-data="add-comment-modal"--}}
-{{--                x-on:click.prevent="$dispatch('open-modal', 'fee-payment{{$enrollment->id}}')"--}}
-{{--            >{{ __('Add Payment') }}</x-primary-button>--}}
-{{--            @include('pages.management.trainee.payment')--}}
+
+            <x-primary-button x-data="make-payment-modal" x-on:click.prevent="$dispatch('open-modal', 'make-payment-modal')">{{ __('Add Payment') }}</x-primary-button>
+
         </div>
     </x-slot>
 
@@ -41,7 +44,7 @@
                         </div>
                         <div class="lex flex-col flex-wrap">
                             <h2 class="font-semibold text-md text-gray-800 leading-tight py-2 px-4 ">
-                                Program: {{$enrollment->program->title}}
+                                Program: {{$enrollment->trainingSlot->program->title}}
                             </h2>
                             <h2 class="font-semibold text-md text-gray-800 leading-tight py-2 px-4">
                                 Total: {{number_format($total)}} XAF
@@ -90,6 +93,8 @@
             </div>
         </div>
     </div>
+
+    @include('pages.management.trainee.payment.add-payment-model')
 
 </x-app-layout>
 

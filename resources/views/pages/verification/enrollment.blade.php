@@ -17,7 +17,14 @@
             <label><span class="fw-bolder">Program Title:</span> <span class="mx-2 my-2">{{$program->title}}</span></label>
         </div>
         <div class="flex justify-start my-3">
-            <label><span class="fw-bold">Program Duration:</span> <span class="mx-2 my-2">{{$program->duration}}</span></label>
+            <label><span class="fw-bold">Program Duration:</span> <span class="mx-2 my-2">{{$program->duration}} Months</span></label>
+        </div>
+        <div class="flex justify-start my-3">
+            <label><span class="fw-bold">Training Schedule:</span> <br>
+                <span class="mx-2 my-2">Period: {{$trainingSlot->name}}</span><br>
+                <span class="mx-2 my-2">Start Time: {{date('h:i A', strtotime($trainingSlot->start_time))}}</span><br>
+                <span class="mx-2 my-2">End Time: {{date('h:i A', strtotime($trainingSlot->end_time))}}</span>
+            </label>
         </div>
     @endif
 

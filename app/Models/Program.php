@@ -29,9 +29,9 @@ class Program extends Model
         'job_opportunities'
     ];
 
-    public function enrollments()
+    public function trainingSlots()
     {
-        return $this->hasMany(Enrollment::class);
+        return $this->hasMany(TrainingSlot::class);
     }
 
     public function programOutlines()

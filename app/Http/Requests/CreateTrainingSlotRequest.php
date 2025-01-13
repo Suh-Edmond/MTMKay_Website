@@ -2,9 +2,11 @@
 
 namespace App\Http\Requests;
 
+use App\Constant\ProgramEnrollmentStatus;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
-class EnrollmentRequest extends FormRequest
+class CreateTrainingSlotRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,12 +24,10 @@ class EnrollmentRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name'  => 'required|min:5',
-            'email' => 'required|email|string|lowercase',
-//            'telephone' => 'required|string|min:9|max:18|regex:/(0)[0-9]/|not_regex:/[a-z]/',
-            'telephone' => 'required|string|min:9|max:18',
-            'address'   => 'required|string|max:50',
-            'training_slot' => 'required|string|exists:training_slots,id'
+            'name'              =>  'required|string|max:255',
+            'start_time'        =>  'required|date_format:H:i',
+            'end_time'          =>  'required|date_format:H:i|after:start_time',
+            'available_seat'    =>  'required|numeric|min:1',
         ];
     }
 }

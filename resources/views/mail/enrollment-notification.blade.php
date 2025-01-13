@@ -11,6 +11,12 @@ A new student just enrollment for the {{$data['program']}} programme at MTMKAY.
 
 - Address : {{$data['studentAddress']}}.
 
+- Schedule Type: {{$data['trainingSlot']->name}}
+
+- Start Time: {{date('h:i A', strtotime($data['trainingSlot']->start_time))}}
+
+- End Time: {{date('h:i A', strtotime($data['trainingSlot']->end_time))}}
+
 Please log in to your dashboard to view this enrollment.
 <x-mail::button url="{{config('app.login_url')}}">
 Login to Dashboard

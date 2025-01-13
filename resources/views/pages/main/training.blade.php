@@ -36,7 +36,7 @@
                             <div class="hover_text">
                                 <a href="{{route('show-training', ['slug' => $program->slug])}}"><h4>{{$program->title}}</h4></a>
                                 <ul class="list">
-                                    <li><a href="#"><i class="lnr lnr-users"></i> {{count($program->enrollments)}}</a></li>
+{{--                                    <li><a href="#"><i class="lnr lnr-users"></i> {{count($program->enrollments)}}</a></li>--}}
                                     <li><a href="#"><i class="lnr lnr-user"></i> {{$program->trainer_name}}</a></li>
                                 </ul>
                             </div>
@@ -179,7 +179,8 @@
                         <div class="testi_item">
                             <img src="{{asset('img/success/success_1.png')}}" alt="" width="120px" height="120px" style="border-radius: 50%">
                             <h4>{{$success->user->name ?? 'Enow James'}}</h4>
-                            <h4>{{$success->user->enrollments[0]->program->title ?? ''}}</h4>
+
+{{--                        Need to add student program    <h4>{{$success->user->enrollments[0]->program->title ?? ''}}</h4>--}}
                             <ul class="list">
                                 <li><a href="#"><i class="fa fa-star"></i></a></li>
                                 <li><a href="#"><i class="fa fa-star"></i></a></li>
