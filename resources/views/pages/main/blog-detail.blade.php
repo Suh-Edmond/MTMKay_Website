@@ -85,6 +85,7 @@
                                     <div class="desc">
                                         <h5><a href="#">{{$comment->name}}</a></h5>
                                         <p class="date">{{$comment->created_at->format('D, d M Y')}} </p>
+                                        <p class="comment" style="color: darkgray !important;">{{$comment->subject}} </p>
                                         <p class="comment">
                                             {!! $comment->message !!}
                                         </p>
