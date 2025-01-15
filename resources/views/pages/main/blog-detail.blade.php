@@ -166,7 +166,7 @@
                                 <img src="{{asset($popularBlog->getSingleBlogImage($popularBlog->id))}}" alt="post" height="25%" width="25%">
                                 <div class="media-body">
                                     <a href="{{route('show-blog', ['slug'=> $popularBlog->slug])}}"><h3>{{$popularBlog->title}}</h3></a>
-                                    <p>{{$popularBlog->getBlogCreatedHours($popularBlogs[1]->id) }}</p>
+                                    <p>{{$popularBlog->getBlogCreatedHours($popularBlog[1]->id) }}</p>
                                 </div>
                             </div>
                         @endforeach
