@@ -72,7 +72,7 @@ class Blog extends Model
             break;
             case $time == 1:
                 $actualTime = $blogCreatedTime->diffInMinutes($currentTime);
-                $displayTime = $actualTime. " Minutes ago";
+                $displayTime = round($actualTime). " Minutes ago";
                 break;
             case $time > 1 && $time <= 60;
                 $displayTime = $time. " Hours ago";
