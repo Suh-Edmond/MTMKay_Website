@@ -23,7 +23,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware(['auth', 'verified'])->prefix('dashboard')->group(function (){
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('manage-programs', [ProgramController::class, 'index'])->name('manage-programs');
-    Route::get('manage-programs/create', [ProgramController::class, 'createProgram'])->name('manage-programs.create');
+    Route::get('manage-programs/create-program', [ProgramController::class, 'createProgram'])->name('manage-programs.create');
     Route::put('manage-programs/create/store', [ProgramController::class, 'storeProgramInformation'])->name('manage-programs.store');
     Route::get('manage-programs/create/add-image', [ProgramController::class, 'addProgramImage'])->name('manage-programs.create.add-image');
     Route::get('manage-students', [EnrollmentController::class, 'index'])->name('manage-students');
