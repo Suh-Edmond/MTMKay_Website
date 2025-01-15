@@ -25,7 +25,7 @@ class StudentSuccessSeeder extends Seeder
      */
     public function run(Generator $faker): void
     {
-        for ($i = 0; $i < 10; $i++) {
+        for ($i = 0; $i < 5; $i++) {
             StudentSuccess::create([
                 'program_id' => $faker->randomElement($this->programs),
                 'user_id' => $faker->randomElement($this->users),
