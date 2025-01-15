@@ -25,7 +25,6 @@ class Program extends Model
         'duration',
         'trainer_name',
         'image_path',
-        'available_seats',
         'job_opportunities'
     ];
 

@@ -29,7 +29,6 @@ class UpdateProgramInformationRequest extends FormRequest
             'training_resources' => 'required|string|max:5000|min:50',
             'job_opportunities' => 'required|string|max:5000|min:50',
             'cost' => 'required|numeric|min:1000',
-            'available_seats' => 'required|numeric|min:1|max:60',
             'trainer_name'  => 'required|string|max:50|min:5'
         ];
     }
