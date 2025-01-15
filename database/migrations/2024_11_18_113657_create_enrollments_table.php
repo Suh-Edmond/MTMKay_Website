@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::create('enrollments', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('program_id')->constrained();
             $table->foreignId('user_id')->constrained();
             $table->boolean('has_completed_payment')->default(false);
             $table->dateTime('enrollment_date');
