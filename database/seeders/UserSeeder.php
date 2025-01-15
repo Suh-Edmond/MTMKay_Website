@@ -28,11 +28,11 @@ class UserSeeder extends Seeder
     {
         $role = Role::where('name', Roles::ADMIN)->firstOrFail();
         User::create([
-            'name' => "Suh Edmond",
-            'email' => "suhedmond11@gmail.com",
-            'password' => Hash::make('password'),
-            'telephone'  => "+237673660071",
-            'address' => "Upper Bonduma, Buea",
+            'name' => "Micheal",
+            'email' => "mtmkay17@gmail.com",
+            'password' => Hash::make('mtmkayauthpass1!'),
+            'telephone'  => "+1 612 224 1176",
+            'address' => "Alaska Street Buea Road, Kumba Southwest Region",
             'role_id' => $role->id,
             'email_verified_at' => Carbon::now(),
             'profile_pic' => $generator->randomElement(['img/testimonials/testi-1.png', 'img/testimonials/testi-2.png', 'img/testimonials/testi-3.png',])
