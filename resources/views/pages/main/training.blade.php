@@ -125,48 +125,37 @@
                     At MTMKay, we recognize that many learners have diverse commitments. That's why our programs are designed to accommodate all types of learners, offering the flexibility to study at your convenience.
                 </p>
             </div>
-            <div class="row packages_inner">
+            <div class="row team_inner">
                 <div class="col-md-4">
-                    <div class="packages_item_training">
+                    <div class="packages_item">
                         <div class="pack_head">
                             <i class="lnr lnr-sun"></i>
                             <h4>Morning Session</h4>
                         </div>
                         <div class="pack_body">
-                            <ul class="list">
-                                <li><a href="#"><i class="lnr lnr-clock mr-2"></i>Start Time 09:00 AM</a></li>
-                                <li><a href="#"><i class="lnr lnr-clock mr-2"></i>End Time 12:00 PM</a></li>
-                            </ul>
+                            <p><span><i class="lnr lnr-clock mr-2"></i>09:00 AM</span> -  <span>12:00 PM</span></p>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="packages_item_training">
+                    <div class="packages_item">
                         <div class="pack_head">
                             <i class="lnr lnr-sun"></i>
-                            <h4>Afternoon Sessions
-                            </h4>
+                            <h4>Afternoon Session</h4>
                         </div>
                         <div class="pack_body">
-                            <ul class="list">
-                                <li><a href="#"><i class="lnr lnr-clock mr-2"></i>Start Time 13:00 AM</a></li>
-                                <li><a href="#"><i class="lnr lnr-clock mr-2"></i>End Time 16:00 PM</a></li>
-                            </ul>
+                            <p><span><i class="lnr lnr-clock mr-2"></i>13:00 AM</span> -  <span>16:00 PM</span></p>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="packages_item_training">
+                    <div class="packages_item">
                         <div class="pack_head">
                             <i class="lnr lnr-moon"></i>
-                            <h4>Evening Sessions
-                            </h4>
+                            <h4>Evening Session</h4>
                         </div>
                         <div class="pack_body">
-                            <ul class="list">
-                                <li><a href="#"><i class="lnr lnr-clock mr-2"></i>Start Time 17:00 PM</a></li>
-                                <li><a href="#"><i class="lnr lnr-clock mr-2"></i>End Time  20:00 PM</a></li>
-                            </ul>
+                            <p><span><i class="lnr lnr-clock mr-2"></i>17:00 PM</span> -  <span>20:00 PM</span></p>
                         </div>
                     </div>
                 </div>

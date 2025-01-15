@@ -124,11 +124,18 @@ button:focus {
   transition: background 0.4s, all 0.3s linear; }
   .header_area .navbar {
     background: transparent;
-    padding: 0px;
+    padding: 5px;
     border: 0px;
-    border-radius: 0px; }
+    border-radius: 0px;
+  }
+  .header_area .navbar .navbar-brand{
+      position: absolute;
+      padding-top: 30px;
+      padding-bottom: 30px;
+  }
     .header_area .navbar .nav .nav-item {
-      margin-right: 45px; }
+      margin-right: 45px;
+    }
       .header_area .navbar .nav .nav-item .nav-link {
         font: 500 12px/80px "Roboto", sans-serif;
         text-transform: uppercase;
@@ -162,7 +169,8 @@ button:focus {
               display: block;
               border: none;
               padding: 0px;
-              border-radius: 0px; } }
+              border-radius: 0px;
+            } }
           .header_area .navbar .nav .nav-item.submenu ul:before {
             content: "";
             width: 0;
