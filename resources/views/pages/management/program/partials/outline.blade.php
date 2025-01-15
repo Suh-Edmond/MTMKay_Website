@@ -15,9 +15,11 @@
             </header>
 
             @if(request()->routeIs('show.program') && count($programOutlines) == 0)
-                <x-primary-button id="addOutline">{{ __('Add Outline') }}</x-primary-button>
+                <x-primary-button id="addOutline" x-data="add-program-outline-modal"
+                                  x-on:click.prevent="$dispatch('open-modal', 'add-program-outline-modal">{{ __('Add Outline') }}</x-primary-button>
             @elseif(request()->routeIs('program.create.outline.view'))
-                <x-primary-button id="addOutline">{{ __('Add Outline') }}</x-primary-button>
+                <x-primary-button id="addOutline" x-data="add-program-outline-modal"
+                                  x-on:click.prevent="$dispatch('open-modal', 'add-program-outline-modal')">{{ __('Add Outline') }}</x-primary-button>
             @else
                 <a href="{{route('program.create.outline.view', ['slug' => $program->slug])}}">
                     <x-secondary-button>{{ __('View more') }}</x-secondary-button>

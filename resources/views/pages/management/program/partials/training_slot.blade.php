@@ -10,10 +10,10 @@
 
             <div class="flex flex-col">
                 <a href="{{route('manage.training.slot.index', ['slug' => $program->slug])}}" class="flex justify-end">
-                    <x-secondary-button>{{ __('View slots') }}</x-secondary-button>
+                    <x-secondary-button>{{ __('View Sessions') }}</x-secondary-button>
                 </a>
                 @if(count($program->trainingSlots) == 0)
-                    <small class="text-yellow-500">Training slots have not been created for this program</small>
+                    <small class="text-yellow-500">Training sessions have not been created for this program</small>
                 @endif
             </div>
         </div>

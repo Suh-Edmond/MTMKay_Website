@@ -1,6 +1,6 @@
 @if(request()->routeIs('show.program'))
     @foreach($firstThreeOutlines as $outline)
-        <div class="my-5">
+        <div class="my-5 border-2 p-3 rounded-md">
             <div class="flex justify-between">
                 <x-input-label for="period" value="{{$outline->period}}" />
                 <x-dropdown align="right" width="48">
@@ -28,7 +28,7 @@
     @endforeach
 @else
     @foreach($programOutlines as $outline)
-        <div class="my-5">
+        <div class="my-5 border-2 p-3 rounded-md">
             <div class="flex justify-between">
                 <x-input-label for="period" value="{{$outline->period}}" />
                 <x-dropdown align="right" width="48">

@@ -22,7 +22,7 @@ class ContactController extends Controller
         $validation = Validator::make($request->all(), [
             'name' => 'required|min:5',
             'email' =>  ['required', 'string', 'lowercase', 'email', 'max:255'],
-            'subject' => 'required|string|max:500|min:40',
+            'subject' => 'required|string|max:500|min:20',
             'message' => 'required|max:1000|string|min:300',
         ]);
 
@@ -39,7 +39,7 @@ class ContactController extends Controller
             'adminEmail' => env('MAIL_FROM_ADDRESS')
         ];
 
-//        Mail::to(env('MAIL_FROM_ADDRESS'))->send(new ContactMail($emailData));
+        Mail::to(env('MAIL_FROM_ADDRESS'))->send(new ContactMail($emailData));
 
         return redirect()->back()->with(['message' => "Your Inquiry was sent successfully. We will get back to you soonest", "expires" => Carbon::now()->addSeconds(3)]);
     }
