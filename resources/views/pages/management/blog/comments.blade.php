@@ -56,7 +56,7 @@
         <div class="flex flex-wrap w-full">
             <form method="get" action="{{ route('show.blog.comments', ['slug'  => $blog->slug]) }}" class="w-full">
                 <div class="md:flex md:items-center">
-                    <x-text-input id="search" name="search" type="text" class="mt-1 mr-2 block w-full" placeholder="Search blog by name or subject or email..." required autocomplete="search"/>
+                    <x-text-input id="search" name="search" type="text" class="mt-1 mr-2 block w-full" placeholder="Search blog by name, subject, email..." required autocomplete="search"/>
                     <x-text-input id="slug" name="slug" type="text" class="mt-1 mr-2 block w-full d-none"  :value="$blog->slug" style="display: none" />
                     <x-primary-button
                     >{{ __('Search') }}</x-primary-button>
