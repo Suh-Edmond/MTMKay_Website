@@ -18,7 +18,7 @@
                </x-auth-session-status>
            </header>
 
-           <x-primary-button x-data="add-training-slot-modal" x-on:click.prevent="$dispatch('open-modal', 'add-training-slot-modal')">{{ __('Add Training Slot') }}</x-primary-button>
+           <x-primary-button x-data="add-training-slot-modal" x-on:click.prevent="$dispatch('open-modal', 'add-training-slot-modal')">{{ __('Add Training Session') }}</x-primary-button>
        </div>
     </x-slot>
 
@@ -101,7 +101,7 @@
                     </table>
                     @if(count($training_slots) == 0)
                         <h3 class="text-lg font-medium text-gray-900 p-5 text-center my-5">
-                            Oops! No training slots found
+                            Oops! No training session found
                         </h3>
                     @endif
                 </div>
