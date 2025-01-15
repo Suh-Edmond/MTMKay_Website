@@ -15,19 +15,19 @@ class CategoriesSeeder extends Seeder
     {
         Category::create([
             'name' => "CyberSecurity",
-            'image_path' => 'img/blog/cat-post/cat-post-3.jpg',
+            'image_path' => 'img/company/cybersecurity.png',
             'caption_text' => 'The Importance of CyberSecurity for Small Businesses'
         ]);
 
         Category::create([
             'name' => "Cloud Computing",
-            'image_path' => 'img/blog/cat-post/cat-post-2.jpg',
+            'image_path' => 'img/company/blog_cloud.png',
             'caption_text' => 'Top IT Certifications to Boost Your Career'
         ]);
 
         Category::create([
             'name' => "IT Certification",
-            'image_path' => 'img/blog/cat-post/cat-post-1.jpg',
+            'image_path' => 'img/company/blog_hero.png',
             'caption_text' => 'How Cloud Computing is Revolutionizing Business Operations'
         ]);
     }
