@@ -103,7 +103,6 @@ class ProgramController extends Controller
             'eligibility' => $request['eligibility'],
             'objective' => $request['objective'],
             'training_resources' => $request['training_resources'],
-            'available_seats' => $request['available_seats'],
             'trainer_name' => $request['trainer_name'],
             'job_opportunities' => $request['job_opportunities'],
             'image_path' => ''
