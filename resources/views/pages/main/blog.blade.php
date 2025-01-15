@@ -155,7 +155,7 @@
                                     @if($popularBlog->getBlogCreatedHours($popularBlog->id) < 1)
                                         <p>Few Minutes Ago</p>
                                     @else
-                                        <p>{{$popularBlog->getBlogCreatedHours($popularBlog->id) }} Hours ago</p>
+                                        <p>{{$popularBlog->getBlogCreatedHours($popularBlog->id) }}</p>
                                     @endif
                                 </div>
                             </div>
