@@ -4,8 +4,19 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <meta name="description" content="@yield('title')">
     <title>@yield('title', 'MTMKay IT Training & Technology Solutions') </title>
+
+    @include('meta::manager', [
+           'title'         => 'MTMKay Technology Training and IT Consulting Services, Microsoft Azure, Cisco Networking CCNA, CompTia + Security',
+           'description'   => "MTMKay offers a unique blend of services tailored to the needs of our community. We provide IT consulting and managed services to help local businesses improve their technology infrastructure. We also specialize in cybersecurity, offering essential protections to keep companies secure and compliant in an increasingly digital world.One of MTMKay's core pillars is training and certification. We offer globally recognized IT certification courses—such as Microsoft Azure, Cisco CCNA, and CompTIA Security+",
+           'geo_region'    => 'Alaska Street Buea Road, Kumba, Southwest Region, Cameroon',
+           'keywords'      => 'IT Training and Certification, Technology, Microsoft Azure, Cloud, Cisco Networking, CCNA, CompTIA Security+, Security, Consulting, Database Administrator, Risk Management, Security Operations,Data Management, Azure Services, oNetworking Basics and Security Fundamentals,CyberSecurity,
+           Infrastructure Design, Cloud Migration,Security Monitoring,Digital transformation.',
+           'type'          => 'website',
+           'image'         => asset('img/company/mtmkay_logo.png'),
+           'site_name'     => 'MTMKay IT Training Center'
+
+       ])
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">

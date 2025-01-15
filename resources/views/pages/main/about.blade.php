@@ -1,4 +1,4 @@
-@section('title', 'MTMKay-About US')
+@section('title', 'MTMKay-About Us')
 
 <x-guest-layout>
 <!--================Home Banner Area =================-->
