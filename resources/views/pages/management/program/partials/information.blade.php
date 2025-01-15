@@ -36,17 +36,12 @@
                     <x-input-error class="mt-2" :messages="$errors->get('duration')" />
                 </div>
 
-                <div class="grow">
-                    <x-input-label for="available_seats" :value="__('Available Seats')" />
-                    <x-text-input id="available_seats" name="available_seats" type="number" class="mt-1 block w-full" :value="old('available_seats', $program->available_seats ?? '')" required   autocomplete="available_seats" />
-                    <x-input-error class="mt-2" :messages="$errors->get('available_seats')" />
-                </div>
-            </div>
 
-            <div>
-                <x-input-label for="cost" :value="__('Cost')" />
-                <x-text-input id="cost" name="cost" type="number" class="mt-1 block w-full" :value="old('cost', $program->cost ?? '')" required   autocomplete="cost" />
-                <x-input-error class="mt-2" :messages="$errors->get('cost')" />
+                <div class="grow">
+                    <x-input-label for="cost" :value="__('Cost')" />
+                    <x-text-input id="cost" name="cost" type="number" class="mt-1 block w-full" :value="old('cost', $program->cost ?? '')" required   autocomplete="cost" />
+                    <x-input-error class="mt-2" :messages="$errors->get('cost')" />
+                </div>
             </div>
 
             <div>
