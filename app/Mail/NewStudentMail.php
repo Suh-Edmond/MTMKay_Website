@@ -27,7 +27,7 @@ class NewStudentMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'New Trainer Mail',
+            subject: 'New Enrollment Mail',
         );
     }
 

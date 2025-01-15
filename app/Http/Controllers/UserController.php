@@ -2,15 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Constant\ProgramEnrollmentStatus;
 use App\Constant\Roles;
 use App\Http\Requests\EnrollmentRequest;
 use App\Mail\EnrollmentMail;
+use App\Mail\EnrollmentNotification;
 use App\Mail\NewStudentMail;
-use App\Mail\StudentEnrollmentMail;
 use App\Models\Enrollment;
 use App\Models\Program;
 use App\Models\Role;
+use App\Models\TrainingSlot;
 use App\Models\User;
+use App\Traits\SubscriptionTrait;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -18,6 +21,7 @@ use Illuminate\Support\Facades\Mail;
 
 class UserController extends Controller
 {
+    use SubscriptionTrait;
     public function enrollStudent($slug, EnrollmentRequest $request)
     {
 
@@ -25,104 +29,115 @@ class UserController extends Controller
         $exist   = $this->fetchStudent($request);
 
          if (!isset($exist)){
-            $student = $this->createStudentAccount($request, $program);
-            if($this->checkIfStudentAlreadyEnrollProgram($program->id, $student->id) !== null){
-                return response()->json(['message' => 'User Already enrolled', 'status' => 200, 'code' => 'ENROLLED']);
+            $student = $this->createStudentAccount($request);
+            if($this->checkIfStudentEnrollAnyTrainingSlot($student->id) !== null){
+                return response()->json(['message' => 'You can only enrollment for one training slot', 'status' => 200, 'code' => 'ENROLLED']);
             }else{
                 Enrollment::create([
-                    'program_id' => $program->id,
-                    'user_id' => $student->id,
+                    'program_id'            => $program->id,
+                    'user_id'               => $student->id,
                     'has_completed_payment' => false,
+                    'training_slot_id'      => $request['training_slot']
                 ]);
 
             }
 
         }else {
-            if($this->checkIfStudentAlreadyEnrollProgram($program->id, $exist->id) !== null){
-                return response()->json(['message' => 'User Already enrolled', 'status' => 200, 'code' => 'ENROLLED']);
+            if($this->checkIfStudentEnrollAnyTrainingSlot($exist->id) !== null){
+                return response()->json(['message' => 'You can only enrollment for one training slot', 'status' => 200, 'code' => 'ENROLLED']);
             }else {
-                Enrollment::create([
-                    'program_id' => $program->id,
-                    'user_id' => $exist->id,
-                    'has_completed_payment' => false,
-                    'enrollment_date' => Carbon::now()
+                $savedEnrollment = Enrollment::create([
+                    'program_id'             => $program->id,
+                    'user_id'                => $exist->id,
+                    'has_completed_payment'  => false,
+                    'enrollment_date'        => Carbon::now(),
+                    'training_slot_id'      => $request['training_slot']
                 ]);
 
                 $emailData = $this->setEmailData($request, $program, $exist);
-                Mail::to($request['email'])->send(new NewStudentMail($emailData));
+                $this->sendNotificationsUponEnrollment($request, $emailData, $program, $exist, $savedEnrollment->trainingSlot);
+
             }
         }
          return response()->json(['message' => 'Successfully enrolled new student', 'status' => 200, 'code' => !isset($exist) ? 'NEW_ACCOUNT_CREATION' : 'EXISTING_ACCOUNT']);
     }
 
 
-    public function createStudentAccount(EnrollmentRequest $request, $program)
+    public function createStudentAccount(EnrollmentRequest $request)
     {
+
         $role = Role::where('name', Roles::TRAINEE)->firstOrFail();
-        $student = $this->fetchStudent($request);
 
-        if(!isset($student)){
-            $request->validate([
-                'email' => 'unique:users,email'
-            ]);
-            $student = User::create([
-                'name' => $request['name'],
-                'email' => $request['email'],
-                'telephone' => $request['telephone'],
-                'address'  => $request['address'],
-                'password' => Hash::make('password'),
-                'role_id'   => $role->id
-            ]);
+        $trainingSlot = TrainingSlot::find($request['training_slot']);
 
-            $data = $this->setEmailData($request, $program, $student);
-
-            Mail::to($request['email'])->send(new EnrollmentMail($data));
+        if(!isset($trainingSlot)){
+            return redirect()->back()->with(['status', 'Training Slot does not exist']);
         }
+
+        $request->validate([
+            'email' => 'unique:users,email'
+        ]);
+        $student = User::create([
+            'name' => $request['name'],
+            'email' => $request['email'],
+            'telephone' => $request['telephone'],
+            'address'  => $request['address'],
+            'password' => Hash::make('password'),
+            'role_id'   => $role->id,
+        ]);
+
+        $data = $this->setEmailData($request, $trainingSlot, $student);
+
+        Mail::to($request['email'])->send(new EnrollmentMail($data));
+
+
         return $student;
     }
-
-    private function generationEnrollmentVerificationLink($program, $student)
-    {
-        return urldecode(url()->query(env('ENROLLMENT_VERIFICATION_URL'), ['prog' => $program->slug, 'stud' => $student->slug,'expires' => strtotime(Carbon::now()->addHours(24))]));
-    }
-
-    private function fetchStudent($request)
-    {
-        return User::where('email', $request['email'])->first();
-    }
-
-    private function checkIfEmailVerify($email)
-    {
-        return User::where('email', $email)->whereNull('email_verified_at')->first();
-    }
-
-    private function checkIfStudentAlreadyEnrollProgram($programId, $userId)
-    {
-        return Enrollment::where('program_id', $programId)->where('user_id', $userId)->whereNotNull('enrollment_date')->first();
-    }
-
 
     public function completeEnrollment(Request $request)
     {
 
-       $expires = Carbon::create($request['expires']);
-       $user   = User::where('slug', $request['stud'])->firstOrFail();
-       $program = Program::where('slug', $request['prog'])->firstOrFail();
-       $has_expire = Carbon::now()->greaterThan($expires);
+       $expires      = Carbon::create($request['expires']);
+       $user         = User::where('slug', $request['stud'])->firstOrFail();
+       $trainingSlot = TrainingSlot::where('slug', $request['trainingSlot'])->firstOrFail();
+       $has_expire   = Carbon::now()->greaterThan($expires);
+       $enrollment = Enrollment::where('training_slot_id', $trainingSlot->id)->where('user_id', $user->id)->first();
 
-       $enrollment = Enrollment::where('program_id', $program->id)->where('user_id', $user->id)->first();
        if(isset($enrollment) && !isset($enrollment->enrollment_date)){
+           $user->update([
+               'email_verified_at' => Carbon::now()
+           ]);
            $enrollment->update([
                'enrollment_date' => Carbon::now()
            ]);
+
+           $this->updateTrainingSlotStatus($trainingSlot);
+
+           $program_link = url()->query('training-detail', ['slug' => $trainingSlot->program->slug]);
+
+           $emailData = [
+               'name'                => $user['name'],
+               'email'               => $user['email'],
+               'program'             => $trainingSlot->program,
+               'is_first_time'       => true,
+               'program_image'       => $trainingSlot->program->getImagePath($trainingSlot->program, $trainingSlot->program->image_path),
+               'program_link'        => $program_link,
+               'verificationUrl'     => str_replace('amp;', '', $this->generationEnrollmentVerificationLink($trainingSlot->program, $user, $trainingSlot)),
+               'subscription_link'   => $this->generationSubscriptionLinkUsingEmail($user['email']),
+               'unsubscription_link' => $this->generationUnSubscriptionLinkUsingEmail($user['email']),
+               'trainingSlot'       => $trainingSlot
+           ];
+
+           $this->sendNotificationsUponEnrollment($user['email'], $emailData, $trainingSlot->program, $user, $trainingSlot);
        }
 
        $data = [
-           'student' => $user,
-           'program' => $program,
-           'has_expire' => $has_expire,
-           'message' => $has_expire ? 'Program Enrollment Link has Expired': 'Program Enrollment Completed Successfully',
-           'program_link' => url()->query('training-detail', ['slug' => $program->slug])
+           'student'           => $user,
+           'program'           => $trainingSlot->program,
+           'has_expire'        => $has_expire,
+           'message'           => $has_expire ? 'Program Enrollment Link has Expired': 'Program Enrollment Completed Successfully',
+           'program_link'      => url()->query('training-detail', ['slug' => $trainingSlot->program->slug]),
+           'trainingSlot'      => $trainingSlot
        ];
 
 
@@ -130,18 +145,82 @@ class UserController extends Controller
     }
 
 
-    private function setEmailData($request, $program, $student)
+    private function setEmailData($request, $trainingSlot, $student)
     {
-        $program_link = url()->query('training-detail', ['slug' => $program->slug]);
+        $program_link = url()->query('training-detail', ['slug' => $trainingSlot->program->slug]);
         return  [
-            'name' => $request['name'],
-            'email' => $request['email'],
-            'program' => $program,
-            'is_first_time' => true,
-            'program_image' => $program->getImagePath($program, $program->image_path),
-            'program_link' => $program_link,
-            'verificationUrl' => str_replace('amp;', '', $this->generationEnrollmentVerificationLink($program,$student))
+            'name'                => $request['name'],
+            'email'               => $request['email'],
+            'program'             => $trainingSlot->program,
+            'is_first_time'       => true,
+            'program_image'       => $trainingSlot->program->getImagePath($trainingSlot->program, $trainingSlot->program->image_path),
+            'program_link'        => $program_link,
+            'verificationUrl'     => str_replace('amp;', '', $this->generationEnrollmentVerificationLink($trainingSlot->program, $student, $trainingSlot)),
+            'subscription_link'   => $this->generationSubscriptionLinkUsingEmail($request['email']),
+            'unsubscription_link' => $this->generationUnSubscriptionLinkUsingEmail($request['email']),
+            'trainingSlot'        => $trainingSlot
         ];
+    }
+
+    private function sendNotificationsUponEnrollment($studentEmail, $emailData, $program, $exist, $trainingSlot)
+    {
+        try {
+            Mail::to($studentEmail)->send(new NewStudentMail($emailData));
+
+        }catch (\Exception $e){
+            return  response()->json(['message' => 'Could not sent email notification mail to student', 'code' => 'FAILED']);
+        }
+
+        try {
+            $data = [
+                'program'        => $program->title,
+                'studentName'    => $exist->name,
+                'studentEmail'   => $exist->email,
+                'studentPhone'   => $exist->telephone,
+                'studentAddress' => $exist->address,
+                'adminEmail'     => env('MAIL_FROM_ADDRESS'),
+                'trainingSlot'   => $trainingSlot
+            ];
+
+            Mail::to(env('MAIL_FROM_ADDRESS'))->send(new EnrollmentNotification($data));
+
+        }catch (\Exception $e){
+            return  response()->json(['message' => 'Could not sent email notification mail to admin', 'code' => 'FAILED']);
+        }
+
+        return true;
+    }
+
+    private function generationEnrollmentVerificationLink($program, $student, $trainingSlot)
+    {
+        return urldecode(url()->query(env('ENROLLMENT_VERIFICATION_URL'), ['trainingSlot' => $trainingSlot->slug, 'prog' => $program->slug, 'stud' => $student->slug,'expires' => strtotime(Carbon::now()->addHours(24))]));
+    }
+
+    private function fetchStudent($request)
+    {
+        return User::where('email', $request['email'])->first();
+    }
+
+    private function checkIfStudentEnrollAnyTrainingSlot($userId)
+    {
+        return Enrollment::where('user_id', $userId)->whereNotNull('enrollment_date')->first();
+    }
+
+    private function updateTrainingSlotStatus($trainingSlot)
+    {
+        $diffInEnrollment = ($trainingSlot->available_seats - count($trainingSlot->enrollments));
+        if($trainingSlot->status = ProgramEnrollmentStatus::AVAILABLE){
+            if($diffInEnrollment >= 1 && $diffInEnrollment <= 5){
+                $trainingSlot->update([
+                    'status' => ProgramEnrollmentStatus::ALMOST_FULL
+                ]);
+            }
+            elseif($diffInEnrollment == 0){
+                $trainingSlot->update([
+                    'status' => ProgramEnrollmentStatus::FULL
+                ]);
+            }
+        }
     }
 
 }

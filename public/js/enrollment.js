@@ -19,9 +19,8 @@ $(document).ready(function() {
         var method = $('#enrollmentForm').attr('method');
 
 
-        $(".btn-text").text("Enrolling new student...");
-        $('#submitEnrollment').prop('disabled', true)
-
+        $(".submit_enroll_button").css("display", "none");
+        $(".loader").css("display", "block");
 
         $.ajax({
             url:action,
@@ -42,19 +41,18 @@ $(document).ready(function() {
                     $('.modal').modal('hide');
                     $('#success_exist_acc').modal('show');
                 }
+                $('#enrollmentForm').get(0).reset();
 
-                $('#enrollmentForm').get(0).reset()
+                $(".submit_enroll_button").css("display", "inline-block");
+                $(".loader").css("display", "none");
 
-                $(".btn-text").text("Enroll Now");
-                $('#submitEnrollment').prop('disabled', false)
             },
             error:function (error){
-                $(".btn-text").text("Enroll Now");
-                $('#submitEnrollment').prop('disabled', false)
-                // $('#error').fadeIn()
-                // $('.modal').modal('hide');
-                // $('#error').modal('show');
-                console.log(error)
+
+
+                $(".submit_enroll_button").css("display", "inline-block");
+                $(".loader").css("display", "none");
+
                 var response = $.parseJSON(error.responseText);
                 $.each(response.errors, function(key, val) {
                     $("#" + key).next().html(val[0]).next().html(val[1]);
@@ -67,7 +65,7 @@ $(document).ready(function() {
     $("#contactForm").submit(function (e){
         e.preventDefault();
         var $form = $(this);
-        console.log($form)
+
         var action = $('#contactForm').attr('action');
         var method = $('#contactForm').attr('method');
 
@@ -82,13 +80,14 @@ $(document).ready(function() {
             data: $form.serialize(),
             headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
             success:function (response){
+                $(".btn-text").text("Send Message");
 
                 $('#success').fadeIn()
                 $('.modal').modal('hide');
                 $('#success').modal('show');
 
-                $form.resetForm();
-                $(".btn-text").text("Send Message");
+                // $form.reset();
+
 
             },
             error:function (error){

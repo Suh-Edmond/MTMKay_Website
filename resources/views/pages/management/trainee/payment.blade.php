@@ -29,9 +29,7 @@
                     {{ __('Make Program Payment') }}
                 </h2>
             </div>
-
-
-            <form method="post" action="{{ route('trainee.make_payment', ['slug'=> $value->slug, 'programSlug' => $value->program->slug]) }} " class="mx-5">
+            <form method="post" action="{{ route('trainee.make_payment', ['slug'=> $value->slug, 'programSlug' => $value->trainingSlot->program->slug ?? '']) }} " class="mx-5">
                 @csrf
                 <div class="my-5 mx-5">
                     <x-input-label for="program" :value="__('Trainee')" />
@@ -40,18 +38,18 @@
 
                 <div class="my-5 mx-5">
                     <x-input-label for="program" :value="__('Program')" />
-                    <x-text-input id="program" name="program" type="text" class="mt-1 block w-full" :value="$value->program->title" disabled />
+                    <x-text-input id="program" name="program" type="text" class="mt-1 block w-full" :value="$value->trainingSlot->program->title ?? ''" disabled />
                 </div>
 
                 <div class="my-5 mx-5">
                     <x-input-label for="amount" :value="__('Program Cost')" />
-                    <x-text-input id="program_cost" name="program_cost" type="number" class="mt-1 block w-full" :value="$value->program->cost" disabled  />
+                    <x-text-input id="program_cost" name="program_cost" type="number" class="mt-1 block w-full" :value="$value->trainingSlot->program->cost ?? ''" disabled  />
                     <x-input-error class="mt-2" :messages="$errors->get('name')" />
                 </div>
 
                 <div class="my-5 mx-5">
                     <x-input-label for="amount" :value="__('Balance')" />
-                    <x-text-input id="balance" name="balance" type="number" class="mt-1 block w-full" :value="$value->getTotalEnrollmentPayment($value, $value->program)" disabled  />
+                    <x-text-input id="balance" name="balance" type="number" class="mt-1 block w-full" :value="$value->getTotalEnrollmentPayment($value, $value->trainingSlot->program ?? '')" disabled  />
                     <x-input-error class="mt-2" :messages="$errors->get('balance')" />
                 </div>
 

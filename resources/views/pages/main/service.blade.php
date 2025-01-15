@@ -1,4 +1,4 @@
-@section('title', 'Services')
+@section('title', 'MTMKay-IT Services')
 
 <x-guest-layout>
 <!--================Home Banner Area =================-->
@@ -218,8 +218,8 @@
                     </div>
                     <div class="pack_body">
                         <ul class="list">
+                            <li><a href="#" style="font-size: medium"><i class="lnr lnr-checkmark-circle mr-lg-2" style="color: #385abe; font-size: large;font-weight: bolder"></i>Technical Support</a></li>
                             <li><a href="#" style="font-size: medium"> <i class="lnr lnr-checkmark-circle mr-lg-3" style="color: #385abe; font-size: large;font-weight: bolder"></i>Managed IT Services</a></li>
-                            <li><a href="#" style="font-size: medium"><i class="lnr lnr-checkmark-circle mr-lg-3" style="color: #385abe; font-size: large;font-weight: bolder"></i>Technical Support</a></li>
                             <li><a href="#"><i class="lnr lnr-checkmark-circle mr-lg-3" style="color: #385abe; font-size: large;font-weight: bolder"></i>Custom Website Development</a></li>
                             <li><a href="#" style="font-size: medium"><i class="lnr lnr-checkmark-circle mr-lg-3" style="color: #385abe; font-size: large;font-weight: bolder"></i>IT Strategy and System Integration</a></li>
                             <li><a href="#" style="font-size: medium"><i class="lnr lnr-cross mr-lg-3" style="color: red;font-size: large;font-weight: bolder"></i>Cloud Hosting and Management of Services</a></li>
@@ -239,8 +239,8 @@
                     </div>
                     <div class="pack_body">
                         <ul class="list">
+                            <li><a href="#" style="font-size: medium"><i class="lnr lnr-checkmark-circle mr-lg-2" style="color: #385abe; font-size: large;font-weight: bolder"></i>Technical Support</a></li>
                             <li><a href="#" style="font-size: medium"><i class="lnr lnr-checkmark-circle mr-lg-3" style="color: #385abe; font-size: large;font-weight: bolder"></i>Managed IT Services</a></li>
-                            <li><a href="#" style="font-size: medium"><i class="lnr lnr-checkmark-circle mr-lg-3" style="color: #385abe; font-size: large;font-weight: bolder"></i>Technical Support</a></li>
                             <li><a href="#"><i class="lnr lnr-checkmark-circle mr-lg-3" style="color: #385abe; font-size: large;font-weight: bolder"></i>Custom Website Development</a></li>
                             <li><a href="#" style="font-size: medium"><i class="lnr lnr-checkmark-circle mr-lg-3" style="color: #385abe; font-size: large;font-weight: bolder"></i>IT Strategy and System Integration</a></li>
                             <li><a href="#" style="font-size: medium"><i class="lnr lnr-checkmark-circle mr-lg-3" style="color: #385abe; font-size: large;font-weight: bolder"></i>Cloud Hosting and Management of Services</a></li>

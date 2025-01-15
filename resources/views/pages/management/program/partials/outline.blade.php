@@ -3,7 +3,7 @@
         <div class="flex justify-between">
             <header class="flex flex-row ">
                 <h2 class="text-lg font-medium text-gray-900">
-                    {{ __('Program Outline for') }} {{ $program->title ?? '' }}
+                    {{ __('Program Outline') }}
                 </h2>
                 @if (session('status') === 'Program outline save successfully' || session('status') === 'Program outline deleted successfully')
                     <x-auth-session-status :status="session('status')"
@@ -34,7 +34,8 @@
                 </a>
             @endif
         @endif
-            @include('pages.management.program.partials.add-outline-form')
+
+        @include('pages.management.program.partials.add-outline-form')
     </section>
 </div>
 <script>

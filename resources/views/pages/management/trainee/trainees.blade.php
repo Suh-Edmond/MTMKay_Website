@@ -14,7 +14,7 @@
                     <option selected>Choose a program</option>
 
                     @foreach($programs as $program)
-                        <option value="{{$program->id}}">{{$program->title}}</option>
+                        <option value="{{$program->slug}}">{{$program->title}}</option>
                     @endforeach
                     <option value="ALL">All</option>
                 </select>
@@ -42,9 +42,9 @@
     </div>
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden sm:rounded-lg">
+            <div class="bg-white overflow-visible sm:rounded-lg">
                 <div>
-                    <table class=" bg-white border-collapse w-full" style="z-index: 50">
+                    <table class=" bg-white border-collapse w-full">
                         <thead>
                         <tr>
                             <th class="bg-blue-800 text-white border text-center px-1 py-2">S/N</th>
@@ -62,12 +62,12 @@
                                 <td class="border text-center py-4">{{$key+1}}</td>
                                 <td class="border px-4 py-4">{{$value->user->name ?? ''}}</td>
                                 <td class="border px-4 py-4">{{$value->user->email ?? ''}}</td>
-                                <td class="border px-4 py-4  ">{{$value->program->title ?? ''}}</td>
+                                <td class="border px-4 py-4  ">{{$value->trainingSlot->program->title ?? ''}}</td>
                                 <td class="border px-4 py-4 ">{{$value->enrollment_date ?? $value->user->enrollment_date->format('D, d M Y') }}</td>
                                 @if($value->has_completed_payment)
                                     <td class="border px-4 py-4 text-green-700 text-center w-20">Complete</td>
                                 @else
-                                    <td class="border px-4 py-4 text-yellow-600 text-center w-20">InComplete</td>
+                                    <td class="border px-4 py-4 text-yellow-600 text-center w-20">Incomplete</td>
                                 @endif
                                 <td class="border  py-4 text-center cursor-pointer">
                                     <x-dropdown align="right" width="48" style="z-index: 5">
@@ -75,6 +75,9 @@
                                             <span><i class="fa fa-bars"></i></span>
                                         </x-slot>
                                         <x-slot name="content">
+                                            <x-dropdown-link href="{{route('manage-students.view.info', ['slug' => $value->slug])}}">
+                                                <span><i class="fa fa-info-circle   cursor-pointer mr-5 "></i>{{ __('Profile') }}</span>
+                                            </x-dropdown-link>
                                             <x-dropdown-link href="{{route('manage-students.view.payments', ['slug' => $value->slug])}}">
                                                 <span><i class="fa fa-money   cursor-pointer mr-5 "></i>{{ __('View Payments') }}</span>
                                             </x-dropdown-link>
@@ -102,9 +105,10 @@
                 </div>
 
                 @if(($trainees->count() > 0))
-                    <div class="m-4 flex justify-end">
-                    <nav aria-label="Page navigation example">
-                        <ul class="flex items-center -space-x-px h-10 text-base">
+                    <div class="m-5 p-5 flex justify-between">
+                        <p class="font-bold">Total Enrollment: {{$trainees->total()}}</p>
+                        <nav aria-label="Page navigation example py-5">
+                            <ul class="flex items-center -space-x-px h-10 text-base">
                             <li  class="{{$trainees->currentPage() == 1 ? 'page-item disabled':'page-item'}}">
                                 <a href="{{route('manage-students', ['page' =>$trainees->currentPage() - 1])}}" class="{{$trainees->currentPage() == 1? 'cursor-not-allowed flex items-center justify-center px-4 h-10 ms-0 leading-tight text-gray-500 bg-white border border-e-0 border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white':'flex items-center justify-center px-4 h-10 ms-0 leading-tight text-gray-500 bg-white border border-e-0 border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white'}}">
                                     <span class="sr-only">Previous</span>
@@ -131,9 +135,8 @@
                                 </a>
                             </li>
                         </ul>
-                    </nav>
-
-                </div>
+                        </nav>
+                    </div>
                 @endif
             </div>
         </div>
@@ -164,7 +167,7 @@
             let searchParams = new URLSearchParams(url.search);
 
 
-            searchParams.set('program_id', e.target.value)
+            searchParams.set('program_slug', e.target.value)
 
             url.search = searchParams.toString();
 

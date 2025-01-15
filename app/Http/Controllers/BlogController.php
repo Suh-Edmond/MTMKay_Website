@@ -110,6 +110,7 @@ class BlogController extends Controller
         $filter = $request['filter'];
         $sort = $request['sort'];
         $tag_id = $request['tag_id'];
+        $search = $request['search_title'];
         $categorySlug = $request['category_slug'];
         $category = Category::where('slug', $categorySlug)->first();
         $tags = Tag::orderBy('name')->get();
@@ -141,6 +142,9 @@ class BlogController extends Controller
         }
         if(isset($category) && $category !== "ALL"){
             $blogs = $blogs->where('category_id', $category->id);
+        }
+        if(isset($search)) {
+            $blogs = $blogs->where('title', 'LIKE', '%'.$search.'%');
         }
         $blogs = $blogs->paginate(10);
 

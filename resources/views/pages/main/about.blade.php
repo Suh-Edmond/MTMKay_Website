@@ -1,4 +1,4 @@
-@section('title', 'About us')
+@section('title', 'MTMKay-About Us')
 
 <x-guest-layout>
 <!--================Home Banner Area =================-->
@@ -193,28 +193,28 @@
                     <div class="testi_item">
                         <img src="img/company/cisco-logo.png" alt="" width="120px" height="120px">
                         <h4>Cisco Networking</h4>
-                        <p>Accessories Here you can find the best computer accessory for your laptop, monitor, printer, scanner, speaker. Here you can find the best computer accessory for your laptop, monitor, printer, scanner, speaker.</p>
+                        <p>Cisco Systems, Inc. is a multinational technology company headquartered in San Jose, California. Founded in 1984, Cisco specializes in networking hardware, telecommunications equipment, and high-technology services and products. The company is best known for its role in the development of internet protocol (IP)-based networking technologies, including routers and switches. Cisco also provides cybersecurity solutions, cloud computing services, and collaboration tools, aiming to empower digital transformation for businesses and organizations worldwide.</p>
                     </div>
                 </div>
                 <div class="item">
                     <div class="testi_item">
                         <img src="img/company/comptia.png" alt="" width="100px" height="100px">
                         <h4>CompTia Security +</h4>
-                        <p>Accessories Here you can find the best computer accessory for your laptop, monitor, printer, scanner, speaker. Here you can find the best computer accessory for your laptop, monitor, printer, scanner, speaker.</p>
+                        <p>CompTIA Security+ is a globally recognized certification that validates foundational skills in cybersecurity. It covers essential concepts such as network security, threat management, risk assessment, and compliance. Aimed at IT professionals, Security+ demonstrates the ability to secure networks, devices, and data, and it is often considered a starting point for those pursuing a career in cybersecurity. The certification is vendor-neutral, making it applicable across various technologies and platforms, and is frequently required for positions in information security.</p>
                     </div>
                 </div>
                 <div class="item">
                     <div class="testi_item">
                         <img src="img/company/microsoft_1.png" alt="" width="100px" height="90px">
                         <h4>Microsoft</h4>
-                        <p>Accessories Here you can find the best computer accessory for your laptop, monitor, printer, scanner, speaker. Here you can find the best computer accessory for your laptop, monitor, printer, scanner, speaker.</p>
+                        <p>Microsoft Corporation is a global technology company headquartered in Redmond, Washington, founded in 1975 by Bill Gates and Paul Allen. It is best known for its software products, including the Windows operating system and Microsoft Office suite. Over the years, Microsoft has expanded its offerings to include cloud computing services through Azure, gaming with Xbox, and hardware like Surface devices. The company focuses on empowering individuals and organizations through technology and innovation, aiming to enhance productivity, collaboration, and digital transformation across various sectors..</p>
                     </div>
                 </div>
                 <div class="item">
                     <div class="testi_item">
                         <img src="img/company/paloalto-logo.jpg" alt="" width="110px" height="110px">
-                        <h4>Microsoft</h4>
-                        <p>Accessories Here you can find the best computer accessory for your laptop, monitor, printer, scanner, speaker. Here you can find the best computer accessory for your laptop, monitor, printer, scanner, speaker.</p>
+                        <h4>Paloalto</h4>
+                        <p>Palo Alto Networks is a cybersecurity company headquartered in Santa Clara, California, founded in 2005 by Nir Zuk. It specializes in providing advanced security solutions to protect organizations from cyber threats. The company is known for its next-generation firewalls, cloud security services, and threat intelligence offerings. Palo Alto Networks focuses on network security, endpoint protection, and security automation, helping businesses secure their digital environments against evolving threats. Its solutions are designed to provide comprehensive visibility, control, and protection across on-premises, cloud, and hybrid environments.</p>
                     </div>
                 </div>
             </div>

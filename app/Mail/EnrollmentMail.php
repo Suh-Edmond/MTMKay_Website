@@ -27,7 +27,7 @@ class EnrollmentMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Enrollment Mail',
+            subject: 'Account Creation Mail',
         );
     }
 

@@ -1,4 +1,4 @@
-@section('title', 'MTMKay Technologies')
+@section('title', 'MTMKay')
 <x-guest-layout>
     <!--================Home Banner Area =================-->
     <section class="home_banner_area">
@@ -279,7 +279,7 @@
                         <div class="testi_item">
                             <img src="{{asset('img/success/success_1.png')}}" alt="" width="120px" height="120px" style="border-radius: 50%">
                             <h4>{{$success->user->name ?? 'Enow James'}}</h4>
-                            <h4>{{$success->user->enrollments[0]->program->title ?? ''}}</h4>
+                            <h4>{{$success->user->enrollments[0]->trainingSlot->program->title ?? ''}}</h4>
                             <ul class="list">
                                 <li><a href="#"><i class="fa fa-star"></i></a></li>
                                 <li><a href="#"><i class="fa fa-star"></i></a></li>
@@ -315,8 +315,8 @@
                         </div>
                         <div class="pack_body">
                             <ul class="list">
+                                <li><a href="#" style="font-size: medium"><i class="lnr lnr-checkmark-circle mr-lg-2" style="color: #385abe; font-size: large;font-weight: bolder"></i>Technical Support</a></li>
                                 <li><a href="#" style="font-size: medium"> <i class="lnr lnr-checkmark-circle mr-lg-3" style="color: #385abe; font-size: large;font-weight: bolder"></i>Managed IT Services</a></li>
-                                <li><a href="#" style="font-size: medium"><i class="lnr lnr-checkmark-circle mr-lg-3" style="color: #385abe; font-size: large;font-weight: bolder"></i>Technical Support</a></li>
                                 <li><a href="#"><i class="lnr lnr-checkmark-circle mr-lg-3" style="color: #385abe; font-size: large;font-weight: bolder"></i>Custom Website Development</a></li>
                                 <li><a href="#" style="font-size: medium"><i class="lnr lnr-checkmark-circle mr-lg-3" style="color: #385abe; font-size: large;font-weight: bolder"></i>IT Strategy and System Integration</a></li>
                                 <li><a href="#" style="font-size: medium"><i class="lnr lnr-cross mr-lg-3" style="color: red; font-size: large;font-weight: bolder"></i>Cloud Hosting and Management of Services</a></li>
@@ -337,8 +337,8 @@
                         </div>
                         <div class="pack_body">
                             <ul class="list">
+                                <li><a href="#" style="font-size: medium"><i class="lnr lnr-checkmark-circle mr-lg-2" style="color: #385abe; font-size: large;font-weight: bolder"></i>Technical Support</a></li>
                                 <li><a href="#" style="font-size: medium"><i class="lnr lnr-checkmark-circle mr-lg-3" style="color: #385abe; font-size: large;font-weight: bolder"></i>Managed IT Services</a></li>
-                                <li><a href="#" style="font-size: medium"><i class="lnr lnr-checkmark-circle mr-lg-3" style="color: #385abe; font-size: large;font-weight: bolder"></i>Technical Support</a></li>
                                 <li><a href="#"><i class="lnr lnr-checkmark-circle mr-lg-3" style="color: #385abe; font-size: large;font-weight: bolder"></i>Custom Website Development</a></li>
                                 <li><a href="#" style="font-size: medium"><i class="lnr lnr-checkmark-circle mr-lg-3" style="color: #385abe; font-size: large;font-weight: bolder"></i>IT Strategy and System Integration</a></li>
                                 <li><a href="#" style="font-size: medium"><i class="lnr lnr-checkmark-circle mr-lg-3" style="color: #385abe; font-size: large;font-weight: bolder"></i>Cloud Hosting and Management of Services</a></li>

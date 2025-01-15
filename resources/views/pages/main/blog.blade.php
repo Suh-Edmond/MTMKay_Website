@@ -1,4 +1,4 @@
-@section('title', 'Blogs')
+@section('title', 'MTMKay-Blogs and News')
 <x-guest-layout>
 <!--================Home Banner Area =================-->
 <section class="home_banner_area blog_banner">
@@ -75,7 +75,7 @@
                                     <img src="{{asset($blog->getSingleBlogImage($blog->id))}}" alt="" width="100%">
                                     <div class="blog_details">
                                         <a href="{{route('show-blog', ['slug'=>$blog->slug])}}"><h2>{{$blog->title}}</h2></a>
-                                        <p>{!! substr($blog->description, 0, 100) !!}</p>
+                                        <p>{!! substr($blog->description, 0, 400) !!}...</p>
                                         <a href="{{route('show-blog', ['slug'=>$blog->slug])}}" class="white_bg_btn mt-4">View More</a>
                                     </div>
 
@@ -122,7 +122,7 @@
             <div class="col-lg-4">
                 <div class="blog_right_sidebar">
                     <aside class="single_sidebar_widget search_widget">
-                        <form action="{{route('blog')}}" method="get" id="contactForm">
+                        <form action="{{route('blog')}}" method="get">
                             <div class="input-group">
                                 <input type="text" class="form-control" placeholder="Search Posts" name="search">
                                 <span class="input-group-btn">
@@ -155,7 +155,7 @@
                                     @if($popularBlog->getBlogCreatedHours($popularBlog->id) < 1)
                                         <p>Few Minutes Ago</p>
                                     @else
-                                        <p>{{$popularBlog->getBlogCreatedHours($popularBlog->id) }} Hours ago</p>
+                                        <p>{{$popularBlog->getBlogCreatedHours($popularBlog->id) }}</p>
                                     @endif
                                 </div>
                             </div>

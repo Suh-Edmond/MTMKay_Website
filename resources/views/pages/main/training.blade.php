@@ -1,4 +1,4 @@
-@section('title', 'Trainings-Programs')
+@section('title', 'MTMKay-Trainings-Programs')
 
 <x-guest-layout>
     <!--================Home Banner Area =================-->
@@ -36,7 +36,6 @@
                             <div class="hover_text">
                                 <a href="{{route('show-training', ['slug' => $program->slug])}}"><h4>{{$program->title}}</h4></a>
                                 <ul class="list">
-                                    <li><a href="#"><i class="lnr lnr-users"></i> {{count($program->enrollments)}}</a></li>
                                     <li><a href="#"><i class="lnr lnr-user"></i> {{$program->trainer_name}}</a></li>
                                 </ul>
                             </div>
@@ -54,6 +53,9 @@
         <div class="container">
             <div class="main_title">
                 <h2>Our Strengths and Uniqueness</h2>
+                <p style="font-size: 15px">
+                    At MTMKay, we embrace our unique strengths, setting us apart in the tech industry. Our individuality drives innovation and excellence, making us a standout leader in our field.
+                </p>
             </div>
             <div class="row packages_inner">
                 <div class="col-md-4">
@@ -114,8 +116,56 @@
     </section>
     <!--================End Strength Area =================-->
 
-    <!--================Infrastructure Area =================-->
+    <!--================Schedule Area =================-->
     <section class="packages_area p_120">
+        <div class="container">
+            <div class="main_title">
+                <h2>Our Flexible Learning Schedule</h2>
+                <p style="font-size: 15px">
+                    At MTMKay, we recognize that many learners have diverse commitments. That's why our programs are designed to accommodate all types of learners, offering the flexibility to study at your convenience.
+                </p>
+            </div>
+            <div class="row team_inner">
+                <div class="col-md-4">
+                    <div class="packages_item">
+                        <div class="pack_head">
+                            <i class="lnr lnr-sun"></i>
+                            <h4>Morning Session</h4>
+                        </div>
+                        <div class="pack_body">
+                            <p><span><i class="lnr lnr-clock mr-2"></i>09:00 AM</span> -  <span>12:00 PM</span></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="packages_item">
+                        <div class="pack_head">
+                            <i class="lnr lnr-sun"></i>
+                            <h4>Afternoon Session</h4>
+                        </div>
+                        <div class="pack_body">
+                            <p><span><i class="lnr lnr-clock mr-2"></i>13:00 AM</span> -  <span>16:00 PM</span></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="packages_item">
+                        <div class="pack_head">
+                            <i class="lnr lnr-moon"></i>
+                            <h4>Evening Session</h4>
+                        </div>
+                        <div class="pack_body">
+                            <p><span><i class="lnr lnr-clock mr-2"></i>17:00 PM</span> -  <span>20:00 PM</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--================End Schedule Area =================-->
+
+    <!--================Infrastructure Area =================-->
+    <section class="courses_area p_120">
         <div class="container">
             <div class="main_title">
                 <h2>Our Infrastructure</h2>
@@ -167,7 +217,7 @@
     <!--================End Infrastructure Area =================-->
 
     <!--================Testimonials Area =================-->
-    <section class="testimonials_area p_120">
+    <section class="packages_area p_120">
         <div class="container">
             <div class="main_title">
                 <h2>Testimonials</h2>
@@ -179,7 +229,7 @@
                         <div class="testi_item">
                             <img src="{{asset('img/success/success_1.png')}}" alt="" width="120px" height="120px" style="border-radius: 50%">
                             <h4>{{$success->user->name ?? 'Enow James'}}</h4>
-                            <h4>{{$success->user->enrollments[0]->program->title ?? ''}}</h4>
+                            <h4>{{$success->user->enrollments[0]->trainingSlot->program->title ?? ''}}</h4>
                             <ul class="list">
                                 <li><a href="#"><i class="fa fa-star"></i></a></li>
                                 <li><a href="#"><i class="fa fa-star"></i></a></li>
