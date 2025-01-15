@@ -52,6 +52,18 @@
             @endif
         </div>
     </div>
+    <div class="pt-4 max-w-7xl mx-auto sm:px-6 lg:px-8">
+        <div class="flex flex-wrap w-full">
+            <form method="get" action="{{ route('show.blog.comments', ['slug'  => $blog->slug]) }}" class="w-full">
+                <div class="md:flex md:items-center">
+                    <x-text-input id="search" name="search" type="text" class="mt-1 mr-2 block w-full" placeholder="Search blog by name, subject, email..." required autocomplete="search"/>
+                    <x-text-input id="slug" name="slug" type="text" class="mt-1 mr-2 block w-full d-none"  :value="$blog->slug" style="display: none" />
+                    <x-primary-button
+                    >{{ __('Search') }}</x-primary-button>
+                </div>
+            </form>
+        </div>
+    </div>
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             @foreach($comments as $comment)
@@ -122,7 +134,7 @@
             @endforeach
             @if(count($comments) == 0)
                 <h3 class="text-lg font-medium text-gray-900 p-5 text-center my-5">
-                    Oops! No Comments recorded for this blog post
+                    Oops! No Comments found for this blog post
                 </h3>
             @endif
         </div>
@@ -188,7 +200,7 @@
             let url = new URL(location.href);
             let searchParams = new URLSearchParams(url.search);
 
-            console.log(e.target.value)
+            searchParams.delete('search');
             searchParams.set('filter', e.target.value)
 
             url.search = searchParams.toString();
@@ -201,7 +213,7 @@
             let url = new URL(location.href);
             let searchParams = new URLSearchParams(url.search);
 
-            console.log(e.target.value)
+            searchParams.delete('search');
             searchParams.set('sort', e.target.value)
 
             url.search = searchParams.toString();

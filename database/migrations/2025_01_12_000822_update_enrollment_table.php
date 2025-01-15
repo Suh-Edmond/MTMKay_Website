@@ -13,7 +13,6 @@ return new class extends Migration
     {
 
         Schema::table('enrollments', function (Blueprint $table){
-            $table->dropColumn('program_id');
             $table->foreignId('training_slot_id')->constrained();
         });
     }

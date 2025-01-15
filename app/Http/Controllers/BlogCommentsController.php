@@ -6,6 +6,7 @@ use App\Models\Blog;
 use App\Models\BlogComments;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use function Laravel\Prompts\search;
 
 class BlogCommentsController extends Controller
 {
@@ -79,6 +80,7 @@ class BlogCommentsController extends Controller
         $blog = Blog::where('slug', $slug)->first();
         $filter = $request['filter'];
         $sort = $request['sort'];
+        $search = $request['search'];
         $comments = $blog->blogComments();
 
         if(isset($filter) && $filter !== "ALL"){
@@ -97,6 +99,11 @@ class BlogCommentsController extends Controller
                     $comments->orderByDesc('created_at');
                     break;
             }
+        }
+        if(isset($search)){
+            $comments->where('name', 'LIKE', '%'.$search.'%')
+                     ->orWhere('email', 'LIKE', '%'.$search.'%')
+                     ->orWhere('subject', 'LIKE', '%'.$search.'%');
         }
 
         $comments = $comments->paginate(10);
