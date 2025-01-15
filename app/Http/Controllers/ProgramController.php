@@ -53,7 +53,7 @@ class ProgramController extends Controller
         return view('pages.management.program.program-detail')->with($data);
     }
 
-    public function createProgram(Request $request)
+    public function createProgram()
     {
 
         $allQuarters = self::PERIODS;
