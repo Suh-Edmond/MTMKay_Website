@@ -40,7 +40,7 @@ class Blog extends Model
     public function getApprovedBlogComments($id)
     {
         $blog = Blog::find($id);
-         return $blog->blogComments()->where('blog_state', BlogState::APPROVED)->orderBy('created_at', 'DESC')->get();
+         return $blog->blogComments()->where('status', BlogState::APPROVED)->orderBy('created_at', 'DESC')->get();
     }
 
     public function category()
