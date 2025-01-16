@@ -13,13 +13,17 @@ class BlogNotificationMail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $data;
+    public $subscriber;
+    public $posts;
+    public $unsubscription_link;
     /**
      * Create a new message instance.
      */
-    public function __construct($data)
+    public function __construct($subscriber, $posts, $unsubscription_link)
     {
-        $this->data = $data;
+        $this->posts = $posts;
+        $this->subscriber = $subscriber;
+        $this->unsubscription_link = $unsubscription_link;
     }
 
     /**
@@ -28,7 +32,7 @@ class BlogNotificationMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'MTMKay IT Services Notification',
+            subject: 'MTMKay IT Notification',
         );
     }
 
@@ -40,7 +44,9 @@ class BlogNotificationMail extends Mailable
         return new Content(
             markdown: 'mail.blog-notification-mail',
             with: [
-                'data' => $this->data
+                'subscriber' => $this->subscriber,
+                'posts'      => $this->posts,
+                'unsubscription_link' => $this->unsubscription_link
             ]
         );
     }

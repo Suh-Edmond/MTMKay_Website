@@ -106,4 +106,9 @@ class Blog extends Model
     {
         return strip_tags($desc);
     }
+
+    public function setBlogDetailUrl($blog)
+    {
+        return url()->query('blog-detail', ['slug' => $blog->slug]);
+    }
 }
