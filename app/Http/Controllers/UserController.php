@@ -68,7 +68,7 @@ class UserController extends Controller
 
         $role = Role::where('name', Roles::TRAINEE)->firstOrFail();
 
-        $trainingSlot = TrainingSlot::find($request['training_slot']);
+        $trainingSlot = TrainingSlot::findOrFail($request['training_slot']);
 
         if(!isset($trainingSlot)){
             return redirect()->back()->with(['status', 'Training Slot does not exist']);
