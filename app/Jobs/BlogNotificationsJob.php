@@ -53,7 +53,7 @@ class BlogNotificationsJob implements ShouldQueue
                 Log::info("Notification was successfully sent");
             }catch (\Exception $exception){
 
-                Log::error("Email notification could not be sent");
+                Log::error("Email notification could not be sent".$exception);
             }
         }
     }
