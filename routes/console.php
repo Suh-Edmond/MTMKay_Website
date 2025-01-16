@@ -7,4 +7,4 @@ use Illuminate\Support\Facades\Schedule;
 Artisan::command('inspire', function () {
     $this->comment(Inspiring::quote());
 })->purpose('Display an inspiring quote')->hourly();
-Schedule::command('app:send-blog-notification')->dailyAt('16:30');
+Schedule::command('app:send-blog-notification')->dailyAt('17:20');
