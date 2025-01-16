@@ -36,7 +36,7 @@ class BlogNotificationsJob implements ShouldQueue
         $activeSubscribers = Subscriber::where('is_active', true)->get();
 
         Log::info("Fetch all subscribers...");
-        $blogs = Blog::whereDate('created_at', Carbon::today())->get();
+        $blogs = Blog::whereDate('created_at', Carbon::yesterday())->get();
 
         Log::info("Fetch all blogs posted today...");
         foreach ($activeSubscribers as $subscriber){
