@@ -29,7 +29,7 @@ class SendBlogNotification extends Command
     {
         Log::info("Start running cron job");
 
-        dispatch(new BlogNotificationsJob())->delay(now()->addMinutes(1));
+        dispatch(new BlogNotificationsJob())->delay(now()->addMinutes());
 
         Log::info("Finish executing cron job");
     }
