@@ -9,7 +9,7 @@ Here are the list posts and events from our training programs and IT services.
 
 @foreach($posts as $post)
 
-- <a class="dn_btn font-bold" href="{{$post->setBlogDetailUrl($post)}}">{{$post->title}}</a>.
+- # <a class="dn_btn font-bold" href="{{$post->setBlogDetailUrl($post)}}">{{$post->title}}</a>.
 @endforeach
 
 
