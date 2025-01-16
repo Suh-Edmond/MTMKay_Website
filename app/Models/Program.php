@@ -52,4 +52,11 @@ class Program extends Model
     {
         return self::IMAGE_DIR."/".$program->slug."/".$image_path;
     }
+
+    public function getTotalEnrollment($program)
+    {
+        return collect($program->trainingSlots)->map(function ($slot) {
+           return ["enrollmentBySlot" => $slot->enrollments->count()];
+        })->sum("enrollmentBySlot");
+    }
 }
