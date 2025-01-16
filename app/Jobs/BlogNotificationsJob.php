@@ -37,32 +37,23 @@ class BlogNotificationsJob implements ShouldQueue
         $activeSubscribers = Subscriber::where('is_active', true)->get();
 
         Log::info("Fetch all subscribers...");
-        $blogs = Blog::whereDate('created_at', Carbon::yesterday())->where('blog_state', BlogState::APPROVED)->get();
+        $blogs = Blog::whereBetween('created_at', [Carbon::now()->startOfWeek(Carbon::SUNDAY), Carbon::now()->endOfWeek(Carbon::SATURDAY)])
+            ->where('blog_state', BlogState::APPROVED)->get();
 
-//        fetch weekly blog post and send notification on satarday
 
         Log::info("Fetch all blogs posted today...");
         foreach ($activeSubscribers as $subscriber){
-            foreach ($blogs as $blog) {
-                $notificationData = [
-                    'subscriber' => $subscriber->email,
-                    'post'      => $blog,
-                    'category'   => $blog->category->name,
-                    'tags'       => $blog->tags,
-                    'title'      => $blog->title,
-                    'blog_image' => $blog->getSingleBlogImage($blog->id),
-                    'blog_slug'  => $blog->slug,
-                    'blog_detail_url' =>  url()->query('blog-detail', ['slug' => $blog->slug]),
-                    'unsubscription_link' => $this->generationUnSubscriptionLink($subscriber)
-                ];
+            $subscriptionLink = $this->generationUnSubscriptionLink($subscriber);
 
-                Log::info("Sending email notification");
-                try {
-                    Mail::to($subscriber->email)->send(new BlogNotificationMail($notificationData));
-                    Log::info("Notification was successfully sent");
-                }catch (\Exception $exception){
-                    Log::error("Email notification could not be sent");
-                }
+            Log::info("Sending email notification");
+
+            try {
+                Mail::to($subscriber->email)->send(new BlogNotificationMail($subscriber, $blogs, $subscriptionLink));
+
+                Log::info("Notification was successfully sent");
+            }catch (\Exception $exception){
+
+                Log::error("Email notification could not be sent");
             }
         }
     }
