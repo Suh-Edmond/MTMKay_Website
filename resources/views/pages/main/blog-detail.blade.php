@@ -73,8 +73,8 @@
                 </div>
 
                 <div class="comments-area" id="blog_comments">
-                    <h4>{{$blog->getApprovedBlogComments($blog->id)->count()}} Comments</h4>
-                    @foreach($blog->getApprovedBlogComments($blog->id) as $comment)
+                    <h4> {{$approvedComment->perPage()}} / {{$approvedComment->total()}} Comments</h4>
+                    @foreach($approvedComment as $comment)
                         <div class="comment-list">
                             <div class="single-comment justify-content-between d-flex">
                                 <div class="user justify-content-between d-flex">
@@ -94,6 +94,32 @@
                             </div>
                         </div>
                     @endforeach
+                    @if($approvedComment->total() > 0)
+                        <nav class="blog-pagination justify-content-center d-flex">
+                            <ul class="pagination">
+                                <li   class="{{$approvedComment->currentPage() == 1 ? 'page-item disabled':'page-item'}}">
+                                    <a href="{{route('show-blog', ['page' =>$approvedComment->currentPage() - 1, 'slug' => $blog->slug])}}" class="page-link" aria-label="Previous">
+		                                    <span aria-hidden="true">
+		                                        <span class="lnr lnr-chevron-left"></span>
+		                                    </span>
+                                    </a>
+                                </li>
+                                @for($i = 1; $i <= $approvedComment->lastPage(); $i++)
+                                    <li class="{{$approvedComment->currentPage() == $i ? 'page-item active':'page-item'}}">
+                                        <a class="page-link" href="{{route('show-blog', ['page' => $i, 'slug' => $blog->slug])}}">{{$i}}</a>
+                                    </li>
+                                @endfor
+
+                                <li   class="{{$approvedComment->currentPage() == $approvedComment->lastPage() ? 'page-item disabled': 'page-item'}}">
+                                    <a href="{{route('show-blog', ['page' =>$approvedComment->currentPage() + 1, 'slug' => $blog->slug])}}" class="page-link" aria-label="Next">
+		                                    <span aria-hidden="true">
+		                                        <span class="lnr lnr-chevron-right"></span>
+		                                    </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    @endif
                 </div>
                 @if(session('success'))
                     <div class="d-flex justify-content-center session_message">
