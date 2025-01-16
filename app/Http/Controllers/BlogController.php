@@ -78,7 +78,7 @@ class BlogController extends Controller
         $popularBlogs = $this->getPopularBlogs();
         $blog         = Blog::where('slug',$slug)->first();
         $tags         = Tag::orderBy('name', 'asc')->get();
-        $approvedComments = $blog->blogComments()->where('status', BlogState::APPROVED)->orderBy('created_at', 'DESC')->paginate(5);
+        $approvedComments = $blog->blogComments()->where('blog_state', BlogState::APPROVED)->orderBy('created_at', 'DESC')->paginate(5);
         $data = [
             'blog'          => $blog,
             'categories'    => $categories,
