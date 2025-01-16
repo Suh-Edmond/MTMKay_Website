@@ -26,6 +26,6 @@ class SendBlogNotification extends Command
      */
     public function handle()
     {
-        dispatch(new BlogNotificationsJob());
+        dispatch(new BlogNotificationsJob())->delay(now()->addMinutes(5));
     }
 }
