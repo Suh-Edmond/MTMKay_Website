@@ -37,6 +37,7 @@
                                 <a href="{{route('show-training', ['slug' => $program->slug])}}"><h4>{{$program->title}}</h4></a>
                                 <ul class="list">
                                     <li><a href="#"><i class="lnr lnr-user"></i> {{$program->trainer_name}}</a></li>
+                                    <li><a href="#"><i class="lnr lnr-users"></i> {{$program->getTotalEnrollment($program)}}</a></li>
                                 </ul>
                             </div>
                         </div>

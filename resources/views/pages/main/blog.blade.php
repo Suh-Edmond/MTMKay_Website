@@ -66,7 +66,7 @@
                                     </div>
                                     <ul class="blog_meta list">
                                         <li><a href="#">{{$blog->created_at->format('D, d M Y')}}<i class="lnr lnr-calendar-full"></i></a></li>
-                                        <li><a href="#">{{ $blog->blogComments()->count()}} Comments<i class="lnr lnr-bubble"></i></a></li>
+                                        <li><a href="#">{{ $blog->getApprovedBlogComments($blog->id)->count()}} Comments<i class="lnr lnr-bubble"></i></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -107,7 +107,6 @@
                                 </a>
                             </li>
                         </ul>
-
                     </nav>
                     @endif
                     @if(($blogs->count() == 0))

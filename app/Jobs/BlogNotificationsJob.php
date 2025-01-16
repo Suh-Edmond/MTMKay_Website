@@ -2,6 +2,7 @@
 
 namespace App\Jobs;
 
+use App\Constant\BlogState;
 use App\Mail\BlogNotificationMail;
 use App\Models\Blog;
 use App\Models\Subscriber;
@@ -36,7 +37,9 @@ class BlogNotificationsJob implements ShouldQueue
         $activeSubscribers = Subscriber::where('is_active', true)->get();
 
         Log::info("Fetch all subscribers...");
-        $blogs = Blog::whereDate('created_at', Carbon::yesterday())->get();
+        $blogs = Blog::whereDate('created_at', Carbon::yesterday())->where('blog_state', BlogState::APPROVED)->get();
+
+//        fetch weekly blog post and send notification on satarday
 
         Log::info("Fetch all blogs posted today...");
         foreach ($activeSubscribers as $subscriber){
