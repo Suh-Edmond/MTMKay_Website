@@ -70,7 +70,7 @@
 
     <div class="py-12">
         <h6 class="font-semibold text-xl text-gray-800 leading-tight text-center mb-4">
-            {{ __('Showing') }} {{$blogs->perPage()}} / {{ $blogs->total() }} {{__('Blog Posts')}}
+            {{ __('Showing') }} {{count($blogs->items())}} / {{ $blogs->total() }} {{__('Blog Posts')}}
         </h6>
     </div>
 

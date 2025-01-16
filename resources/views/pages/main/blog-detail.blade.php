@@ -73,7 +73,7 @@
                 </div>
 
                 <div class="comments-area" id="blog_comments">
-                    <h4> {{$approvedComment->perPage()}} / {{$approvedComment->total()}} Comments</h4>
+                    <h4> {{count($approvedComment->items())}} / {{$approvedComment->total()}} Comments</h4>
                     @foreach($approvedComment as $comment)
                         <div class="comment-list">
                             <div class="single-comment justify-content-between d-flex">
