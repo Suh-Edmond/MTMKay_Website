@@ -132,6 +132,8 @@ button:focus {
       position: absolute;
       padding-top: 30px;
       padding-bottom: 30px;
+      top: -40px;
+      /*bottom: 5%;*/
   }
     .header_area .navbar .nav .nav-item {
       margin-right: 45px;
@@ -156,6 +158,23 @@ button:focus {
           margin: 0px;
           background: #fff;
           box-shadow: 0px 3px 16px 0px rgba(0, 0, 0, 0.1); }
+          @media (max-width: 480px) {
+              .logo_navbar{
+                  /*margin-top: 5px;*/
+                  /*display: flex;*/
+                  /*justify-content: end;*/
+              }
+          }
+            @media (max-width: 768px) {
+                .logo_navbar{
+                    margin-top: 20px;
+                    margin-left: 30%;
+                    width: 320px !important;
+                    height: 410px !important;
+                    /*display: flex;*/
+                    /*justify-content: end;*/
+                }
+            }
           @media (min-width: 992px) {
             .header_area .navbar .nav .nav-item.submenu ul {
               position: absolute;

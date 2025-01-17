@@ -274,23 +274,81 @@
                 <p style="font-size: 15px">What our students say about our Training Programs.</p>
             </div>
             <div class="testi_slider owl-carousel">
-                @foreach($successes as $success)
-                    <div class="item">
-                        <div class="testi_item">
-                            <img src="{{asset('img/success/success_1.png')}}" alt="" width="120px" height="120px" style="border-radius: 50%">
-                            <h4>{{$success->user->name ?? 'Enow James'}}</h4>
-                            <h4>{{$success->user->enrollments[0]->trainingSlot->program->title ?? ''}}</h4>
-                            <ul class="list">
-                                <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                <li><a href="#"><i class="fa fa-star"></i></a></li>
-                            </ul>
-                            <p>{{$success->message}}</p>
-                        </div>
+                <div class="item">
+                    <div class="testi_item">
+                        <img src="{{asset('img/company/human_2.png')}}" alt="" width="120px" height="120px" style="border-radius: 50%">
+                        <h4>Joshua Wragg</h4>
+                        <h4>CompTIA Security+</h4>
+                        <ul class="list">
+                            <li><a href="#"><i class="fa fa-star"></i></a></li>
+                            <li><a href="#"><i class="fa fa-star"></i></a></li>
+                            <li><a href="#"><i class="fa fa-star"></i></a></li>
+                            <li><a href="#"><i class="fa fa-star"></i></a></li>
+                            <li><a href="#"><i class="fa fa-star"></i></a></li>
+                        </ul>
+                        <p>Certification refines your reasoning and your deductive ability when you’re troubleshooting, so you’re not just guessing.</p>
                     </div>
-                @endforeach
+                </div>
+                <div class="item">
+                    <div class="testi_item">
+                        <img src="{{asset('img/company/human_2.png')}}" alt="" width="120px" height="120px" style="border-radius: 50%">
+                        <h4>Paul Busby</h4>
+                        <h4>CompTIA Security+</h4>
+                        <ul class="list">
+                            <li><a href="#"><i class="fa fa-star"></i></a></li>
+                            <li><a href="#"><i class="fa fa-star"></i></a></li>
+                            <li><a href="#"><i class="fa fa-star"></i></a></li>
+                            <li><a href="#"><i class="fa fa-star"></i></a></li>
+                            <li><a href="#"><i class="fa fa-star"></i></a></li>
+                        </ul>
+                        <p>I enrolled for the program, and it has opened so many doors for me to get job after job in a very competitive market. I would advise anyone that can afford to enroll, complete and take the test – you will not regret it. Your IT career will sky rocket.</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="testi_item">
+                        <img src="{{asset('img/company/human_2.png')}}" alt="" width="120px" height="120px" style="border-radius: 50%">
+                        <h4>Enow James</h4>
+                        <h4>Microsoft Azure Fundamentals</h4>
+                        <ul class="list">
+                            <li><a href="#"><i class="fa fa-star"></i></a></li>
+                            <li><a href="#"><i class="fa fa-star"></i></a></li>
+                            <li><a href="#"><i class="fa fa-star"></i></a></li>
+                            <li><a href="#"><i class="fa fa-star"></i></a></li>
+                            <li><a href="#"><i class="fa fa-star"></i></a></li>
+                        </ul>
+                        <p>The training provides a solid understanding of core cloud concepts like virtual machines, storage, networking, and security, which can be applied across different cloud platforms. </p>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="testi_item">
+                        <img src="{{asset('img/company/human_2.png')}}" alt="" width="120px" height="120px" style="border-radius: 50%">
+                        <h4>Arnold Shu</h4>
+                        <h4>Microsoft Azure Fundamentals</h4>
+                        <ul class="list">
+                            <li><a href="#"><i class="fa fa-star"></i></a></li>
+                            <li><a href="#"><i class="fa fa-star"></i></a></li>
+                            <li><a href="#"><i class="fa fa-star"></i></a></li>
+                            <li><a href="#"><i class="fa fa-star"></i></a></li>
+                            <li><a href="#"><i class="fa fa-star"></i></a></li>
+                        </ul>
+                        <p>The certification acts as a stepping stone to pursue more advanced Azure certifications, enabling me to specialize in specific cloud areas like Azure administration, development, or data science</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="testi_item">
+                        <img src="{{asset('img/company/human_2.png')}}" alt="" width="120px" height="120px" style="border-radius: 50%">
+                        <h4>Gerald Oben Ojong</h4>
+                        <h4>Cisco Certified Network Associate</h4>
+                        <ul class="list">
+                            <li><a href="#"><i class="fa fa-star"></i></a></li>
+                            <li><a href="#"><i class="fa fa-star"></i></a></li>
+                            <li><a href="#"><i class="fa fa-star"></i></a></li>
+                            <li><a href="#"><i class="fa fa-star"></i></a></li>
+                            <li><a href="#"><i class="fa fa-star"></i></a></li>
+                        </ul>
+                        <p>Getting certified changed my life, literally. It helped me advance professionally, but it has also had an impact on my personal life as well.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>

@@ -59,7 +59,7 @@ class UserController extends Controller
 
             }
         }
-         return response()->json(['message' => 'Successfully enrolled new student', 'status' => 200, 'code' => !isset($exist) ? 'NEW_ACCOUNT_CREATION' : 'EXISTING_ACCOUNT']);
+        return response()->json(['message' => 'Successfully enrolled new student', 'status' => 200, 'code' => !isset($exist) ? 'NEW_ACCOUNT_CREATION' : 'EXISTING_ACCOUNT']);
     }
 
 
@@ -168,6 +168,7 @@ class UserController extends Controller
             Mail::to($studentEmail)->send(new NewStudentMail($emailData));
 
         }catch (\Exception $e){
+//            return redirect()->back()->with(['message' => 'Could not sent email notification mail to admin', 'status' => 500, 'code' => 'FAILED']);
             return  response()->json(['message' => 'Could not sent email notification mail to student', 'code' => 'FAILED']);
         }
 
@@ -185,6 +186,7 @@ class UserController extends Controller
             Mail::to(env('MAIL_FROM_ADDRESS'))->send(new EnrollmentNotification($data));
 
         }catch (\Exception $e){
+//            return redirect()->back()->with(['message' => 'Could not sent email notification mail to admin', 'status' => 500, 'code' => 'FAILED']);
             return  response()->json(['message' => 'Could not sent email notification mail to admin', 'code' => 'FAILED']);
         }
 

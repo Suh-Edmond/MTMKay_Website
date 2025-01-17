@@ -48,8 +48,6 @@ $(document).ready(function() {
 
             },
             error:function (error){
-
-
                 $(".submit_enroll_button").css("display", "inline-block");
                 $(".loader").css("display", "none");
 
