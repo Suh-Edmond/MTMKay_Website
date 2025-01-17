@@ -40,6 +40,12 @@
             </div>
         </div>
     </div>
+    <div class="flex justify-center mt-5">
+        <x-auth-session-status :status="session('status')" x-data="{ show: true }"
+                               x-show="show"
+                               x-init="setTimeout(() => show = false, 3000)" class="pt-1 pl-5">
+        </x-auth-session-status>
+    </div>
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-visible sm:rounded-lg">
@@ -76,7 +82,7 @@
                                         </x-slot>
                                         <x-slot name="content">
                                             <x-dropdown-link href="{{route('manage-students.view.info', ['slug' => $value->slug])}}">
-                                                <span><i class="fa fa-info-circle   cursor-pointer mr-5 "></i>{{ __('Profile') }}</span>
+                                                <span><i class="fa fa-user   cursor-pointer mr-5 "></i>{{ __('Profile') }}</span>
                                             </x-dropdown-link>
                                             <x-dropdown-link href="{{route('manage-students.view.payments', ['slug' => $value->slug])}}">
                                                 <span><i class="fa fa-money   cursor-pointer mr-5 "></i>{{ __('View Payments') }}</span>
