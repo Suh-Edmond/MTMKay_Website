@@ -160,9 +160,6 @@ button:focus {
           box-shadow: 0px 3px 16px 0px rgba(0, 0, 0, 0.1); }
           @media (max-width: 480px) {
               .logo_navbar{
-                  /*margin-top: 5px;*/
-                  /*display: flex;*/
-                  /*justify-content: end;*/
               }
           }
             @media (max-width: 768px) {
@@ -171,8 +168,6 @@ button:focus {
                     margin-left: 30%;
                     width: 320px !important;
                     height: 410px !important;
-                    /*display: flex;*/
-                    /*justify-content: end;*/
                 }
             }
           @media (min-width: 992px) {
@@ -3757,6 +3752,24 @@ h6 {
         transform: scaleY(-1) rotate(-135deg);
     }
 }
+
+
+@media (max-width: 480px) {
+    .enrollment_modal {
+        width: 450px !important;
+    }
+}
+@media (max-width: 768px) {
+    .enrollment_modal {
+        margin-bottom: 20px !important;
+        width: 450px !important;
+    }
+
+    .form_input_small_screens {
+        margin-bottom: 20px !important;
+    }
+}
+
 
 
 
