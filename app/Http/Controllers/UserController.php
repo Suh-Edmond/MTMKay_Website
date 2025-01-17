@@ -51,10 +51,10 @@ class UserController extends Controller
                     'user_id'                => $exist->id,
                     'has_completed_payment'  => false,
                     'enrollment_date'        => Carbon::now(),
-                    'training_slot_id'      => $request['training_slot']
+                    'training_slot_id'       => $request['training_slot']
                 ]);
 
-                $emailData = $this->setEmailData($request, $program, $exist);
+                $emailData = $this->setEmailData($request, $savedEnrollment->trainingSlot, $exist);
                 $this->sendNotificationsUponEnrollment($request, $emailData, $program, $exist, $savedEnrollment->trainingSlot);
 
             }
