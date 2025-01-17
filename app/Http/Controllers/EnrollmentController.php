@@ -75,7 +75,7 @@ class EnrollmentController extends Controller
 
         $enrollment->delete();
 
-        return redirect()->back()->with('status', 'Enrollment deleted successfully');
+        return redirect()->back()->with('status', 'Student Enrollment deleted successfully');
     }
 
     public function viewStudent(Request $request)
