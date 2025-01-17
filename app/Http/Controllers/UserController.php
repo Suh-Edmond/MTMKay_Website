@@ -168,7 +168,6 @@ class UserController extends Controller
             Mail::to($studentEmail)->send(new NewStudentMail($emailData));
 
         }catch (\Exception $e){
-//            return redirect()->back()->with(['message' => 'Could not sent email notification mail to admin', 'status' => 500, 'code' => 'FAILED']);
             return  response()->json(['message' => 'Could not sent email notification mail to student', 'code' => 'FAILED']);
         }
 
@@ -183,10 +182,9 @@ class UserController extends Controller
                 'trainingSlot'   => $trainingSlot
             ];
 
-            Mail::to(env('MAIL_FROM_ADDRESS'))->send(new EnrollmentNotification($data));
+            Mail::to(env('ADMIN_MAIL_FROM_ADDRESS'))->send(new EnrollmentNotification($data));
 
         }catch (\Exception $e){
-//            return redirect()->back()->with(['message' => 'Could not sent email notification mail to admin', 'status' => 500, 'code' => 'FAILED']);
             return  response()->json(['message' => 'Could not sent email notification mail to admin', 'code' => 'FAILED']);
         }
 
