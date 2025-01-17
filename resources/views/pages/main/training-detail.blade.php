@@ -131,7 +131,7 @@
                                 <span class="error text-danger d-none"></span>
                             </div>
                             <div class="my-md-4 form_input_small_screens">
-                                <input type="tel" id="telephone" name="telephone" placeholder="Telephone" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Telephone'" required class="single-input py-lg-2">
+                                <input type="tel" id="telephone" name="telephone" placeholder="Telephone" onfocus="this.placeholder = '(+237)678901234'" onblur="this.placeholder = 'Telephone'" required class="single-input py-lg-2">
                                 <span class="error text-danger d-none"></span>
                             </div>
                             <div class="my-md-4 form_input_small_screens">
