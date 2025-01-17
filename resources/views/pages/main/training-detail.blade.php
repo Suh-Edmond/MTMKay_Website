@@ -111,8 +111,8 @@
     <!--================End Course Details Area =================-->
 
     <!--=================Enrollment Form ========================-->
-    <div id="success" class="modal modal-message fade mt-5" role="dialog">
-        <div class="modal-dialog modal-xl modal-dialog-centered mt-5">
+    <div id="success" class="modal modal-message fade mt-5" role="dialog" >
+        <div class="modal-dialog modal-sm modal-dialog-centered mt-5 enrollment_modal">
             <div class="modal-content mt-5">
                 <div class="modal-header">
                     <button type="button" id="closeModal" class="close" data-dismiss="modal" aria-label="Close">
@@ -122,23 +122,23 @@
                     <div>
                         <form action="{{route('enroll-student', ['slug' => $program->slug])}}"  id="enrollmentForm" method="POST" >
                             @csrf
-                            <div class="my-md-4">
+                            <div class="my-md-4 form_input_small_screens">
                                 <input type="text" id="name" name="name" placeholder="Full Name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Full Name'" required class="single-input py-lg-2">
                                 <span class="error text-danger d-none"></span>
                             </div>
-                            <div class="my-md-4">
+                            <div class="my-md-4 form_input_small_screens">
                                 <input type="email" id="email" name="email" placeholder="Email address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email address'" required class="single-input py-lg-2">
                                 <span class="error text-danger d-none"></span>
                             </div>
-                            <div class="my-md-4">
+                            <div class="my-md-4 form_input_small_screens">
                                 <input type="tel" id="telephone" name="telephone" placeholder="Telephone" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Telephone'" required class="single-input py-lg-2">
                                 <span class="error text-danger d-none"></span>
                             </div>
-                            <div class="my-md-4">
+                            <div class="my-md-4 form_input_small_screens">
                                 <input type="text" id="address" name="address" placeholder="Address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Address'" required class="single-input py-lg-2">
                                 <span class="error text-danger d-none"></span>
                             </div>
-                            <div class="mt-md-4">
+                            <div class="mt-md-4 form_input_small_screens">
                                 <select type="text" id="training_slot" name="training_slot"  onfocus="this.placeholder = ''" onblur="this.placeholder = 'Training Slot'" required class="single-input py-lg-2 mb-5">
                                     @foreach($availableSlots as $slot)
                                         <option value="{{$slot->id}}">{{$slot->name}} {{$slot->start_time}} - {{$slot->end_time}}</option>
