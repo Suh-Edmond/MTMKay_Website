@@ -5,8 +5,10 @@
                 <div class="single-footer-widget tp_widgets">
                     <h6 class="footer_title">Top Services</h6>
                     <ul class="list">
-                        <li><a href="#">IT Consulting & Services</a></li>
+                        <li><a href="#">IT Consulting</a></li>
                         <li><a href="#">IT Training and Certifications</a></li>
+                        <li><a href="#">Website Development</a></li>
+                        <li><a href="#">Cloud Hosting and Management</a></li>
                     </ul>
                 </div>
             </div>
@@ -14,8 +16,11 @@
                 <div class="single-footer-widget tp_widgets">
                     <h6 class="footer_title">Quick Links</h6>
                     <ul class="list">
-                        <li><a href="https://weworkremotely.com" target="_blank">Jobs</a></li>
-                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="{{route('about')}}" target="_blank">About Us</a></li>
+                        <li><a href="{{route('services')}}" target="_blank">Services</a></li>
+                        <li><a href="{{route('training')}}" target="_blank">Training</a></li>
+                        <li><a href="{{route('blog')}}" target="_blank">Blogs</a></li>
+                        <li><a href="{{route('contact')}}" target="_blank">Contact us</a></li>
                     </ul>
                 </div>
             </div>
@@ -23,8 +28,8 @@
                 <div class="single-footer-widget tp_widgets">
                     <h6 class="footer_title">Resources</h6>
                     <ul class="list">
-                        <li><a href="#">Guides</a></li>
-                        <li><a href="#">Experts</a></li>
+                        <li><a href="#">Linkedln</a></li>
+                        <li><a href="#">Facebook Group</a></li>
                     </ul>
                 </div>
             </div>

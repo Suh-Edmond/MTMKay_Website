@@ -165,22 +165,34 @@
             <p style="font-size: 15px">Your Path to Success! Discover What Our Clients Say!</p>
         </div>
         <div class="testi_slider owl-carousel">
-            @foreach($successes as $success)
-                <div class="item">
-                    <div class="testi_item">
-                        <img src="{{asset('img/success/success_1.png')}}" alt="" width="120px" height="120px" style="border-radius: 50%">
-                        <h4>{{$success->user->name ?? 'Enow James'}}</h4>
-                        <ul class="list">
-                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                        </ul>
-                        <p>{{$success->message}}</p>
-                    </div>
+            <div class="item">
+                <div class="testi_item">
+                    <img src="{{asset('img/company/human_2.png')}}" alt="" width="120px" height="120px" style="border-radius: 50%">
+                    <h4>Mrs. Kenchi Vivian</h4>
+                    <ul class="list">
+                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                    </ul>
+                    <p>Their IT team conducted a comprehensive network assessment, identifying outdated hardware and configuration issues. They upgraded the network infrastructure and implemented a robust monitoring system.5% reduction in network downtime. Sales improved significantly, with seamless transactions during peak hours.</p>
                 </div>
-            @endforeach
+            </div>
+            <div class="item">
+                <div class="testi_item">
+                    <img src="{{asset('img/company/human_2.png')}}" alt="" width="120px" height="120px" style="border-radius: 50%">
+                    <h4>Mr. Igoja Steven</h4>
+                    <ul class="list">
+                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                        <li><a href="#"><i class="fa fa-star"></i></a></li>
+                    </ul>
+                    <p>Their team performed an in-depth analysis of the network performance and identified bandwidth limitations. They optimized the existing setup and implemented Quality of Service (QoS) protocols to prioritize critical applications. This resulted to a 50% improvement in network speed. Staff could access patient records without delays, enhancing patient care and satisfaction.</p>
+                </div>
+            </div>
         </div>
     </div>
 </section>

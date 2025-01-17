@@ -1,15 +1,22 @@
 <x-mail::message>
 #### Dear {{$subscriber->email}}
 
-I hope you’re having a wonderful day!
+I hope you’re having a wonderful week!
 
 As we promised we'll keep you posted with the latest blog posts from MTMKay IT Training programs and Consultancy Services.
 
-Here are the list posts and events from our training programs and IT services.
+This week's engaging posts and events from MTMKay.
 
 @foreach($posts as $post)
+<a href="{{$post->setBlogDetailUrl($post)}}"><img src="{{asset($post->getSingleBlogImage($post->id))}}" alt="Program Image" width="100%" height="220px" /></a>
 
-- # <a class="dn_btn font-bold" href="{{$post->setBlogDetailUrl($post)}}">{{$post->title}}</a>.
+
+<a class="dn_btn font-bold" href="{{$post->setBlogDetailUrl($post)}}">{{$post->title}}</a>.
+
+<div>
+    {{substr($post->stripDescriptionTags($post->description), 0, 200)}}...
+</div><br>
+<hr/><br>
 @endforeach
 
 
