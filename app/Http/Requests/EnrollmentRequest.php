@@ -24,7 +24,7 @@ class EnrollmentRequest extends FormRequest
         return [
             'name'  => 'required|min:5',
             'email' => 'required|email|string|lowercase',
-//            'telephone' => 'required|string|min:9|max:18|regex:/(0)[0-9]/|not_regex:/[a-z]/',
+//            'telephone' => 'required|string|min:9|max:18|regex:/(0)[0-9](+)/|not_regex:/[a-z]/',
             'telephone' => 'required|string|min:9|max:18',
             'address'   => 'required|string|max:50',
             'training_slot' => 'required|string|exists:training_slots,id'
