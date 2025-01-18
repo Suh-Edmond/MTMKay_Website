@@ -20,7 +20,7 @@ MTMKay Team.<br>
 </div>
 <div style="background-color: #e2e8f0;">
     <div style="display: flex;justify-content: center;padding: 10px">
-        <span style="display: flex; justify-content: center;font-weight: bold;margin-left: 2px"><a href="{{route('home')}}" style="text-decoration: none">MTMKay Technology Solutions Ltd</a></span><br>
+        <span style="display: flex; justify-content: center;font-weight: bold;margin-left: 2px"><a href="{{route('home')}}" style="text-decoration: none">MTMKay</a></span><br>
     </div>
     <div style="display: flex;justify-content: center; margin-bottom: 5px;padding: 10px">
         <span>Opposite Alaska Street Buea Road Kumba, Cameroon.</span>
