@@ -94,14 +94,14 @@ class SubscribersController extends Controller
             ]);
         }
         if(isset($email)){
-            $existSubscriber = Subscriber::where('email', $email)->first();
-            if(!isset($existSubscriber)){
+            $subscriber = Subscriber::where('email', $email)->first();
+            if(!isset($subscriber)){
                 $subscriber = Subscriber::create([
                     'email' => $request['email'],
                     'is_active' => true
                 ]);
             }else {
-                $existSubscriber->update([
+                $subscriber->update([
                     'is_active' => true
                 ]);
             }
