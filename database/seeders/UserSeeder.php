@@ -26,11 +26,12 @@ class UserSeeder extends Seeder
      */
     public function run(Generator $generator): void
     {
+        //TODO: ADD email and password when going to prod
         $role = Role::where('name', Roles::ADMIN)->firstOrFail();
         User::create([
             'name' => "Micheal",
-            'email' => "mtmkay17@gmail.com",
-            'password' => Hash::make('mtmkayauthpass1!'),
+            'email' => "",
+            'password' => Hash::make(''),
             'telephone'  => "+1 612 224 1176",
             'address' => "Alaska Street Buea Road, Kumba Southwest Region",
             'role_id' => $role->id,
