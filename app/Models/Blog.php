@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Constant\BlogState;
+use App\Constant\TimeState;
 use App\Traits\GenerateUUIDTrait;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -64,30 +65,41 @@ class Blog extends Model
         $blogCreatedTime = new Carbon($blog->created_at);
         $time = $blogCreatedTime->diffInHours($currentTime);
         $time = round($time);
-
+//        dd($time);
         $displayTime = "";
         switch ($time){
             case $time < 1:
-                $displayTime = "Few Minute ago";
+                $displayTime = "Few Minutes ago";
             break;
             case $time == 1:
                 $actualTime = $blogCreatedTime->diffInMinutes($currentTime);
-                $displayTime = round($actualTime). " Minutes ago";
+                $displayTime = $this->formatDisplayTimeText(round($actualTime), TimeState::MINUTES);
                 break;
-            case $time > 1 && $time <= 60;
-                $displayTime = $time. " Hours ago";
+            case $time > 1 && $time <= 24;
+                $displayTime = $this->formatDisplayTimeText(round($time), TimeState::HOURS);
                 break;
-            case $time > 60 && $time <= 1440:
+            case $time > 24 && $time <= 720:
                 $actualTime = $time/24;
-                $displayTime = round($actualTime). " Days ago";
+                $displayTime = $this->formatDisplayTimeText(round($actualTime), TimeState::DAYS);
                 break;
-            case $time > 1440 && $time <= 1860:
+            case $time > 720 && $time <= 1440:
                 $actualTime = $time/744;
-                $displayTime = round($actualTime). " Months ago";
+                $displayTime = $this->formatDisplayTimeText(round($actualTime), TimeState::MONTHS);
             break;
         }
 
         return ($displayTime);
+    }
+
+
+    public function formatDisplayTimeText($time, $type): string
+    {
+        return match ($type) {
+            TimeState::MINUTES => $time > 1 ? $time . " Minutes ago" :  $time . " Minute ago",
+            TimeState::HOURS => $time > 1 ? $time . " Hours ago" :  $time . " Hour ago",
+            TimeState::DAYS => $time > 1 ? $time . " Days ago" :  $time . " Day ago",
+            default => $time > 1 ? $time . "Months ago" :  $time . " Month ago",
+        };
     }
 
 
