@@ -182,7 +182,7 @@ class UserController extends Controller
                 'trainingSlot'   => $trainingSlot
             ];
 
-            Mail::to(env('ADMIN_MAIL_FROM_ADDRESS'))->send(new EnrollmentNotification($data));
+            Mail::to(env('MAIL_FROM_ADDRESS'))->send(new EnrollmentNotification($data));
 
         }catch (\Exception $e){
             return  response()->json(['message' => 'Could not sent email notification mail to admin', 'code' => 'FAILED']);
