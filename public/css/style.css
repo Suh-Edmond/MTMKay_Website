@@ -3756,13 +3756,13 @@ h6 {
 
 @media (max-width: 480px) {
     .enrollment_modal {
-        width: 400px !important;
+        width: 360px !important;
     }
 }
 @media (max-width: 768px) {
     .enrollment_modal {
         margin-bottom: 20px !important;
-        width: 400px !important;
+        width: 360px !important;
     }
 
     .form_input_small_screens {

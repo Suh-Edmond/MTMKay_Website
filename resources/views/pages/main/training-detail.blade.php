@@ -58,13 +58,10 @@
                         </div>
                         <div class="tab-pane fade" id="outline" role="tabpanel" aria-labelledby="outline-tab">
                             <div class="objctive_text">
-                                {{--                            <ul class="list">--}}
                                 @foreach($program->programOutlines as $key => $outline)
                                     <h6>{{substr($outline->period, 0, strlen($outline->period) - 1 )}} {{$key+1}}</h6>
                                     <p href="#">{!! $outline->topic !!}</p>
                                 @endforeach
-                                {{--                            </ul>--}}
-
                             </div>
                         </div>
                         <div class="tab-pane fade" id="job_opportunities" role="tabpanel" aria-labelledby="job_opportunities-tab">

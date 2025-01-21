@@ -54,7 +54,7 @@
 
 <script>
     var map = L.map('map').setView([4.628342802301623, 9.453579782474664], 15);
-    // var message = L.title("MTMKay")
+
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 15,
         attribution: '&copy; <a href="https://www.mtmkay.com">MTMKay</a>'
