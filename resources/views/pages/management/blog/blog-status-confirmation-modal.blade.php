@@ -56,7 +56,7 @@
                 {{ __('Cancel') }}
             </x-secondary-button>
 
-            <x-warning-button class="ms-3 rounded-full bg-yellow-500 py-0.5 px-2.5 border border-transparent text-xs text-white transition-all shadow-sm  text-center cursor-pointer">
+            <x-warning-button class="ms-3 rounded-full bg-red-500 py-0.5 px-2.5 border border-transparent text-xs text-white transition-all shadow-sm  text-center cursor-pointer">
                 {{ __('Reject') }}
             </x-warning-button>
         </div>
