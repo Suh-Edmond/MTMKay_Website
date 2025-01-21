@@ -257,7 +257,7 @@
 
 <script>
     $(document).ready(function () {
-        setTimeout(showFeedback, 3000)
+        setTimeout(showFeedback, 6000)
     });
 
     function showFeedback() {
