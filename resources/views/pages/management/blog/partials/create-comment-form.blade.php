@@ -36,7 +36,7 @@
 
         <div class="my-4">
             <x-input-label for="message" :value="__('Message')"/>
-            <textarea id="message" name="message" rows="4"
+            <textarea id="description" name="message" rows="4"
                       class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">{{old('message')}}  </textarea>
             <x-input-error class="mt-2" :messages="$errors->get('message')"/>
         </div>

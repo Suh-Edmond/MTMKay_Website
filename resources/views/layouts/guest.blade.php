@@ -38,6 +38,8 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/responsive.css">
     <link rel="stylesheet" href="css/slider.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+
 </head>
 <body>
 @include('components.header')
@@ -48,8 +50,26 @@
 </div>
 
 @include('components.footer')
-<script src="https://maps.googleapis.com/maps/api/js?key={{ env('GOOGLE_MAP_KEY') }}&libraries=places&callback=initMap" async></script>
-<script src="js/maps.js" type="text/javascript"></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+<script>
+    var map = L.map('map').setView([4.628342802301623, 9.453579782474664], 15);
+    // var message = L.title("MTMKay")
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 15,
+        attribution: '&copy; <a href="https://www.mtmkay.com">MTMKay</a>'
+    }).addTo(map);
+
+
+    var marker = L.marker([4.628342802301623, 9.453579782474664]).addTo(map);
+
+    marker.bindPopup(` <div>
+                <p style="font-weight: bold">MTMKay IT Training & Technologies</p>
+                <p style="font-weight: bold">Opposite Alaska Street Buea Road Kumba, Cameroon</p>
+                <p> <span style="font-weight: bold">4.0 </span> <span style="color: gold">★★★☆</span> (70 reviews)</p>
+                <a href="https://www.google.com/maps/dir/?api=1&destination=kumba,Cameroon" target="_blank">Directions</a>
+            </div>`).openPopup();
+</script>
 
 <script src="js/jquery-3.3.1.min.js"></script>
 <script src="js/popper.js"></script>
