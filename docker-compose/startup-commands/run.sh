@@ -2,18 +2,27 @@
 
 cd /var/www
 
-#Install dependencies
+# Install dependencies
 composer install
 
 composer dump-autoload
 
-# clear cache
+# Remove node modules
+rm -rf ./node_modules
+
+# Install Node packages
+npm install
+
+# Build project
+npm run build
+
+# Clear cache
 php artisan cache:clear
 
-# clear route cache
+# Clear route cache
 php artisan route:cache
 
-#Generate app key
+# Generate app key
 php artisan key:generate
 
 # Optimizing Configuration loading
@@ -26,10 +35,13 @@ php artisan route:cache
 php artisan view:cache
 echo "finished cashes"
 
+# Set storage link
+php artisan storage:link
+
 # Run migrations
 php artisan migrate --force
 
-#RUN seeders
+# RUN seeders
 php artisan db:seed
 
 echo "Completed app startup"

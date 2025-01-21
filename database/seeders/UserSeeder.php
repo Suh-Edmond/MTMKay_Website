@@ -30,8 +30,8 @@ class UserSeeder extends Seeder
         $role = Role::where('name', Roles::ADMIN)->firstOrFail();
         User::create([
             'name' => "Micheal",
-            'email' => "",
-            'password' => Hash::make(''),
+            'email' => "suhedmond25@yahoo.com",
+            'password' => Hash::make('password'),
             'telephone'  => "+1 612 224 1176",
             'address' => "Alaska Street Buea Road, Kumba Southwest Region",
             'role_id' => $role->id,
