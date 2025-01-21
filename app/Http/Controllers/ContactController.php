@@ -22,8 +22,8 @@ class ContactController extends Controller
         $validation = Validator::make($request->all(), [
             'name' => 'required|min:5',
             'email' =>  ['required', 'string', 'lowercase', 'email', 'max:255'],
-            'subject' => 'required|string|max:500|min:20',
-            'message' => 'required|max:1000|string|min:300',
+            'subject' => 'required|string|max:500|min:10',
+            'message' => 'required|max:1000|string|min:50',
         ]);
 
         if($validation->fails()){
