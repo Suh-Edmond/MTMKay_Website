@@ -9,7 +9,7 @@ Please click the button below to complete registration.
     Click here to complete your registration
 </x-mail::button>
 
-If you have any questions or concerns, feel free to contact support at  <a class="dn_btn" href="mailto:mtmkay17@gmail.com">mtmkay17@gmail.com</a> or <a class="dn_btn" href="tel:+4400123654896">+1 612 224 1176.</a>
+If you have any questions or concerns, feel free to contact support at  <a class="dn_btn" href="mailto:support@mtmkay.com">support@mtmkay.com</a> or <a class="dn_btn" href="tel:+4400123654896">+1 612 224 1176.</a>
 
 <br>
 
