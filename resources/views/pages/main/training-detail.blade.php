@@ -42,6 +42,9 @@
                             <a class="nav-link" id="job_opportunities-tab" data-toggle="tab" href="#job_opportunities" role="tab" aria-controls="job_opportunities" aria-selected="false">Job Opportunities</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" id="training_resources-tab" data-toggle="tab" href="#training_resources" role="tab" aria-controls="training_resources" aria-selected="false">Training Resources</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" id="training-slot-tab" data-toggle="tab" href="#training_slots" role="tab" aria-controls="training_slots" aria-selected="false">Training Slots</a>
                         </li>
                     </ul>
@@ -67,6 +70,11 @@
                         <div class="tab-pane fade" id="job_opportunities" role="tabpanel" aria-labelledby="job_opportunities-tab">
                             <div class="objctive_text">
                                 <p>{!! $program->job_opportunities !!}</p>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="training_resources" role="tabpanel" aria-labelledby="training_resources-tab">
+                            <div class="objctive_text">
+                                <p>{!! $program->training_resources !!}</p>
                             </div>
                         </div>
                         <div class="tab-pane fade" id="training_slots" role="tabpanel" aria-labelledby="training-slot-tab">
