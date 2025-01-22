@@ -1,7 +1,7 @@
 <x-mail::message>
 # Hello Micheal!
 
-A new student just enrollment for the {{$data['program']}} programme at MTMKAY.
+A new student just enrollment for the {{$data['program']}} programme at MTMKay.
 
 - Name : {{$data['studentName']}}.
 

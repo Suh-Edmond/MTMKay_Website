@@ -10,7 +10,7 @@
             </div>
             <div class="float-right">
                 <a class="dn_btn" href="tel:+16122241176">+1 612 224 1176</a>
-                <a class="dn_btn" href="mailto:mtmkay17@gmail.com">mtmkay17@gmail.com</a>
+                <a class="dn_btn" href="mailto:support@mtmkay.com">support@mtmkay.com</a>
             </div>
         </div>
     </div>
