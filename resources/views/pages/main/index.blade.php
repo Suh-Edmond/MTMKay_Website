@@ -248,7 +248,7 @@
                 <div class="col-lg-3 col-sm-6">
                     <div class="team_item">
                         <div class="team_img">
-                            <img class="rounded-circle" src="img/team/team-3.jpeg" alt="" style="border-radius: 50%" height="310px">
+                            <img class="rounded-circle" src="img/team/team_member_1.jpeg" alt="" style="border-radius: 50%" height="310px">
                             <div class="hover">
                                 <a href="#"><i class="fa fa-facebook"></i></a>
                                 <a href="#"><i class="fa fa-twitter"></i></a>
@@ -256,7 +256,7 @@
                             </div>
                         </div>
                         <div class="team_name">
-                            <h4>Ben Joseph</h4>
+                            <h4>Christy Enow</h4>
                             <p>CyberSecurity Specialist</p>
                         </div>
                     </div>
