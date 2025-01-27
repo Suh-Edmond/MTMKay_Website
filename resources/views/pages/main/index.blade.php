@@ -256,8 +256,8 @@
                             </div>
                         </div>
                         <div class="team_name">
-                            <h4>Christy Enow</h4>
-                            <p>CyberSecurity Specialist</p>
+                            <h4>Marie Ebangha</h4>
+                            <p>Marketing Manager</p>
                         </div>
                     </div>
                 </div>
