@@ -130,7 +130,7 @@
             <div class="col-lg-3 col-sm-6">
                 <div class="team_item">
                     <div class="team_img">
-                        <img class="rounded-circle" src="img/team/team-2.jpeg" alt="" style="border-radius: 50%" height="310px">
+                        <img class="rounded-circle" src="img/team/financial_advisor.jpeg" alt="" style="border-radius: 50%" height="310px">
                         <div class="hover">
                             <a href="#"><i class="fa fa-facebook"></i></a>
                             <a href="#"><i class="fa fa-twitter"></i></a>
@@ -138,8 +138,8 @@
                         </div>
                     </div>
                     <div class="team_name">
-                        <h4>Ethel Davis</h4>
-                        <p>IT Consultant</p>
+                        <h4>Shantay Mbu</h4>
+                        <p>Financial Advisor</p>
                     </div>
                 </div>
             </div>
