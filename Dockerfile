@@ -32,14 +32,14 @@ RUN docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd
 #Install Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
+WORKDIR /var/www
+
+COPY . .
 
 # Create system user to run Composer and Artisan Commands
 RUN useradd -G www-data,root -u $uid -d /home/$user $user
 RUN mkdir -p /home/$user/.composer && \
     chown -R $user:$user /home/$user
-
-
-WORKDIR /var/www
 
 USER $user
 
@@ -47,5 +47,5 @@ EXPOSE 9000
 
 CMD ["php-fpm"]
 
-#Set entry point to execute startup commands
 ENTRYPOINT ["sh", "/var/www/docker-compose/startup-commands/run.sh"]
+
