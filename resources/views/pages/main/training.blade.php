@@ -217,8 +217,35 @@
     </section>
     <!--================End Infrastructure Area =================-->
 
-    <!--================Testimonials Area =================-->
+    <!--================Ebook Area =================-->
     <section class="packages_area p_120">
+        <div class="container">
+            <div class="row packages_inner">
+                <div class="col-lg-4">
+                    <div class="packages_item">
+                        <div class="pack_body">
+                            <img src="{{asset('img/ebook/it_essentials_ebook.png')}}" alt="" width="100%" height="300px" >
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="packages_text">
+                        <h3>IT Essentials: <br />A Handbook for the Modern Student</h3>
+                        <p>
+                            Information Technology (IT) is essential in today's digital age, serving as the backbone for sectors like education, healthcare, finance, and entertainment. College students must grasp IT's role in shaping society and gain exposure to various IT fields to become skilled professionals. At MTMKay, our expert tutors offer rich lessons and practical experience, along with a free handbook that explores IT fields and career guidance. Download our IT Essentials handbook below to get started!
+                        </p>
+                        <p class="mt-lg-5">
+                            <a class="main_btn" href="{{route("training.download.ebook")}}" id="enrollmentBtn">Download Ebook <i class="lnr lnr-download ml-2"></i></a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--================End Ebook Area =================-->
+
+    <!--================Testimonials Area =================-->
+    <section class="courses_area p_120">
         <div class="container">
             <div class="main_title">
                 <h2>Testimonials</h2>

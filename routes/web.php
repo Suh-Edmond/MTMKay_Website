@@ -85,4 +85,5 @@ Route::get('/program-enrollment/verify-email', [UserController::class, 'complete
 Route::post('manage-subscribers/add-subscriber', [SubscribersController::class, 'addMemberSubscription'])->name('manage.subscription.add');
 Route::get('manage-subscribers/remove-subscriber', [SubscribersController::class, 'removeMemberSubscription'])->name('manage.subscription.remove');
 Route::get('manage-subscribers/re-subscriber', [SubscribersController::class, 'resubscribe'])->name('manage.subscription.resubscribe');
+Route::get('training/download-ebook', [TrainingController::class, 'downloadEbook'])->name('training.download.ebook');
 require __DIR__.'/auth.php';
