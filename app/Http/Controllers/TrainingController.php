@@ -6,6 +6,7 @@ use App\Constant\ProgramEnrollmentStatus;
 use App\Models\Program;
 use App\Models\StudentSuccess;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Response;
 
 class TrainingController extends Controller
 {
@@ -34,5 +35,13 @@ class TrainingController extends Controller
         ];
 
         return view("pages.main.training-detail")->with($data);
+    }
+
+    public function downloadEbook(Request $request)
+    {
+        $file = public_path()."/img/ebook/IT_Essentials_A_Handbook_For_theModern_Student.pdf";
+        $headers = array('Content-Type: application/pdf');
+
+        return Response::download($file, 'IT_Essentials_A_Handbook_For_theModern_Student.pdf',$headers);
     }
 }
