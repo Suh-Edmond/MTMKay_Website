@@ -4,10 +4,10 @@
 DB_NAME="mtmkay_db"
 DB_USER="mtmkay_user"
 DB_PASSWORD="Mtmkayauth12345!#"
-BACKUP_DIR="drive/folders/1rTSoyXlzNe52ggTW9d_hdgutHGtfZAQa"
+BACKUP_DIR="drive/folders/mtmkay_db_backup"
 DATE=$(date +"%Y%m%d_%H%M%S")
 BACKUP_FILE="$BACKUP_DIR/db_backup_$DATE.sql"
-RCLONE_REMOTE="quickrecords_db_backup:1rTSoyXlzNe52ggTW9d_hdgutHGtfZAQa" # Replace 'quickrecord_db_backup' rclone remote name, '1rlQwx4cqaaNH9RgQMr4Uz7lNtJsgXymf' google drive folder
+RCLONE_REMOTE="quickrecords_db_backup:mtmkay_db_backup" # Replace 'quickrecord_db_backup' rclone remote name, '1rlQwx4cqaaNH9RgQMr4Uz7lNtJsgXymf' google drive folder
 
 # Create backup directory if it doesn't exist
 mkdir -p "$BACKUP_DIR"
