@@ -159,15 +159,21 @@ button:focus {
           background: #fff;
           box-shadow: 0px 3px 16px 0px rgba(0, 0, 0, 0.1); }
           @media (max-width: 480px) {
-              .logo_navbar{
+              .menu_nav_bar{
               }
           }
             @media (max-width: 768px) {
+                .menu_nav_bar{
+                    position: absolute;
+                    left: 80%;
+                    top: 10%;
+                }
                 .logo_navbar{
-                    margin-top: 20px;
-                    margin-left: 30%;
-                    width: 320px !important;
-                    height: 410px !important;
+                    position: absolute;
+                    top: 30%;
+                }
+                .nav_menu_item_list {
+                    margin-top: 90px;
                 }
             }
           @media (min-width: 992px) {
