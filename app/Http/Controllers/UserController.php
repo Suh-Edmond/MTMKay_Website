@@ -69,7 +69,7 @@ class UserController extends Controller
     }
 
 
-    public function createStudentAccount(EnrollmentRequest $request, $trainingSlot)
+    public function createStudentAccount(EnrollmentRequest $request)
     {
 
         $role = Role::where('name', Roles::TRAINEE)->firstOrFail();
