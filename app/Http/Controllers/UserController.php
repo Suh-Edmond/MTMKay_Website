@@ -46,7 +46,7 @@ class UserController extends Controller
             if($this->checkIfStudentEnrollAnyTrainingSlot($exist->id) !== null){
                 return response()->json(['message' => 'You can only enrollment for one training slot', 'status' => 200, 'code' => 'ENROLLED']);
             }
-            else if($trainingSlot->enrollments()->count() == $trainingSlot->available_seats){
+            else if($trainingSlot->enrollments()->count() >= $trainingSlot->available_seats){
                 return response()->json(['message' => 'Training slot already reach the maximum number of avalaible seats. Please apply with another slot', 'status' => 200, 'code' => 'FAILED']);
             }
 
@@ -79,7 +79,7 @@ class UserController extends Controller
             return redirect()->back()->with(['status', 'Training Slot does not exist']);
         }
 
-        if($trainingSlot->enrollments()->count() == $trainingSlot->available_seats){
+        if($trainingSlot->enrollments()->count() >= $trainingSlot->available_seats){
             return response()->json(['message' => 'Training slot already reach the maximum number of avalaible seats. Please apply with another slot', 'status' => 200, 'code' => 'FAILED']);
         }
 
