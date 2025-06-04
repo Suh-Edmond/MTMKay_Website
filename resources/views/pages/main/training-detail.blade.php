@@ -87,7 +87,7 @@
                                     <p>Start Time: {{$slot->start_time}}</p>
                                     <p>End Time: {{$slot->end_time}}</p>
                                     <p>Available Seats: {{$slot->available_seats}}</p>
-                                    <p>Enrolled Number: {{$slot->countCompletedEnrollments($slot)}}</p>
+                                    <p>Enrolled Number: {{$slot->countCompletedEnrollments($slot->id)}}</p>
                                     @if(\App\Constant\ProgramEnrollmentStatus::AVAILABLE == $slot->status)
                                         <p style="color: #0E9F6E">Status: {{$slot->status}}</p>
                                     @elseif(\App\Constant\ProgramEnrollmentStatus::ALMOST_FULL == $slot->status)

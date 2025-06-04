@@ -230,6 +230,8 @@ class UserController extends Controller
 
     private function validateEnrollmentNumber(EnrollmentRequest $request)
     {
+        $trainingSlot = TrainingSlot::findOrFail($request['training_slot']);
+        
         if($trainingSlot->countCompletedEnrollments() > $trainingSlot->available_seats){
             return response()->json(['message' => 'Training slot already reach the maximum number of avalaible seats. Please apply with another slot', 'status' => 200, 'code' => 'MAXIMUM_ENROLLMENT_REACHED']);
         }
