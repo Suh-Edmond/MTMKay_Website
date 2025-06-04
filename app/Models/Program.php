@@ -56,7 +56,7 @@ class Program extends Model
     public function getTotalEnrollment($program)
     {
         return collect($program->trainingSlots)->map(function ($slot) {
-           return ["enrollmentBySlot" => $slot->enrollments->count()];
+           return ["enrollmentBySlot" => $slot->enrollments()->whereNotNull('enrollment_date')->count()];
         })->sum("enrollmentBySlot");
     }
 }
