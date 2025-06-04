@@ -47,6 +47,8 @@ class UserController extends Controller
 
             }
 
+            return response()->json(['message' => 'Successfully enrolled new student', 'status' => 200, 'code' =>  'NEW_ACCOUNT_CREATION' ]);
+
         }else {
         
             if($this->checkIfStudentEnrollAnyTrainingSlot($exist->id) !== null){
@@ -64,8 +66,10 @@ class UserController extends Controller
                 $emailData = $this->setEmailData($request, $savedEnrollment->trainingSlot, $exist);
                 $this->sendNotificationsUponEnrollment($request, $emailData, $program, $exist, $savedEnrollment->trainingSlot);
             }
+
+            return response()->json(['message' => 'Successfully enrolled new student', 'status' => 200, 'code' => 'EXISTING_ACCOUNT']);
         }
-        return response()->json(['message' => 'Successfully enrolled new student', 'status' => 200, 'code' => !isset($exist) ? 'NEW_ACCOUNT_CREATION' : 'EXISTING_ACCOUNT']);
+        
     }
 
 
