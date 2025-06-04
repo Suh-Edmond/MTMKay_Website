@@ -27,12 +27,12 @@ class UserController extends Controller
 
         $program = Program::where('slug', $slug)->firstOrFail();
 
-        $trainingSlot = $this->validateEnrollmentNumber($request);
+        $this->validateEnrollmentNumber($request);
 
         $exist   = $this->fetchStudent($request);
 
          if (!isset($exist)){
-            $student = $this->createStudentAccount($request, $trainingSlot);
+            $student = $this->createStudentAccount($request);
 
             if($this->checkIfStudentEnrollAnyTrainingSlot($student->id) !== null){
                 return response()->json(['message' => 'You can only enrollment for one training slot', 'status' => 200, 'code' => 'ENROLLED']);
@@ -68,10 +68,16 @@ class UserController extends Controller
     }
 
 
-    public function createStudentAccount(EnrollmentRequest $request, $trainingSlot)
+    public function createStudentAccount(EnrollmentRequest $request)
     {
 
         $role = Role::where('name', Roles::TRAINEE)->firstOrFail();
+
+        $trainingSlot = TrainingSlot::findOrFail($request['training_slot']);
+
+        if(!isset($trainingSlot)){
+            return redirect()->back()->with(['status', 'Training Slot does not exist']);
+        }
 
         $request->validate([
             'email' => 'unique:users,email'
@@ -224,17 +230,9 @@ class UserController extends Controller
 
     private function validateEnrollmentNumber(EnrollmentRequest $request)
     {
-        $trainingSlot = TrainingSlot::findOrFail($request['training_slot']);
-
-        if(!isset($trainingSlot)){
-            return redirect()->back()->with(['status', 'Training Slot does not exist']);
-        }
-
-        if($trainingSlot->enrollments()->count() >= $trainingSlot->available_seats){
+        if($trainingSlot->countCompletedEnrollments() > $trainingSlot->available_seats){
             return response()->json(['message' => 'Training slot already reach the maximum number of avalaible seats. Please apply with another slot', 'status' => 200, 'code' => 'MAXIMUM_ENROLLMENT_REACHED']);
         }
-
-        return $trainingSlot;
     }
 
 }
