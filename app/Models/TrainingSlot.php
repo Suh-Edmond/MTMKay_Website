@@ -33,8 +33,8 @@ class TrainingSlot extends Model
         return $this->hasMany(Enrollment::class);
     }
 
-    public function countCompletedEnrollments() {
-        $this->enrollments()->whereNotNull('enrollment_date')->count();
+    public function countCompletedEnrollments($slot) {
+        $slot->enrollments()->whereNotNull('enrollment_date')->count();
     }
 
 
