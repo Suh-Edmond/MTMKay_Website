@@ -232,5 +232,21 @@
     </div>
     <!--================End Contact Success and Error message Area =================-->
 
+    <!-- =========Modals error ===================================-->
+    <div id="maximum-slot" class="modal modal-message fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <i class="fa fa-close"></i>
+                    </button>
+                    <h2>Sorry !</h2>
+                    <p> We have reached the maximum enrollment for this slot. Please apply through another slot </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--================End Contact Success and Error message Area =================-->
+
 
 </x-guest-layout>

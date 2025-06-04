@@ -47,7 +47,7 @@ class UserController extends Controller
                 return response()->json(['message' => 'You can only enrollment for one training slot', 'status' => 200, 'code' => 'ENROLLED']);
             }
             else if($trainingSlot->enrollments()->count() >= $trainingSlot->available_seats){
-                return response()->json(['message' => 'Training slot already reach the maximum number of avalaible seats. Please apply with another slot', 'status' => 200, 'code' => 'FAILED']);
+                return response()->json(['message' => 'Training slot already reach the maximum number of avalaible seats. Please apply with another slot', 'status' => 200, 'code' => 'MAXIMUM_ENROLLMENT_REACHED']);
             }
 
             else {
@@ -61,7 +61,6 @@ class UserController extends Controller
 
                 $emailData = $this->setEmailData($request, $savedEnrollment->trainingSlot, $exist);
                 $this->sendNotificationsUponEnrollment($request, $emailData, $program, $exist, $savedEnrollment->trainingSlot);
-
             }
         }
         return response()->json(['message' => 'Successfully enrolled new student', 'status' => 200, 'code' => !isset($exist) ? 'NEW_ACCOUNT_CREATION' : 'EXISTING_ACCOUNT']);
@@ -80,7 +79,7 @@ class UserController extends Controller
         }
 
         if($trainingSlot->enrollments()->count() >= $trainingSlot->available_seats){
-            return response()->json(['message' => 'Training slot already reach the maximum number of avalaible seats. Please apply with another slot', 'status' => 200, 'code' => 'FAILED']);
+            return response()->json(['message' => 'Training slot already reach the maximum number of avalaible seats. Please apply with another slot', 'status' => 200, 'code' => 'MAXIMUM_ENROLLMENT_REACHED']);
         }
 
         $request->validate([

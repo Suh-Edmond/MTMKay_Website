@@ -36,7 +36,12 @@ $(document).ready(function() {
                     $('#success_enrolled').fadeIn()
                     $('.modal').modal('hide');
                     $('#success_enrolled').modal('show');
-                }else {
+                }else if (response.code === "MAXIMUM_ENROLLMENT_REACHED"){
+                    $('#maximum-slot').fadeIn()
+                    $('.modal').modal('hide');
+                    $('#maximum-slot').modal('show');
+                }
+                else {
                     $('#success_exist_acc').fadeIn()
                     $('.modal').modal('hide');
                     $('#success_exist_acc').modal('show');
