@@ -26,10 +26,14 @@ class UserController extends Controller
     {
 
         $program = Program::where('slug', $slug)->firstOrFail();
+
+        $trainingSlot = $this->validateEnrollmentNumber($request);
+
         $exist   = $this->fetchStudent($request);
 
          if (!isset($exist)){
-            $student = $this->createStudentAccount($request);
+            $student = $this->createStudentAccount($request, $trainingSlot);
+
             if($this->checkIfStudentEnrollAnyTrainingSlot($student->id) !== null){
                 return response()->json(['message' => 'You can only enrollment for one training slot', 'status' => 200, 'code' => 'ENROLLED']);
             }else{
@@ -43,8 +47,7 @@ class UserController extends Controller
             }
 
         }else {
-            $this->validateEnrollmentNumber($request);
-
+        
             if($this->checkIfStudentEnrollAnyTrainingSlot($exist->id) !== null){
                 return response()->json(['message' => 'You can only enrollment for one training slot', 'status' => 200, 'code' => 'ENROLLED']);
             }
@@ -65,12 +68,10 @@ class UserController extends Controller
     }
 
 
-    public function createStudentAccount(EnrollmentRequest $request)
+    public function createStudentAccount(EnrollmentRequest $request, $trainingSlot)
     {
 
         $role = Role::where('name', Roles::TRAINEE)->firstOrFail();
-
-        $trainingSlot = $this->validateEnrollmentNumber($request);
 
         $request->validate([
             'email' => 'unique:users,email'
