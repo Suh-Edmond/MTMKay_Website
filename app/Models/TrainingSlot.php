@@ -33,7 +33,9 @@ class TrainingSlot extends Model
         return $this->hasMany(Enrollment::class);
     }
 
-    public function countCompletedEnrollments($slot) {
+    public function countCompletedEnrollments($id) {
+        $slot = TrainingSlot::findOrFail($id);
+        
         $slot->enrollments()->whereNotNull('enrollment_date')->count();
     }
 
