@@ -32,6 +32,7 @@ class UserController extends Controller
         $exist   = $this->fetchStudent($request);
 
          if (!isset($exist)){
+            
             $student = $this->createStudentAccount($request);
 
             if($this->checkIfStudentEnrollAnyTrainingSlot($student->id) !== null){
